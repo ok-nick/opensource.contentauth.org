@@ -6,15 +6,21 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
+  title: 'CAI Open Source',
+  tagline: 'Open source tools for tracing media provenance',
+  url: 'https://contentauth.netlify.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  favicon: 'img/favicon.png',
+  organizationName: 'contentauth',
+  projectName: 'opensource.contentauth.org',
+  stylesheets: [
+    // Acumin Pro (temporary)
+    'https://use.typekit.net/wgs7uns.css',
+    // Adobe Clean
+    'https://use.typekit.net/dnb4eqs.css',
+  ],
 
   presets: [
     [
@@ -23,14 +29,6 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -39,26 +37,38 @@ const config = {
     ],
   ],
 
+  // See here for configuration options:
+  // https://docusaurus.io/docs/api/themes/configuration
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'My Site',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Content Authenticity Initiative',
+          src: 'img/logo-text.svg',
+          width: 180,
+          height: 54,
         },
         items: [
           {
             type: 'doc',
             docId: 'intro',
-            position: 'left',
-            label: 'Tutorial',
+            position: 'right',
+            label: 'Get started',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/contentauth',
             label: 'GitHub',
+            position: 'right',
+          },
+          {
+            href: 'https://www.contentauthenticity.org',
+            label: 'Learn more',
+            position: 'right',
+          },
+          {
+            href: 'https://verify.contentauthenticity.org',
+            label: 'Verify',
             position: 'right',
           },
         ],
@@ -80,15 +90,11 @@ const config = {
             items: [
               {
                 label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: 'https://stackoverflow.com/questions/tagged/contentauth',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://twitter.com/contentauth',
               },
             ],
           },
@@ -96,17 +102,13 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/contentauth',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Adobe`,
       },
       prism: {
         theme: lightCodeTheme,

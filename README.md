@@ -26,16 +26,7 @@ This command generates static content into the `build` directory and can be serv
 
 ### Deployment
 
-Using SSH:
+Deployments are handled automatically by Netlify. Please open up a pull request with any changes and a preview site
+should be created automatically so that the preview can be shared before merging.
 
-```
-$ USE_SSH=true npm deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> npm deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Any changes in `main` will automatically be deployed to https://contentauth.netlify.app/ (password is `oss stage`).
