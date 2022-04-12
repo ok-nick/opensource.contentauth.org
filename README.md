@@ -1,6 +1,9 @@
-# Website
+# opensource.contentauth.org
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c2fe0e49-4596-48e8-8e1a-9cf62d56bca2/deploy-status)](https://app.netlify.com/sites/contentauth/deploys)
+
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator, and deployed
+on [Netlify](https://www.netlify.com/).
 
 ### Installation
 
