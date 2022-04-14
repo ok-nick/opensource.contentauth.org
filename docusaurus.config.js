@@ -42,6 +42,17 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      // announcementBar: {
+      //   id: 'sample',
+      //   content:
+      //     '<strong>Note:</strong> Our SDK is still pre-1.0. Features and API may change.',
+      //   backgroundColor: '#ffca32',
+      //   textColor: '#2b2b2b',
+      //   isCloseable: true,
+      // },
+      colorMode: {
+        disableSwitch: true,
+      },
       navbar: {
         logo: {
           alt: 'Content Authenticity Initiative',
