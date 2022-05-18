@@ -7,21 +7,21 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'CAI Open Source',
-  tagline: 'Open source tools for tracing media provenance',
+  tagline: 'Open-source tools for content authenticity and provenance',
   url: 'https://contentauth.netlify.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.png',
+  favicon: '/favicon.png',
   organizationName: 'contentauth',
   projectName: 'opensource.contentauth.org',
+  clientModules: [require.resolve('./static/scripts/ui.js')],
   stylesheets: [
     // Acumin Pro (temporary)
     'https://use.typekit.net/wgs7uns.css',
     // Adobe Clean
     'https://use.typekit.net/dnb4eqs.css',
   ],
-
   presets: [
     [
       'classic',
@@ -36,90 +36,54 @@ const config = {
       }),
     ],
   ],
-
   // See here for configuration options:
   // https://docusaurus.io/docs/api/themes/configuration
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // announcementBar: {
-      //   id: 'sample',
-      //   content:
-      //     '<strong>Note:</strong> Our SDK is still pre-1.0. Features and API may change.',
-      //   backgroundColor: '#ffca32',
-      //   textColor: '#2b2b2b',
-      //   isCloseable: true,
-      // },
       colorMode: {
         disableSwitch: true,
       },
       navbar: {
         logo: {
           alt: 'Content Authenticity Initiative',
-          src: 'img/logo-text.svg',
+          src: 'img/logo-cai.svg',
           width: 180,
           height: 54,
         },
         items: [
           {
-            type: 'doc',
-            docId: 'intro',
+            to: '/docs/get-started',
             position: 'right',
             label: 'Get started',
           },
           {
-            href: 'https://github.com/contentauth',
-            label: 'GitHub',
+            to: '/docs/introduction',
             position: 'right',
+            label: 'Docs',
+            activeBaseRegex: '/docs/(?!get-started)',
           },
           {
-            href: 'https://www.contentauthenticity.org',
+            to: 'https://www.contentauthenticity.org',
             label: 'Learn more',
             position: 'right',
           },
           {
-            href: 'https://verify.contentauthenticity.org',
+            to: 'https://verify.contentauthenticity.org',
             label: 'Verify',
             position: 'right',
+            className: 'navbar__button',
           },
         ],
       },
       footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/contentauth',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/contentauth',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/contentauth',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} Adobe`,
+        style: 'light',
+        logo: {
+          src: '#', // stop warning.
+          alt: 'Content Authenticity Initiative',
+          href: 'https://contentauthenticity.org',
+        },
+        copyright: `Copyright © ${new Date().getFullYear()} Adobe. All rights reserved. <a href="https://www.adobe.com/privacy.html" target="_blank" rel="noopener noreferrer">Privacy</a> | <a href="https://www.adobe.com/legal/terms.html" target="_blank" rel="noopener noreferrer">Terms of Use</a> | <a href="/">Cookie Preferences</a>`,
       },
       prism: {
         theme: lightCodeTheme,

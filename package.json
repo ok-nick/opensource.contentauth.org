@@ -12,7 +12,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prettier": "prettier --ignore-unknown --write ."
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.18",
@@ -41,6 +42,6 @@
     "prettier": "2.6.2"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "**/*": "prettier --ignore-unknown --write"
   }
 }
