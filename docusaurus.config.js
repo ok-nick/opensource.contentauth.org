@@ -18,8 +18,9 @@ const config = {
   projectName: 'opensource.contentauth.org',
   clientModules: [require.resolve('./src/assets/scripts/ui.js')],
   scripts: [
-    '/scripts/analytics.js',
-    'https://www.adobe.com/marketingtech/main.min.js',
+    // TODO: Re-enable analytics once we solve flicker problem
+    // '/scripts/analytics.js',
+    // 'https://www.adobe.com/marketingtech/main.min.js',
     {
       src: 'https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js',
       'data-domain-script': '20e82cdb-918a-4036-93c6-c356dc13a801',
@@ -63,15 +64,9 @@ const config = {
         },
         items: [
           {
-            to: '/docs/get-started',
-            position: 'right',
-            label: 'Get started',
-          },
-          {
             to: '/docs/introduction',
             position: 'right',
             label: 'Docs',
-            activeBaseRegex: '/docs/(?!get-started)',
           },
           {
             to: 'https://www.contentauthenticity.org',
@@ -79,10 +74,14 @@ const config = {
             position: 'right',
           },
           {
-            to: 'https://verify.contentauthenticity.org',
-            label: 'Verify',
+            href: 'https://discord.gg/CAI',
             position: 'right',
-            className: 'navbar__button',
+            className: 'header-logo header-discord-link',
+          },
+          {
+            href: 'https://github.com/contentauth',
+            position: 'right',
+            className: 'header-logo header-github-link',
           },
         ],
       },

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Features from '../components/Features';
@@ -11,7 +11,6 @@ import HeroImage from '../assets/images/hero-2.svg';
 import { C2paProvider } from '@contentauth/react-hooks';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import { resolvers } from 'c2pa';
-import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
 const manifestResolvers = resolvers.createTypedResolvers(
   resolvers.editsAndActivity,
@@ -19,7 +18,7 @@ const manifestResolvers = resolvers.createTypedResolvers(
 export const features = [
   {
     id: 'js-sdk',
-    title: 'JS SDK',
+    title: 'JavaScript SDK',
     icon: <JSSDKIcon />,
     hasC2paMetadata: true,
     description: (
@@ -29,13 +28,13 @@ export const features = [
       </>
     ),
     cta: {
-      link: '/docs/introduction',
+      link: '/docs/js-sdk/getting-started/overview',
       label: 'View documentation',
     },
     media: '/img/Sunset.jpg',
   },
   {
-    id: 'c2pa-tool',
+    id: 'c2patool',
     title: 'C2PA Tool',
     icon: <C2PAToolIcon />,
     hasC2paMetadata: false,
@@ -46,9 +45,8 @@ export const features = [
       </>
     ),
     cta: {
-      link: '/',
-      label: 'Coming soon',
-      disabled: true,
+      link: '/docs/c2patool',
+      label: 'View documentation',
     },
     media: <img src="/img/c2patool@2x.png" />,
   },
@@ -64,9 +62,8 @@ export const features = [
       </>
     ),
     cta: {
-      link: '/',
-      label: 'Coming soon',
-      disabled: true,
+      link: '/docs/rust-sdk',
+      label: 'View documentation',
     },
     media: <img src="/img/rust-sdk@3x.png" />,
   },
@@ -80,7 +77,7 @@ const comparisonColumns = [
   },
   {
     key: 'jsSDK',
-    label: 'JS SDK',
+    label: 'JavaScript SDK',
     type: 'boolean',
   },
   {
