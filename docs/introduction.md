@@ -15,6 +15,13 @@ The [JavaScript SDK](js-sdk/getting-started/overview) is our open-source project
 - Link C2PA data displayed on your site to [Verify](https://verify.contentauthenticity.org/)
 - Easily add user interface elements to your web site that display C2PA data while following the [user experience recommendations](https://c2pa.org/specifications/specifications/1.0/ux/UX_Recommendations.html) set forth by the C2PA
 
+### c2patool
+
+[c2patool](c2patool) is an open-source utility that allows you to **work with C2PA data from the command line**. Use this to:
+
+- Read a JSON report of C2PA manifests in supported file formats
+- Add a C2PA manifest to supported file formats
+
 ### Rust SDK
 
 The [Rust SDK](rust-sdk) is our open-source project for **adding C2PA capabilities to your desktop, mobile, or embedded application**. Use this to:
@@ -23,12 +30,8 @@ The [Rust SDK](rust-sdk) is our open-source project for **adding C2PA capabiliti
 - Embed manifests into certain file formats
 - Parse and validate manifests found in certain file formats
 
-### c2patool
 
-[c2patool](c2patool) is an open-source utility that allows you to **work with C2PA data from the command line**. Use this to:
 
-- Read a JSON report of C2PA manifests in supported file formats
-- Add a C2PA manifest to supported file formats
 
 ## Concepts
 
