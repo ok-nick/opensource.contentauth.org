@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
 import 'c2pa-wc/dist/components/Icon';
 import 'c2pa-wc/dist/components/Indicator';
-import 'c2pa-wc/dist/components/Popover';
 import 'c2pa-wc/dist/components/panels/ManifestSummary';
 import 'c2pa-wc/dist/components/panels/PanelSection';
-import './App.css';
+import 'c2pa-wc/dist/components/Popover';
+import React, { useEffect, useRef, useState } from 'react';
+import './styles.css';
 
 export function WebComponents({ imageUrl, provenance, viewMoreUrl }) {
   const [manifest, setManifest] = useState(null);
