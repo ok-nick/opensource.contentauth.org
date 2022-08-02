@@ -7,8 +7,11 @@ on [Netlify](https://www.netlify.com/).
 
 ### Installation
 
+After cloning the repo, install dependencies as follows:
+
 ```
-$ npm
+$ cd opensource.contentauth.org
+$ npm install
 ```
 
 ### Local Development
