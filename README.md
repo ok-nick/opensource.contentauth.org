@@ -5,7 +5,7 @@
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator, and deployed
 on [Netlify](https://www.netlify.com/).
 
-### Installation
+## Installation
 
 After cloning the repo, install dependencies as follows:
 
@@ -14,7 +14,7 @@ $ cd opensource.contentauth.org
 $ npm install
 ```
 
-### Local Development
+## Local development
 
 ```
 $ npm start
@@ -22,7 +22,7 @@ $ npm start
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-### Build
+## Build
 
 ```
 $ npm run build

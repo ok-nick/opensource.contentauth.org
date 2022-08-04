@@ -1,15 +1,12 @@
 ---
 id: hosting
-title: Hosting
+title: Hosting C2PA assets
 ---
 
-## Serving C2PA assets
-
-### Cross-origin (CORS) support
+## Cross-origin (CORS) support
 
 Processing images from a URL or DOM selector requires the
-client to download the source image for processing. If the image does not reside on the [same origin](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
-as the site running the SDK, the server hosting the images will have to return the following [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) response headers:
+client to download the source image for processing. If the image does not reside on the [same origin](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) as the site running the SDK, the server hosting the images must return the following HTTP response headers for cross-origin resource sharing [(CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS):
 
 - [`Access-Control-Allow-Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) - this needs to either return the origin of the server running the SDK, or `*` to allow all origins from requests without credentials
 - [`Access-Control-Allow-Methods`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) - this needs to support at least the `GET` method
@@ -19,13 +16,10 @@ The vast majority of major CDNs and hosting providers allow for customizing the 
 
 ### Range requests
 
-Since images can be quite large, we make use of [HTTP range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests)
-to attempt to download the start of the file (defaults to 64k) and only will download and process the rest of the file if C2PA metadata
-is detected in the head request. This can stop users from having to download potentially large amounts of data if an image does not
-contain C2PA metadata.
+Since images can be quite large, the SDK uses [HTTP range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests) to download the start of the file (defaults to 64KB), then tests if C2PA metadata exists in the head request; if it does, the download proceeds and processes the rest of the file. This avoids downloading potentially large amounts of data if an image does not contain C2PA metadata.
 
-For this feature to work, the server hosting your images must support HTTP range requests. To check this, you can open
-your terminal and issue the following request (assuming you have [curl](https://curl.se/) installed):
+For this feature to work, the server hosting the images must support HTTP range requests. To check, open
+your terminal and enter the following command (assuming you have [curl](https://curl.se/) installed):
 
 ```shell
 curl -I http://assets.mycdn.com/images/image01.jpg
@@ -38,19 +32,32 @@ Content-Length: 86405
 
 If the response contains `Accept-Ranges: bytes`, then your server is set up to take advantage of this feature.
 
-If the response contains `Accept-Ranges: none` or no `Accept-Ranges` header, the SDK will automatically re-request the image without
-the `Range` header, forcing a full download of the file.
+If the response contains `Accept-Ranges: none` or no `Accept-Ranges` field in the header, the SDK will automatically re-request the image without the `Range` header, forcing a full download of the file.
 
 ## Library assets
 
-To keep the initial bundle size down, we serve both our worker script as well as our WebAssembly binary as separate
-requests. If you are using a build system, this means that they will have to be exported as static assets (we have
-examples of configuring popular build systems in our [Quick start guide](../getting-started/quick-start#bringing-in-the-library)).
+To reduce the initial bundle size, serve both the worker script and the WebAssembly binary as separate
+requests. If you are using a build system, this means you must export them as static assets. For
+examples of configuring popular build systems, see the [Quick start guide](../getting-started/quick-start#bringing-in-the-library).
 
-If hosting the library yourself, the following assets will need to be exposed as static assets and have their URLs be
-passed in to the `createC2pa` function:
+To host the library yourself, expose the static asset files with the following response headers to avoid errors with some browsers:
 
-- `c2pa/dist/assets/wasm/toolkit_bg.wasm` - this should be delivered with a `Content-Type: application/wasm` reponse header
-- `c2pa/dist/c2pa.worker.min.js` - this should be delivered with a `Content-Type: text/javascript` response header
+- `c2pa/dist/assets/wasm/toolkit_bg.wasm`: Serve with `Content-Type: application/wasm` reponse header.
+- `c2pa/dist/c2pa.worker.min.js`: Serve with `Content-Type: text/javascript` response header.
 
-Some browsers may error if the proper response headers are not returned.
+Then pass these URLs to the `createC2pa` function; for example:
+
+```
+const c2pa = await createC2pa({
+    wasmSrc: `https://your_static_asset_uri/toolkit_bg.wasm`,
+    workerSrc: `your_static_asset_uri/c2pa.worker.min.js`,
+  })
+```
+
+Where `your_static_asset_uri` is the URI where you're serving the library asset files.
+
+:::caution
+When hosting the libray files, make sure you are using the correct version number.
+The version numbers provided in the URLs _must_ match in all of the places you reference the
+library. To make it easy, use a variable for the version.
+:::

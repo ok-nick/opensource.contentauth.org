@@ -3,7 +3,9 @@ id: overview
 title: Overview
 ---
 
-Welcome to the [Content Authenticity Initiative](https://contentauthenticity.org/) JavaScript SDK. This library aims to make viewing and verifying [C2PA](https://c2pa.org/) metadata in the browser as easy as possible. It is set up as a monorepo containing the following packages intended for client use:
+Welcome to the [Content Authenticity Initiative](https://contentauthenticity.org/) JavaScript SDK. This library aims to make viewing and verifying [C2PA](https://c2pa.org/) data in the browser as easy as possible. Because it's a client JavaScript SDK, it performs only **read** operations on C2PA metadata, unlike the [Rust SDK](https://opensource.contentauthenticity.org/docs/rust-sdk/), which can both read and write C2PA manifest data.
+
+The SDK is a monorepo containing the following packages intended for client use:
 
 - [**c2pa**](https://opensource.contentauthenticity.org/docs/js-sdk/api/c2pa) is the main package used for loading and verifying C2PA data. This package runs all of the processing
   logic on the client using a [WebAssembly](https://webassembly.org/) module and exposes a [TypeScript](https://www.typescriptlang.org/)-compatible API for easy integration.

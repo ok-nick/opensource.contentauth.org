@@ -50,6 +50,8 @@ Regardless of which product you use, it's important to understand some key conce
 
 **Assertion**: A data structure which represents a statement asserted by an _actor_ concerning the _asset_. This data is a part of the _C2PA manifest_. For a list of standard C2PA assertions, see [C2PA 1.0 Technical Specification](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_c2pa_standard_assertions).
 
+**Ingredient**: Part of a _composed asset_, such as an image superimposed on top of another image.
+
 The following diagram illustrates how the concepts are related to each other in the C2PA architecture.
 
 ![C2PA architecture and concepts diagram](../static/img/c2pa_visualglossary.png)
