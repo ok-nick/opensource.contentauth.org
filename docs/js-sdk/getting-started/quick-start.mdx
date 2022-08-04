@@ -10,11 +10,11 @@ import Sandbox from '../../../src/components/Sandbox';
 
 ## Prerequisites
 
-### Node.js and Yarn
-
-You must install [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com/) to run the examples.
+You must install [Node.js](https://nodejs.org/) for package management and TypeScript compilation.
 
 #### macOS
+
+To install Node.js on macOS:
 
 1. **Install Homebrew:** The easiest way to install Node.js on your macOS system is by using [Homebrew](https://brew.sh/). Follow the instructions on the Homebrew page to install it.
 1. **Install Node.js:** Once you have installed Homebrew, open a terminal and enter this command:
@@ -27,9 +27,13 @@ brew install node@16
 For more advanced JavaScript development, use [nvm](https://github.com/nvm-sh/nvm) rather than Homebrew to quickly install and use different versions of Node.js.
 :::
 
-## Using a CDN
+## Bringing in the SDK library
 
-The quickest way to get up and running is to use a content delivery network (CDN), such as [jsDelivr](https://www.jsdelivr.com/). One of the big advantages of using a CDN is that all of the required static assets are provided, so you do not have to host them. They are also delivered at the edge, which enables faster downloads to your users.
+You can bring in the SDK library by using a content delivery network (CDN) or by hosting the files yourself.
+
+### Using a CDN
+
+The quickest way to get up and running is to use a CDN such as [jsDelivr](https://www.jsdelivr.com/). One of the big advantages of using a CDN is that it provides all the required static assets, so you don't have to host them. The CDN also delivers the files at the edge, which enables faster downloads to your users.
 
 Static assets include the following, as seen in the config passed to [`createC2pa`](../../js-sdk/api/c2pa.createc2pa):
 
@@ -47,47 +51,26 @@ library. To make it easy, use a variable that provides the version as shown in t
 
 <Sandbox file="/examples/cdn/main.ts" displayType="preview" />
 
-## Using a package manager
+### Using a package manager
 
-You can also bring in the library with a package manager, such as `npm` or `yarn`. This way, all of the client side code is hosted with your app and there are no external dependencies.
-
-<Tabs>
-   <TabItem value="yarn" label="Yarn" default>
-
-```bash
-yarn add c2pa
-```
-
-  </TabItem>
-   <TabItem value="npm" label="NPM" default>
+You can also bring in the library with a package manager, such as `npm`, `pnpm`, or `yarn`. This way, all of the client side code is hosted with your app and there are no external dependencies. For example, using `npm`:
 
 ```bash
 npm install c2pa
 ```
-
-</TabItem>
-  <TabItem value="pnpm" label="pNPM">
-
-```bash
-pnpm install c2pa
-```
-
-  </TabItem>
-
-</Tabs>
 
 #### Static assets
 
 When loading via a package manager, the library needs access to two externally-hosted assets so it can "lazy load" them:
 
 - `c2pa/dist/assets/wasm/toolkit_bg.wasm` - the WebAssembly binary
-- `c2pa/dist/c2pa.worker.min.js` - the web worker script
+- `c2pa/dist/c2pa.worker.min.js` - the Web Worker script
 
 :::note
 Be sure to configure your server to send proper `Content-Type` headers for these files. For more information, see [Hosting](../guides/hosting).
 :::
 
-Examples for common build systems are shown below. They are also available in the [`examples` directory](https://github.com/contentauth/c2pa-js/tree/main/examples) in the [c2pa-js-examples repository](https://github.com/contentauth/c2pa-js-examples).
+Examples for common build systems are shown below. They are also available in the [c2pa-js-examples repository](https://github.com/contentauth/c2pa-js-examples).
 
 export const ExampleLink = ({ example }) => {
   const linkText = `examples/${example}`;
