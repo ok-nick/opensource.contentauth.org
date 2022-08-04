@@ -8,7 +8,7 @@ title: Introduction
 The Content Authenticity Initiative's open-source offerings consist of:
 
 - The JavaScript SDK
-- The cpatool command-line tool
+- The c2patool command-line tool
 - The Rust SDK
 
 ### JavaScript SDK
