@@ -13,14 +13,12 @@ The SDK is a monorepo containing the following packages intended for client use:
   enable users to get up and running with standard UI patterns quickly and easily in any front-end environment.
 - **@contentauth/react-hooks** provides a hooks interface for React components to quickly get provenance and thumbnail data in your React app.
 
-The above packages use the following supporting packages that are _not_ intended for separate use:
-
-- **@cai/toolkit** houses the WebAssembly module, data binding functions, and related build tools. `c2pa` consumes
-  this library under the hood. The WebAssembly module handles all parsing and validation.
-- **@cai/detector** provides a high-performance binary scanner to quickly detect if C2PA metadata exists in a file.
-  It is used to determine whether to download a file for further processing. This library is also brought in via `c2pa`.
-
 To learn how to use these libraries, see the [Quick start](quick-start).
+
+Additionally, the SDK includes the following supporting packages that are _not_ intended for separate use:
+
+- **@cai/toolkit** contains the WebAssembly module, data binding functions, and related build tools. The `c2pa` package consumes this library under the hood. The WebAssembly module handles manifest parsing and validation.
+- **@cai/detector** provides a high-performance binary scanner to quickly detect if C2PA metadata exists in a file. The `c2pa` package also consumes this library.
 
 ## Features
 
@@ -30,7 +28,7 @@ The SDK aims to make integration easy, with full TypeScript support and robust d
 
 ### Performance
 
-The processing code of this library uses a high-performance [WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly) binary. Additionally, the library offloads processing tasks to a configurable web worker pool to enable parallelization and discourage blocking a web application's main thread.
+The processing code of this library uses a high-performance [WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly) binary. Additionally, the library offloads processing tasks to a configurable Web Worker pool to enable parallelization and avoid blocking a web application's main thread.
 
 ### Lazy loading and processing
 

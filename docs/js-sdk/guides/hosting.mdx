@@ -6,13 +6,13 @@ title: Hosting C2PA assets
 ## Cross-origin (CORS) support
 
 Processing images from a URL or DOM selector requires the
-client to download the source image for processing. If the image does not reside on the [same origin](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) as the site running the SDK, the server hosting the images must return the following HTTP response headers for cross-origin resource sharing [(CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS):
+client to download the source image for processing. If the image is not on the [same origin](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) as the site running the SDK, the server hosting the images must return the following HTTP response headers for cross-origin resource sharing [(CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS):
 
-- [`Access-Control-Allow-Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) - this needs to either return the origin of the server running the SDK, or `*` to allow all origins from requests without credentials
-- [`Access-Control-Allow-Methods`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) - this needs to support at least the `GET` method
-- [`Access-Control-Allow-Headers`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) - if you would like to support [Range requests](#range-requests), this should include `Range`
+- [`Access-Control-Allow-Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) must either return the origin of the server running the SDK, or `*` to allow all origins from requests without credentials.
+- [`Access-Control-Allow-Methods`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) must include at least the `GET` method.
+- [`Access-Control-Allow-Headers`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) must include include `Range` if you wwant to support [Range requests](#range-requests).
 
-The vast majority of major CDNs and hosting providers allow for customizing the headers above.
+The vast majority of major CDNs and hosting providers allow customizing the headers above.
 
 ### Range requests
 

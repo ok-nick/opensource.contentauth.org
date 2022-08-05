@@ -41,15 +41,15 @@ Regardless of which SDK or tool you use, it's important to understand some key c
 
 **Asset**: A file or stream of data containing _digital content_, asset metadata and optionally, a _C2PA manifest_.
 
-**Composed asset**: An _asset_ created by building up a collection of multiple parts or fragments of [digital content](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_digital_content) (referred to as ingredients) from one or more other _assets_. For example, this can be an image (image A) where another image (image B) is imported and super-imposed on top of the starting image. In this example, image B is referred to as an _ingredient_.
+**Composed asset**: An _asset_ created by building up a collection of multiple parts or fragments of [digital content](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_digital_content) (referred to as ingredients) from one or more other assets. For example, a composed asset could be an image (image A) with another image (image B) imported and super-imposed on top of it. In this example, image B is referred to as an _ingredient_.
 
 **C2PA manifest**: The set of information about the provenance of an asset based on the combination of one or more _assertions_ (including content bindings), a single _claim_, and a _claim signature_. A _C2PA manifest_ is part of a _C2PA manifest store_.
 
-**C2PA manifest store**: A collection of _C2PA manifests_ that can either be embedded into an asset or be external to its _asset_.
+**C2PA manifest store**: A collection of _C2PA manifests_ that can either be embedded into an asset or be external to it.
 
 **Active manifest**: The last manifest in the list of _C2PA manifests_ inside of a _C2PA manifest store_ which is the one with the set of _content bindings_ that are able to be validated.
 
-**Assertion**: A data structure which represents a statement asserted by an _actor_ concerning the _asset_. This data is a part of the _C2PA manifest_. For a list of standard C2PA assertions, see [C2PA 1.0 Technical Specification](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_c2pa_standard_assertions).
+**Assertion**: A data structure which represents a statement asserted by an _actor_ concerning the _asset_. This data is part of the _C2PA manifest_. For a list of standard C2PA assertions, see [C2PA 1.0 Technical Specification](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_c2pa_standard_assertions).
 
 **Ingredient**: Part of a _composed asset_, such as an image superimposed on top of another image.
 

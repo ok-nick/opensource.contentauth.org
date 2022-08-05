@@ -27,14 +27,22 @@ export const CanIUse = ({ feature }) => (
   </p>
 );
 
-The SDK uses a number of modern browser technologies, such as [web workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) and [Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API), so **it is not supported on any version of Internet Explorer and on a few less-used mobile browsers**.
+The SDK uses a number of modern browser technologies, including:
+
+- [WebAssembly](https://webassembly.org/)
+- [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
+- [Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
+- [Type arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays)
+- [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+
+Because of these requirements, **the SDK is not supported on any version of Internet Explorer and on a few less-used mobile browsers**. See the charts below for details.
 
 :::info
-You can see a matrix of all of the technologies used, together with
+You can see a matrix of all of the technologies used and the corresponding
 browser support at [caniuse.com](https://caniuse.com/wasm,webworkers,cryptography,typedarrays,fetch).
 :::
 
-This diagram summarizes is a summary of the "Can I use" information for convenience:
+The diagrams below summarize browser supprt information for convenience.
 
 ## WebAssembly
 
