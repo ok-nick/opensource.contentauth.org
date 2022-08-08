@@ -12,19 +12,21 @@ The Content Authenticity Initiative's open-source offerings consist of:
 - The c2patool command-line tool
 - The Rust SDK
 
+These projects all work with _C2PA manifest data_ (also referred to as a "C2PA manifest" or just a "manifest") that contains information about the provenance of a digital asset. For more details, see [Key concepts](#key-concepts) below.
+
 ### JavaScript SDK
 
-The [JavaScript SDK](js-sdk/getting-started/overview) enables **working with C2PA data in the browser**. Use this SDK to:
+The [JavaScript SDK](js-sdk/getting-started/overview) enables **working with C2PA manifest data in the browser**. Use this SDK to:
 
-- Verify and display C2PA data on a website or web application.
-- Link C2PA data displayed on your site to [Verify](https://verify.contentauthenticity.org/).
-- Easily add user interface elements to your website that display C2PA data while following the [C2PA user experience recommendations](https://c2pa.org/specifications/specifications/1.0/ux/UX_Recommendations.html).
+- Verify and display manifest data on a website or web application.
+- Link manifest data displayed on your site to [Verify](https://verify.contentauthenticity.org/).
+- Easily add user interface elements to your website that display manifest data while following the [C2PA user experience recommendations](https://c2pa.org/specifications/specifications/1.0/ux/UX_Recommendations.html).
 
 ### c2patool
 
-[c2patool](c2patool) is a **command-line utility for working with C2PA data**. Use this tool to:
+[c2patool](c2patool) is a **command-line utility for working with C2PA manifest data**. Use this tool to:
 
-- Read a JSON report of C2PA manifests in supported file formats.
+- Read a JSON report of C2PA manifest data in supported asset file formats.
 - Add a C2PA manifest to supported file formats.
 
 ### Rust SDK
@@ -32,8 +34,8 @@ The [JavaScript SDK](js-sdk/getting-started/overview) enables **working with C2P
 The [Rust SDK](rust-sdk) enables **adding C2PA capabilities to a desktop, mobile, or embedded application**. Use the Rust SDK to:
 
 - Create and sign C2PA claims and manifests.
-- Embed manifests into certain file formats.
-- Parse and validate manifests found in certain file formats.
+- Embed manifests into certain asset file formats.
+- Parse and validate manifests found in certain asset file formats.
 
 ## Key concepts
 

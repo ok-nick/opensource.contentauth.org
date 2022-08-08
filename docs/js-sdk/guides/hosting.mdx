@@ -12,11 +12,11 @@ client to download the source image for processing. If the image is not on the [
 - [`Access-Control-Allow-Methods`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) must include at least the `GET` method.
 - [`Access-Control-Allow-Headers`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) must include include `Range` to support [Range requests](#range-requests), in addition to the `Accept-Ranges: bytes` header itself.
 
-The vast majority of major CDNs and hosting providers allow customizing the headers above.
+The vast majority of major CDNs and hosting providers allow customizing these headers.
 
 ### Range requests
 
-Since images can be quite large, the SDK uses [HTTP range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests) to download the first part of the file (by default, the first 64KB). It then tests if C2PA data exists in this downloaded fragment; if it does, the download proceeds and the SDK processes the rest of the file. This avoids downloading potentially large amounts of data if an image does not contain C2PA data.
+Since images can be quite large, the SDK uses [HTTP range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests) to download the first part of the file (by default, the first 64KB). It then tests if C2PA manifest data exists in this downloaded fragment; if it does, the download proceeds and the SDK processes the rest of the file. This avoids downloading potentially large amounts of data if an image does not contain a manifest.
 
 For this feature to work, the server hosting the images must support HTTP range requests. To check, open
 your terminal and enter the following command (assuming you have [curl](https://curl.se/) installed):

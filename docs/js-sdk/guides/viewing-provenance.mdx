@@ -1,6 +1,6 @@
 ---
-id: viewing-provenance
-title: Viewing provenance data
+id: viewing-manifest-data
+title: Viewing manifest data
 hide_table_of_contents: true
 ---
 
@@ -10,11 +10,11 @@ import Sandbox from '../../../src/components/Sandbox';
 
 The way that you import `wasmSrc` and `workerSrc` varies depending on the build system you use. For more information, see [Quick start](../getting-started/quick-start#bringing-in-the-library).
 
-### Determining whether provenance data exists
+### Determining whether manifest data exists
 
-To determine whether an asset has provenance data, test whether [`c2pa.read`](../../js-sdk/api/c2pa.c2pa#methods) returns a [`manifestStore`](../../js-sdk/api/c2pa.c2pareadresult.manifeststore) that is truthy.
+To determine whether an asset has associated manifest data, test whether [`c2pa.read`](../../js-sdk/api/c2pa.c2pa#methods) returns a [`manifestStore`](../../js-sdk/api/c2pa.c2pareadresult.manifeststore) that is truthy.
 
-The example in this sandbox uses [`c2pa.readAll`](../../js-sdk/api/c2pa.c2pa.readall) to read two sample images and check if they have provenance data:
+The example in this sandbox uses [`c2pa.readAll`](../../js-sdk/api/c2pa.c2pa.readall) to read two sample images and check if they have manifest data:
 
 <Sandbox file="/examples/check-provenance/main.ts" displayType="preview" />
 

@@ -3,28 +3,27 @@ id: overview
 title: Overview
 ---
 
-Welcome to the [Content Authenticity Initiative](https://contentauthenticity.org/) JavaScript SDK. This library aims to make viewing and verifying [C2PA](https://c2pa.org/) data in the browser as easy as possible. Because it's a client JavaScript SDK, it performs only **read** operations on C2PA metadata, unlike the [Rust SDK](https://opensource.contentauthenticity.org/docs/rust-sdk/), which can both read and write C2PA manifest data.
+Welcome to the [Content Authenticity Initiative](https://contentauthenticity.org/) JavaScript SDK. This library aims to make viewing and verifying [C2PA](https://c2pa.org/) data in the browser as easy as possible. Because it's a client JavaScript SDK, it performs only **read** operations on C2PA manifests, unlike the [Rust SDK](https://opensource.contentauthenticity.org/docs/rust-sdk/), which can both read and write manifests.
 
 The SDK is a monorepo containing the following packages intended for client use:
 
-- [**c2pa**](https://opensource.contentauthenticity.org/docs/js-sdk/api/c2pa) is the main package used for loading and verifying C2PA data. This package runs all of the processing
+- [**c2pa**](https://opensource.contentauthenticity.org/docs/js-sdk/api/c2pa) is the main package used for loading and verifying manifests. This package runs all of the processing
   logic on the client using a [WebAssembly](https://webassembly.org/) module and exposes a [TypeScript](https://www.typescriptlang.org/)-compatible API for easy integration.
-- **c2pa-wc** provides UI components designed with input from the C2PA UX working group. It is meant to
-  enable users to get up and running with standard UI patterns quickly and easily in any front-end environment.
-- **@contentauth/react-hooks** provides a hooks interface for React components to quickly get provenance and thumbnail data in your React app.
+- **c2pa-wc** provides UI components designed with input from the C2PA UX working group. It enables users to get up and running with standard UI patterns quickly and easily in any front-end environment.
+- **@contentauth/react-hooks** provides a hooks interface for React components to quickly get manifest and thumbnail data in your React app.
 
 To learn how to use these libraries, see the [Quick start](quick-start).
 
 Additionally, the SDK includes the following supporting packages that are _not_ intended for separate use:
 
 - **@cai/toolkit** contains the WebAssembly module, data binding functions, and related build tools. The `c2pa` package consumes this library under the hood. The WebAssembly module handles manifest parsing and validation.
-- **@cai/detector** provides a high-performance binary scanner to quickly detect if C2PA metadata exists in a file. The `c2pa` package also consumes this library.
+- **@cai/detector** provides a high-performance binary scanner to quickly detect if C2PA manifest data exists in a file. The `c2pa` package also consumes this library.
 
 ## Features
 
 ### Developer friendly
 
-The SDK aims to make integration easy, with full TypeScript support and robust debugging using the [debug](https://github.com/debug-js/debug) library.
+The SDK makes integration easy, with full TypeScript support and robust debugging using the [debug](https://github.com/debug-js/debug) library.
 
 ### Performance
 
@@ -32,7 +31,7 @@ The processing code of this library uses a high-performance [WebAssembly](https:
 
 ### Lazy loading and processing
 
-Since images can be quite large, the library inspects the start of a file for C2PA metadata before requesting the entire asset, [if the server supports it](../guides/hosting#range-requests). The library will download the rest of the image only if it finds the metadata marker. Additionally, it delays loading the WebAssembly binary until it makes the first processing request.
+Since images can be quite large, the library inspects the start of an asset file for C2PA manifest data before requesting the entire file, [if the server supports it](../guides/hosting#range-requests). The library will download the rest of the asset only if it finds the metadata marker. Additionally, it delays loading the WebAssembly binary until it makes the first processing request.
 
 ### Adherence to the C2PA specification
 

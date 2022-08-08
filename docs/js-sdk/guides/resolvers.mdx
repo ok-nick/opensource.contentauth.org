@@ -3,7 +3,7 @@ id: resolvers
 title: Resolvers
 ---
 
-The JavaScript SDK uses resolvers as a convenient way to return meaningful data from the parsed manifest store. For instance, finding information on who produced an asset requires locating and processing the `stds.schema-org.CreativeWork` assertion and having familiarity with its data structure:
+The JavaScript SDK uses resolvers as a convenient way to return meaningful data from the parsed manifest. For instance, finding information on who produced an asset requires locating and processing the `stds.schema-org.CreativeWork` assertion and having familiarity with its data structure:
 
 ```typescript
 function getProducer(manifest) {
@@ -22,7 +22,7 @@ function getProducer(manifest) {
 }
 ```
 
-This allows you to:
+This enables you to:
 
 - Access common assertion data without having familiarity details of the spec/assertions.
 - Combine data from different assertions to access a related set of information.
