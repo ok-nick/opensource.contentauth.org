@@ -1,58 +1,21 @@
 ---
 id: browser-support
 title: Browser support
+hide_table_of_contents: true
 ---
 
-export const CanIUse = ({ feature }) => (
-  <p
-    className="ciu_embed"
-    data-feature={feature}
-    data-periods="future_1,current,past_1,past_2"
-    data-accessible-colours="false"
-  >
-    <picture>
-      <source
-        type="image/webp"
-        srcSet={`https://caniuse.bitsofco.de/image/${feature}.webp`}
-      />
-      <source
-        type="image/png"
-        srcSet={`https://caniuse.bitsofco.de/image/${feature}.png`}
-      />
-      <img
-        src={`https://caniuse.bitsofco.de/image/${feature}.jpg`}
-        alt="Data on support for the wasm feature across the major browsers from caniuse.com"
-      />
-    </picture>
-  </p>
-);
+The SDK uses a number of modern browser technologies, including:
 
-We use a number of modern browser technologies to run this SDK in the client, so **it is unsupported for all versions of
-Internet Explorer and a few less-used mobile browsers**.
+- [WebAssembly](https://webassembly.org/)
+- [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
+- [Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
+- [Typed arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays)
+- [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+
+Because of these requirements, **the SDK is not supported on any version of Internet Explorer and on a few less-used mobile browsers**. The chart below from [caniuse.com](https://caniuse.com/wasm,webworkers,cryptography,typedarrays,fetch) summarizes the browsers and versions that support the SDK.
+
+![CAI JavaScript SDK browser support](../../../static/img/caniuse.png)
 
 :::info
-You can see a matrix of all of the technologies used, together with
-browser support at [caniuse.com](https://caniuse.com/wasm,webworkers,cryptography,typedarrays,fetch).
+This chart is accurate as of August, 2022. For the most up-to-date browser support information, see [caniuse.com](https://caniuse.com/wasm,webworkers,cryptography,typedarrays,fetch).
 :::
-
-Below is a summary of the "Can I use" information for convenience:
-
-## WebAssembly
-
-<CanIUse feature="wasm" />
-
-## Web Workers
-
-<CanIUse feature="webworkers" />
-
-## WebCrypto
-
-<CanIUse feature="cryptography" />
-
-## Typed Arrays
-
-<CanIUse feature="typedarrays" />
-
-## Fetch
-
-<CanIUse feature="fetch" />

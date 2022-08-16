@@ -10,31 +10,32 @@ import Sandbox from '../../../src/components/Sandbox';
 
 ## Prerequisites
 
-### Node.js & Yarn
-
-You'll need both [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com/) installed to run the examples.
+You must install [Node.js](https://nodejs.org/) for package management and TypeScript compilation.
 
 #### macOS
 
-1. **Install Homebrew:** The easiest way to install Node.js on your macOS system is via [Homebrew](https://brew.sh/).
-   Please follow the instructions on their page to get this up and running.
-1. **Install Node.js:** The quickest way to install Node.js is through Homebrew directly. Open up your terminal,
-   enter `brew install node@16`, and press "return". _Note: For any more advanced JavaScript development, we recommend
-   using [nvm](https://github.com/nvm-sh/nvm) rather than Homebrew to install Node.js._
+To install Node.js on macOS:
 
-## Bringing in the library
+1. **Install Homebrew:** The easiest way to install Node.js on your macOS system is by using [Homebrew](https://brew.sh/). Follow the instructions on the Homebrew page to install it.
+1. **Install Node.js:** Once you have installed Homebrew, open a terminal and enter this command:
+
+```
+brew install node@16
+```
+
+:::note
+For more advanced JavaScript development, instead of Homebrew, use [nvm](https://github.com/nvm-sh/nvm) to quickly install and use different versions of Node.js.
+:::
+
+## Bringing in the SDK library
+
+You can bring in the SDK library by using a content delivery network (CDN) or by hosting the files yourself.
 
 ### Using a CDN
 
-The quickest way to get up and running is to use a CDN, such as [jsDelivr](https://www.jsdelivr.com/):
+The quickest way to get up and running is to use a CDN such as [jsDelivr](https://www.jsdelivr.com/). One of the big advantages of using a CDN is that it provides all the required static assets, so you don't have to host them. The CDN also delivers the files at the edge, which enables faster downloads to your users.
 
-<Sandbox file="/examples/cdn/main.ts" displayType="preview" />
-
-#### Static assets
-
-One of the big advantages with using a CDN is that all of the required static assets are provided, so you do not have
-to self-host them. They are also delivered at the edge, which enables faster downloads to your users. The static assets
-include the following, as seen in the config passed to [`createC2pa`](../../js-sdk/api/c2pa.createc2pa):
+Static assets include the following, as seen in the config passed to [`createC2pa`](../../js-sdk/api/c2pa.createc2pa):
 
 ```js
 {
@@ -44,54 +45,32 @@ include the following, as seen in the config passed to [`createC2pa`](../../js-s
 ```
 
 :::caution
-Please note the version numbers provided in the CDN URLs. These _must_ match in all of the places you reference the
-library, so it is recommended that you reference a single variable that provides the version as shown in the example.
+The version numbers provided in the CDN URLs _must_ match in all of the places you reference the
+library. To make it easy, use a variable that provides the version as shown in the example.
 :::
 
-### Package managers
+<Sandbox file="/examples/cdn/main.ts" displayType="preview" />
 
-You can also bring in our library with a package manager, such as `npm` or `yarn`. This way, all of the
-client side code is hosted with your app and there are no external dependencies.
+### Using a package manager
 
-<Tabs>
-   <TabItem value="yarn" label="Yarn" default>
-
-```bash
-yarn add c2pa
-```
-
-  </TabItem>
-   <TabItem value="npm" label="NPM" default>
+You can also bring in the library with a package manager, such as `npm`, `pnpm`, or `yarn`. This way, all of the client side code is hosted with your app and there are no external dependencies. For example, using `npm`:
 
 ```bash
 npm install c2pa
 ```
 
-</TabItem>
-  <TabItem value="pnpm" label="pNPM">
-
-```bash
-pnpm install c2pa
-```
-
-  </TabItem>
-
-</Tabs>
-
 #### Static assets
 
-When loading via a package manager, the `c2pa` library needs access to two externally-hosted assets so that these can be
-lazily loaded:
+When loading via a package manager, the library needs access to two externally-hosted assets so it can "lazy load" them:
 
 - `c2pa/dist/assets/wasm/toolkit_bg.wasm` - the WebAssembly binary
 - `c2pa/dist/c2pa.worker.min.js` - the Web Worker script
 
 :::note
-Please be sure to configure your server to send proper `Content-Type` headers for these files. For more information,
-please see our guide on [hosting](../guides/hosting).
+Be sure to configure your server to send proper `Content-Type` headers for these files. For more information, see [Hosting](../guides/hosting).
 :::
 
-Examples for common build systems are shown below. They are also available in the [`examples` directory](https://github.com/contentauth/c2pa-js/tree/main/examples) in our repo.
+Examples for common build systems are shown below. They are also available in the [c2pa-js-examples repository](https://github.com/contentauth/c2pa-js-examples).
 
 export const ExampleLink = ({ example }) => {
   const linkText = `examples/${example}`;

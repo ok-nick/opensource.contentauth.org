@@ -1,94 +1,60 @@
 ---
 id: introduction
 title: Introduction
+hide_table_of_contents: true
 ---
 
 ## Overview
 
-The Content Authenticity Initiative's open-source offerings are comprised of three products:
+The Content Authenticity Initiative's open-source offerings consist of:
+
+- The JavaScript SDK
+- The c2patool command-line tool
+- The Rust SDK
+
+These projects all work with _C2PA manifest data_ (also referred to as a "C2PA manifest" or just a "manifest") that contains information about the provenance of a digital asset. For more details, see [Key concepts](#key-concepts) below.
 
 ### JavaScript SDK
 
-The [JavaScript SDK](js-sdk/getting-started/overview) is our open-source project for **working with C2PA data in the browser**. Use this to:
+The [JavaScript SDK](js-sdk/getting-started/overview) enables **working with C2PA manifest data in the browser**. Use this SDK to:
 
-- Verify and display C2PA data on your site or web application
-- Link C2PA data displayed on your site to [Verify](https://verify.contentauthenticity.org/)
-- Easily add user interface elements to your web site that display C2PA data while following the [user experience recommendations](https://c2pa.org/specifications/specifications/1.0/ux/UX_Recommendations.html) set forth by the C2PA
+- Verify and display manifest data on a website or web application.
+- Link manifest data displayed on your site to [Verify](https://verify.contentauthenticity.org/).
+- Easily add user interface elements to your website that display manifest data while following the [C2PA user experience recommendations](https://c2pa.org/specifications/specifications/1.0/ux/UX_Recommendations.html).
 
 ### c2patool
 
-[c2patool](c2patool) is an open-source utility that allows you to **work with C2PA data from the command line**. Use this to:
+[c2patool](c2patool) is a **command-line utility for working with C2PA manifest data**. Use this tool to:
 
-- Read a JSON report of C2PA manifests in supported file formats
-- Add a C2PA manifest to supported file formats
+- Read a JSON report of C2PA manifest data in supported asset file formats.
+- Add a C2PA manifest to supported file formats.
 
 ### Rust SDK
 
-The [Rust SDK](rust-sdk) is our open-source project for **adding C2PA capabilities to your desktop, mobile, or embedded application**. Use this to:
+The [Rust SDK](rust-sdk) enables **adding C2PA capabilities to a desktop, mobile, or embedded application**. Use the Rust SDK to:
 
-- Create and sign C2PA claims and manifests
-- Embed manifests into certain file formats
-- Parse and validate manifests found in certain file formats
+- Create and sign C2PA claims and manifests.
+- Embed manifests into certain asset file formats.
+- Parse and validate manifests found in certain asset file formats.
 
+## Key concepts
 
+Regardless of which SDK or tool you use, it's important to understand some key concepts. These definitions are based on the [glossary in the C2PA 1.0 Technical Specification](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_glossary).
 
+**Asset**: A file or stream of data containing _digital content_, asset metadata and optionally, a _C2PA manifest_.
 
-## Concepts
+**Composed asset**: An _asset_ created by building up a collection of multiple parts or fragments of [digital content](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_digital_content) (referred to as ingredients) from one or more other assets. For example, a composed asset could be an image (image A) with another image (image B) imported and super-imposed on top of it. In this example, image B is referred to as an _ingredient_.
 
-Regardless of which product you use, there are certain concepts that are helpful for you to be aware of.
+**C2PA manifest**: The set of information about the provenance of an asset based on the combination of one or more _assertions_ (including content bindings), a single _claim_, and a _claim signature_. A _C2PA manifest_ is part of a _C2PA manifest store_.
 
-:::info
-The C2PA Technical Specification has a [handy diagram](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_overview_2) that
-illustrates the different concepts mentioned in this page.
-:::
+**C2PA manifest store**: A collection of _C2PA manifests_ that can either be embedded into an asset or be external to it.
 
-### Terms
+**Active manifest**: The last manifest in the list of _C2PA manifests_ inside of a _C2PA manifest store_ which is the one with the set of _content bindings_ that are able to be validated.
 
-These definitions expand on the relevant terms in the [glossary](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_glossary)
-found in the [C2PA 1.0 Technical Specification](https://c2pa.org/specifications/specifications/1.0/index.html).
+**Assertion**: A data structure which represents a statement asserted by an _actor_ concerning the _asset_. This data is part of the _C2PA manifest_. For a list of standard C2PA assertions, see [C2PA 1.0 Technical Specification](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_c2pa_standard_assertions).
 
-#### C2PA Manifest
+**Ingredient**: Part of a _composed asset_, such as an image superimposed on top of another image.
 
-From [the specification](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_c2pa_manifest):
+The following diagram illustrates how the concepts are related to each other in the C2PA architecture.
 
-> The set of information about the provenance of an asset based on the combination of one or more assertions (including
-> content bindings), a single _claim_, and a _claim signature_. A _C2PA Manifest_ is part of a _C2PA Manifest Store_.
-
-#### C2PA Manifest Store
-
-From [the specification](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_c2pa_manifest_store):
-
-> A collection of _C2PA Manifests_ that can either be embedded into an asset or be external to its _asset_.
-
-#### Active Manifest
-
-From [the specification](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_active_manifest):
-
-> The last manifest in the list of _C2PA Manifests_ inside of a _C2PA Manifest Store_ which is the one with the set of _content bindings_ that are able to be validated.
-
-#### Asset
-
-From [the specification](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_asset):
-
-> A file or stream of data containing _digital content_, asset metadata and optionally, a _C2PA Manifest_.
-
-#### Composed asset
-
-From [the specification](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_composed_asset):
-
-> A composed asset is an _asset_ that is created by building up a collection of multiple parts or fragments of [_digital content_](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_digital_content) (referred to as ingredients) from one or more other _assets_.
-
-For example, this can be an image (image A) where another image (image B) is imported and super-imposed on top of the starting image. In this
-example, image B would be referred to as an _ingredient_.
-
-#### Assertion
-
-From [the specification](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_assertion):
-
-> A data structure which represents a statement asserted by an _actor_ concerning the _asset_. This data is a part of the _C2PA Manifest_.
-
-For a list of standard C2PA assertions, [click here](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_c2pa_standard_assertions).
-
-#### Ingredient
-
-See the definition of [composed asset](#composed-asset) above.
+![C2PA architecture and concepts diagram](../static/img/c2pa_visualglossary.png)

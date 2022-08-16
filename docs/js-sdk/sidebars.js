@@ -17,7 +17,7 @@ const sidebars = {
       type: 'category',
       label: 'Guides',
       items: [
-        'js-sdk/guides/viewing-provenance',
+        'js-sdk/guides/viewing-manifest-data',
         'js-sdk/guides/validation',
         'js-sdk/guides/resolvers',
         // "js-sdk/guides/web-components",

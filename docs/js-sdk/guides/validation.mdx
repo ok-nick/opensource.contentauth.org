@@ -5,21 +5,23 @@ title: Validation & errors
 
 ## Validation
 
-Part of processing a C2PA asset involves [validating the manifests](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_validation) that it contains. Any validation errors that occur in one of two places:
+Part of processing an asset involves [validating the manifests](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_validation) that it contains. During validation, errors can occur in the active manifest and in ingredients.
 
 ### Validation errors in the active manifest
 
-When C2PA assets are loaded via [c2pa.read](../api/c2pa.c2pa#methods), the current manifest is validated and any [failure codes](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_failure_codes) codes are available via the `manifestStore.validationStatus` array. Some examples of events that could trigger errors in this field are:
+When [c2pa.read](../api/c2pa.c2pa#methods) loads C2PA assets, it validates the current manifest and assigns any [failure codes](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_failure_codes) to the `manifestStore.validationStatus` array.
 
-- editing the bits of an asset after it was signed
-- a claim or assertion was missing or tampered with
-- an invalid credential was used when signing the manifest
+Manifest validation errors can occur when:
+
+- The bits of an asset were edited after it was signed.
+- A claim or assertion was missing or tampered with.
+- The manifest was signed with an invalid credential.
 
 ### Validation errors in ingredients
 
-[Ingredients](../../introduction#ingredient) are validated at the time they are imported into an asset. The results of this are stored in the manifest in the ingredient's [`validationStatus`](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_existing_manifests) object, which contains both [success](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_success_codes) and [failure](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_failure_codes) codes that represent the results of all of the validation checks that took place.
+[Ingredients](../../introduction#key-concepts) are validated when they are imported into an asset. The results of this are stored in the manifest in the ingredient's [`validationStatus`](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_existing_manifests) object, which contains both [success](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_success_codes) and [failure](https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_failure_codes) codes that represent the results of all of the validation checks that took place.
 
-In the JavaScript SDK, you can access validation errors in ingredients like so:
+In the JavaScript SDK, you can access validation errors in ingredients like this:
 
 ```typescript
 manifest.ingredients.forEach((ingredient) => {
@@ -28,12 +30,12 @@ manifest.ingredients.forEach((ingredient) => {
 ```
 
 :::note
-The `validationStatus` array provided by the SDK only reports failure `validationStatus` codes, as success codes are generally informational and do not affect the UI.
+The `validationStatus` array only reports failure `validationStatus` codes since success codes are informational only.
 :::
 
 ## Errors
 
-Errors can also occur when trying to process the asset, which will throw a JavaScript error when calling [c2pa.read](../api/c2pa.c2pa#methods). You can capture these errors by always surrounding `c2pa.read` in a `try...catch` block:
+Errors can also occur when trying to process an asset, which will throw a JavaScript error when calling [c2pa.read](../api/c2pa.c2pa#methods). Capture these errors by surrounding `c2pa.read` in a `try...catch` block. For example:
 
 ```typescript
 try {
@@ -44,9 +46,9 @@ try {
 }
 ```
 
-Errors will have a name that corresponds with an [`c2pa::Error` enum variant](https://docs.rs/c2pa/latest/c2pa/enum.Error.html), surrounded with `C2pa()`, for instance `C2pa(UnsupportedType)`.
+Errors have a name that corresponds with an [`c2pa::Error` enum variant](https://docs.rs/c2pa/latest/c2pa/enum.Error.html), surrounded with `C2pa()`, for instance `C2pa(UnsupportedType)`.
 
-Examples of events that can cause an error to be thrown are:
+Events that can cause an error include passing in an asset that:
 
-- Passing in an asset that is not a supported file type (e.g. `image/jpeg`, `image/png`)
-- Passing in an asset containing corrupted data
+- Is not a supported file type (for example, `image/jpeg`, `image/png`).
+- Contains corrupted data.

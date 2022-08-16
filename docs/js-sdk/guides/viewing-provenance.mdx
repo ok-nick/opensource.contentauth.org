@@ -1,6 +1,6 @@
 ---
-id: viewing-provenance
-title: Viewing provenance data
+id: viewing-manifest-data
+title: Viewing manifest data
 hide_table_of_contents: true
 ---
 
@@ -8,18 +8,22 @@ import Sandbox from '../../../src/components/Sandbox';
 
 ### Initializing the SDK
 
-Importing `wasmSrc` and `workerSrc` vary by build system. For more info, please reference the [Quick start guide](../getting-started/quick-start#bringing-in-the-library).
+The way that you import `wasmSrc` and `workerSrc` varies depending on the build system you use. For more information, see [Quick start](../getting-started/quick-start#bringing-in-the-library).
 
-:::info
-An architecture diagram of the JavaScript SDK API is available on the [architecture page](../getting-started/architecture).
-:::
+### Determining whether manifest data exists
 
-### Determining whether provenance data exists
+To determine whether an asset has associated manifest data, test whether [`c2pa.read`](../../js-sdk/api/c2pa.c2pa#methods) returns a [`manifestStore`](../../js-sdk/api/c2pa.c2pareadresult.manifeststore) that is truthy.
 
-You can check if an asset has provenance data by testing if the [`manifestStore`](../../js-sdk/api/c2pa.c2pareadresult.manifeststore) that comes back from [`c2pa.read`](../../js-sdk/api/c2pa.c2pa#methods) is truthy:
+The example in this sandbox uses [`c2pa.readAll`](../../js-sdk/api/c2pa.c2pa.readall) to read two sample images and check if they have manifest data:
 
 <Sandbox file="/examples/check-provenance/main.ts" displayType="preview" />
 
+The source code for this example is in the [c2pa-js-examples repo](https://github.com/contentauth/c2pa-js-examples/blob/main/minimal-ts-vite/examples/check-provenance/main.ts).
+
 ### Viewing manifest data
 
+You can easily extract information from a manifest as shown in this example.
+
 <Sandbox file="/examples/active-manifest/main.ts" displayType="preview" />
+
+The source code for this example is in the [c2pa-js-examples repo](https://github.com/contentauth/c2pa-js-examples/blob/main/minimal-ts-vite/examples/active-manifest/main.ts).
