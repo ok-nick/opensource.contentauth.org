@@ -32,6 +32,6 @@ The CAI maintains a [Discord server](https://discord.gg/CAI) for open technical 
 
 - **Twitter feed**: Follow [CAI on Twitter](https://twitter.com/ContentAuth) for the latest general announcements and information.
 
-## Developer survey
+## Developer questionnaire
 
-Please fill out the [Content Authenticity Initiative (CAI) Open-Source Implementation Survey](https://docs.google.com/forms/d/e/1FAIpQLSfXbDZ_0DfOlSkEutILaWZ4-Sjcs_sx7tkoYQl7cBUOOI7Uhw/viewform) to let us know what you're building and how you're using the open-source tools and SDKs.
+Please fill out the [Content Authenticity Initiative (CAI) Open-Source Implementation Questionnaire](https://docs.google.com/forms/d/e/1FAIpQLSfXbDZ_0DfOlSkEutILaWZ4-Sjcs_sx7tkoYQl7cBUOOI7Uhw/viewform) to let us know what you're building and how you're using the open-source tools and SDKs.
