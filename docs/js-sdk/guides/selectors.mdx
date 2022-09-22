@@ -1,0 +1,53 @@
+---
+id: selectors
+title: Selectors
+---
+
+The JavaScript SDK includes a number of selector functions as a convenient way to derive useful data from returned manifest objects. For instance, finding information on the producer of an asset requires locating the `stds.schema-org.CreativeWork` assertion and having familiarity with its strucutre:
+
+```typescript
+function selectProducer(manifest) {
+  const cwAssertion = manifest.assertions.get('stds.schema-org.CreativeWork');
+  return assertion.author?.find((x) => !x.hasOwnProperty('@id'));
+}
+```
+
+However, the SDK provides [selectors](https://github.com/contentauth/c2pa-js/tree/main/packages/c2pa/src/selectors) that simplify this code to:
+
+<!-- Link to API doc https://opensource.contentauthenticity.org/docs/js-sdk/api/c2pa.resolvers.defaultresolvers instead? -->
+
+```typescript
+import { selectProducer } from 'c2pa';
+
+const producer = selectProducer(manifest);
+```
+
+Some selectors may involve more complex, possibly asynchronous operations. `selectEditsAndActivity` abstracts a complex operation involving multiple manifest assertions and remote resources to return a formatted list of edits and activity described within a manifest:
+
+```
+import { selectEditsAndActivity } from 'c2pa';
+
+const editsAndActivity = await selectEditsAndActivity(manifest);
+/*
+[
+  {
+    id: 'COLOR_ADJUSTMENTS',
+    icon: 'https://cai-assertions.adobe.com/icons/color-palette-dark.svg',
+    label: 'Color adjustments',
+    description: 'Changed tone, saturation, etc.'
+  },
+  {
+    id: 'IMPORT',
+    icon: 'https://cai-assertions.adobe.com/icons/import-dark.svg',
+    label: 'Imported assets',
+    description: 'Added images, videos, etc.'
+  },
+  {
+    id: 'TRANSFORM',
+    icon: 'https://cai-assertions.adobe.com/icons/group-dark.svg',
+    label: 'Size and position adjustments',
+    description: 'Changed size, orientation, direction, or position'
+  }
+]
+*/
+```
