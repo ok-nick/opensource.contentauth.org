@@ -3,7 +3,13 @@ id: selectors
 title: Selectors
 ---
 
-The JavaScript SDK includes a number of selector functions as a convenient way to derive useful data from returned manifest objects. For instance, finding information on the producer of an asset requires locating the `stds.schema-org.CreativeWork` assertion and having familiarity with its strucutre:
+[Selector functions]([selector](https://github.com/contentauth/c2pa-js/tree/main/packages/c2pa/src/selectors) provide a convenient way to derive useful data from returned manifest objects. The selector functions available are:
+
+- `editsAndActivity` - Returns a formatted list of manifest edits and activity.
+- `selectProducer - Returns information on the producer of an asset.
+- `selectSocialAccounts` - Returns social accounts associated with the producer of a manifest, if available.
+
+For instance, without using a selector, finding information on the producer of an asset requires locating the `stds.schema-org.CreativeWork` assertion and having familiarity with its strucutre:
 
 ```typescript
 function selectProducer(manifest) {
@@ -12,9 +18,7 @@ function selectProducer(manifest) {
 }
 ```
 
-However, the SDK provides [selectors](https://github.com/contentauth/c2pa-js/tree/main/packages/c2pa/src/selectors) that simplify this code to:
-
-<!-- Link to API doc https://opensource.contentauthenticity.org/docs/js-sdk/api/c2pa.resolvers.defaultresolvers instead? -->
+Using the [`selectProducer`](https://github.com/contentauth/c2pa-js/blob/main/packages/c2pa/src/selectors/selectProducer.ts) selector function simplifies this code to:
 
 ```typescript
 import { selectProducer } from 'c2pa';
@@ -22,13 +26,17 @@ import { selectProducer } from 'c2pa';
 const producer = selectProducer(manifest);
 ```
 
-Some selectors may involve more complex, possibly asynchronous operations. `selectEditsAndActivity` abstracts a complex operation involving multiple manifest assertions and remote resources to return a formatted list of edits and activity described within a manifest:
+Some selectors may involve complex, possibly asynchronous operations. For example, `selectEditsAndActivity` abstracts a complex operation involving multiple manifest assertions and remote resources to return a formatted list of edits and activity described within a manifest:
 
-```
+```typescript
 import { selectEditsAndActivity } from 'c2pa';
 
 const editsAndActivity = await selectEditsAndActivity(manifest);
-/*
+```
+
+The result is an `editsAndActivity` object such as this:
+
+```
 [
   {
     id: 'COLOR_ADJUSTMENTS',
@@ -49,5 +57,4 @@ const editsAndActivity = await selectEditsAndActivity(manifest);
     description: 'Changed size, orientation, direction, or position'
   }
 ]
-*/
 ```

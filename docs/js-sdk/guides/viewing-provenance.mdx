@@ -12,7 +12,7 @@ The way that you import `wasmSrc` and `workerSrc` varies depending on the build 
 
 ### Viewing manifest data
 
-If the input provided to [`c2pa.read`](../../js-sdk/api/c2pa.c2pa#methods) has a C2PA manifest and was processed without errors, the returned [`c2paReadResult`](../../js-sdk/api/c2pa.c2pareadresult) will contain a [`manifestStore`](../../js-sdk/api/c2pa.c2pareadresult.manifeststore).
+If the input provided to [`c2pa.read`](../../js-sdk/api/c2pa.c2pa#methods) has a C2PA manifest and was processed without errors, the returned [`c2paReadResult`](../../js-sdk/api/c2pa.c2pareadresult) contains a [`manifestStore`](../../js-sdk/api/c2pa.c2pareadresult.manifeststore).
 
 The [`manifestStore`](../../js-sdk/api/c2pa.c2pareadresult.manifeststore) object contains a few properties:
 
@@ -20,7 +20,7 @@ The [`manifestStore`](../../js-sdk/api/c2pa.c2pareadresult.manifeststore) object
 - **activeManifest**: A pointer to the latest [`manifest`](../../js-sdk/api/c2pa.manifest) in the manifest store. Effectively the "parent" manifest, this is the likely starting point when inspecting an asset's C2PA data.
 - **validationStatus**: A list of any validation errors the SDK generated when processing an asset. See [Validation](./validation) for more information.
 
-[`Manifest`](../../js-sdk/api/c2pa.manifest) objects contain properties pertaining to an asset's provenance, along with convenient interfaces for [accessing assertion data](../../js-sdk/api/c2pa.assertionaccessor) and [generating a thumbnail](../../js-sdk/api/c2pa.thumbnail). The example in this sandbox demonstrates a basic workflow – reading a sample image, checking for the presence of a manifest store, and displaying the data contained within the active manifest:
+[`Manifest`](../../js-sdk/api/c2pa.manifest) objects contain properties pertaining to an asset's provenance, along with convenient interfaces for [accessing assertion data](../../js-sdk/api/c2pa.assertionaccessor) and [generating a thumbnail](../../js-sdk/api/c2pa.thumbnail). The example in this sandbox demonstrates a basic workflow: reading a sample image, checking for the presence of a manifest store, and displaying the data in the active manifest:
 
 <Sandbox file="/examples/active-manifest/main.ts" displayType="preview" />
 
