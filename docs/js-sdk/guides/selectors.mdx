@@ -3,27 +3,27 @@ id: selectors
 title: Selectors
 ---
 
-[Selector functions]([selector](https://github.com/contentauth/c2pa-js/tree/main/packages/c2pa/src/selectors) provide a convenient way to derive useful data from returned manifest objects. The selector functions available are:
+[Selectors](https://github.com/contentauth/c2pa-js/tree/main/packages/c2pa/src/selectors) are convenience functions that return useful data from manifest objects. The selector functions are:
 
 - `editsAndActivity` - Returns a formatted list of manifest edits and activity.
-- `selectProducer - Returns information on the producer of an asset.
+- `selectProducer` - Returns information on the producer of an asset.
 - `selectSocialAccounts` - Returns social accounts associated with the producer of a manifest, if available.
 
-For instance, without using a selector, finding information on the producer of an asset requires locating the `stds.schema-org.CreativeWork` assertion and having familiarity with its strucutre:
+For instance, you can use [`selectProducer`](https://github.com/contentauth/c2pa-js/blob/main/packages/c2pa/src/selectors/selectProducer.ts) to get information on the producer of an asset as follows:
+
+```typescript
+import { selectProducer } from 'c2pa';
+
+const producer = selectProducer(manifest);
+```
+
+Without using a selector, finding this information requires locating the `stds.schema-org.CreativeWork` assertion and having familiarity with its structure. As you can see, the code is much more complicated:
 
 ```typescript
 function selectProducer(manifest) {
   const cwAssertion = manifest.assertions.get('stds.schema-org.CreativeWork');
   return assertion.author?.find((x) => !x.hasOwnProperty('@id'));
 }
-```
-
-Using the [`selectProducer`](https://github.com/contentauth/c2pa-js/blob/main/packages/c2pa/src/selectors/selectProducer.ts) selector function simplifies this code to:
-
-```typescript
-import { selectProducer } from 'c2pa';
-
-const producer = selectProducer(manifest);
 ```
 
 Some selectors may involve complex, possibly asynchronous operations. For example, `selectEditsAndActivity` abstracts a complex operation involving multiple manifest assertions and remote resources to return a formatted list of edits and activity described within a manifest:
