@@ -8,6 +8,7 @@ const { ApiModel } = require('@microsoft/api-extractor-model');
 const { StandardMarkdownDocumenter } = require('standard-markdown-documenter');
 const ejs = require('ejs');
 const prettier = require('prettier');
+const { exec } = require('child_process');
 
 const sidebar = fs.readFileSync(join(__dirname, './api-sidebar.ejs'), 'utf-8');
 const tree = fs.readFileSync(
@@ -42,14 +43,7 @@ function isSideBarItem(items) {
   );
 }
 
-/**
- * This is a custom version of `generateMarkdownFiles` from the docusaurus-plugin-api-extractor repo:
- * @see https://github.com/gabrielcsapo/docusaurus-plugin-api-extractor/blob/f3c2afdf1488e90a253482ee23ab8ea798d38a58/plugin/docusaurus-plugin-api-extractor/src/generate-docs.ts#L134-L172
- *
- * @param {string} inputDir
- * @param {string} outDir
- */
-async function generateMarkdownFiles(inputDir, outDir) {
+async function generateSidebarFile(inputDir, outDir) {
   try {
     ensureDirSync(outDir);
 
@@ -62,7 +56,6 @@ async function generateMarkdownFiles(inputDir, outDir) {
     }
 
     const documenter = new StandardMarkdownDocumenter(model, outDir);
-    await documenter.generateFiles();
 
     const sidebarNodes = await documenter.generateSidebar(SIDEBAR_VISITOR);
 
@@ -83,4 +76,26 @@ async function generateMarkdownFiles(inputDir, outDir) {
   }
 }
 
-generateMarkdownFiles(options.inputDir, options.outDir);
+async function generateMarkdownFiles(inputDir, outDir) {
+  return new Promise((resolve, reject) => {
+    exec(
+      `api-documenter markdown --input-folder ${inputDir} --output-folder ${outDir}`,
+      (err, stdout) => {
+        if (err) {
+          return reject(err);
+        }
+
+        return resolve(stdout);
+      },
+    );
+  });
+}
+
+(async () => {
+  try {
+    await generateMarkdownFiles(options.inputDir, options.outDir);
+    await generateSidebarFile(options.inputDir, options.outDir);
+  } catch (e) {
+    console.error(e);
+  }
+})();
