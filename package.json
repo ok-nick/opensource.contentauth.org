@@ -45,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "@microsoft/api-documenter": "^7.19.14",
     "@microsoft/api-extractor-model": "^7.17.3",
     "commander": "^9.3.0",
     "docusaurus-plugin-api-extractor": "^2.0.4",

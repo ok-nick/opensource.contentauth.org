@@ -18,8 +18,8 @@ const sidebars = {
       label: 'Guides',
       items: [
         'js-sdk/guides/viewing-manifest-data',
+        'js-sdk/guides/selectors',
         'js-sdk/guides/validation',
-        'js-sdk/guides/resolvers',
         // "js-sdk/guides/web-components",
         'js-sdk/guides/debugging',
         'js-sdk/guides/hosting',

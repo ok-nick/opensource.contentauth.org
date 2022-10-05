@@ -10,20 +10,20 @@ import Sandbox from '../../../src/components/Sandbox';
 
 The way that you import `wasmSrc` and `workerSrc` varies depending on the build system you use. For more information, see [Quick start](../getting-started/quick-start#bringing-in-the-library).
 
-### Determining whether manifest data exists
-
-To determine whether an asset has associated manifest data, test whether [`c2pa.read`](../../js-sdk/api/c2pa.c2pa#methods) returns a [`manifestStore`](../../js-sdk/api/c2pa.c2pareadresult.manifeststore) that is truthy.
-
-The example in this sandbox uses [`c2pa.readAll`](../../js-sdk/api/c2pa.c2pa.readall) to read two sample images and check if they have manifest data:
-
-<Sandbox file="/examples/check-provenance/main.ts" displayType="preview" />
-
-The source code for this example is in the [c2pa-js-examples repo](https://github.com/contentauth/c2pa-js-examples/blob/main/minimal-ts-vite/examples/check-provenance/main.ts).
-
 ### Viewing manifest data
 
-You can easily extract information from a manifest as shown in this example.
+If the input provided to [`c2pa.read`](../../js-sdk/api/c2pa.c2pa#methods) has a C2PA manifest and was processed without errors, the returned [`c2paReadResult`](../../js-sdk/api/c2pa.c2pareadresult) contains a [`manifestStore`](../../js-sdk/api/c2pa.c2pareadresult.manifeststore).
+
+The [`manifestStore`](../../js-sdk/api/c2pa.c2pareadresult.manifeststore) object contains a few properties:
+
+- **manifests**: An object containing _all_ manifests found in an asset, keyed by UUID.
+- **activeManifest**: A pointer to the latest [`manifest`](../../js-sdk/api/c2pa.manifest) in the manifest store. Effectively the "parent" manifest, this is the likely starting point when inspecting an asset's C2PA data.
+- **validationStatus**: A list of any validation errors the SDK generated when processing an asset. See [Validation](./validation) for more information.
+
+[`Manifest`](../../js-sdk/api/c2pa.manifest) objects contain properties pertaining to an asset's provenance, along with convenient interfaces for [accessing assertion data](../../js-sdk/api/c2pa.assertionaccessor) and [generating a thumbnail](../../js-sdk/api/c2pa.thumbnail). The example in this sandbox demonstrates a basic workflow: reading a sample image, checking for the presence of a manifest store, and displaying the data in the active manifest:
 
 <Sandbox file="/examples/active-manifest/main.ts" displayType="preview" />
 
 The source code for this example is in the [c2pa-js-examples repo](https://github.com/contentauth/c2pa-js-examples/blob/main/minimal-ts-vite/examples/active-manifest/main.ts).
+
+This example also features the use of the [`selectProducer`](../../js-sdk/api/c2pa.selectproducer) selector function. See [Selectors](./selectors) for more information.
