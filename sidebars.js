@@ -51,6 +51,10 @@ const sidebars = {
     },
     {
       type: 'doc',
+      id: 'signing-manifests',
+    },
+    {
+      type: 'doc',
       id: 'community-resources',
     },
   ],
