@@ -23,7 +23,7 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'contentauth/c2pa_service_example',
+          id: 'c2pa_service_example/readme',
         },
         {
           type: 'link',
