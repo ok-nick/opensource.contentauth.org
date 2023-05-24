@@ -22,6 +22,10 @@ const sidebars = {
           id: 'c2patool/readme',
         },
         {
+          type: 'doc',
+          id: 'c2pa-service-example/readme',
+        },
+        {
           type: 'link',
           label: 'GitHub',
           href: 'https://github.com/contentauth/c2patool',

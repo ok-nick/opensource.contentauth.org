@@ -9,6 +9,15 @@ const RAW_GITHUB_HOST = 'https://raw.githubusercontent.com';
 const mdLinkRegex =
   /\[([\w\s\d\-]+)\]\(((?:\/|https?:\/\/|\.)[\w\d\-./?=#]+)\)/g;
 
+/*
+After adding a new file to below array, you must manually create the directory
+and add an empty .gitkeep file to it so the build will work.  For example:
+$ cd opensource.contentauth.org/docs
+$ mkdir c2pa_service_example
+$ cd c2pa_service_example
+$ touch .gitkeep
+*/
+
 const readmes = [
   {
     dest: resolve(__dirname, '../docs/rust-sdk/readme.md'),
@@ -18,6 +27,11 @@ const readmes = [
   {
     dest: resolve(__dirname, '../docs/c2patool/readme.md'),
     repo: 'contentauth/c2patool',
+    path: 'README.md',
+  },
+  {
+    dest: resolve(__dirname, '../docs/c2pa-service-example/readme.md'),
+    repo: 'contentauth/c2pa-service-example',
     path: 'README.md',
   },
 ];
