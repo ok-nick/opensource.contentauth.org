@@ -35,6 +35,10 @@ This command generates static content into the `build` directory and can be serv
 Deployments are handled automatically by Netlify. Please open up a pull request with any changes and a preview site
 should be created automatically so that the preview can be shared before merging.
 
+### Forcing a site rebuild
+
+To rebuild the site when one of the SDK/tool repos hasn't been versioned, simply make any change to the `main` branch of this repo.  This is a workaround until a manual site rebuild capability is added.
+
 ## License
 
 [![CC BY 4.0][cc-by-image]][cc-by]
