@@ -7,6 +7,11 @@ const sidebars = {
       id: 'introduction',
     },
     {
+      type: 'doc',
+      id: 'getting-started',
+      label: 'Getting started',
+    },
+    {
       type: 'category',
       label: 'JavaScript SDK',
       collapsed: true,
