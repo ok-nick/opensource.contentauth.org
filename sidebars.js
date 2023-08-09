@@ -73,11 +73,11 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'manifest/signing-manifests',
+          id: 'manifest/manifest-ref',
         },
         {
           type: 'doc',
-          id: 'manifest/manifest-ref',
+          id: 'manifest/signing-manifests',
         },
       ],
     },
