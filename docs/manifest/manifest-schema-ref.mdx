@@ -1,0 +1,19 @@
+---
+id: manifest-ref
+title: Manifest reference
+hide_table_of_contents: true
+---
+
+import CodeBlock from '@theme/CodeBlock';
+import Schema from '@site/static/ManifestStore.schema.json';
+import JSONSchemaViewer from '@theme/JSONSchemaViewer';
+
+## Overview
+
+This is the reference generated from the manifest JSON schema.
+
+<JSONSchemaViewer schema={Schema} />
+
+# Source :
+
+<CodeBlock language="json">{JSON.stringify(Schema, null, 2)}</CodeBlock>

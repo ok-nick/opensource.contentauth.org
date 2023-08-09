@@ -59,8 +59,27 @@ const sidebars = {
       ],
     },
     {
-      type: 'doc',
-      id: 'signing-manifests',
+      type: 'category',
+      label: 'Working with manifests',
+      collapsed: true,
+      items: [
+        {
+          type: 'doc',
+          id: 'manifest/what-is-manifest',
+        },
+        {
+          type: 'doc',
+          id: 'manifest/manifest-examples',
+        },
+        {
+          type: 'doc',
+          id: 'manifest/signing-manifests',
+        },
+        {
+          type: 'doc',
+          id: 'manifest/manifest-ref',
+        },
+      ],
     },
     {
       type: 'doc',
