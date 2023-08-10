@@ -7,13 +7,14 @@ The concept of a _manifest_ is central to how Content Credentials work.
 
 A collection of manifests (referred to as a _manifest store_) is attached to an asset&mdash;either embedded into the asset or external and linked to it. Each manifest contains information about the provenance of the asset. A manifest contains information about the provenance of an asset based on the combination of one or more assertions (including content bindings), a single claim, and a claim signature. The _active manifest_ is the last manifest in the manifest store which is the one with the set of content bindings that are able to be validated.
 
-_Questions_:
+:::caution Questions
 
 - _Can we say something at a high level about how an external manifest is linked to an asset? Currently, this is only possible for Adobe implementations because it requires a Content Cred. cloud right?_
 - _Is the set of manifests in the store a linked list, i.e. is there ordering? Or what kind of structure is it?_
 - _This is unclear: "the active manifest is the ... one with the set of content bindings that are able to be validated."_
 
 _Explain why there multiple manifests. Is a new manifest created each time an asset is saved, e.g. initial capture, editing by a tool, etc.? Or when?_
+:::
 
 The structure of a manifest as described in the C2PA spec is a binary structure in CBOR inside of JUMBF.
 It's not a JSON file.
@@ -24,7 +25,10 @@ The manifest structure described in the C2PA specification is a binary structure
 
 In contrast, CAI and c2patool works with a JSON format derived from this binary structure.
 
+:::caution Question
+
 _Is that correct, or is it just that CAI/c2patool use the JSON format as a simplified way to deal with the more complex binary manifest? Is it just for persistence to a human-readable file format, or?_
+:::
 
 C2PA tool has two modes:
 
