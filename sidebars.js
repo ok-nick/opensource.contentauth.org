@@ -65,7 +65,7 @@ const sidebars = {
       items: [
         {
           type: 'doc',
-          id: 'manifest/what-is-manifest',
+          id: 'manifest/understanding-manifest',
         },
         {
           type: 'doc',
