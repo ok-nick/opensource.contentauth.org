@@ -19,6 +19,8 @@ _Explain why there multiple manifests. Is a new manifest created each time an as
 The structure of a manifest as described in the C2PA spec is a binary structure in CBOR inside of JUMBF.
 It's not a JSON file.
 
+Ingredients means something else than C2PA spec
+
 ## Binary versus JSON manifest
 
 The manifest structure described in the C2PA specification is a binary structure in Concise Binary Object Representation (CBOR) format. Using CBOR enables including binary data such as encryption keys, and thumbnail images. The CBOR daata is encapsulated inside a JPEG Universal Metadata Box Format (JUMBF) structure.
