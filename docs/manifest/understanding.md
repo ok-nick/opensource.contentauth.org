@@ -1,6 +1,6 @@
 ---
 id: understanding-manifest
-title: Understanding manifests
+title: Understanding manifest data
 ---
 
 The concept of a _manifest_ is central to how Content Credentials work.
