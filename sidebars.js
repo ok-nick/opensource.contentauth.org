@@ -60,7 +60,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Working with manifests',
+      label: 'Working with manifest data',
       collapsed: true,
       items: [
         {
