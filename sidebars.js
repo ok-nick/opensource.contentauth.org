@@ -77,6 +77,10 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'manifest/manifest-json-schema',
+        },
+        {
+          type: 'doc',
           id: 'manifest/signing-manifests',
         },
       ],
