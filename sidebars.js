@@ -28,14 +28,6 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'c2patool/manifest',
-        },
-        {
-          type: 'doc',
-          id: 'c2patool/x_509',
-        },
-        {
-          type: 'doc',
           id: 'c2patool/release-notes',
         },
         {
@@ -81,6 +73,10 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'c2patool/manifest',
+        },
+        {
+          type: 'doc',
           id: 'manifest/manifest-examples',
         },
         {
@@ -94,6 +90,10 @@ const sidebars = {
         {
           type: 'doc',
           id: 'manifest/signing-manifests',
+        },
+        {
+          type: 'doc',
+          id: 'c2patool/x_509',
         },
       ],
     },
