@@ -30,6 +30,21 @@ const readmes = [
     path: 'README.md',
   },
   {
+    dest: resolve(__dirname, '../docs/c2patool/manifest.md'),
+    repo: 'contentauth/c2patool',
+    path: 'docs/manifest.md',
+  },
+  {
+    dest: resolve(__dirname, '../docs/c2patool/x_509.md'),
+    repo: 'contentauth/c2patool',
+    path: 'docs/x_509.md',
+  },
+  {
+    dest: resolve(__dirname, '../docs/c2patool/release-notes.md'),
+    repo: 'contentauth/c2patool',
+    path: 'docs/release-notes.md',
+  },
+  {
     dest: resolve(__dirname, '../docs/c2pa-service-example/readme.md'),
     repo: 'contentauth/c2pa-service-example',
     path: 'README.md',
@@ -47,9 +62,13 @@ function resolveMarkdownLinks(linkBase, content) {
 }
 
 async function download() {
-  for await (const { repo, path, dest } of readmes) {
-    const src = `${RAW_GITHUB_HOST}/${repo}/main/${path}`;
-    const linkBase = `${GITHUB_HOST}/${repo}/blob/main/${path}`;
+  for await (const { repo, path, dest, branch = 'main' } of readmes) {
+    /*
+     * Pass {branch} var to pull docs from other than main branch.
+     */
+
+    const src = `${RAW_GITHUB_HOST}/${repo}/${branch}/${path}`;
+    const linkBase = `${GITHUB_HOST}/${repo}/blob/${branch}/${path}`;
     const res = await fetch(src);
     const markdown = await res.text();
     const resolvedMarkdown = resolveMarkdownLinks(linkBase, markdown);
