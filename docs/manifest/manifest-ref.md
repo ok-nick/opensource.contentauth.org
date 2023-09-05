@@ -1,8 +1,11 @@
 ---
 id: manifest-ref
 title: Manifest store reference
+hide_table_of_contents: true
 ---
 
-This is a reference for the JSON manifest structure.
+:::danger
+This is incomplete work in progress and is not yet accurate or complete. DO NOT REFER TO IT YET!
+:::
 
-<iframe src="https://crandmck.github.io/c2pa-manifest-reference/reference-cai" height="1000px" width="95%" scrolling="yes"></iframe>
+<iframe src="https://contentauth.github.io/c2pa-manifest-reference/reference-cai" height="800px" width="95%" scrolling="yes"></iframe>
