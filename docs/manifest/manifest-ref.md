@@ -8,4 +8,4 @@ hide_table_of_contents: true
 This is incomplete work in progress and is not yet accurate or complete. DO NOT REFER TO IT YET!
 :::
 
-<iframe src="https://contentauth.github.io/c2pa-manifest-reference/reference-cai" height="800px" width="95%" scrolling="yes"></iframe>
+<iframe src="https://contentauth.github.io/json-manifest-reference/reference-cai" height="800px" width="95%" scrolling="yes"></iframe>
