@@ -65,11 +65,13 @@ const sidebars = {
     {
       type: 'category',
       label: 'Working with manifest data',
+      link: { type: 'doc', id: 'manifest/understanding-manifest' },
       collapsed: true,
       items: [
         {
           type: 'doc',
-          id: 'manifest/understanding-manifest',
+          id: 'manifest/tasks',
+          label: 'Common tasks',
         },
         {
           type: 'doc',
@@ -86,6 +88,7 @@ const sidebars = {
         {
           type: 'doc',
           id: 'manifest/manifest-json-schema',
+          label: 'JSON schema',
         },
         {
           type: 'doc',
@@ -94,6 +97,7 @@ const sidebars = {
         {
           type: 'doc',
           id: 'c2patool/x_509',
+          label: 'Creating and using a certificate',
         },
       ],
     },
