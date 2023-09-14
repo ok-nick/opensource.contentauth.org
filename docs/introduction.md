@@ -26,8 +26,8 @@ The [JavaScript SDK](js-sdk/getting-started/overview) enables **working with C2P
 
 [c2patool](c2patool) is a **command-line utility for working with C2PA manifest data**. Use this tool to:
 
-- Read a JSON report of C2PA manifest data in supported asset file formats.
-- Add a C2PA manifest to supported file formats.
+- Read a JSON report of manifest data in supported asset file formats.
+- Add a manifest store to supported file formats.
 
 ### Rust SDK
 

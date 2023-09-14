@@ -21,12 +21,7 @@ const sidebars = {
       type: 'category',
       label: 'Viewing manifest data',
       link: { type: 'doc', id: 'js-sdk/guides/viewing-manifest-data' },
-      items: [
-        'js-sdk/guides/selectors',
-        'js-sdk/guides/validation',
-        // "js-sdk/guides/web-components",
-        'js-sdk/guides/debugging',
-      ],
+      items: ['js-sdk/guides/selectors', 'js-sdk/guides/validation'],
       collapsed: true,
     },
     {
