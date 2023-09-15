@@ -3,28 +3,26 @@ const api = require('./api/api-sidebar');
 const sidebars = {
   docs: [
     {
-      type: 'category',
-      label: 'Getting started',
-      items: [
-        'js-sdk/getting-started/overview',
-        'js-sdk/getting-started/quick-start',
-        'js-sdk/getting-started/architecture',
-        'js-sdk/getting-started/browser-support',
-      ],
-      collapsed: false,
+      type: 'doc',
+      label: 'Quick start',
+      id: 'js-sdk/getting-started/quick-start',
+    },
+    {
+      type: 'doc',
+      label: 'Architecture',
+      id: 'js-sdk/getting-started/architecture',
+    },
+    {
+      type: 'doc',
+      label: 'Hosting assets',
+      id: 'js-sdk/guides/hosting',
     },
     {
       type: 'category',
-      label: 'Guides',
-      items: [
-        'js-sdk/guides/viewing-manifest-data',
-        'js-sdk/guides/selectors',
-        'js-sdk/guides/validation',
-        // "js-sdk/guides/web-components",
-        'js-sdk/guides/debugging',
-        'js-sdk/guides/hosting',
-      ],
-      collapsed: false,
+      label: 'Viewing manifest data',
+      link: { type: 'doc', id: 'js-sdk/guides/viewing-manifest-data' },
+      items: ['js-sdk/guides/selectors', 'js-sdk/guides/validation'],
+      collapsed: true,
     },
     {
       type: 'category',

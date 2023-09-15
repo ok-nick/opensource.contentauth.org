@@ -14,12 +14,14 @@ const sidebars = {
     {
       type: 'category',
       label: 'JavaScript SDK',
+      link: { type: 'doc', id: 'js-sdk/getting-started/overview' },
       collapsed: true,
       items: jsSdkSidebar.docs,
     },
     {
       type: 'category',
       label: 'c2patool',
+      link: { type: 'doc', id: 'c2patool/readme' },
       collapsed: true,
       items: [
         {
@@ -44,12 +46,9 @@ const sidebars = {
     {
       type: 'category',
       label: 'Rust SDK',
+      link: { type: 'doc', id: 'rust-sdk/readme' },
       collapsed: true,
       items: [
-        {
-          type: 'doc',
-          id: 'rust-sdk/readme',
-        },
         {
           type: 'link',
           label: 'API documentation',
