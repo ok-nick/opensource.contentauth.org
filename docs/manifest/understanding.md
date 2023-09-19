@@ -29,11 +29,7 @@ The manifest as described in the C2PA specification is a binary structure in Con
 
 Because this binary structure is hard to understand and program to, the SDKs define a JSON manifest structure that's a declarative language for representing and creating a manifest in CBOR format. The JSON manifest format is a human-readable format, something like a translation layer that's easier to understand than the CBOR format. While there is a one-to-one mapping between the two formats, the JSON format is a more abstract representation. Although strictly speaking the JSON format is not _actually_ the manifest, it is a language that describes how to create a manifest.
 
-So for example, there is no such thing as an ingredient assertion in the CBOR format, while there is in the JSON format. The CAI SDKs make the ingredient assertion and puts it in the manifest data based on what's in the JSON. _Ingredient_ means something else in the C2PA specification.
-
-:::caution Question
-_Is that correct?_
-:::
+So for example, there is no such thing as an ingredient assertion in the CBOR format, while there is in the JSON format.
 
 The JSON manifest structure can fully describe almost everything in the underlying manifest format, except for binary blobs for C2PA structures and thumbnails that are included by a structure called a _resource reference_.
 
