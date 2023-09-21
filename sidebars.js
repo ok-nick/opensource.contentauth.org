@@ -26,10 +26,6 @@ const sidebars = {
       items: [
         {
           type: 'doc',
-          id: 'c2patool/readme',
-        },
-        {
-          type: 'doc',
           id: 'c2patool/release-notes',
         },
         {

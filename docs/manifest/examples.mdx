@@ -5,9 +5,7 @@ title: Manifest examples
 
 import CodeBlock from '@theme/CodeBlock';
 
-We should provide a few good examples. What are the main use cases that will have different kinds of manifests?
-
-Can we move <https://opensource.contentauthenticity.org/docs/c2patool/#example-manifest-definition-file> here?
+_Need to make sure these examples cover the main use cases that will have different kinds of manifests._
 
 ## Examples from c2patool
 
@@ -17,12 +15,16 @@ This manifest was saved using `c2patool` with no options.
 
 import SimpleManifestEx from '!!raw-loader!./simple-manifest-ex.json.jsx';
 
-<CodeBlock language="json" showLineNumbers>{SimpleManifestEx}</CodeBlock>
+<CodeBlock language="json" showLineNumbers>
+  {SimpleManifestEx}
+</CodeBlock>
 
 ### Detailed manifest
 
 import DetailedManifestEx from '!!raw-loader!./detailed-manifest-ex.json.jsx';
 
-This manifest was saved using `c2patool` with the `-d` option.  Even though it was generated for the same asset and Content Credentials as the simple manifest example, you can see that it's about twice as long.
+This manifest was saved using `c2patool` with the `-d` option. Even though it was generated for the same asset and Content Credentials as the simple manifest example, you can see that it's about twice as long.
 
-<CodeBlock language="json" showLineNumbers>{DetailedManifestEx}</CodeBlock>
+<CodeBlock language="json" showLineNumbers>
+  {DetailedManifestEx}
+</CodeBlock>
