@@ -91,6 +91,10 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'manifest/manifest-validation',
+        },
+        {
+          type: 'doc',
           id: 'c2patool/x_509',
           label: 'Creating and using a certificate',
         },
