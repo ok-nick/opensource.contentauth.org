@@ -5,7 +5,7 @@ hide_table_of_contents: true
 ---
 
 :::danger
-This is incomplete work in progress and is not yet accurate or complete. DO NOT REFER TO IT YET!
+This is a beta release of this reference. It is a work in progress and may not be accurate or complete.
 :::
 
 <iframe src="https://contentauth.github.io/json-manifest-reference/reference-cai" height="460px" width="95%" scrolling="yes"></iframe>

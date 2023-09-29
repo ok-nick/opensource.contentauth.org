@@ -3,8 +3,6 @@ id: manifest-validation
 title: Validating manifests
 ---
 
-_NOTE: Combine with <https://deploy-preview-76--cai-open-source.netlify.app/docs/js-sdk/guides/validation> (without JS-specific info)._
-
 Processing an asset includes [validating the manifests](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_validation) in the associated manifest store. During validation, errors can occur in the active manifest and in ingredients.
 
 ## Validation errors in the active manifest

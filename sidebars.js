@@ -65,11 +65,6 @@ const sidebars = {
       items: [
         {
           type: 'doc',
-          id: 'manifest/tasks',
-          label: 'Common tasks',
-        },
-        {
-          type: 'doc',
           id: 'c2patool/manifest',
         },
         {
@@ -87,11 +82,11 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'manifest/signing-manifests',
+          id: 'manifest/manifest-validation',
         },
         {
           type: 'doc',
-          id: 'manifest/manifest-validation',
+          id: 'manifest/signing-manifests',
         },
         {
           type: 'doc',

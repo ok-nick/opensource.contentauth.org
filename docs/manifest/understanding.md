@@ -25,7 +25,7 @@ The manifests in the manifest store are not in any order, but the most-recently 
 
 ## Binary versus JSON manifest
 
-The manifest as described in the C2PA specification is a binary structure in Concise Binary Object Representation (CBOR) format. Using CBOR enables including binary data such as encryption keys and thumbnail images. The CBOR data is encapsulated inside JPEG Universal Metadata Box Format (JUMBF).
+The manifest as described in the C2PA specification is a binary structure in Concise Binary Object Representation (CBOR) format. Using CBOR enables including binary data such as encryption keys and thumbnail images. The CBOR data is encapsulated inside JPEG universal metadata box format (JUMBF).
 
 Because this binary structure is hard to understand and program to, the SDKs define a JSON manifest structure that's a declarative language for representing and creating a manifest in CBOR format. The JSON manifest format is a human-readable format, something like a translation layer that's easier to understand than the CBOR format. While there is a one-to-one mapping between the two formats, the JSON format is a more abstract representation. Although strictly speaking the JSON format is not _actually_ the manifest, it is a language that describes how to create a manifest.
 
@@ -33,15 +33,11 @@ So for example, there is no such thing as an ingredient assertion in the CBOR fo
 
 The JSON manifest structure can fully describe almost everything in the underlying manifest format, except for binary blobs for C2PA structures and thumbnails that are included by a structure called a _resource reference_.
 
-The JSON manifest structure has high-level structures called `ingredient` and `manifest` that aren't exactly what's in the C2PA spec, but are more of a high-level representation of the manifest binary content.
+The JSON manifest structure has high-level structures called `ingredient` and `manifest` that aren't exactly what's in the C2PA spec, but are a high-level representation of the manifest's binary content.
 
-For instance, instead of having ingredient assertions and all their thumbnail assertions scattered in different ways and have to be sorted out, you just have an ingredient that refers to an ingredient structure. That ingredient structure looks similar to an ingredient assertion, but it's not treated as an assertion in the SDK API.
+For instance, instead of having ingredient assertions and all their thumbnail assertions scattered in different ways, a JSON manifest has an ingredient that refers to an ingredient structure. That ingredient structure looks similar to an ingredient assertion, but it's not treated as an assertion in the SDK API.
 
-_Something_ has a MIME type as a format and it has an identifier is a path to a file and so you've got basically JSON and a bunch of associated files referenced from the JSON.
-
-:::caution Question
-_What is "something" above?_
-:::
+An ingredient's `format` property specifies a MIME type as a format and it has an identifier is a path to a file and so you've got basically JSON and a bunch of associated files referenced from the JSON.
 
 But if you're dealing with something like a camera that doesn't have a file system, those identifiers refer to memory blobs that are referenced in other ways in the underlying APIs.
 
@@ -49,10 +45,10 @@ Essentially the idea is is that you can create this JSON structure that describe
 
 ## Displaying manifest data with c2patool
 
-`c2patool` is very helpful when developing applications to work with manfiest data. When saving a manifest, it has two modes:
+The command-line tool `c2patool` is very helpful when developing applications to work with manfiest data. When saving a manifest, it has two modes:
 
-- In the standard mode (the default), it saves a manifest file in JSON format, which is simplified and slightly different from the underlying binary manifest structure.
-- In detailed mode (specified with the `-d` option) it saves a file that more closely reflects the actual structure of the binary data, including assertions with JUMBF URLs and their associated hashes.
+- **Standard mode** (the default), where it saves a manifest file in JSON format, which is simplified and slightly different from the underlying binary manifest structure.
+- **Detailed mode** (specified with the `-d` option), where it saves a file that more closely reflects the actual structure of the binary data, including assertions with JUMBF URLs and their associated hashes.
 
 ## References
 
