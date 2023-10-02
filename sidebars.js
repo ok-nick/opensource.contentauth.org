@@ -13,6 +13,41 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Working with manifest data',
+      link: { type: 'doc', id: 'manifest/understanding-manifest' },
+      collapsed: true,
+      items: [
+        {
+          type: 'doc',
+          id: 'c2patool/manifest',
+          label: 'Examples',
+        },
+        {
+          type: 'doc',
+          id: 'manifest/manifest-ref',
+        },
+        {
+          type: 'doc',
+          id: 'manifest/manifest-json-schema',
+          label: 'JSON schema',
+        },
+        {
+          type: 'doc',
+          id: 'manifest/manifest-validation',
+        },
+        {
+          type: 'doc',
+          id: 'manifest/signing-manifests',
+        },
+        {
+          type: 'doc',
+          id: 'c2patool/x_509',
+          label: 'Creating and using a certificate',
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'JavaScript SDK',
       link: { type: 'doc', id: 'js-sdk/getting-started/overview' },
       collapsed: true,
@@ -54,44 +89,6 @@ const sidebars = {
           type: 'link',
           label: 'GitHub',
           href: 'https://github.com/contentauth/c2pa-rs',
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Working with manifest data',
-      link: { type: 'doc', id: 'manifest/understanding-manifest' },
-      collapsed: true,
-      items: [
-        {
-          type: 'doc',
-          id: 'c2patool/manifest',
-        },
-        {
-          type: 'doc',
-          id: 'manifest/manifest-examples',
-        },
-        {
-          type: 'doc',
-          id: 'manifest/manifest-ref',
-        },
-        {
-          type: 'doc',
-          id: 'manifest/manifest-json-schema',
-          label: 'JSON schema',
-        },
-        {
-          type: 'doc',
-          id: 'manifest/manifest-validation',
-        },
-        {
-          type: 'doc',
-          id: 'manifest/signing-manifests',
-        },
-        {
-          type: 'doc',
-          id: 'c2patool/x_509',
-          label: 'Creating and using a certificate',
         },
       ],
     },

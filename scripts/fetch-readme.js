@@ -33,6 +33,7 @@ const readmes = [
     dest: resolve(__dirname, '../docs/c2patool/manifest.md'),
     repo: 'contentauth/c2patool',
     path: 'docs/manifest.md',
+    branch: 'manifest-docs',
   },
   {
     dest: resolve(__dirname, '../docs/c2patool/x_509.md'),

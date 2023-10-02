@@ -4,7 +4,7 @@ title: Manifest store reference
 hide_table_of_contents: true
 ---
 
-:::danger
+:::danger Warning
 This is a beta release of this reference. It is a work in progress and may not be accurate or complete.
 :::
 
