@@ -9,6 +9,10 @@ const { StandardMarkdownDocumenter } = require('standard-markdown-documenter');
 const ejs = require('ejs');
 const prettier = require('prettier');
 const { exec } = require('child_process');
+// Added to remove pagination
+const path = require('path');
+const noPaginationFrontMatterStr =
+  '---\npagination_next: null\npagination_prev: null\n---\n';
 
 const sidebar = fs.readFileSync(join(__dirname, './api-sidebar.ejs'), 'utf-8');
 const tree = fs.readFileSync(
@@ -41,6 +45,38 @@ function isSideBarItem(items) {
     items[0] !== null &&
     'type' in items[0]
   );
+}
+
+// Added to remove pagination
+function appendStringToFiles(directory, stringToAppend) {
+  fs.readdir(directory, (err, files) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+
+    files.forEach((file) => {
+      const filePath = path.join(directory, file);
+
+      fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+
+        const updatedData = stringToAppend + data;
+
+        fs.writeFile(filePath, updatedData, 'utf8', (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+
+          console.log(`Appended "${stringToAppend}" to ${file}`);
+        });
+      });
+    });
+  });
 }
 
 async function generateSidebarFile(inputDir, outDir) {
@@ -94,6 +130,8 @@ async function generateMarkdownFiles(inputDir, outDir) {
 (async () => {
   try {
     await generateMarkdownFiles(options.inputDir, options.outDir);
+    // Added to remove pagination
+    await appendStringToFiles(options.outDir, noPaginationFrontMatterStr);
     await generateSidebarFile(options.inputDir, options.outDir);
   } catch (e) {
     console.error(e);
