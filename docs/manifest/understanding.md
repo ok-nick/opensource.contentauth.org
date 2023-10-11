@@ -43,13 +43,15 @@ But if you're dealing with something like a camera that doesn't have a file syst
 
 Essentially the idea is is that you can create this JSON structure that describes all the things you want to put into a manifest, and some of those things might be binaries like thumbnails, in which case you'll put a file in there too, and reference that from the JSON. Then when you use the SDK to make the manifest, it assembles all the pieces, takes the ingredients that you've defined, and converts them into different assertions and other objects.
 
-## Timestamps
+## Time-stamps
 
-The C2PA specification strongly recommends that a manifest signature contains a trusted time-stamp proving that the signature actually existed at a certain date. Specifically, it recommends using a Time Stamp Authority (TSA) that complies with [Internet X.509 Public Key Infrastructure Time-Stamp Protocol (RFC 3161)](https://datatracker.ietf.org/doc/html/rfc3161) standard.
+The C2PA specification strongly recommends that a manifest signature contains a trusted time-stamp proving that the signature actually existed at a certain date. Specifically, it recommends using a Time -Stamp Authority (TSA) that complies with [Internet X.509 Public Key Infrastructure Time-Stamp Protocol (RFC 3161)](https://datatracker.ietf.org/doc/html/rfc3161) standard.
 
-Manifests without time-stamps cease to be valid when the signing credential expires or becomes revoked.
+:::danger Warning
+Manifests without time-stamps cease to be valid when the signing credential expires or is revoked.
+:::
 
-An RFC 3161 time-stamp enables you to prove the existence of a particular piece of data at a particular time. Think of it as a notary service for data. You present a piece of data (in this case, the C2PA claim data structure) and the third party time-stamp authority verifies that it saw that data at an independently-verifiable and audible time.
+An RFC 3161 time-stamp enables you to prove the existence of a particular piece of data at a particular time. Think of it as a notary service for data. You present a piece of data (in this case, the C2PA claim data structure) and the third-party TSA verifies that it saw that data at a time that can be audited and is independently-verifiable.
 
 ## Displaying manifest data with c2patool
 

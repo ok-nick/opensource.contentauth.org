@@ -13,7 +13,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Working with manifest data',
+      label: 'Working with manifests',
       link: { type: 'doc', id: 'manifest/understanding-manifest' },
       collapsed: true,
       items: [
