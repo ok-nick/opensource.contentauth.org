@@ -19,6 +19,19 @@ const sidebars = {
       items: [
         {
           type: 'doc',
+          id: 'manifest/manifest-validation',
+        },
+        {
+          type: 'doc',
+          id: 'manifest/signing-manifests',
+        },
+        {
+          type: 'doc',
+          id: 'c2patool/x_509',
+          label: 'Creating and using a certificate',
+        },
+        {
+          type: 'doc',
           id: 'c2patool/manifest',
           label: 'Examples',
         },
@@ -30,19 +43,6 @@ const sidebars = {
           type: 'doc',
           id: 'manifest/manifest-json-schema',
           label: 'JSON schema',
-        },
-        {
-          type: 'doc',
-          id: 'manifest/manifest-validation',
-        },
-        {
-          type: 'doc',
-          id: 'manifest/signing-manifests',
-        },
-        {
-          type: 'doc',
-          id: 'c2patool/x_509',
-          label: 'Creating and using a certificate',
         },
       ],
     },
