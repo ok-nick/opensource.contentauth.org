@@ -32,7 +32,7 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'c2patool/manifest',
+          id: 'manifest/manifest-examples',
           label: 'Examples',
         },
         {
@@ -59,6 +59,11 @@ const sidebars = {
       link: { type: 'doc', id: 'c2patool/readme' },
       collapsed: true,
       items: [
+        {
+          type: 'doc',
+          id: 'c2patool/manifest',
+          label: 'Manifest definition file',
+        },
         {
           type: 'doc',
           id: 'c2patool/release-notes',

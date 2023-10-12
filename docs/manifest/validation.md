@@ -9,7 +9,7 @@ Processing an asset includes [validating the manifests](https://c2pa.org/specifi
 
 The following table lists some common validation errors. Refer to the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_failure_codes) for the full list.
 
-| Validation Status Code         | Meaning                                                                                                                                                                                 | Type of URI       |
+| Validation Status Code         | Description                                                                                                                                                                             | Type of URI       |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
 | `assertion.hashedURI.mismatch` | The hash of the the referenced assertion in the manifest does not match the corresponding hash in the assertion's hashed URI in the claim.                                              | Assertion URI     |
 | `assertion.dataHash.mismatch`  | The hash of a byte range of the asset does not match the hash declared in the data hash assertion.                                                                                      | Assertion URI     |
@@ -24,8 +24,8 @@ The following table lists some common validation errors. Refer to the [C2PA Tech
 
 Validation status codes can contain JUMBF URIs that reference assertions or signature credentials in the manifest store. These URIs are of the form `self#jumbf=...` as follows:
 
-- C2PA Assertion URI: A URI like `self#jumbf=c2pa.assertions/<ASSERTION>` where `<ASSERTION>` is either `stds.schema-org.*` or `c2pa.*`.
-- C2PA Signature Box URI: A URI like `self#jumbf=c2pa.signature`.
+- **Assertion URI**: A URI like `self#jumbf=c2pa.assertions/<ASSERTION>` where `<ASSERTION>` is either `stds.schema-org.*` or `c2pa.*`.
+- **Signature Box URI**: A URI like `self#jumbf=c2pa.signature`.
 
 A JUMBF URI includes a manifest ID to reference a specific manifest; otherwise, it's assumed to refer to the active manifest.
 

@@ -53,13 +53,6 @@ Manifests without time-stamps cease to be valid when the signing credential expi
 
 An RFC 3161 time-stamp enables you to prove the existence of a particular piece of data at a particular time. Think of it as a notary service for data. You present a piece of data (in this case, the C2PA claim data structure) and the third-party TSA verifies that it saw that data at a time that can be audited and is independently-verifiable.
 
-## Displaying manifest data with c2patool
-
-The command-line tool `c2patool` is very helpful when developing applications to work with manifest data. When saving a manifest, it has two modes:
-
-- **Standard mode** (the default), where it saves a manifest file in JSON format, which is simplified and slightly different from the underlying binary manifest structure.
-- **Detailed mode** (specified with the `-d` option), where it saves a file that more closely reflects the actual structure of the binary data, including assertions with JUMBF URLs and their associated hashes.
-
 ## References
 
 - [JPEG Universal Metadata Box Format (JUMBF)](https://www.iso.org/standard/84635.html): A framework for JPEG standards to add universal metadata, supplementary images, or other elements in addition to the base image.
