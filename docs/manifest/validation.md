@@ -27,25 +27,27 @@ Validation status codes can contain JUMBF URIs that reference assertions or sign
 - **Assertion URI**: A URI like `self#jumbf=c2pa.assertions/<ASSERTION>` where `<ASSERTION>` is either `stds.schema-org.*` or `c2pa.*`.
 - **Signature Box URI**: A URI like `self#jumbf=c2pa.signature`.
 
-A JUMBF URI includes a manifest ID to reference a specific manifest; otherwise, it's assumed to refer to the active manifest.
+If a JUMBF URI does not include a manifest ID, then it's assumed to reference the active manifest.
 
 For more information, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_uri_references).
 
-## Validation errors in the active manifest
+## Validation errors in manifests
 
-When you load an asset, the active manifest is validated and any [failure codes](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_failure_codes) are assigned to the `validation_status` array. Inspect the array to find the validation errors. Validation returns ONLY error codes; success is not explicitly indicated.
+When you load an asset, all the manifests in the manifest store are validated and any [failure codes](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_failure_codes) are assigned to the `validation_status` array. Inspect the array to find the validation errors. Validation returns ONLY error codes; success is not explicitly indicated.
+
+Only errors that are not already recorded in the `validation_status` of an ingredient are reported.
+
+Manifest validation errors can occur, for example, when:
+
+- The bits of an asset are edited after it was signed.
+- A claim or assertion is missing or tampered with.
+- The manifest is signed with an invalid credential.
 
 :::caution
 Don't assume that just because you didn't get an error from the function return value that there are not validation errors. You MUST check the `validation_status` array to see if there are errors or not.
 :::
 
 See [ValidationStatus](manifest-ref#validationstatus) object in Manifest store reference.
-
-Manifest validation errors can occur when:
-
-- The bits of an asset are edited after it was signed.
-- A claim or assertion is missing or tampered with.
-- The manifest is signed with an invalid credential.
 
 ## Validation errors in ingredients
 

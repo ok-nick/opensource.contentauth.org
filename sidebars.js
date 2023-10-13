@@ -27,11 +27,6 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'c2patool/x_509',
-          label: 'Creating and using a certificate',
-        },
-        {
-          type: 'doc',
           id: 'manifest/manifest-examples',
           label: 'Examples',
         },
@@ -62,11 +57,12 @@ const sidebars = {
         {
           type: 'doc',
           id: 'c2patool/manifest',
-          label: 'Manifest definition file',
+          label: 'Using a manifest file',
         },
         {
           type: 'doc',
-          id: 'c2patool/release-notes',
+          id: 'c2patool/x_509',
+          label: 'Creating and using a certificate',
         },
         {
           type: 'doc',
