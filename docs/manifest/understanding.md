@@ -25,23 +25,15 @@ The manifests in the manifest store are not ordered, but the most-recently added
 
 ## Binary versus JSON manifest
 
-The manifest as described in the C2PA specification is a binary structure in JPEG universal metadata box format (JUMBF) that can include JSON, binary data in Concise Binary Object Representation (CBOR), for things like encryption keys and thumbnail images.
+The manifest as described in the C2PA specification is a binary structure in JPEG universal metadata box format (JUMBF) that can include JSON and binary data in Concise Binary Object Representation (CBOR) format for things like encryption keys and thumbnail images.
 
-Because the binary structure is hard to understand and program to, the SDK defines a JSON manifest structure that's a declarative language for representing and creating a manifest in binary format. The JSON manifest format is a human-readable format, something like a translation layer that's easier to understand than the binary format. While there is a one-to-one mapping between the two formats, the JSON format is a more abstract representation.
+Because the binary structure is hard to understand and program to, the SDK defines a JSON manifest structure that's a declarative language for representing and creating a manifest in binary format. The JSON manifest is a human-readable format, a more abstract translation layer that's easier to understand than the binary format. The JSON format can describe everything in the underlying binary manifest format except for blobs representing thumbnails and other binary data that are included by a structure called a _resource reference_.
 
-Although strictly speaking the JSON format is not _actually_ the manifest, it is a language that can fully describe almost everything in the underlying manifest format, except for blobs for thumbnails and other binary data that are included by a structure called a _resource reference_.
+The JSON manifest has high-level structures called `ingredient` and `manifest` that are a high-level representation of the manifest's binary content.
 
-The JSON manifest has high-level structures called `ingredient` and `manifest` that aren't exactly what's in the C2PA spec, but are a high-level representation of the manifest's binary content.
+There are some small differences between the JSON and binary formats; for example, the binary format has ingredient and thumbnail assertions, while the JSON format does not. Instead of having ingredient assertion, a JSON manifest has an ingredient that refers to an ingredient structure that looks similar to an ingredient assertion, but it's not treated as an assertion in the SDK API. An ingredient's `format` property specifies a MIME type and has an identifier that can be file path, but for a device such as a camera that doesn't have a file system, those identifiers refer to memory blobs that are referenced in other ways in the underlying APIs.
 
-There are some small differences between the JSON and binary formats; for example, the JSON format does not have ingredient and thumbnail assertions, while the binary format does.
-
-For instance, instead of having ingredient assertions and all their thumbnail assertions scattered in different ways, a JSON manifest has an ingredient that refers to an ingredient structure. That ingredient structure looks similar to an ingredient assertion, but it's not treated as an assertion in the SDK API.
-
-An ingredient's `format` property specifies a MIME type as a format and it has an identifier that can be file path, and so you've got basically JSON and a some associated files referenced from the JSON. But if you're dealing with something like a camera that doesn't have a file system, those identifiers refer to memory blobs that are referenced in other ways in the underlying APIs.
-
-Essentially the idea is is that you can create this JSON structure that describes all the things you want to put into a manifest, and some of those things might be binaries like thumbnails, in which case you reference the file path. Then when you use the SDK to make the manifest, it assembles all the pieces, takes the ingredients that you've defined, and converts them into different assertions and other objects.
-
-All of these concepts also apply when reading manifest stores.
+Essentially the idea is is that you can create this JSON structure that describes all the things you want to put into a manifest, and some of those things might be binaries like thumbnails, in which case you reference the file path. Then when you use the SDK to make the manifest, it assembles all the pieces, takes the ingredients that you've defined, and converts them into different assertions and other objects as required.
 
 ## Time-stamps
 
@@ -53,7 +45,7 @@ Manifests without time-stamps cease to be valid when the signing credential expi
 
 An RFC 3161 time-stamp enables you to prove the existence of a particular piece of data at a particular time. Think of it as a notary service for data. You present a piece of data (in this case, the C2PA claim data structure) and the third-party TSA verifies that it saw that data at a time that can be audited and is independently-verifiable.
 
-The time stamp is typically defined as part of the signing information. You can set this via the c2patool `ta_url` field or by using the API. The time stamp then appears in the `SignatureInfo` JSON object when reading the manifest store.
+The time-stamp is typically defined as part of the signing information. You can set this via the c2patool `ta_url` field or by using the API. The time-stamp then appears in the `SignatureInfo` JSON object when reading the manifest store.
 
 ## References
 

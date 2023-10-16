@@ -8,4 +8,4 @@ hide_table_of_contents: true
 This is a beta release of this reference. It is a work in progress and may not be accurate or complete.
 :::
 
-<iframe src="https://contentauth.github.io/json-manifest-reference/reference-cai" height="460px" width="95%" scrolling="yes"></iframe>
+<iframe src="https://contentauth.github.io/json-manifest-reference/reference-cai" height="460px" id="ref_win" width="95%" scrolling="yes"></iframe>
