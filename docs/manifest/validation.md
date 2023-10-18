@@ -25,9 +25,9 @@ Don't assume that just because you didn't get an error from the function return 
 
 Ingredients are validated when they are imported into an asset and the result is stored in the ingredient's `validation_status` array.
 
-## Validation errors
+## Error status codes
 
-The following table lists some common validation errors. Refer to the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_failure_codes) for the full list.
+The following table lists some common validation error status codes. Refer to the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_failure_codes) for the full list.
 
 | Validation Status Code         | Description                                                                                                                                                                             | Type of URI       |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
@@ -42,7 +42,7 @@ The following table lists some common validation errors. Refer to the [C2PA Tech
 
 ### JUMBF URIs
 
-Validation status codes can contain JUMBF URIs that reference assertions or signature credentials in the manifest store. If a JUMBF URI does not include a manifest ID, then it's assumed to reference the active manifest. These URIs are of the form `self#jumbf=...` as follows:
+Validation error status codes can contain JUMBF URIs that reference assertions or signature credentials in the manifest store. If a JUMBF URI does not include a manifest ID, then it's assumed to reference the active manifest. These URIs are of the form `self#jumbf=...` as follows:
 
 - **Assertion URI**: A URI like `self#jumbf=c2pa.assertions/<ASSERTION>` where `<ASSERTION>` is either `stds.schema-org.*` or `c2pa.*`.
 - **Signature Box URI**: A URI like `self#jumbf=c2pa.signature`.
