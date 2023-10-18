@@ -29,16 +29,16 @@ Ingredients are validated when they are imported into an asset and the result is
 
 The following table describes some common validation error status codes. Refer to the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_failure_codes) for the full list.
 
-| Validation Status Code         | Description                                                                                                                                                                             | Type of URI       |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| `assertion.hashedURI.mismatch` | The hash of the the referenced assertion in the manifest does not match the corresponding hash in the assertion's hashed URI in the claim.                                              | Assertion URI     |
-| `assertion.dataHash.mismatch`  | The hash of a byte range of the asset does not match the hash declared in the data hash assertion.                                                                                      | Assertion URI     |
-| `assertion.bmffHash.mismatch`  | The hash of a box-based asset does not match the hash declared in a [Base Media File Format BMFF](https://www.loc.gov/preservation/digital/formats/fdd/fdd000079.shtml) hash assertion. | Assertion URI     |
-| `assertion.boxesHash.mismatch` | The hash of a general box-like asset format does not match the hash declared in a general boxes hash assertion.                                                                         | Assertion URI     |
-| `signingCredential.untrusted`  | The signing credential is not listed on the validator's trust list.                                                                                                                     | Signature Box URI |
-| `signingCredential.invalid`    | The signing credential is not valid for signing.                                                                                                                                        | Signature Box URI |
-| `signingCredential.revoked`    | The signing credential has been revoked by the issuer.                                                                                                                                  | Signature Box URI |
-| `signingCredential.expired`    | The signing credential has expired.                                                                                                                                                     | Signature Box URI |
+| Validation Status Code| Description  | Type of URI |
+| --------------------- | ------------ | ----------- |
+| `assertion.hashedURI.mismatch` | The hash of the the referenced assertion in the manifest does not match the corresponding hash in the assertion's hashed URI in the claim. | Assertion URI  |
+| `assertion.dataHash.mismatch`  | The hash of a byte range of the asset does not match the hash declared in the data hash assertion.  | Assertion URI  |
+| `assertion.bmffHash.mismatch`  | The hash of a box-based asset does not match the hash declared in a [Base Media File Format BMFF](https://www.loc.gov/preservation/digital/formats/fdd/fdd000079.shtml) hash assertion. | Assertion URI  |
+| `assertion.boxesHash.mismatch` | The hash of a general box-like asset format does not match the hash declared in a general boxes hash assertion. | Assertion URI  |
+| `signingCredential.untrusted`  | The signing credential is not listed on the validator's trust list.| Signature Box URI |
+| `signingCredential.invalid` | The signing credential is not valid for signing. | Signature Box URI |
+| `signingCredential.revoked` | The signing credential has been revoked by the issuer. | Signature Box URI |
+| `signingCredential.expired` | The signing credential has expired.  | Signature Box URI |
 
 ### JUMBF URIs
 
