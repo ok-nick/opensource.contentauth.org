@@ -13,12 +13,14 @@ A manifest store can be linked to an asset in three ways:
 
 1. Directly embedded in the asset's metadata.
 1. In a sidecar file, a file with the same file name as the asset but with a `.c2pa` extension.
-1. In a remote URL, linked from the asset's metadata, as detailed in the [C2PA specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_embedding_a_reference_to_the_active_manifest).  NOTE: A manifest store can be linked in this way _in addition_ to the first two ways.
+1. In a remote URL, linked from the asset's metadata, as detailed in the [C2PA specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_embedding_a_reference_to_the_active_manifest).  NOTE: A given asset can have a remote manifest store plus a local manifest store linked in one of the first two ways. 
 
-To determine if an asset has Content Credentials, the SDK checks for the presence of a manifest store (in the order shown above). So, for example to see if `foo.jpg` has Content Credentials, the SDK first checks if there's a manifest store in the file itself, then looks for a sidecar file (`foo.c2pa` in the same directory), and finally looks in the asset's metadata for a reference to a remote manifest store. 
+To determine if an asset has Content Credentials, the SDK checks for the presence of a manifest store (in the order shown above). So, for example to see if `foo.jpg` has Content Credentials, the SDK first checks if there's a manifest store in the file itself, then looks for a sidecar file (`foo.c2pa` in the same directory), and finally looks in the asset's metadata for a reference to a remote manifest store.  
+
+A remote manifest store can be provided for a given asset as well as an embedded or sidecar manifest store.  In other words, an asset can have an embedded _and_ a remote manifest store or a sidecar _and_ a remote manifest store.
 
 :::info
-Currently, only Adobe has implemented a Content Credentials cloud service to provide access to remote manifest stores, but in theory anyone could do so to provide a publicly-accessible network location for manifests.
+Currently, only Adobe has implemented a Content Credentials cloud service to provide access to remote manifest stores, but in theory anyone could do so to provide a publicly-accessible network location for manifests.   
 :::
 
 The manifests in the manifest store are not ordered, but the most-recently added manifest is the _active manifest_. The active manifest has content bindings that can be validated with the asset&mdash;that is, it's hashed with the asset to ensure its validity.
