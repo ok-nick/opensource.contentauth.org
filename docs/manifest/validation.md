@@ -27,7 +27,7 @@ Ingredients are validated when they are imported into an asset and the result is
 
 ## Error status codes
 
-The following table lists some common validation error status codes. Refer to the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_failure_codes) for the full list.
+The following table describes some common validation error status codes. Refer to the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_failure_codes) for the full list.
 
 | Validation Status Code         | Description                                                                                                                                                                             | Type of URI       |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
