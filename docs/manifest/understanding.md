@@ -9,13 +9,13 @@ The concept of a _manifest_ is central to how Content Credentials work.
 
 A collection of manifests (known as a _manifest store_) is attached to an asset. Each manifest contains information about the provenance of the asset. Creating or editing an asset using a C2PA-compliant device or tool (for example Adobe Photoshop) adds a new manifest to the manifest store.
 
-A manifest store can be linked to an asset in three different ways:
+A manifest store can be linked to an asset in three ways:
 
 1. Directly embedded in the asset's metadata.
 1. In a sidecar file, a file with the same file name as the asset but with a `.c2pa` extension.
-1. In a remote URL, linked from the asset's metadata, as detailed in the [C2PA specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_embedding_a_reference_to_the_active_manifest).
+1. In a remote URL, linked from the asset's metadata, as detailed in the [C2PA specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_embedding_a_reference_to_the_active_manifest).  NOTE: A manifest store can be linked in this way _in addition_ to the first two ways.
 
-To determine if an asset has Content Credentials, the SDK checks for the presence of a manifest store (in the order shown above). So, for example to see if `foo.jpg` has Content Credentials, the SDK first checks if there's a manifest store in the file itself, then looks for a sidecar file (`foo.c2pa` in the same directory), and finally looks in the asset's metadata for a reference to a remote manifest store.
+To determine if an asset has Content Credentials, the SDK checks for the presence of a manifest store (in the order shown above). So, for example to see if `foo.jpg` has Content Credentials, the SDK first checks if there's a manifest store in the file itself, then looks for a sidecar file (`foo.c2pa` in the same directory), and finally looks in the asset's metadata for a reference to a remote manifest store. 
 
 :::info
 Currently, only Adobe has implemented a Content Credentials cloud service to provide access to remote manifest stores, but in theory anyone could do so to provide a publicly-accessible network location for manifests.
@@ -25,15 +25,11 @@ The manifests in the manifest store are not ordered, but the most-recently added
 
 ## Binary versus JSON manifest
 
-The manifest as described in the C2PA specification is a binary structure in JPEG universal metadata box format (JUMBF) that can include JSON and binary data in Concise Binary Object Representation (CBOR) format for things like encryption keys and thumbnail images.
+The manifest as described in the C2PA specification is a binary structure in JPEG universal metadata box format ([JUMBF](https://www.iso.org/standard/84635.html)) that can include JSON and binary data for things like encryption keys and thumbnail images.
 
-Because the binary structure is hard to understand and program to, the SDK defines a JSON manifest structure that's a declarative language for representing and creating a manifest in binary format. The JSON manifest is a human-readable format, a more abstract translation layer that's easier to understand than the binary format. The JSON format can describe everything in the underlying binary manifest format except for blobs representing thumbnails and other binary data that are included by a structure called a _resource reference_.
+Because the binary structure is hard to understand and program to, the SDK defines a JSON manifest structure that's a declarative language for representing and creating a manifest in binary format. The JSON manifest is a human-readable format, a more abstract translation layer that's easier to understand than the binary format. The JSON format can describe everything in the underlying binary format except for blobs representing thumbnails and other binary data that are included by a structure called a _resource reference_.
 
-The JSON manifest has high-level structures called `ingredient` and `manifest` that are a high-level representation of the manifest's binary content.
-
-There are some small differences between the JSON and binary formats; for example, the binary format has ingredient and thumbnail assertions, while the JSON format does not. Instead of having ingredient assertion, a JSON manifest has an ingredient that refers to an ingredient structure that looks similar to an ingredient assertion, but it's not treated as an assertion in the SDK API. An ingredient's `format` property specifies a MIME type and has an identifier that can be file path, but for a device such as a camera that doesn't have a file system, those identifiers refer to memory blobs that are referenced in other ways in the underlying APIs.
-
-Essentially the idea is is that you can create this JSON structure that describes all the things you want to put into a manifest, and some of those things might be binaries like thumbnails, in which case you reference the file path. Then when you use the SDK to make the manifest, it assembles all the pieces, takes the ingredients that you've defined, and converts them into different assertions and other objects as required.
+Essentially the idea is is that you can create this JSON structure that describes all the things you want to put into a manifest, and some of those things might be binaries like thumbnails, in which case you reference the file path. Then when you use the SDK to make the manifest, it assembles all the pieces, takes the ingredients that you've defined, and converts them into different assertions and other objects as required. 
 
 ## Time-stamps
 
@@ -43,11 +39,12 @@ The C2PA specification strongly recommends that a manifest signature contains a 
 Manifests without time-stamps cease to be valid when the signing credential expires or is revoked.
 :::
 
-An RFC 3161 time-stamp enables you to prove the existence of a particular piece of data at a particular time. Think of it as a notary service for data. You present a piece of data (in this case, the C2PA claim data structure) and the third-party TSA verifies that it saw that data at a time that can be audited and is independently-verifiable.
+An RFC 3161 time-stamp enables you to prove the existence of a particular piece of data at a particular time. Think of it as a notary service for data. You present a piece of data (in this case, the C2PA claim data structure) and the third-party TSA verifies that it saw that data at a time that can be audited and is independently verifiable.
 
 The time-stamp is typically defined as part of the signing information. You can set this via the c2patool `ta_url` field or by using the API. The time-stamp then appears in the `SignatureInfo` JSON object when reading the manifest store.
 
 ## References
 
-- [JPEG Universal Metadata Box Format (JUMBF)](https://www.iso.org/standard/84635.html): A framework for JPEG standards to add universal metadata, supplementary images, or other elements in addition to the base image.
-- [Concise Binary Object Representation (CBOR)](https://cbor.io/): Data format whose design goals include the possibility of extremely small code size, fairly small message size, and extensibility without the need for version negotiation.
+- [JPEG Universal Metadata Box Format : A framework for JPEG standards to add universal metadata, supplementary images, or other elements in addition to the base image.
+
+- [C2PA Technical Specification v1.3](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html)

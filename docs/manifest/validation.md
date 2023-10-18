@@ -9,8 +9,6 @@ Processing an asset includes [validating the manifests](https://c2pa.org/specifi
 
 When you load an asset, all the manifests in the manifest store are validated and any [failure codes](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_failure_codes) are assigned to the `validation_status` array. Inspect the array to find the validation errors. Validation returns ONLY error codes; success is not explicitly indicated.
 
-Only errors that are not already recorded in the `validation_status` of an ingredient are reported. See [ValidationStatus](manifest-ref#validationstatus) object in Manifest store reference.
-
 Manifest validation errors can occur, for example, when:
 
 - The bits of an asset are edited after it was signed.
@@ -24,6 +22,8 @@ Don't assume that just because you didn't get an error from the function return 
 ## Validation errors in ingredients
 
 Ingredients are validated when they are imported into an asset and the result is stored in the ingredient's `validation_status` array.
+
+Only errors that are not already recorded in the `validation_status` of an ingredient are reported. See [ValidationStatus](manifest-ref#validationstatus) object in Manifest store reference.
 
 ## Error status codes
 

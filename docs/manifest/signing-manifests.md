@@ -19,8 +19,8 @@ Additionally:
 - The Key Usage (KU) extension must be present and marked as critical. Certificates used to sign C2PA manifests must assert the `digitalSignature` bit.
 - The Extended Key Usage (EKU) extension must be present and non-empty in any certificate where the Basic Constraints extension is absent or the certificate authority (CA) Boolean is not asserted.
   - The `anyExtendedKeyUsageEKU` (2.5.29.37.0) must not be present.
-  - If the configuration store does not contain a list of EKUs, a certificate that signs C2PA manifests must be valid for the `id-kp-emailProtection` (1.3.6.1.5.5.7.3.4) purpose.
-  - The `id-kp-emailProtection` purpose is not implicitly included by default if a list of EKUs has been configured. If desired, it must explicitly be added to the list in the configuration store.
+  - If the configuration store does not contain a list of EKUs, a certificate that signs C2PA manifests must be valid for the `id-kp-emailProtection` (1.3.6.1.5.5.7.3.4) purpose and/or the `id-kp-documentSigning` (1.3.6.1.5.5.7.3.36) purpose.
+
 
 ### Recommended signature type by signatureAlgorithm
 
