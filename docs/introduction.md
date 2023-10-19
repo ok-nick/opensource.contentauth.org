@@ -12,11 +12,11 @@ The Content Authenticity Initiative's open-source offerings consist of:
 - The c2patool command-line tool
 - The Rust SDK
 
-These projects all work with _C2PA manifest data_ (also referred to as a "C2PA manifest" or just a "manifest") that contains information about the provenance of a digital asset. For more details, see [Key concepts](#key-concepts) below.
+These projects all work with _C2PA manifest data_ (also referred to as just "manifest data") that contains information about the provenance of a digital asset. For more details, see [Key concepts](#key-concepts) below.
 
 ### JavaScript SDK
 
-The [JavaScript SDK](js-sdk/getting-started/overview) enables **working with C2PA manifest data in the browser**. Use this SDK to:
+The [JavaScript SDK](js-sdk/getting-started/overview) enables **working with manifest data in the browser**. Use this SDK to:
 
 - Verify and display manifest data on a website or web application.
 - Link manifest data displayed on your site to [Verify](https://verify.contentauthenticity.org/).
@@ -35,12 +35,12 @@ The [JavaScript SDK](js-sdk/getting-started/overview) enables **working with C2P
 The [Rust SDK](rust-sdk) enables **adding C2PA capabilities to a desktop, mobile, or embedded application**. Use the Rust SDK to:
 
 - Create and sign C2PA claims and manifests.
-- Embed manifests into certain asset file formats.
+- Embed a manifest store into certain asset file formats.
 - Parse and validate manifests found in certain asset file formats.
 
 ## Key concepts
 
-Regardless of which SDK or tool you use, it's important to understand some key concepts. These definitions are based on the [glossary in the C2PA 1.1 Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_glossary).
+Regardless of which SDK or tool you use, it's important to understand some key concepts. These definitions are based on the [glossary in the C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_glossary).
 
 **Asset**: A file or stream of data containing _digital content_, asset metadata and optionally, a _C2PA manifest_.
 
@@ -52,7 +52,7 @@ Regardless of which SDK or tool you use, it's important to understand some key c
 
 **Active manifest**: The last manifest in the list of _C2PA manifests_ inside of a _C2PA manifest store_ which is the one with the set of _content bindings_ that are able to be validated.
 
-**Assertion**: A data structure which represents a statement asserted by an _actor_ concerning the _asset_. This data is part of the _C2PA manifest_. For a list of standard C2PA assertions, see [C2PA 1.1 Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_c2pa_standard_assertions).
+**Assertion**: A data structure which represents a statement asserted by an _actor_ concerning the _asset_. This data is part of the _C2PA manifest_. For a list of standard C2PA assertions, see [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_c2pa_standard_assertions).
 
 **Ingredient**: Part of a _composed asset_, such as an image superimposed on top of another image.
 

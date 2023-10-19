@@ -172,6 +172,7 @@ const config = {
         contextualSearch: true,
       },
     }),
+  themes: ['docusaurus-json-schema-plugin'],
 };
 
 module.exports = config;

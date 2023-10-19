@@ -13,6 +13,36 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Working with manifests',
+      link: { type: 'doc', id: 'manifest/understanding-manifest' },
+      collapsed: true,
+      items: [
+        {
+          type: 'doc',
+          id: 'manifest/manifest-validation',
+        },
+        {
+          type: 'doc',
+          id: 'manifest/signing-manifests',
+        },
+        {
+          type: 'doc',
+          id: 'manifest/manifest-examples',
+          label: 'Examples',
+        },
+        {
+          type: 'doc',
+          id: 'manifest/manifest-ref',
+        },
+        {
+          type: 'doc',
+          id: 'manifest/manifest-json-schema',
+          label: 'JSON schema',
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'JavaScript SDK',
       link: { type: 'doc', id: 'js-sdk/getting-started/overview' },
       collapsed: true,
@@ -27,14 +57,12 @@ const sidebars = {
         {
           type: 'doc',
           id: 'c2patool/manifest',
+          label: 'Using a manifest file',
         },
         {
           type: 'doc',
           id: 'c2patool/x_509',
-        },
-        {
-          type: 'doc',
-          id: 'c2patool/release-notes',
+          label: 'Creating and using a certificate',
         },
         {
           type: 'doc',
@@ -64,10 +92,6 @@ const sidebars = {
           href: 'https://github.com/contentauth/c2pa-rs',
         },
       ],
-    },
-    {
-      type: 'doc',
-      id: 'signing-manifests',
     },
     {
       type: 'doc',

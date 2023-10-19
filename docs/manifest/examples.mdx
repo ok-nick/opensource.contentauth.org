@@ -1,0 +1,37 @@
+---
+id: manifest-examples
+title: Manifest examples
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+## Examples from c2patool
+
+<!--
+Need to make sure these examples cover the main use cases that will have different kinds of manifests.
+-->
+
+The command-line tool [`c2patool`](/c2patool) is helpful when developing applications to work with manifest data. When saving a manifest, it has two modes:
+
+- **Standard mode** (the default), where it saves a manifest file in JSON format, which is simplified and slightly different from the underlying binary manifest structure.
+- **Detailed mode** (specified with the `-d` option), where it saves a file that more closely reflects the actual structure of the binary data, including assertions with JUMBF URLs and their associated hashes.
+
+### Simple manifest
+
+This manifest was saved using `c2patool` with no options.
+
+import SimpleManifestEx from '!!raw-loader!./simple-manifest-ex.json.jsx';
+
+<CodeBlock language="json" showLineNumbers>
+  {SimpleManifestEx}
+</CodeBlock>
+
+### Detailed manifest
+
+import DetailedManifestEx from '!!raw-loader!./detailed-manifest-ex.json.jsx';
+
+This manifest was saved using `c2patool` with the `-d` option. Even though it was generated for the same asset and Content Credentials as the simple manifest example, you can see that it's about twice as long.
+
+<CodeBlock language="json" showLineNumbers>
+  {DetailedManifestEx}
+</CodeBlock>
