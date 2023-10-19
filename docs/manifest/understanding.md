@@ -47,6 +47,5 @@ The time-stamp is typically defined as part of the signing information. You can 
 
 ## References
 
-- [JPEG Universal Metadata Box Format : A framework for JPEG standards to add universal metadata, supplementary images, or other elements in addition to the base image.
-
+- [JUMBF](https://www.iso.org/standard/84635.html): A framework for JPEG standards to add universal metadata, supplementary images, or other elements in addition to the base image.
 - [C2PA Technical Specification v1.3](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html)
