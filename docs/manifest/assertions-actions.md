@@ -25,17 +25,18 @@ Add each assertion to the manifest `assertions` property, which is an array of [
 The standard form of an assertion in JSON is:
 
 ```json
-      "assertions": [
-        ...
-        {
-          "label": "Label string",
-          "data": { 
-            // Arbitrary data in JSON-LD format .. 
-          },
-          "kind": "Json" // Optional: one of “Cbor”,  “Json”, “Binary”, or “Uri”
-          "instance" : 0 // Optional and rarely used
-        },
-        ...
+"assertions": [
+  ...
+  {
+    "label": "Label string",
+    "data": { 
+      // Arbitrary data in JSON-LD format .. 
+    },
+    "kind": "Json" // Optional: one of “Cbor”,  “Json”, “Binary”, or “Uri”
+    "instance" : 0 // Optional and rarely used
+  },
+  ...
+]
 ```
 
 | Assertion | Label | Description |
@@ -70,18 +71,18 @@ A creative work assertion states that an asset was the product of creative effor
 
 ### Do not train assertion
 
-A "do not train" assertion specifies whether an asset may be used in data mining or AI/ML training.  The `label` property of such an assertion has the value `c2pa.training-mining` and the corresponding data object has four properties:
+A "do not train" assertion specifies whether an asset may be used in data mining or AI/ML training.  The `label` property of such an assertion has the value `c2pa.training-mining` and there are four properties in the corresponding data object that indicate how the asset may be used:
 
-- `c2pa.data_mining` - Can text or data be extracted from the asset for purposes of determining "patterns, trends and correlations", including images containing text, where the text could be extracted via OCR.
-- `c2pa.ai_inference` - Can the asset be used as input to a trained AI/ML model for the purposes of inferring a result.
-- `c2pa.ai_generative_training` - Can the asset be used as training data for a generative AI/ML model that could produce derivative assets?  
-- `c2pa.ai_training` - Can the asset be used as data to train non-generative AI/ML models, such as those used for classification, object detection, etc.
+- `c2pa.data_mining` - Whether text or data be extracted from the asset for purposes of determining "patterns, trends and correlations", including images containing text, where the text could be extracted via OCR.
+- `c2pa.ai_inference` - Whether the asset be used as input to a trained AI/ML model for the purposes of inferring a result.
+- `c2pa.ai_generative_training` - Whether the asset be used as training data for a generative AI/ML model that could produce derivative assets?  
+- `c2pa.ai_training` - Whether the asset be used as data to train non-generative AI/ML models, such as those used for classification, object detection, and so on.
 
 :::info
 The `c2pa.ai_generative_training` assertion is distinct because generative AI enables creating derivative assets, while other uses do not.
 :::
 
-Each of these properties is an object with a `use` property that can have one of these properties:
+The value of each of the above properties is an object with a `use` property that can have one of these properties:
 
 - `allowed`: Permission is granted for this type of use.
 - `notAllowed`: Permission is NOT granted for this type of use.
@@ -134,10 +135,6 @@ Should we cover this here? What should we say?
 
 An `actions` assertion is an array of [ManifestAssertion](https://opensource.contentauthenticity.org/docs/manifest/manifest-ref#manifestassertion) objects that provides information on edits and other actions on an asset. 
 
-:::note
-This documentation covers C2PA v1 actions.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions) also describes improved v2 actions.
-:::
-
 Each action has the following standard properties.
 
 | Property | Required? | Description | Example |
@@ -148,6 +145,10 @@ Each action has the following standard properties.
 | `parameters` | No | Additional information describing the action. Optional.  | Reference to an ingredient. |
 
 The value of the `action` property must be either a pre-defined standard C2PA action name string (of the form `c2pa.*`) or a custom action name string. The set of standard C2PA actions includes fundamental ones as `c2pa.created` for when an asset is first created, and numerous others for when an asset's content is modified in some way.  For a complete list, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions).
+
+:::note
+This documentation covers C2PA v1 actions.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions) also describes improved v2 actions.
+:::
 
 <div class="review-comment">
 Do we need to say anything more about custom action strings?  How are they defined, etc.?
