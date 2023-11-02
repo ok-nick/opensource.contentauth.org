@@ -137,7 +137,7 @@ Certificate:
 .
 ```
 
-You now have all the needed information to configure c2patool for manifest signing. Edit your [manifest definition file](https://github.com/contentauth/c2patool#manifest-definition-file) to have the following content:
+You now have all the needed information to configure c2patool for manifest signing. Edit your [manifest store file](../c2patool/manifest) to have the following content:
 
 ```json
 "alg": "ps256",
