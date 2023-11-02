@@ -69,11 +69,34 @@ Use the commands below to extract the key and certificate chain. If prompted, en
 Make sure you are using a recent version of OpenSSL.
 :::tip
 
+#### Troubleshooting errors
+
+In this step, OpenSSL may report errors when extracting the key or certificate chain.  In many cases, if OpenSSL generates the output file, you can ignore the messages.  However, in some cases you may need to add `-legacy` to the command for it to work properly.
+
+For example, the following error message means the `.pfx` was encrypted with an older standard:
+
+```
+Shrouded Keybag: pbeWithSHA1And3- KeyTripleDES-CBC, Iteration 2000
+PKCS7 Encrypted data: pbeWithSHA1And40BitRC2- CBC, Iteration 2000
+Error outputting keys and certificates
+```
+
+Or:
+
+```
+409B2AFD01000000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:341:Global default library context, Algorithm (RC2-40-CBC : 0), Properties ()
+```
+
+
 #### Extract the key
 
 ```shell
 openssl pkcs12 -in mycertfile.pfx -nocerts -out mykey.pem -nodes
 ```
+
+:::tip
+Check the generated `.pem` file to make sure it's not empty.  For more information, see [Troubleshooting errors](#troubleshooting-errors).
+:::
 
 #### Extract the certificate chain
 
@@ -82,18 +105,6 @@ For many certificate providers, the `.pfx` file contains not just your certifica
 ```shell
 openssl pkcs12 -in mycertfile.pfx -nokeys -out mycerts.pem
 ```
-
-:::note
-OpenSSL may report errors, but if it generates the output file, you can ignore the messages. The following error message means the `.pfx` was encrypted with an older standard:
-
-```
-Shrouded Keybag: pbeWithSHA1And3- KeyTripleDES-CBC, Iteration 2000
-PKCS7 Encrypted data: pbeWithSHA1And40BitRC2- CBC, Iteration 2000
-Error outputting keys and certificates
-```
-
-To work around this error, add `-legacy` to the command.
-:::note
 
 ## Using credentials with c2patool
 
