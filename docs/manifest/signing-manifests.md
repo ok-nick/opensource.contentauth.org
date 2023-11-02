@@ -84,9 +84,10 @@ Error outputting keys and certificates
 Or:
 
 ```
-409B2AFD01000000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:341:Global default library context, Algorithm (RC2-40-CBC : 0), Properties ()
+409B2AFD01000000:error:0308010C:digital envelope 
+routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:341:Global default library context,
+Algorithm (RC2-40-CBC : 0), Properties ()
 ```
-
 
 #### Extract the key
 
