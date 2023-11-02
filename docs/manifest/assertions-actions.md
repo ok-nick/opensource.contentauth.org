@@ -10,17 +10,9 @@ Assertions provide information about when, where, and how an asset was created o
 - [Actions](#actions) performed on the asset such as cropping, color or contrast adjustment, and so on.  
 - Creative work, indicating an asset is the product of creative effort.
 - "Do not train" to indicate whether the creator/owner of an asset is granting permission to use it for data mining or AI/ML training.
-
-<div class="review-comment">
-Other examples from spec... should we cover these here? 
-
-- Camera information such as maker, lens stored in Exchangeable image file format (Exif).
-- Thumbnails of the asset or its ingredients.
 - Content bindings (for example, cryptographic hashes).
 
-</div>
-
-Add each assertion to the manifest `assertions` property, which is an array of [ManifestAssertion](manifest-ref#manifestassertion) objects.  A ManifestAssertion object has two required properties, `label`, a string, and `data`, which can contain arbitrary information; and two optional properties, `kind` and `instance`. The C2PA Technical Specification provides a [set of standard assertions](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_standard_c2pa_assertion_summary) and their corresponding labels. 
+Add each assertion to the manifest `assertions` property, which is an array of [ManifestAssertion](manifest-ref#manifestassertion) objects.  A ManifestAssertion object has two required properties, `label`, a string, and `data`, which can contain arbitrary information; and two optional properties, `kind` and `instance`. 
 
 The standard form of an assertion in JSON is:
 
@@ -41,12 +33,17 @@ The standard form of an assertion in JSON is:
 
 | Assertion | Label | Description |
 |-----------|--------------|-------------|
-| Action |  `c2pa.actions` | All actions. See [Actions](#actions) below. |
-| Creative work | `stds.schema-org.CreativeWork`  | The asset is the result of creative effort. |
-| "Do not train" | `c2pa.training-mining` | Whether an asset may be used as part of a data mining or AI/ML training. |
+| Action |  `c2pa.actions` | All edits and other actions on an asset. See [Actions](#actions) below. |
+| Creative work | `stds.schema-org.CreativeWork`  | The asset is the result of creative effort.  See [Creative work assertion](#creative-work-assertion) below. |
+| "Do not train" | `c2pa.training-mining` | Whether an asset may be used as part of a data mining or AI/ML training. See [Do not train assertion](#do-not-train-assertion) below. |
 | Thumbnail | `c2pa.thumbnail.claim` - Claim creation time <br/> `c2pa.thumbnail.ingredient` - Importing an ingredient | Thumbnails
-| Exif information | `stds.exif` | Camera information such as maker, lens stored in Exchangeable image file format (Exif).
+| Exif information | `stds.exif` | Camera information such as maker, lens stored in Exchangeable image file format (Exif).  See [Exif assertion](#exif-assertion) below. |
 
+For the list of standard assertions and their labels, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_standard_c2pa_assertion_summary). 
+
+:::note
+CAI API libraries handle assertions for thumbnails and ingredients, so normally you don't  need to think about them.
+:::
 
 ### Creative work assertion
 
@@ -71,7 +68,7 @@ A creative work assertion states that an asset was the product of creative effor
 
 ### Do not train assertion
 
-A "do not train" assertion specifies whether an asset may be used in data mining or AI/ML training.  The `label` property of such an assertion has the value `c2pa.training-mining` and there are four properties in the corresponding data object that indicate how the asset may be used:
+A "do not train" assertion specifies whether permission is granted to use an asset in data mining or AI/ML training.  The `label` property of such an assertion has the value `c2pa.training-mining` and  the corresponding data object has four relevant properties:
 
 - `c2pa.data_mining` - Whether text or data be extracted from the asset for purposes of determining "patterns, trends and correlations", including images containing text, where the text could be extracted via OCR.
 - `c2pa.ai_inference` - Whether the asset be used as input to a trained AI/ML model for the purposes of inferring a result.
@@ -79,7 +76,7 @@ A "do not train" assertion specifies whether an asset may be used in data mining
 - `c2pa.ai_training` - Whether the asset be used as data to train non-generative AI/ML models, such as those used for classification, object detection, and so on.
 
 :::info
-The `c2pa.ai_generative_training` assertion is distinct because generative AI enables creating derivative assets, while other uses do not.
+The `c2pa.ai_generative_training` is distinct because generative AI enables creating derivative assets, while other uses do not.
 :::
 
 The value of each of the above properties is an object with a `use` property that can have one of these properties:
@@ -113,46 +110,119 @@ Example:
 ]
 ```
 
-### Thumbnail assertions
+### Exif assertion
 
-<div class="review-comment">
-Should we cover this here? What should we say?
-</div>
+Exchangeable image file (Exif) format is a standard for storing technical metadata in image files of JPEG, TIFF, PNG, and other formats. Most new digital cameras (including smartphones) as well as scanners and other digital capture devices use Exif to store information such as device make and model, shutter speed, ISO number, date and time of capture, location, and so on.  For more information on Exif, see the [Exif specification](https://www.cipa.jp/std/documents/download_e.html?DC-008-Translation-2019-E).
 
-### Exif assertions
+Use an Exif assertion to add Exif information to the asset in a way that can be validated cryptographically.  The label property for an Exif assertion has a value of `stds.exif`.
 
-<div class="review-comment">
-Should we cover this here? What should we say?
-</div>
+Here is a simple example:
 
-### Redaction
+```json
+"assertions": [
+  ...
+  {
+    "label": "stds.exif",
+    "data": {
+      "@context" : {
+        "exif": "http://ns.adobe.com/exif/1.0/"
+      },
+      "exif:GPSVersionID": "2.2.0.0",
+      "exif:GPSLatitude": "39,21.102N",
+      "exif:GPSLongitude": "74,26.5737W",
+      "exif:GPSAltitudeRef": 0,
+      "exif:GPSAltitude": "100963/29890",
+      "exif:GPSTimeStamp": "2019-09-22T18:22:57Z"
+    }
+  }
+  ...
+]
+```
 
-<div class="review-comment">
-Should we cover this here? What should we say?
-</div>
+### Content bindings
+
+Content bindings uniquely identify portions of an asset. 
+Normally you don't need to write content bindings, just read them.
+
+Example in detailed manifest
+
+```json 
+"alg": "sha256",  // Hash algorithm
+"exclusions": [ // Don't hash these areas
+  {
+    "length": 51179, //Number of bytes to NOT hash
+    "start": 20 // Number of bytes to exclude from start of file
+  }
+],
+"hash": "DcGR4k9M6aLXXCeDii4tSdX45rrIM5HSr1Wy/czQ6ro=", // Base64 encoding of SHA of hash of asset except for  manifest
+```
 
 ## Actions
 
-An `actions` assertion is an array of [ManifestAssertion](https://opensource.contentauthenticity.org/docs/manifest/manifest-ref#manifestassertion) objects that provides information on edits and other actions on an asset. 
+An `actions` assertion is an array of [ManifestAssertion](https://opensource.contentauthenticity.org/docs/manifest/manifest-ref#manifestassertion) objects that provides information on edits and other actions that have been performed on an asset. 
 
 Each action has the following standard properties.
 
 | Property | Required? | Description | Example |
-|----------|---| -------------|---------|
+|----------|-----------| ------------|---------|
 | `action` | Yes | The action name. | `c2pa.created` |
-| `digitalSourceType` | No | A URL identifying a [IPTC term](https://cv.iptc.org/newscodes/digitalsourcetype/). Optional.  | `http://cv.iptc.org/newscodes/digitalsourcetype/`<br/>`compositeWithTrainedAlgorithmicMedia` |
-| `softwareAgent` | No | The software or hardware used to perform the action. Optional.  | `"Adobe Firefly"` |
-| `parameters` | No | Additional information describing the action. Optional.  | Reference to an ingredient. |
+| `digitalSourceType` | No | A URL identifying a [IPTC term](https://cv.iptc.org/newscodes/digitalsourcetype/).  | `http://cv.iptc.org/newscodes/digitalsourcetype/`<br/>`compositeWithTrainedAlgorithmicMedia` |
+| `softwareAgent` | No | The software or hardware used to perform the action.   | `"Adobe Firefly"` |
+| `parameters` | No | Additional information describing the action. | Reference to an ingredient. |
 
-The value of the `action` property must be either a pre-defined standard C2PA action name string (of the form `c2pa.*`) or a custom action name string. The set of standard C2PA actions includes fundamental ones as `c2pa.created` for when an asset is first created, and numerous others for when an asset's content is modified in some way.  For a complete list, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions).
+The value of the `action` property must be either a pre-defined standard C2PA action name string (of the form `c2pa.*`) or a custom action name. The set of standard C2PA actions includes fundamental ones as `c2pa.created` for when an asset is first created, and numerous others for when an asset's content is modified in some way.  For a complete list, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions).
 
-:::note
-This documentation covers C2PA v1 actions.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions) also describes improved v2 actions.
-:::
+You can also define a custom action which have a label string with reverse domain syntax, for example `com.adobe.foo`.
 
 <div class="review-comment">
-Do we need to say anything more about custom action strings?  How are they defined, etc.?
+Below doesn't seem right (it's not an action) but is from Truepic testfile https://github.com/crandmck/public-testfiles/blob/main/manifests/image/jpeg/truepic-20230212-library/manifest_store.json#L22.
 </div>
+
+For example:
+
+```json
+"assertions": [
+  ...
+  {
+    "label": "com.truepic.libc2pa",
+    "data": {
+      "git_hash": "023bb51",
+      "lib_name": "Truepic C2PA C++ Library",
+      "lib_version": "2.5.1",
+      "target_spec_version": "1.2"
+    },
+    "kind": "Json"
+  },
+  ...
+]
+```
+
+### V2 actions
+
+This documentation covers C2PA v1 actions.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions) also describes expanded v2 actions.  V1 actions are fully specified in the actions array. However, in v2, an action may either be specified by an element of the actions array or from an element in the templates array with the same action name.
+
+Thre are some differences between v1 and v2 actions, for example in v2, `softwareAgent` is a [ClaimGeneratorInfo](../manifest-ref#claimgeneratorinfo) structure instead of a string.
+The CAI APIs can read all v2 actions and write most v2 actions.
+
+<!-- 
+If action is associated with an ingredient, need to link them
+
+In spec, create a hashed URI map
+
+In v1, was called ingredient , in v2 `ingredients` is an array.
+-->
+
+The `instanceId` field only used when defining/writing a manifest, not reading one.
+
+```json 
+ "parameters": {
+    "ingredient": {
+      "hash": "sYBHErcYn+C6wO88KoeakQ/gfdxOy2BdvqajBd57hvE=",
+      "url": "self#jumbf=c2pa.assertions/c2pa.ingredient"
+    },
+    "instanceId": "<String-instance-ID-of-ingredient>"
+ }
+```
 
 For example:
 
@@ -192,7 +262,7 @@ For example:
 
 ### Digital source type
 
-Use the `digitalSourceType` property with the `c2pa.created` action to specify how an asset was created, for example "digital capture", "digitized from negative" or "trained algorithmic media". The values of `digitalSourceType` is one of the URLs specified by the International Press Telecommunications Council (IPTC) [NewsCodes Digital Source Type scheme](https://cv.iptc.org/newscodes/digitalsourcetype/).  The URL is of the form `http://cv.iptc.org/newscodes/digitalsourcetype/negativeFilm/<CODE>`, where `<CODE>` is one of the codes shown in the following table.
+Use the `digitalSourceType` property with the `c2pa.created` action to specify how an asset was created, for example "digital capture", "digitized from negative" or "trained algorithmic media." The values of `digitalSourceType` is one of the URLs specified by the International Press Telecommunications Council (IPTC) [NewsCodes Digital Source Type scheme](https://cv.iptc.org/newscodes/digitalsourcetype/).  The URL is of the form `http://cv.iptc.org/newscodes/digitalsourcetype/negativeFilm/<CODE>`, where `<CODE>` is one of the codes shown in the following table.
 
 | Code | Description |
 |---|---|
