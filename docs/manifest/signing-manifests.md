@@ -3,44 +3,50 @@ id: signing-manifests
 title: Signing manifests
 ---
 
+:::tip
+Before reading this page, be sure to read [Getting started](/docs/getting-started) so you'll have some basic background on public-key infrastructure (PKI) technology, certificates, and signing manifests.
+:::
+
 ## Overview
 
-Signing C2PA manifests requires an end-entity certificate that complies with the [C2PA Trust Model](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_trust_model). C2PA follows the Public Key Infrastructure (PKI) using your private key and public certificates in the signing process.
+To sign a C2PA manifest you need an end-entity certificate that complies with the C2PA trust model. Then you can use your private key and public certificates in the signing process. This page walks through an example of obtaining appropriate credentials and then using c2patool to  to sign a manifest using them.
 
 :::note
 Best practices for handling keys and certificates are available from many sources and not directly covered here. Always protect your private keys with the highest level of security.
 :::note
 
-The following table summarizes important credential information provided in the [C2PA specification Trust Model section](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_trust_model). The table describes the signature algorithms and recommended signature types that the [c2patool](/docs/c2patool) and [Rust SDK](/docs/rust-sdk) support. You must supply credentials (certificates and keys) that correspond to the signing algorithm. Signing/validation will fail if the signature type is not supported by the supplied credentials.
-
-Additionally:
-
-- The certificate must follow the X.509 V3 specification.
-- The Key Usage (KU) extension must be present and marked as critical. Certificates used to sign C2PA manifests must assert the `digitalSignature` bit.
-- The Extended Key Usage (EKU) extension must be present and non-empty in any certificate where the Basic Constraints extension is absent or the certificate authority (CA) Boolean is not asserted.
-  - The `anyExtendedKeyUsageEKU` (2.5.29.37.0) must not be present.
-  - If the configuration store does not contain a list of EKUs, a certificate that signs C2PA manifests must be valid for the `id-kp-emailProtection` (1.3.6.1.5.5.7.3.4) purpose and/or the `id-kp-documentSigning` (1.3.6.1.5.5.7.3.36) purpose.
-
-
-### Recommended signature type by signatureAlgorithm
+## Certificates
 
 Trust lists connect the end-entity certificate that signed a manifest back to the originating root CA. This is accomplished by supplying the subordinate public X.509 certificates forming the trust chain (the public X.509 certificate chain). If those are not supplied, you can use a private credential store to validate the certificate trust chain. If you do not supply a certificate chain or trust list, validators may reject the manifest. See the C2PA specification for more details.
 
-| Certificate `signatureAlgorithm`                          | Description                                                   | Recommended signature type | RFC Reference                                                                         |
-| --------------------------------------------------------- | ------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------- |
-| `ecdsa-with-SHA256`                                       | ES256: ECDSA with SHA-256                                     | ES256                      | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)       |
-| `ecdsa-with-SHA384`                                       | ES384: ECDSA with SHA-384                                     | ES384                      | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)       |
-| `ecdsa-with-SHA512`                                       | ES512: ECDSA with SHA-512                                     | ES512                      | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)       |
-| `sha256WithRSAEncryption`                                 | PS256: RSASSA-PSS with SHA-256<br/>MGF1 with SHA-256          | PS256                      | [RFC 8017 appendix A.2.4](https://www.rfc-editor.org/rfc/rfc8017.html#appendix-A.2.4) |
-| `sha384WithRSAEncryption`                                 | PS384: RSASSA-PSS<br/>SHA-384, MGF1 with SHA-384              | PS384                      | [RFC 8017 appendix A.2.4](https://www.rfc-editor.org/rfc/rfc8017.html#appendix-A.2.4) |
-| `sha512WithRSAEncryption`                                 | PS512: RSASSA-PSS<br/>SHA-512, MGF1 with SHA-512              | PS512                      | [RFC 8017 appendix A.2.4](https://www.rfc-editor.org/rfc/rfc8017.html#appendix-A.2.4) |
-| `id-RSASSA-PSS` - ASN1 OID: prime256v1, NIST CURVE: P-256 | RSA-PSS                                                       | ES256                      | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)       |
-| `id-RSASSA-PSS` - ASN1 OID: secp384r1                     | RSA-PSS                                                       | ES384                      | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)       |
-| `id-RSASSA-PSS` - ASN1 OID: secp521r1                     | RSA-PSS                                                       | ES512                      | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)       |
-| `id-Ed25519`                                              | EdDSA (Edwards-Curve DSA) with SHA-512 (SHA-2) and Curve25519 | Ed25519 instance ONLY.     | [RFC 8410 section 3](https://www.rfc-editor.org/rfc/rfc8410.html#section-3)           |
+A certificate used to sign C2PA manifests must:
+
+- Follow the Public Key Infrastructure (PKI) X.509 V3 specification.
+- Have the Key Usage (KU) extension, which must be marked as critical. 
+- Assert the `digitalSignature` bit.
+- Have the Extended Key Usage (EKU) extension. If the Basic Constraints extension is absent or the certificate authority (CA) Boolean is not asserted, the EKU must be non-empty.
+  - The `anyExtendedKeyUsageEKU` field (2.5.29.37.0) must not be present.
+  - If the configuration store does not contain a list of EKUs, a certificate that signs C2PA manifests must be valid for the `id-kp-emailProtection` (1.3.6.1.5.5.7.3.4) purpose and/or the `id-kp-documentSigning` (1.3.6.1.5.5.7.3.36) purpose.
+
+### Signature types
+
+The following table describes the signature algorithms and recommended signature types that the [c2patool](/docs/c2patool) and [Rust SDK](/docs/rust-sdk) support. You must supply credentials (certificates and keys) that correspond to the signing algorithm. Signing/validation will fail if the the supplied credentials don't support the signature type. 
+
+| Certificate `signatureAlgorithm` | Description  | Recommended signature type | RFC Reference |
+| -------------------------------- | ------------ | -------------------------- | ------------- |
+| `ecdsa-with-SHA256`    | ES256: ECDSA with SHA-256  | ES256  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
+| `ecdsa-with-SHA384`    | ES384: ECDSA with SHA-384  | ES384  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
+| `ecdsa-with-SHA512`    | ES512: ECDSA with SHA-512  | ES512  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
+| `sha256WithRSAEncryption`   | PS256: RSASSA-PSS with SHA-256<br/>MGF1 with SHA-256| PS256  | [RFC 8017 appendix A.2.4](https://www.rfc-editor.org/rfc/rfc8017.html#appendix-A.2.4) |
+| `sha384WithRSAEncryption`   | PS384: RSASSA-PSS<br/>SHA-384, MGF1 with SHA-384    | PS384  | [RFC 8017 appendix A.2.4](https://www.rfc-editor.org/rfc/rfc8017.html#appendix-A.2.4) |
+| `sha512WithRSAEncryption`   | PS512: RSASSA-PSS<br/>SHA-512, MGF1 with SHA-512    | PS512  | [RFC 8017 appendix A.2.4](https://www.rfc-editor.org/rfc/rfc8017.html#appendix-A.2.4) |
+| `id-RSASSA-PSS` - ASN1 OID: prime256v1, NIST CURVE: P-256 | RSA-PSS| ES256  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
+| `id-RSASSA-PSS` - ASN1 OID: secp384r1 | RSA-PSS| ES384  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
+| `id-RSASSA-PSS` - ASN1 OID: secp521r1 | RSA-PSS| ES512  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
+| `id-Ed25519` | EdDSA (Edwards-Curve DSA) with SHA-512 (SHA-2) and Curve25519 | Ed25519 instance ONLY.| [RFC 8410 section 3](https://www.rfc-editor.org/rfc/rfc8410.html#section-3) |
 
 :::note
-The C2PA spec covers two other certificates for timestamp responses and OCSP certificate revocation, not covered here.
+This table is based on information from the [C2PA specification Trust Model section](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_trust_model). The C2PA specification covers two other certificates for timestamp responses and OCSP certificate revocation, not covered here.
 :::note
 
 ## Example credential generation
@@ -55,7 +61,7 @@ Credential management is a complex topic and different for every organization, s
 
 This example uses the [PersonSign1](https://shop.globalsign.com/en/secure-email) certificate that contains KU and EKU values compliant with C2PA manifest signing. Follow the instructions to purchase and download your `.pfx` file. This file is a PKCS12 container that holds your certificate chain and private signing key.
 
-:::info
+:::warning Warning
 Other certificate vendors may include only the end-entity certificate and you must manually download the rest of the certificate chain.
 :::info
 
@@ -81,14 +87,6 @@ PKCS7 Encrypted data: pbeWithSHA1And40BitRC2- CBC, Iteration 2000
 Error outputting keys and certificates
 ```
 
-Or:
-
-```
-409B2AFD01000000:error:0308010C:digital envelope 
-routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:341:Global default library context,
-Algorithm (RC2-40-CBC : 0), Properties ()
-```
-
 #### Extract the key
 
 ```shell
@@ -96,7 +94,7 @@ openssl pkcs12 -in mycertfile.pfx -nocerts -out mykey.pem -nodes
 ```
 
 :::tip
-Check the generated `.pem` file to make sure it's not empty.  For more information, see [Troubleshooting errors](#troubleshooting-errors).
+Check to make sure the above command generated a `.pem` file and it's not an empty file.  For more information, see [Troubleshooting errors](#troubleshooting-errors) above.
 :::
 
 #### Extract the certificate chain
@@ -137,7 +135,7 @@ Certificate:
 .
 ```
 
-You now have all the needed information to configure c2patool for manifest signing. Edit your [manifest store file](../c2patool/manifest) to have the following content:
+You now have all the needed information to configure c2patool for manifest signing. Edit your [manifest store file](/docs/c2patool/manifest) to have the following content:
 
 ```json
 "alg": "ps256",
@@ -146,13 +144,37 @@ You now have all the needed information to configure c2patool for manifest signi
 ```
 
 :::note
-The `private_key` and `sign_cert` parameters must be full paths to the key and certificate chain files generated above.
+The `private_key` and `sign_cert` properties must be full paths to the key and certificate chain files generated above.
 :::note
 
-You can now use c2patool to add a manifest as described in the [c2patool documentation](../c2patool/#adding-a-manifest-to-an-asset-file). The command will be something like this:
+You can now use c2patool as described in the [c2patool documentation](/docs/c2patool/#adding-a-manifest-to-an-asset-file) to add a to add a manifest to an image or other asset file. The command will be something like this:
 
 ```
-c2patool -m myconfig.json -o destination.jpg source.jpg
+c2patool -m my_manifest.json -o signed_image.jpg my_image.jpg
 ```
 
-The example above uses the information in `myconfig.json` to add a new manifest to output `destination.jpg` using source `source.jpg`. The manifest will be signed using the PS256 signature algorithm with private key `mykey.pem`. The manifest will contain the trust chain specified in `mycerts.pem`.
+The example above uses the information in `my_manifest.json` to add a new manifest to output `signed_image.jpg` using source `my_image.jpg`. The manifest will be signed using the PS256 signature algorithm with private key `mykey.pem`. The manifest will contain the trust chain specified in `mycerts.pem`.
+
+### Confirm it worked
+
+Use c2patool to confirm that you successfully signed the asset. Enter a command like this:
+
+```
+c2patool signed_image.jpg 
+```
+
+This command displays the manifest attached to `signed_image.jpg` and should include a section such as this:
+
+```json
+...
+"signature_info": {
+        "cert_serial_number": "012345678901234567890123456789",
+        "time": "2023-11-02T17:18:14+00:00"
+      },
+      "label": "urn:uuid:0b9bc2b8-6d66-4258-9fed-694c30abcdef"
+...
+```
+
+:::info
+You can also use [Verify](https://contentcredentials.org/verify) to confirm that your image was signed, but if you used a personal certificate (not an organization certificate) then Verify won't show detailed information about the credential used.
+:::
