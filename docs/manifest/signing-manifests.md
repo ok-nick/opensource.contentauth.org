@@ -45,9 +45,8 @@ The following table describes the signature algorithms and recommended signature
 | `id-RSASSA-PSS` - ASN1 OID: secp521r1 | RSA-PSS| ES512  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
 | `id-Ed25519` | EdDSA (Edwards-Curve DSA) with SHA-512 (SHA-2) and Curve25519 | Ed25519 instance ONLY.| [RFC 8410 section 3](https://www.rfc-editor.org/rfc/rfc8410.html#section-3) |
 
-:::note
-This table is based on information from the [C2PA specification Trust Model section](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_trust_model). The C2PA specification covers two other certificates for timestamp responses and OCSP certificate revocation, not covered here.
-:::note
+
+This information in this table is based on the [C2PA specification Trust Model section](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_trust_model). The C2PA specification also covers two other certificates for timestamp responses and OCSP certificate revocation, which are not covered here.
 
 ## Example credential generation
 
