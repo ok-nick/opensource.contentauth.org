@@ -213,29 +213,41 @@ The `instanceId` property identifies an ingredient and is only used when definin
 For example:
 
 ```json
-...
-"assertions": [
-  ...
-  {
-    "label": "c2pa.actions",
-    "data": {
-      "actions": [
+     "ingredients": [
+        {
+          "title": "A.jpg",
+          "format": "image/jpeg",
+          "document_id": "xmp.did:813ee422-9736-4cdc-9be6-4e35ed8e41cb",
+          "instance_id": "xmp.iid:813ee422-9736-4cdc-9be6-4e35ed8e41cb",
+          "thumbnail": {
+            "format": "image/jpeg",
+            "identifier": "xmp.iid-813ee422-9736-4cdc-9be6-4e35ed8e41cb.jpg"
+          },
+          "relationship": "parentOf"
+        }
+      ],
+      "assertions": [
         ...
         {
-          "action": "c2pa.placed",
-          "instanceId": "xmp:iid:a922f87b-233e-4e89-b5c8-82c5a90df76c",
-          "parameters": {
-            "ingredient": {
-              "hash": "sYBHErcYn+C6wO88KoeakQ/gfdxOy2BdvqajBd57hvE=",
-              "url": "self#jumbf=c2pa.assertions/c2pa.ingredient"
-            }
+          "label": "c2pa.actions",
+          "data": {
+            "actions": [
+              {
+                "action": "c2pa.opened",
+                "instanceId": "xmp.iid:813ee422-9736-4cdc-9be6-4e35ed8e41cb",
+                "parameters": {
+                  "ingredient": {
+                    "hash": "tTBD4/E0R0AjLUdJFpsVz3lE/KJUq22Vz0UGqzhEpVs=",
+                    "url": "self#jumbf=c2pa.assertions/c2pa.ingredient"
+                  }
+                }
+              },
+              ...
+            ]
           }
         }
-      ]           
-    },
-    ...
-  }
-...
+      ],
+      ...
 ```
 
 ### Digital source type
