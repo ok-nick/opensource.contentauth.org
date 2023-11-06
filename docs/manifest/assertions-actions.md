@@ -8,8 +8,8 @@ title: Assertions and actions
 Assertions provide information about when, where, and how an asset was created or transformed. Examples include:
 
 - [Actions](#actions) performed on the asset such as cropping, color or contrast adjustment, and so on.  
-- Creative work, indicating an asset is the product of creative effort.
-- "Do not train" to indicate whether the creator/owner of an asset is granting permission to use it for data mining or AI/ML training.
+- [Creative work assertion](#creative-work-assertion), indicating an asset is the product of creative effort.
+- ["Do not train" assertion](#do-not-train-assertion) to indicate whether the creator/owner of an asset is granting permission to use it for data mining or AI/ML training.
 - Content bindings (for example, cryptographic hashes).
 
 Add each assertion to the manifest `assertions` property, which is an array of [ManifestAssertion](manifest-ref#manifestassertion) objects.  A ManifestAssertion object has two required properties, `label`, a string, and `data`, which can contain arbitrary information; and two optional properties, `kind` and `instance`. 
@@ -196,15 +196,9 @@ Each action has the following standard properties.
 
 The value of the `action` property must be either a pre-defined standard C2PA action name string (of the form `c2pa.*`) or a custom action name. The set of standard C2PA actions includes fundamental ones as `c2pa.created` for when an asset is first created, and numerous others for when an asset's content is modified in some way.  For a complete list, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions).
 
-### V2 actions
+### InstanceID property
 
-This documentation covers C2PA v1 actions.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions) also describes expanded v2 actions.  V1 actions are fully specified in the actions array. However, a v2 action may either be specified by an element of the actions array or from an element in the templates array with the same action name.
-
-There are some additional differences between v1 and v2 actions, for example in v2, `softwareAgent` is a [ClaimGeneratorInfo](../manifest-ref#claimgeneratorinfo) structure instead of a string. The CAI APIs can read all v2 actions and write most v2 actions.
-
-### InstanceID
-
-The `instanceId` field is only used when defining/writing a manifest, not reading one.
+The `instanceId` property identifies an ingredient and is only used when defining/writing a manifest, not reading one.
 
 ```json 
  "parameters": {
@@ -270,7 +264,6 @@ Use the `digitalSourceType` property with the `c2pa.created` action to specify h
 This table is provided for convenience.  For the authoritative list, see the [IPTC NewsCodes Digital Source Type scheme (controlled vocabulary)](https://cv.iptc.org/newscodes/digitalsourcetype/).
 :::
 
-
 ### Generative AI action
 
 To specify that an asset was created using generative AI, use the `c2pa.created` action with digitalSourceType that's one of:
@@ -298,3 +291,8 @@ To specify that an asset was created using generative AI, use the `c2pa.created`
 
 Where `<TOOL_NAME>` is the name of the generative AI tool or service.
 
+### V2 actions
+
+This documentation covers C2PA v1 actions.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions) also describes expanded v2 actions.  V1 actions are fully specified in the actions array. However, a v2 action may either be specified by an element of the actions array or from an element in the templates array with the same action name.
+
+There are some additional differences between v1 and v2 actions, for example in v2, `softwareAgent` is a [ClaimGeneratorInfo](../manifest-ref#claimgeneratorinfo) structure instead of a string. The CAI APIs can read all v2 actions and write most v2 actions.
