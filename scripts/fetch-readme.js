@@ -49,6 +49,21 @@ const readmes = [
     repo: 'contentauth/c2pa-service-example',
     path: 'README.md',
   },
+  {
+    dest: resolve(__dirname, '../docs/c2pa-c/readme.md'),
+    repo: 'contentauth/c2pa-c',
+    path: 'README.md',
+  },
+  {
+    dest: resolve(__dirname, '../docs/c2pa-node/readme.md'),
+    repo: 'contentauth/c2pa-node',
+    path: 'README.md',
+  },
+  {
+    dest: resolve(__dirname, '../docs/c2pa-python/readme.md'),
+    repo: 'contentauth/c2pa-python',
+    path: 'README.md',
+  },
 ];
 
 function resolveMarkdownLinks(linkBase, content) {
