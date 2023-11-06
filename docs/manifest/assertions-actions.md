@@ -157,26 +157,10 @@ Example in detailed manifest
 "hash": "DcGR4k9M6aLXXCeDii4tSdX45rrIM5HSr1Wy/czQ6ro=", // Base64 encoding of SHA of hash of asset except for  manifest
 ```
 
-## Actions
+### Custom assertions
 
-An `actions` assertion is an array of [ManifestAssertion](https://opensource.contentauthenticity.org/docs/manifest/manifest-ref#manifestassertion) objects that provides information on edits and other actions that have been performed on an asset. 
+You can also define a custom assertion that has a label string with reverse domain syntax, for example `com.adobe.foo`.
 
-Each action has the following standard properties.
-
-| Property | Required? | Description | Example |
-|----------|-----------| ------------|---------|
-| `action` | Yes | The action name. | `c2pa.created` |
-| `digitalSourceType` | No | A URL identifying a [IPTC term](https://cv.iptc.org/newscodes/digitalsourcetype/).  | `http://cv.iptc.org/newscodes/digitalsourcetype/`<br/>`compositeWithTrainedAlgorithmicMedia` |
-| `softwareAgent` | No | The software or hardware used to perform the action.   | `"Adobe Firefly"` |
-| `parameters` | No | Additional information describing the action. | Reference to an ingredient. |
-
-The value of the `action` property must be either a pre-defined standard C2PA action name string (of the form `c2pa.*`) or a custom action name. The set of standard C2PA actions includes fundamental ones as `c2pa.created` for when an asset is first created, and numerous others for when an asset's content is modified in some way.  For a complete list, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions).
-
-You can also define a custom action which have a label string with reverse domain syntax, for example `com.adobe.foo`.
-
-<div class="review-comment">
-Below doesn't seem right (it's not an action) but is from Truepic testfile https://github.com/crandmck/public-testfiles/blob/main/manifests/image/jpeg/truepic-20230212-library/manifest_store.json#L22.
-</div>
 
 For example:
 
@@ -197,22 +181,30 @@ For example:
 ]
 ```
 
+## Actions
+
+An `actions` assertion is an array of [ManifestAssertion](https://opensource.contentauthenticity.org/docs/manifest/manifest-ref#manifestassertion) objects that provides information on edits and other actions that have been performed on an asset. 
+
+Each action has the following standard properties.
+
+| Property | Required? | Description | Example |
+|----------|-----------| ------------|---------|
+| `action` | Yes | The action name. | `c2pa.created` |
+| `digitalSourceType` | No | A URL identifying a [IPTC term](https://cv.iptc.org/newscodes/digitalsourcetype/).  | `http://cv.iptc.org/newscodes/digitalsourcetype/`<br/>`compositeWithTrainedAlgorithmicMedia` |
+| `softwareAgent` | No | The software or hardware used to perform the action.   | `"Adobe Firefly"` |
+| `parameters` | No | Additional information describing the action. | Reference to an ingredient. |
+
+The value of the `action` property must be either a pre-defined standard C2PA action name string (of the form `c2pa.*`) or a custom action name. The set of standard C2PA actions includes fundamental ones as `c2pa.created` for when an asset is first created, and numerous others for when an asset's content is modified in some way.  For a complete list, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions).
+
 ### V2 actions
 
-This documentation covers C2PA v1 actions.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions) also describes expanded v2 actions.  V1 actions are fully specified in the actions array. However, in v2, an action may either be specified by an element of the actions array or from an element in the templates array with the same action name.
+This documentation covers C2PA v1 actions.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions) also describes expanded v2 actions.  V1 actions are fully specified in the actions array. However, a v2 action may either be specified by an element of the actions array or from an element in the templates array with the same action name.
 
-Thre are some differences between v1 and v2 actions, for example in v2, `softwareAgent` is a [ClaimGeneratorInfo](../manifest-ref#claimgeneratorinfo) structure instead of a string.
-The CAI APIs can read all v2 actions and write most v2 actions.
+There are some additional differences between v1 and v2 actions, for example in v2, `softwareAgent` is a [ClaimGeneratorInfo](../manifest-ref#claimgeneratorinfo) structure instead of a string. The CAI APIs can read all v2 actions and write most v2 actions.
 
-<!-- 
-If action is associated with an ingredient, need to link them
+### InstanceID
 
-In spec, create a hashed URI map
-
-In v1, was called ingredient , in v2 `ingredients` is an array.
--->
-
-The `instanceId` field only used when defining/writing a manifest, not reading one.
+The `instanceId` field is only used when defining/writing a manifest, not reading one.
 
 ```json 
  "parameters": {
@@ -234,15 +226,7 @@ For example:
     "label": "c2pa.actions",
     "data": {
       "actions": [
-        {
-          "action": "c2pa.created"
-        },
-        {
-          "action": "c2pa.drawing",
-          "parameters": {
-            "name": "gradient"
-          }
-        },
+        ...
         {
           "action": "c2pa.placed",
           "instanceId": "xmp:iid:a922f87b-233e-4e89-b5c8-82c5a90df76c",
@@ -254,9 +238,9 @@ For example:
           }
         }
       ]           
-    }
+    },
+    ...
   }
-],
 ...
 ```
 
