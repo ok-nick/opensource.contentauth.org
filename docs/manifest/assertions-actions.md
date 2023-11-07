@@ -5,16 +5,11 @@ title: Assertions and actions
 
 ## Assertions
 
-Assertions provide information about when, where, and how an asset was created or transformed. Examples include:
+Assertions provide information about when, where, and how an asset was created or transformed. 
 
-- [Actions](#actions) performed on the asset such as cropping, color or contrast adjustment, and so on.  
-- [Creative work assertion](#creative-work-assertion), indicating an asset is the product of creative effort.
-- ["Do not train" assertion](#do-not-train-assertion) to indicate whether the creator/owner of an asset is granting permission to use it for data mining or AI/ML training.
-- Content bindings (for example, cryptographic hashes).
+In the JSON manifest, each assertion is specified by a [ManifestAssertion](manifest-ref#manifestassertion) object.  All the assertions in the manifest are in the `assertions` array. A ManifestAssertion object has two required properties, `label`, a string, and `data`, which can contain arbitrary information; and two optional properties, `kind` and `instance`. 
 
-Add each assertion to the manifest `assertions` property, which is an array of [ManifestAssertion](manifest-ref#manifestassertion) objects.  A ManifestAssertion object has two required properties, `label`, a string, and `data`, which can contain arbitrary information; and two optional properties, `kind` and `instance`. 
-
-The standard form of an assertion in JSON is:
+The standard form of an assertion in a JSON manifest is:
 
 ```json
 "assertions": [
@@ -31,18 +26,23 @@ The standard form of an assertion in JSON is:
 ]
 ```
 
+### C2PA standard assertions
+
+The C2PA Technical Specification defines a [set of standard assertions](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_standard_c2pa_assertion_summary) and their corresponding labels.  In addition, you can define [custom assertions](#custom-assertions) for your specific application.
+
+The following table summarizes some of the most important standard assertions.
+
 | Assertion | Label | Description |
 |-----------|--------------|-------------|
-| Action |  `c2pa.actions` | All edits and other actions on an asset. See [Actions](#actions) below. |
-| Creative work | `stds.schema-org.CreativeWork`  | The asset is the result of creative effort.  See [Creative work assertion](#creative-work-assertion) below. |
-| "Do not train" | `c2pa.training-mining` | Whether an asset may be used as part of a data mining or AI/ML training. See [Do not train assertion](#do-not-train-assertion) below. |
+| [Action](#actions) |  `c2pa.actions` | Creation, edits, and other actions on an asset, such as cropping, color or contrast adjustment, and so on. |
+| [Creative work](#creative-work-assertion) | `stds.schema-org.CreativeWork`  | Indicates the asset is the product of creative effort.   |
+| ["Do not train"](#do-not-train-assertion) | `c2pa.training-mining` | Whether the creator/owner of an asset grants permission to use it for data mining or AI/ML training.  |
+| [Exif information](#exif-assertion) | `stds.exif` | Camera information such as maker, lens stored in Exchangeable image file format (Exif). |
+| [Content bindings](#content-bindings) | `c2pa.hash.*`, `c2pa.soft-binding`, etc. | Uniquely identify portions of an asset and bind the assertion to it, for example using cryptographic hashes. |
 | Thumbnail | `c2pa.thumbnail.claim` - Claim creation time <br/> `c2pa.thumbnail.ingredient` - Importing an ingredient | Thumbnails
-| Exif information | `stds.exif` | Camera information such as maker, lens stored in Exchangeable image file format (Exif).  See [Exif assertion](#exif-assertion) below. |
-
-For the list of standard assertions and their labels, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_standard_c2pa_assertion_summary). 
 
 :::note
-CAI API libraries handle assertions for thumbnails and ingredients, so normally you don't  need to think about them.
+CAI libraries and tools handle assertions for thumbnails and ingredients, so normally you don't need to think about them.
 :::
 
 ### Creative work assertion
@@ -112,7 +112,7 @@ Example:
 
 ### Exif assertion
 
-Exchangeable image file (Exif) format is a standard for storing technical metadata in image files of JPEG, TIFF, PNG, and other formats. Most new digital cameras (including smartphones) as well as scanners and other digital capture devices use Exif to store information such as device make and model, shutter speed, ISO number, date and time of capture, location, and so on.  For more information on Exif, see the [Exif specification](https://www.cipa.jp/std/documents/download_e.html?DC-008-Translation-2019-E).
+Exchangeable image file (Exif) format is a standard for storing technical metadata in image files of JPEG, TIFF, PNG, and other formats. Most digital cameras (including smartphones), scanners and other digital capture devices use Exif to store information such as device make and model, shutter speed, ISO number, date and time of capture, location, and so on.  For more information on Exif, see the [Exif specification](https://www.cipa.jp/std/documents/download_e.html?DC-008-Translation-2019-E).
 
 Use an Exif assertion to add Exif information to the asset in a way that can be validated cryptographically.  The label property for an Exif assertion has a value of `stds.exif`.
 
@@ -141,26 +141,30 @@ Here is a simple example:
 
 ### Content bindings
 
-Content bindings uniquely identify portions of an asset. 
-Normally you don't need to write content bindings, just read them.
+Content bindings are standard assertions such as `c2pa.hash.boxes` and `c2pa.hash.data` that uniquely identify portions of an asset.  The CAI libraries and tools write these assertions, so normally you don't need to write them, just read them.  For more information on content bindings, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_binding_to_content).
 
-Example in detailed manifest
+xx
 
-```json 
-"alg": "sha256",  // Hash algorithm
-"exclusions": [ // Don't hash these areas
-  {
-    "length": 51179, //Number of bytes to NOT hash
-    "start": 20 // Number of bytes to exclude from start of file
-  }
-],
-"hash": "DcGR4k9M6aLXXCeDii4tSdX45rrIM5HSr1Wy/czQ6ro=", // Base64 encoding of SHA of hash of asset except for  manifest
+For example, the `c2pa.hash.data` assertion shown in the [detailed manifest example](manifest-examples/#detailed-manifest) specifies an exclusion hash:
+
+```json
+"c2pa.hash.data": {
+  "alg": "sha256",
+  "exclusions": [
+    {
+      "length": 51179,
+      "start": 20
+    }
+  ],
+  "hash": "DcGR4k9M6aLXXCeDii4tSdX45rrIM5HSr1Wy/czQ6ro=",
+  "name": "jumbf manifest",
+  "pad": "<omitted>"
+}
 ```
 
 ### Custom assertions
 
-You can also define a custom assertion that has a label string with reverse domain syntax, for example `com.adobe.foo`.
-
+In addition to the C2PA standard assertions, you can also define custom assertions if the standard assertions don't cover your specific needs.  A custom assertion has a label string with [reverse domain name notation](https://en.wikipedia.org/wiki/Reverse_domain_name_notation) syntax, for example `com.adobe.product-foo.bar`.
 
 For example:
 
@@ -183,76 +187,46 @@ For example:
 
 ## Actions
 
-An `actions` assertion is an array of [ManifestAssertion](https://opensource.contentauthenticity.org/docs/manifest/manifest-ref#manifestassertion) objects that provides information on edits and other actions that have been performed on an asset. 
+An `actions` assertion is an array of [ManifestAssertion](manifest-ref#manifestassertion) objects that provides information on edits and other actions that have been performed on an asset.   For example:
+
+```json
+...
+"assertions": [
+  {
+    "label": "c2pa.actions",
+    "data": {
+      "actions": [
+        {
+          "action": "c2pa.created",
+          "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+          "softwareAgent": "Adobe Firefly"
+        }
+      ]
+    }
+  }
+],
+...
+```
 
 Each action has the following standard properties.
 
 | Property | Required? | Description | Example |
 |----------|-----------| ------------|---------|
-| `action` | Yes | The action name. | `c2pa.created` |
-| `digitalSourceType` | No | A URL identifying a [IPTC term](https://cv.iptc.org/newscodes/digitalsourcetype/).  | `http://cv.iptc.org/newscodes/digitalsourcetype/`<br/>`compositeWithTrainedAlgorithmicMedia` |
+| `action` | Yes | The action name.  See [Action names](#action-names). | `c2pa.created` |
+| `digitalSourceType` | No | A URL identifying a [IPTC term](https://cv.iptc.org/newscodes/digitalsourcetype/). See [Digital source type](#digital-source-type). | `http://cv.iptc.org/newscodes/digitalsourcetype/`<br/>`compositeWithTrainedAlgorithmicMedia` |
 | `softwareAgent` | No | The software or hardware used to perform the action.   | `"Adobe Firefly"` |
 | `parameters` | No | Additional information describing the action. | Reference to an ingredient. |
 
-The value of the `action` property must be either a pre-defined standard C2PA action name string (of the form `c2pa.*`) or a custom action name. The set of standard C2PA actions includes fundamental ones as `c2pa.created` for when an asset is first created, and numerous others for when an asset's content is modified in some way.  For a complete list, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions).
+### Action names
 
-### InstanceID property
+The value of the `action` property must be either one of the pre-defined [standard C2PA action strings](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions) of the form `c2pa.*` or a custom action name. The set of standard C2PA actions includes fundamental ones as `c2pa.created` for when an asset is first created, and others (`c2pa.cropped`, `c2pa.resized`, and so on) for when an asset's content is modified in some way.  
 
-The `instanceId` property identifies an ingredient and is only used when defining/writing a manifest, not reading one.
+For the complete list of standard actions, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions).
 
-```json 
- "parameters": {
-    "ingredient": {
-      "hash": "sYBHErcYn+C6wO88KoeakQ/gfdxOy2BdvqajBd57hvE=",
-      "url": "self#jumbf=c2pa.assertions/c2pa.ingredient"
-    },
-    "instanceId": "<String-instance-ID-of-ingredient>"
- }
-```
-
-For example:
-
-```json
-     "ingredients": [
-        {
-          "title": "A.jpg",
-          "format": "image/jpeg",
-          "document_id": "xmp.did:813ee422-9736-4cdc-9be6-4e35ed8e41cb",
-          "instance_id": "xmp.iid:813ee422-9736-4cdc-9be6-4e35ed8e41cb",
-          "thumbnail": {
-            "format": "image/jpeg",
-            "identifier": "xmp.iid-813ee422-9736-4cdc-9be6-4e35ed8e41cb.jpg"
-          },
-          "relationship": "parentOf"
-        }
-      ],
-      "assertions": [
-        ...
-        {
-          "label": "c2pa.actions",
-          "data": {
-            "actions": [
-              {
-                "action": "c2pa.opened",
-                "instanceId": "xmp.iid:813ee422-9736-4cdc-9be6-4e35ed8e41cb",
-                "parameters": {
-                  "ingredient": {
-                    "hash": "tTBD4/E0R0AjLUdJFpsVz3lE/KJUq22Vz0UGqzhEpVs=",
-                    "url": "self#jumbf=c2pa.assertions/c2pa.ingredient"
-                  }
-                }
-              },
-              ...
-            ]
-          }
-        }
-      ],
-      ...
-```
 
 ### Digital source type
 
-Use the `digitalSourceType` property with the `c2pa.created` action to specify how an asset was created, for example "digital capture", "digitized from negative" or "trained algorithmic media." The values of `digitalSourceType` is one of the URLs specified by the International Press Telecommunications Council (IPTC) [NewsCodes Digital Source Type scheme](https://cv.iptc.org/newscodes/digitalsourcetype/).  The URL is of the form `http://cv.iptc.org/newscodes/digitalsourcetype/negativeFilm/<CODE>`, where `<CODE>` is one of the codes shown in the following table.
+Use the `digitalSourceType` property with the `c2pa.created` action to specify how an asset was created, for example "digital capture", "digitized from negative" or "trained algorithmic media." The value of `digitalSourceType` is one of the URLs specified by the International Press Telecommunications Council (IPTC) [NewsCodes Digital Source Type scheme](https://cv.iptc.org/newscodes/digitalsourcetype/).  The URL is of the form `http://cv.iptc.org/newscodes/digitalsourcetype/negativeFilm/<CODE>`, where `<CODE>` is one of the codes shown in the following table.
 
 | Code | Description |
 |---|---|
@@ -276,11 +250,28 @@ Use the `digitalSourceType` property with the `c2pa.created` action to specify h
 This table is provided for convenience.  For the authoritative list, see the [IPTC NewsCodes Digital Source Type scheme (controlled vocabulary)](https://cv.iptc.org/newscodes/digitalsourcetype/).
 :::
 
+### Parameters 
+
+The `parameters` property can contain any data that provide more details on the action, for example:
+
+```json
+"actions": [
+  {
+    "action": "c2pa.color_adjustments",
+    "parameters": {
+      "com.adobe.acr": "Contrast2012",
+      "com.adobe.acr.value": "26"
+    }
+  },
+  ...
+]
+```
+
 ### Generative AI action
 
-To specify that an asset was created using generative AI, use the `c2pa.created` action with digitalSourceType that's one of:
-- `trainedAlgorithmicMedia` for an asset created by generative AI  tools or systems.
-- `compositeWithTrainedAlgorithmicMedia` for an asset that contains one or more elements that were created by generative AI tools or systems.
+To specify that an asset was created using generative AI, use the `c2pa.created` action with `digitalSourceType` that's one of:
+- `trainedAlgorithmicMedia` for an asset created by generative AI tools.
+- `compositeWithTrainedAlgorithmicMedia` for an asset that contains one or more elements that were created by generative AI tools.
 
 ```json
 "assertions": [
@@ -303,8 +294,76 @@ To specify that an asset was created using generative AI, use the `c2pa.created`
 
 Where `<TOOL_NAME>` is the name of the generative AI tool or service.
 
+### The instanceId property
+
+The `instanceId` property identifies an ingredient used in an action and is only used when defining/writing a manifest, not reading one.
+
+```json 
+"ingredients": [
+  {
+    ...
+    "instance_id": "<String-instance-ID-of-ingredient>",
+    ...
+  },
+...
+"actions": [
+  {
+    "action": "c2pa.*",
+    "instanceId": "<String-instance-ID-of-ingredient>",
+    "parameters": {
+      "ingredient": {
+        "hash": "tTBD4/E0R0AjLUdJFpsVz3lE/KJUq22Vz0UGqzhEpVs=",
+        "url": "self#jumbf=c2pa.assertions/c2pa.ingredient"
+      }
+    }
+  },
+  ...
+]
+```
+
+For example, the following action identifies that the `c2pa.opened` action was performed on the ingredient with ID `xmp.did:813ee422-9736-4cdc-9be6-4e35ed8e41cb`:
+
+```json
+"ingredients": [
+  {
+    "title": "A.jpg",
+    "format": "image/jpeg",
+    "document_id": "xmp.did:813ee422-9736-4cdc-9be6-4e35ed8e41cb",
+    "instance_id": "xmp.iid:813ee422-9736-4cdc-9be6-4e35ed8e41cb",
+    "thumbnail": {
+      "format": "image/jpeg",
+      "identifier": "xmp.iid-813ee422-9736-4cdc-9be6-4e35ed8e41cb.jpg"
+    },
+    "relationship": "parentOf"
+  },
+  ...
+],
+"assertions": [
+  ...
+  {
+    "label": "c2pa.actions",
+    "data": {
+      "actions": [
+        {
+          "action": "c2pa.opened",
+          "instanceId": "xmp.iid:813ee422-9736-4cdc-9be6-4e35ed8e41cb",
+          "parameters": {
+            "ingredient": {
+              "hash": "tTBD4/E0R0AjLUdJFpsVz3lE/KJUq22Vz0UGqzhEpVs=",
+              "url": "self#jumbf=c2pa.assertions/c2pa.ingredient"
+            }
+          }
+        },
+        ...
+      ]
+    }
+  }
+],
+...
+```
+
 ### V2 actions
 
 This documentation covers C2PA v1 actions.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions) also describes expanded v2 actions.  V1 actions are fully specified in the actions array. However, a v2 action may either be specified by an element of the actions array or from an element in the templates array with the same action name.
 
-There are some additional differences between v1 and v2 actions, for example in v2, `softwareAgent` is a [ClaimGeneratorInfo](../manifest-ref#claimgeneratorinfo) structure instead of a string. The CAI APIs can read all v2 actions and write most v2 actions.
+There are some additional differences between v1 and v2 actions, for example in v2, `softwareAgent` is a [ClaimGeneratorInfo](manifest-ref#claimgeneratorinfo) structure instead of a string. The CAI APIs can read all v2 actions and write most v2 actions.
