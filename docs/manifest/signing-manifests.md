@@ -12,8 +12,12 @@ Before reading this page, be sure to read [Getting started](/docs/getting-starte
 To sign a C2PA manifest you need an end-entity certificate that complies with the C2PA trust model. Then you can use your private key and public certificates in the signing process. This page walks through an example of obtaining appropriate credentials and then using c2patool to  to sign a manifest using them.
 
 :::note
-Best practices for handling keys and certificates are available from many sources and not directly covered here. Always protect your private keys with the highest level of security.
+Best practices for handling keys and certificates are available from many sources and not directly covered here.  Always protect your private keys with the highest level of security.  Some useful references include:
+- [Key Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Key_Management_Cheat_Sheet.html#storage) from the Open Worldwide Application Security Project  (OWASP).
+- [Protect your private keys](https://www.ncsc.gov.uk/collection/in-house-public-key-infrastructure/pki-principles/protect-your-private-keys) from the UK National Cyber Security Centre.
 :::note
+
+
 
 ## Certificates
 
@@ -48,25 +52,27 @@ The following table describes the signature algorithms and recommended signature
 
 This information in this table is based on the [C2PA specification Trust Model section](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_trust_model). The C2PA specification also covers two other certificates for timestamp responses and OCSP certificate revocation, which are not covered here.
 
-## Example credential generation
+## Example
 
-Here is an example of generating a C2PA-compliant set of credentials using [GlobalSign](http://globalsign.com/) certificate authority (CA).
+Here is an example of generating a C2PA-compliant set of credentials using [GlobalSign](http://globalsign.com/) certificate authority (CA).  This is only an illustrative example; Certificates are available from many other certificate authorities, as summarized in [Getting started](../../getting-started#getting-a-security-certificate).
 
 :::note
 Credential management is a complex topic and different for every organization, so use this tutorial only as a demonstration of how C2PA operates. Other certificate providers may have alternate ways of providing your private key and certificate.
 :::note
 
-### Step 1: Purchase compliant credentials
+### Step 1: Purchase credentials
 
-This example uses the [PersonSign1](https://shop.globalsign.com/en/secure-email) certificate that contains KU and EKU values compliant with C2PA manifest signing. Follow the instructions to purchase and download your `.pfx` file. This file is a PKCS12 container that holds your certificate chain and private signing key.
+This example uses a [PersonSign1](https://shop.globalsign.com/en/secure-email) certificate from GlobalSign that contains KU and EKU values required to sign C2PA manifests. 
+
+Follow the instructions to purchase and download your `.pfx` file. This file is a PKCS12 container that holds your certificate chain and private signing key.  Other certificate vendors may include only the end-entity certificate and so you must manually download the rest of the certificate chain.
 
 :::warning Warning
-Other certificate vendors may include only the end-entity certificate and you must manually download the rest of the certificate chain.
+This example uses an inexpensive personal certificate, which is fine for development and testing, but for production use an enterprise certificate is strongly recommended. An enterprise certificate is required for [Verify](https://verify.contentauthenticity.org/) to display your organization name when for signed assets.
 :::info
 
 The rest of this tutorial uses OpenSSL (a set of cryptographic utilities). If OpenSSL is not installed on your system, see [OpenSSL](https://www.openssl.org/source/) for the source distribution or the [list of unofficial binary distributions](https://wiki.openssl.org/index.php/Binaries).
 
-### Step 2: Extract the certificate and key using OpenSSL
+### Step 2: Extract the certificate and key
 
 Use the commands below to extract the key and certificate chain. If prompted, enter the password that was used to generate the `.pfx` file.
 
