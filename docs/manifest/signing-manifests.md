@@ -50,7 +50,7 @@ This information in this table is based on the [C2PA specification Trust Model s
 
 ## Example
 
-Here is an example of generating a C2PA-compliant set of credentials using [GlobalSign](http://globalsign.com/) certificate authority (CA).
+Here is an example of generating a C2PA-compliant set of credentials using [GlobalSign](http://globalsign.com/) certificate authority (CA).  This is only an illustrative example; Certificates are available from many other certificate authorities, as summarized in [Getting started](../../getting-started#getting-a-security-certificate).
 
 :::note
 Credential management is a complex topic and different for every organization, so use this tutorial only as a demonstration of how C2PA operates. Other certificate providers may have alternate ways of providing your private key and certificate.
@@ -58,10 +58,12 @@ Credential management is a complex topic and different for every organization, s
 
 ### Step 1: Purchase credentials
 
-This example uses the [PersonSign1](https://shop.globalsign.com/en/secure-email) certificate that contains KU and EKU values compliant with C2PA manifest signing. Follow the instructions to purchase and download your `.pfx` file. This file is a PKCS12 container that holds your certificate chain and private signing key.
+This example uses a [PersonSign1](https://shop.globalsign.com/en/secure-email) certificate from GlobalSign that contains KU and EKU values required to sign C2PA manifests. 
+
+Follow the instructions to purchase and download your `.pfx` file. This file is a PKCS12 container that holds your certificate chain and private signing key.  Other certificate vendors may include only the end-entity certificate and so you must manually download the rest of the certificate chain.
 
 :::warning Warning
-Other certificate vendors may include only the end-entity certificate and you must manually download the rest of the certificate chain.
+This example uses an inexpensive personal certificate, which is fine for development and testing, but for production use, an enterprise certificate is strongly recommended. An enterprise (OV) certificate is required for [Verify](https://verify.contentauthenticity.org/) to display your organization name.
 :::info
 
 The rest of this tutorial uses OpenSSL (a set of cryptographic utilities). If OpenSSL is not installed on your system, see [OpenSSL](https://www.openssl.org/source/) for the source distribution or the [list of unofficial binary distributions](https://wiki.openssl.org/index.php/Binaries).
