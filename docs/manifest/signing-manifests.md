@@ -48,7 +48,7 @@ The following table describes the signature algorithms and recommended signature
 
 This information in this table is based on the [C2PA specification Trust Model section](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_trust_model). The C2PA specification also covers two other certificates for timestamp responses and OCSP certificate revocation, which are not covered here.
 
-## Example credential generation
+## Example
 
 Here is an example of generating a C2PA-compliant set of credentials using [GlobalSign](http://globalsign.com/) certificate authority (CA).
 
@@ -56,7 +56,7 @@ Here is an example of generating a C2PA-compliant set of credentials using [Glob
 Credential management is a complex topic and different for every organization, so use this tutorial only as a demonstration of how C2PA operates. Other certificate providers may have alternate ways of providing your private key and certificate.
 :::note
 
-### Step 1: Purchase compliant credentials
+### Step 1: Purchase credentials
 
 This example uses the [PersonSign1](https://shop.globalsign.com/en/secure-email) certificate that contains KU and EKU values compliant with C2PA manifest signing. Follow the instructions to purchase and download your `.pfx` file. This file is a PKCS12 container that holds your certificate chain and private signing key.
 
@@ -66,7 +66,7 @@ Other certificate vendors may include only the end-entity certificate and you mu
 
 The rest of this tutorial uses OpenSSL (a set of cryptographic utilities). If OpenSSL is not installed on your system, see [OpenSSL](https://www.openssl.org/source/) for the source distribution or the [list of unofficial binary distributions](https://wiki.openssl.org/index.php/Binaries).
 
-### Step 2: Extract the certificate and key using OpenSSL
+### Step 2: Extract the certificate and key
 
 Use the commands below to extract the key and certificate chain. If prompted, enter the password that was used to generate the `.pfx` file.
 
