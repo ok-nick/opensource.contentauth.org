@@ -143,8 +143,6 @@ Here is a simple example:
 
 Content bindings are standard assertions such as `c2pa.hash.boxes` and `c2pa.hash.data` that uniquely identify portions of an asset.  The CAI libraries and tools write these assertions, so normally you don't need to write them, just read them.  For more information on content bindings, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_binding_to_content).
 
-xx
-
 For example, the `c2pa.hash.data` assertion shown in the [detailed manifest example](manifest-examples/#detailed-manifest) specifies an exclusion hash:
 
 ```json
