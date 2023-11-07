@@ -12,8 +12,12 @@ Before reading this page, be sure to read [Getting started](/docs/getting-starte
 To sign a C2PA manifest you need an end-entity certificate that complies with the C2PA trust model. Then you can use your private key and public certificates in the signing process. This page walks through an example of obtaining appropriate credentials and then using c2patool to  to sign a manifest using them.
 
 :::note
-Best practices for handling keys and certificates are available from many sources and not directly covered here. Always protect your private keys with the highest level of security.
+Best practices for handling keys and certificates are available from many sources and not directly covered here.  Always protect your private keys with the highest level of security.  Some useful references include:
+- [Key Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Key_Management_Cheat_Sheet.html#storage) from the Open Worldwide Application Security Project  (OWASP).
+- [Protect your private keys](https://www.ncsc.gov.uk/collection/in-house-public-key-infrastructure/pki-principles/protect-your-private-keys) from the UK National Cyber Security Centre.
 :::note
+
+
 
 ## Certificates
 
@@ -63,7 +67,7 @@ This example uses a [PersonSign1](https://shop.globalsign.com/en/secure-email) c
 Follow the instructions to purchase and download your `.pfx` file. This file is a PKCS12 container that holds your certificate chain and private signing key.  Other certificate vendors may include only the end-entity certificate and so you must manually download the rest of the certificate chain.
 
 :::warning Warning
-This example uses an inexpensive personal certificate, which is fine for development and testing, but for production use, an enterprise certificate is strongly recommended. An enterprise (OV) certificate is required for [Verify](https://verify.contentauthenticity.org/) to display your organization name.
+This example uses an inexpensive personal certificate, which is fine for development and testing, but for production use an enterprise certificate is strongly recommended. An enterprise certificate is required for [Verify](https://verify.contentauthenticity.org/) to display your organization name when for signed assets.
 :::info
 
 The rest of this tutorial uses OpenSSL (a set of cryptographic utilities). If OpenSSL is not installed on your system, see [OpenSSL](https://www.openssl.org/source/) for the source distribution or the [list of unofficial binary distributions](https://wiki.openssl.org/index.php/Binaries).
