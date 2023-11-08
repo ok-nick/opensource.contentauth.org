@@ -19,6 +19,10 @@ const sidebars = {
       items: [
         {
           type: 'doc',
+          id: 'manifest/assertions-actions',
+        },
+        {
+          type: 'doc',
           id: 'manifest/manifest-validation',
         },
         {

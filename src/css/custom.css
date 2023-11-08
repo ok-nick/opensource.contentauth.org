@@ -383,3 +383,11 @@ body:not(.is-scrolling) .navbar {
 [data-theme='dark'] .DocSearch {
   --docsearch-highlight-color: var(--cai-color-primary-dark);
 }
+
+/* For inline styling */
+
+.review-comment {
+  background-color: yellow;
+  padding: 5px;
+  font-style: italic;
+}
