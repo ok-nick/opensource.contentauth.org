@@ -75,8 +75,8 @@ A "do not train" assertion specifies whether permission is granted to use an ass
 - `c2pa.ai_generative_training` - Whether the asset be used as training data for a generative AI/ML model that could produce derivative assets?  
 - `c2pa.ai_training` - Whether the asset be used as data to train non-generative AI/ML models, such as those used for classification, object detection, and so on.
 
-:::info
-The `c2pa.ai_generative_training` is distinct because generative AI enables creating derivative assets, while other uses do not.
+:::note
+The `c2pa.ai_generative_training` property enables creating derivative assets using generative AI, while other uses do not.
 :::
 
 The value of each of the above properties is an object with a `use` property that can have one of these properties:
@@ -189,7 +189,7 @@ For example:
 
 ## Actions
 
-An `actions` assertion is an array of [ManifestAssertion](manifest-ref#manifestassertion) objects that provides information on edits and other actions that have been performed on an asset.   For example:
+Actions provide information about creation, edits, and other actions on an asset. In the manifest, an `actions` assertion is an array of [ManifestAssertion](manifest-ref#manifestassertion) objects.   For example:
 
 ```json
 ...
@@ -210,7 +210,7 @@ An `actions` assertion is an array of [ManifestAssertion](manifest-ref#manifesta
 ...
 ```
 
-Each action has the following standard properties.
+Each object in the `actions` array has the following standard properties.
 
 | Property | Required? | Description | Example |
 |----------|-----------| ------------|---------|
@@ -228,7 +228,9 @@ For the complete list of standard actions, see the [C2PA Technical Specification
 
 ### Digital source type
 
-Use the `digitalSourceType` property with the `c2pa.created` action to specify how an asset was created, for example "digital capture", "digitized from negative" or "trained algorithmic media." The value of `digitalSourceType` is one of the URLs specified by the International Press Telecommunications Council (IPTC) [NewsCodes Digital Source Type scheme](https://cv.iptc.org/newscodes/digitalsourcetype/).  The URL is of the form `http://cv.iptc.org/newscodes/digitalsourcetype/negativeFilm/<CODE>`, where `<CODE>` is one of the codes shown in the following table.
+Use the `digitalSourceType` property to specify how an asset was created or modified, for example "digital capture", "digitized from negative" or "trained algorithmic media." 
+
+The value of `digitalSourceType` is one of the URLs specified by the International Press Telecommunications Council (IPTC) [NewsCodes Digital Source Type scheme](https://cv.iptc.org/newscodes/digitalsourcetype/) of the form `http://cv.iptc.org/newscodes/digitalsourcetype/negativeFilm/<CODE>`, where `<CODE>` is one of the codes shown in the following table.
 
 | Code | Description |
 |---|---|
@@ -284,7 +286,7 @@ To specify that an asset was created using generative AI, use the `c2pa.created`
       "actions": [
         {
           "action": "c2pa.created",
-          "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia",
+          "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
           "softwareAgent": "<TOOL_NAME>"
         }
       ]
