@@ -34,15 +34,15 @@ The following table summarizes some of the most important standard assertions.
 
 | Assertion | Label | Description |
 |-----------|--------------|-------------|
-| [Action](#actions) |  `c2pa.actions` | Creation, edits, and other actions on an asset, such as cropping, color or contrast adjustment, and so on. |
+| [Actions](#actions) |  `c2pa.actions` | Creation, edits, and other actions on an asset, such as cropping, color or contrast adjustment, and so on. |
 | [Creative work](#creative-work-assertion) | `stds.schema-org.CreativeWork`  | Indicates the asset is the product of creative effort.   |
 | ["Do not train"](#do-not-train-assertion) | `c2pa.training-mining` | Whether the creator/owner of an asset grants permission to use it for data mining or AI/ML training.  |
 | [Exif information](#exif-assertion) | `stds.exif` | Camera information such as maker, lens stored in Exchangeable image file format (Exif). |
 | [Content bindings](#content-bindings) | `c2pa.hash.*`, `c2pa.soft-binding`, etc. | Uniquely identify portions of an asset and bind the assertion to it, for example using cryptographic hashes. |
-| Thumbnail | `c2pa.thumbnail.claim` - Claim creation time <br/> `c2pa.thumbnail.ingredient` - Importing an ingredient | Thumbnails
+
 
 :::note
-CAI libraries and tools handle assertions for thumbnails and ingredients, so normally you don't need to think about them.
+CAI libraries and tools handle assertions for thumbnails, content bindings, and ingredients, so normally you don't need to think about them.
 :::
 
 ### Creative work assertion
@@ -141,7 +141,11 @@ Here is a simple example:
 
 ### Content bindings
 
-Content bindings are standard assertions such as `c2pa.hash.boxes` and `c2pa.hash.data` that uniquely identify portions of an asset.  The CAI libraries and tools write these assertions, so normally you don't need to write them, just read them.  For more information on content bindings, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_binding_to_content).
+Content bindings are standard assertions such as `c2pa.hash.boxes` and `c2pa.hash.data` that uniquely identify portions of an asset.  For more information on content bindings, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_binding_to_content).
+
+:::note
+The CAI libraries and tools write content bindings assertions, so normally you don't need to write them, just read them.
+:::
 
 For example, the `c2pa.hash.data` assertion shown in the [detailed manifest example](manifest-examples/#detailed-manifest) specifies an exclusion hash:
 
@@ -271,6 +275,8 @@ The `parameters` property can contain any data that provide more details on the 
 ]
 ```
 
+For more information on action parameters, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_parameters).
+
 ### Generative AI action
 
 To specify that an asset was created using generative AI, use the `c2pa.created` action with `digitalSourceType` that's one of:
@@ -300,7 +306,7 @@ Where `<TOOL_NAME>` is the name of the generative AI tool or service.
 
 ### The instanceId property
 
-The `instanceId` property identifies an ingredient used in an action and is only used when defining/writing a manifest, not reading one.
+The `instanceId` property identifies an ingredient (with a matching value of `instance_id`) used in an action and is only used when defining/writing a manifest, not reading one.
 
 ```json 
 "ingredients": [
