@@ -146,18 +146,22 @@ Content bindings are standard assertions such as `c2pa.hash.boxes` and `c2pa.has
 For example, the `c2pa.hash.data` assertion shown in the [detailed manifest example](manifest-examples/#detailed-manifest) specifies an exclusion hash:
 
 ```json
-"c2pa.hash.data": {
-  "alg": "sha256",
-  "exclusions": [
-    {
-      "length": 51179,
-      "start": 20
-    }
-  ],
-  "hash": "DcGR4k9M6aLXXCeDii4tSdX45rrIM5HSr1Wy/czQ6ro=",
-  "name": "jumbf manifest",
-  "pad": "<omitted>"
-}
+"assertions": [
+  ...
+  "c2pa.hash.data": {
+    "alg": "sha256",
+    "exclusions": [
+      {
+        "length": 51179,
+        "start": 20
+      }
+    ],
+    "hash": "DcGR4k9M6aLXXCeDii4tSdX45rrIM5HSr1Wy/czQ6ro=",
+    "name": "jumbf manifest",
+    "pad": "<omitted>"
+  },
+  ...
+]
 ```
 
 ### Custom assertions
