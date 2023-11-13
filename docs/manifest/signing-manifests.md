@@ -38,23 +38,23 @@ The following table describes the signature algorithms and recommended signature
 
 | Certificate `signatureAlgorithm` | Description  | Recommended signature type | RFC Reference |
 | -------------------------------- | ------------ | -------------------------- | ------------- |
-| `ecdsa-with-SHA256`    | ES256: ECDSA with SHA-256  | ES256  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
-| `ecdsa-with-SHA384`    | ES384: ECDSA with SHA-384  | ES384  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
-| `ecdsa-with-SHA512`    | ES512: ECDSA with SHA-512  | ES512  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
-| `sha256WithRSAEncryption`   | PS256: RSASSA-PSS with SHA-256<br/>MGF1 with SHA-256| PS256  | [RFC 8017 appendix A.2.4](https://www.rfc-editor.org/rfc/rfc8017.html#appendix-A.2.4) |
-| `sha384WithRSAEncryption`   | PS384: RSASSA-PSS<br/>SHA-384, MGF1 with SHA-384    | PS384  | [RFC 8017 appendix A.2.4](https://www.rfc-editor.org/rfc/rfc8017.html#appendix-A.2.4) |
-| `sha512WithRSAEncryption`   | PS512: RSASSA-PSS<br/>SHA-512, MGF1 with SHA-512    | PS512  | [RFC 8017 appendix A.2.4](https://www.rfc-editor.org/rfc/rfc8017.html#appendix-A.2.4) |
+| `ecdsa-with-SHA256`    | ECDSA with SHA-256  | ES256  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
+| `ecdsa-with-SHA384`    | ECDSA with SHA-384  | ES384  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
+| `ecdsa-with-SHA512`    | ECDSA with SHA-512  | ES512  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
+| `sha256WithRSAEncryption`   | RSASSA-PSS with SHA-256<br/>MGF1 with SHA-256| PS256  | [RFC 8017 appendix A.2.4](https://www.rfc-editor.org/rfc/rfc8017.html#appendix-A.2.4) |
+| `sha384WithRSAEncryption`   | RSASSA-PSS<br/>SHA-384, MGF1 with SHA-384    | PS384  | [RFC 8017 appendix A.2.4](https://www.rfc-editor.org/rfc/rfc8017.html#appendix-A.2.4) |
+| `sha512WithRSAEncryption`   | RSASSA-PSS<br/>SHA-512, MGF1 with SHA-512    | PS512  | [RFC 8017 appendix A.2.4](https://www.rfc-editor.org/rfc/rfc8017.html#appendix-A.2.4) |
 | `id-RSASSA-PSS` - ASN1 OID: prime256v1, NIST CURVE: P-256 | RSA-PSS| ES256  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
 | `id-RSASSA-PSS` - ASN1 OID: secp384r1 | RSA-PSS| ES384  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
 | `id-RSASSA-PSS` - ASN1 OID: secp521r1 | RSA-PSS| ES512  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
 | `id-Ed25519` | EdDSA (Edwards-Curve DSA) with SHA-512 (SHA-2) and Curve25519 | Ed25519 instance ONLY.| [RFC 8410 section 3](https://www.rfc-editor.org/rfc/rfc8410.html#section-3) |
 
 
-This information in this table is based on the [C2PA specification Trust Model section](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_trust_model). The C2PA specification also covers two other certificates for timestamp responses and OCSP certificate revocation, which are not covered here.
+The information in this table is based on the [C2PA specification Trust Model section](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_trust_model). The C2PA specification also covers two other certificates for timestamp responses and OCSP certificate revocation, which are not covered here.
 
 ## Example
 
-Here is an example of generating a C2PA-compliant set of credentials using [GlobalSign](http://globalsign.com/) certificate authority (CA).  This is only an illustrative example; Certificates are available from many other certificate authorities, as summarized in [Getting started](../../getting-started#getting-a-security-certificate).
+Here is an example of generating a C2PA-compliant set of credentials using [GlobalSign](http://globalsign.com/) certificate authority (CA).  This is only an illustrative example; Certificates are available from many other certificate authorities, as summarized in [Getting started](/docs/getting-started#getting-a-security-certificate).
 
 :::note
 Credential management is a complex topic and different for every organization, so use this tutorial only as a demonstration of how C2PA operates. Other certificate providers may have alternate ways of providing your private key and certificate.
