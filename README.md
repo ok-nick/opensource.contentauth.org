@@ -30,6 +30,8 @@ The `/scripts/fetch-readme.js` script pulls markdown files from other repos (e.g
 npm run docs:fetch-readme
 ```
 
+NOTE: If you added a **new** repo to get .md files from, then you need to manually add the directory, add a `.gitkeep` file to it, and then commit it to Git.
+
 ### Generate JavaScript SDK API docs
 
 The `/scripts/generate-api-docs/index.js` script generates API docs for the JS SDK. To run this script for local build, enter this command:

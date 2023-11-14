@@ -81,6 +81,48 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'C++ / C',
+      link: { type: 'doc', id: 'c2pa-c/readme' },
+      collapsed: true,
+      items: [
+        {
+          type: 'link',
+          label: 'GitHub',
+          href: 'https://github.com/contentauth/c2pa-c',
+        },
+      ],
+    },
+
+    {
+      type: 'category',
+      label: 'Python',
+      link: { type: 'doc', id: 'c2pa-python/readme' },
+      collapsed: true,
+      items: [
+        {
+          type: 'link',
+          label: 'GitHub',
+          href: 'https://github.com/contentauth/c2pa-python',
+        },
+      ],
+    },
+
+    {
+      type: 'category',
+      label: 'Node.js',
+      link: { type: 'doc', id: 'c2pa-node/readme' },
+      collapsed: true,
+      items: [
+        {
+          type: 'link',
+          label: 'GitHub',
+          href: 'https://github.com/contentauth/c2pa-node',
+        },
+      ],
+    },
+
+    {
+      type: 'category',
       label: 'Rust SDK',
       link: { type: 'doc', id: 'rust-sdk/readme' },
       collapsed: true,
