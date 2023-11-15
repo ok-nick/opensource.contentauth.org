@@ -31,7 +31,7 @@ The manifest as described in the C2PA specification is a binary structure in JPE
 
 Because the binary structure is hard to understand and program to, the SDK defines a JSON manifest structure that's a declarative language for representing and creating a manifest in binary format. The JSON manifest is a human-readable format, a more abstract translation layer that's easier to understand than the binary format. The JSON format can describe everything in the underlying binary format except for blobs representing thumbnails and other binary data that are included by a structure called a _resource reference_.
 
-Essentially the idea is is that you can create this JSON structure that describes all the things you want to put into a manifest, and some of those things might be binaries like thumbnails, in which case you reference the file path. Then when you use the SDK to make the manifest, it assembles all the pieces, takes the ingredients that you've defined, and converts them into different assertions and other objects as required. 
+The JSON structure describes all the things in a manifest, some of which can be binaries like thumbnails, which are referenced by a file path. Then when the SDK generates the binary manifest structure, it assembles all the JSON objects, resource references, and ingredients defined, and then converts them into different assertions and other objects as required. 
 
 ## Time-stamps
 

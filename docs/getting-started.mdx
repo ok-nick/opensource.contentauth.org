@@ -28,7 +28,7 @@ Now, let's drill down a bit to clarify some of these terms.
 
 **Actor**: A human or hardware or software product. For example, a camera, image editing software, cloud service, or the person using such tools.
 
-**Asset**: A digital media file. Right now, this means [certain specific types](https://opensource.contentauthenticity.org/docs/c2patool/#supported-file-formats) of image, video, or audio files, but the types of supported assets will expand in the future. A _composed asset_ generalizes this concept, for example for an image superimposed on top of another image.
+**Asset**: A digital media file or stream of data. Right now, this means [certain specific types](https://opensource.contentauthenticity.org/docs/c2patool/#supported-file-formats) of image, video, or audio files, but the types of supported assets will expand in the future. A _composed asset_ generalizes this concept, for example for an image superimposed on top of another image.
 
 **Action**: An operation that an _actor_ performs on an _asset._ For example, "create," "embed," or "change contrast."
 
@@ -44,11 +44,13 @@ Now, let's drill down a bit to clarify some of these terms.
 
 **Content binding**: Information that associates _digital content_ to a specific manifest associated with a specific _asset_, either as a _hard binding_ or a _soft binding_.
 
-**Manifest**: Information about the provenance of an asset based on the combination of:
+**Manifest** (C2PA manifest): Information about the provenance of an asset based on the combination of:
 
 - One or more _assertions_ (including content bindings).
 - A single _claim_.
 - A _claim signature_.
+
+**Manifest store**: A collection of manifests associated with asset. The most recent manifest in the manifest store is the _active manifest_, which has the set of _content bindings_ that are hashed with the asset and thus can be validated.
 
 For more definitions and detail, see the [C2PA specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_glossary).
 
@@ -84,7 +86,7 @@ In practice, to use a certificate with CAI SDKs and tools, you follow this proce
 3. Use the Rust SDK or c2patool to sign manifests using the certificate.
 
 :::tip
-For more details and a short tutorial example, see [Signing manifests](https://opensource.contentauthenticity.org/docs/signing-manifests/).
+For more details and a short tutorial example, see [Signing manifests](signing-manifests/).
 :::
 
 ### Getting a security certificate
