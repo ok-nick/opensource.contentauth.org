@@ -12,12 +12,13 @@ Before reading this page, be sure to read [Getting started](/docs/getting-starte
 To sign a C2PA manifest you need an end-entity certificate that complies with the C2PA trust model. Then you can use your private key and public certificates in the signing process. This page walks through an example of obtaining appropriate credentials and then using c2patool to  to sign a manifest using them.
 
 :::note
-Best practices for handling keys and certificates are available from many sources and not directly covered here.  Always protect your private keys with the highest level of security.  Some useful references include:
+Best practices for handling keys and certificates are beyond the scope of this documentation.  Always protect your private keys with the highest level of security; for example, never share them through insecure channels such as email.  
+
+Some useful references include:
 - [Key Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Key_Management_Cheat_Sheet.html#storage) from the Open Worldwide Application Security Project  (OWASP).
+- [Key Management Guidelines](https://csrc.nist.gov/Projects/Key-Management/Key-Management-Guidelines) from the National Institute of Standards and Technology, US Department of Commerce.
 - [Protect your private keys](https://www.ncsc.gov.uk/collection/in-house-public-key-infrastructure/pki-principles/protect-your-private-keys) from the UK National Cyber Security Centre.
 :::note
-
-
 
 ## Certificates
 
@@ -54,17 +55,19 @@ The information in this table is based on the [C2PA specification Trust Model se
 
 ## Example
 
-Here is an example of generating a C2PA-compliant set of credentials using [GlobalSign](http://globalsign.com/) certificate authority (CA).  This is only an illustrative example; Certificates are available from many other certificate authorities, as summarized in [Getting started](/docs/getting-started#getting-a-security-certificate).
+Here is an example of generating a C2PA-compliant set of credentials using [GlobalSign](http://globalsign.com/) certificate authority (CA).    
 
 :::note
-Credential management is a complex topic and different for every organization, so use this tutorial only as a demonstration of how C2PA operates. Other certificate providers may have alternate ways of providing your private key and certificate.
+GlobalSign is just one of many CAs. For a list of some others, see [Getting started](/docs/getting-started#getting-a-security-certificate).
 :::note
+
+Credential management is a complex topic and different for every organization.   See [above](#overview) for links to best practices.
 
 ### Step 1: Purchase credentials
 
-This example uses a [PersonSign1](https://shop.globalsign.com/en/secure-email) certificate from GlobalSign that contains KU and EKU values required to sign C2PA manifests. 
+This example uses a [PersonSign1](https://shop.globalsign.com/en/secure-email) certificate from GlobalSign that contains KU and EKU values required to sign C2PA manifests.  
 
-Follow the instructions to purchase and download your `.pfx` file. This file is a PKCS12 container that holds your certificate chain and private signing key.  Other certificate vendors may include only the end-entity certificate and so you must manually download the rest of the certificate chain.
+Follow the instructions to purchase and download your `.pfx` file. This file is a PKCS12 container that holds your certificate chain and private signing key.  Other certificate providers may have alternate ways of providing your private key and certificate and may include only the end-entity certificate and so you must manually download the rest of the certificate chain.
 
 :::warning Warning
 This example uses an inexpensive personal certificate, which is fine for development and testing, but for production use an enterprise certificate is strongly recommended. An enterprise certificate is required for [Verify](https://verify.contentauthenticity.org/) to display your organization name when for signed assets.
