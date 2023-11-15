@@ -55,10 +55,10 @@ The information in this table is based on the [C2PA specification Trust Model se
 
 ## Example
 
-Here is an example of generating a C2PA-compliant set of credentials using [GlobalSign](http://globalsign.com/) certificate authority (CA).  GlobalSign is just one of many certificate authorities (CAs).  
+Here is an example of generating a C2PA-compliant set of credentials using [GlobalSign](http://globalsign.com/) certificate authority (CA).    
 
 :::note
-This is an illustrative example using GlobalSign, one of many certificate authorities available. For a list of some others, see [Getting started](/docs/getting-started#getting-a-security-certificate).
+GlobalSign is just one of many CAs. For a list of some others, see [Getting started](/docs/getting-started#getting-a-security-certificate).
 :::note
 
 Credential management is a complex topic and different for every organization.   See [above](#overview) for links to best practices.
