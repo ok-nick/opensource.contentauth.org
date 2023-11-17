@@ -7,6 +7,7 @@ import c2pa_terms from '../static/img/c2pa-terms.png';
 import cai_open_source from '../static/img/cai-open-source.jpg';
 import cai_os_tools_table from '../static/img/cai-os-tools-table.png';
 import cai_levels from '../static/img/cai-levels.png';
+import cr_pin from '../static/img/cr-pin.png';
 
 This is a technical introduction to the Content Authenticity Initiative (CAI) open-source tools and libraries. It provides initial context and an overview of the technical aspects of implementing CAI solutions.
 
@@ -219,9 +220,13 @@ The manifest is only useful to end users if it can be displayed meaningfully in 
 - **Level 3**: Provides a detailed display of all relevant manifest data, including ingredient manifest. The implementation determines what's relevant and how to display it.
 - **Level 4**: Provides the complete data including full detail of signatures and trust signals, for sophisticated, forensic investigatory use.
 
-For example, as shown below, the [Verify site](https://verify.contentauthenticity.org/) shows an "i" badge over the image (level 1). When you click on the badge, you then see level 2 information showing the organization that signed the manifest, who created the image, what tools they used, and the actions they took. If you want to see even more, you can click **View more** to display the full level 3 information.
+The example shown below illustrates one way to implement levels of disclosure:
 
-<img src={cai_levels} width="400" />
+- The Content Credentials pin <img src={cr_pin} width="25" /> shown over the image indicates that the image has Content Credentials (level 1).
+- Clicking on the pin displays level 2 information, and an **Inspect** button.
+- Clicking the **Inspect** button opens image with the [Verify site](https://verify.contentauthenticity.org/) that provides level 3 information.
+
+<img src={cai_levels} width="800" />
 
 ## Example uses
 
