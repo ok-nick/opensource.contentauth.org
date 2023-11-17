@@ -143,7 +143,7 @@ CAI open-source offerings consist of:
 
 - **The c2patool command-line tool** for working with manifests and media. This tool is a wrapper around the Rust SDK and provides most of the same capabilities that it does.
 - **Rust SDK** enables a desktop, mobile, or embedded application to create and sign manifests, embed manifests in certain file formats, and parse and validate manifests.
-- **Language-specific APIs** in C/C++, Python, Node.js and client JavaScript.
+- **Language-specific APIs** in C/C++, Python, Node.js and client JavaScript. NOTE: The C/C++, Python, Node.js libraries are prerelease versions whose APIs are subject to change.
 
 Behind the scenes, c2patool and language-specific APIs are built using the Rust SDK, to ensure consistency.
 
@@ -224,7 +224,7 @@ The example shown below illustrates one way to implement levels of disclosure:
 
 - The Content Credentials pin <img src={cr_pin} width="25" /> shown over the image indicates that the image has Content Credentials (level 1).
 - Clicking on the pin displays level 2 information, and an **Inspect** button.
-- Clicking the **Inspect** button opens image with the [Verify site](https://verify.contentauthenticity.org/) that provides level 3 information.
+- Clicking the **Inspect** button opens the image on the [Verify site](https://verify.contentauthenticity.org/) that provides level 3 information.
 
 <img src={cai_levels} width="800" />
 
