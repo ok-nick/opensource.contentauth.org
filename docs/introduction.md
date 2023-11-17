@@ -7,20 +7,19 @@ title: Introduction
 You're strongly encouraged to read this introduction and [Getting started](getting-started) to give you some basic background and context, before you dive right into development.  [Working with manifests](manifest/understanding-manifest) also has some crucial information common to all the language APIs
 :::
 
-
 ## Overview
 
 The Content Authenticity Initiative's open-source offerings consist of:
 
 - [The c2patool command-line tool](#c2pa-tool).
 - [The Rust SDK](#rust-sdk).
-- [Language-specific libraries](#language-specific-libraries) that implement APIs for  JavaScript, C++/C, Python, and Node.js.
+- [Language-specific libraries](#language-specific-libraries) that implement APIs for JavaScript, C++/C, Python, and Node.js.
 
 The Rust SDK is the fundamental library underlying everything else.  The c2patool uses it "under the hood" and language-specific APIs are all generated from it.
 
 ## c2patool
 
-[c2patool](c2patool) is a **command-line utility for working with C2PA manifest data**. Use this tool to work with assets in a supported file format to:
+[C2patool](c2patool) is a **command-line utility for working with C2PA manifest data**. Use this tool to work with assets in a supported file format to:
 
 - Read a JSON report of manifest data.
 - Attach a manifest store to an asset, if it doesn't already have an associated manifest store.
@@ -36,7 +35,7 @@ The [Rust SDK](rust-sdk) enables **adding C2PA capabilities to a desktop, mobile
 
 ## Language-specific libraries
 
-There are currently libraries that provide APIs for JavaScript, C++/C, Python, and Node.js.
+CAI includes libraries that provide APIs for JavaScript, C++/C, Python, and Node.js.
 
 ### JavaScript SDK
 
@@ -48,4 +47,4 @@ The client [JavaScript SDK](js-sdk/getting-started/overview) enables **working w
 
 ### Other languages
 
-The  [C++/C](c2pa-c), [Python](c2pa-python), and [Node.js](c2pa-node) APIs are all early prerelease versions. They may have bugs and unimplemented features, and their APIs are subject to change.
+The [C++/C](c2pa-c), [Python](c2pa-python), and [Node.js](c2pa-node) APIs are all early prerelease libraries. They may have bugs and unimplemented features, and their APIs are subject to change.
