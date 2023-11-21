@@ -39,7 +39,7 @@ The following table summarizes some of the most important standard assertions.
 | ["Do not train"](#do-not-train-assertion) | `c2pa.training-mining` | Whether the creator/owner of an asset grants permission to use it for data mining or AI/ML training.  |
 | [Exif information](#exif-assertion) | `stds.exif` | Camera information such as maker, lens stored in Exchangeable image file format (Exif). |
 | [Content bindings](#content-bindings) | `c2pa.hash.*`, `c2pa.soft-binding`, etc. | Uniquely identify portions of an asset and bind the assertion to it, for example using cryptographic hashes. |
-
+| IPTC photo and video metadata | `stds.iptc` | Properties from the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata) and [Video Metadata Standard](https://www.iptc.org/standards/video-metadata-hub/recommendation/), for example describing ownership, rights, and descriptive metadata about an asset. |
 
 :::note
 CAI libraries and tools handle assertions for thumbnails, content bindings, and ingredients, so normally you don't need to think about them.
@@ -167,6 +167,63 @@ For example, the `c2pa.hash.data` assertion shown in the [detailed manifest exam
   ...
 ]
 ```
+### IPTC photo and video metadata
+
+IPTC photo and video metadata assertions have the label `stds.iptc` and represent  properties from the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata) and [Video Metadata Standard](https://www.iptc.org/standards/video-metadata-hub/recommendation/) that describe ownership, rights, and descriptive metadata about an asset. IPTC properties are  stored in JSON-LD format using the XMP field names and structures specified in these standards.
+
+Earlier versions of the C2PA specification defined the `stds.iptc.photo-metedata` label for IPTC photo metadata; the current `stds.iptc` includes video metadata as well. 
+
+For example:
+
+```json
+...
+"assertions": [
+  ...
+  {
+    "label": "stds.iptc",
+    "data": {
+      "@context" : {
+        "Iptc4xmpCore": "http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/",
+        "Iptc4xmpExt": "http://iptc.org/std/Iptc4xmpExt/2008-02-29/",
+        "dc" : "http://purl.org/dc/elements/1.1/",
+        "photoshop" : "http://ns.adobe.com/photoshop/1.0/",
+        "plus" : "http://ns.useplus.org/ldf/xmp/1.0/",
+        "xmp" : "http://ns.adobe.com/xap/1.0/",
+        "xmpDM" : "http://ns.adobe.com/xmp/1.0/DynamicMedia/",
+        "xmpRights" : "http://ns.adobe.com/xap/1.0/rights/"
+      },
+      "photoshop:DateCreated": "Aug 31, 2022",
+      "dc:creator": [ "Julie Smith" ],
+      "Iptc4xmpExt:DigitalSourceType": "https://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture",
+      "dc:rights": "Copyright (C) 2022 Example Photo Agency. All Rights Reserved.",
+      "photoshop:Credit": [ "Julie Smith/Example Photo Agency via Example Distributor" ],
+      "plus:licensor": [
+        {
+          "plus:LicensorName": "Example Photo Agency",
+          "plus:LicensorURL": "http://examplephotoagency.com/images/"
+        }
+      ],
+      "xmpRights:WebStatement": "http://examplephotoagency.com/terms.html",
+      "xmpRights:UsageTerms": [
+        "Not for online publication. Germany OUT"
+      ],
+      "Iptc4xmpExt:LocationCreated": {
+        "Iptc4xmpExt:City": "San Francisco"
+      },
+      "Iptc4xmpExt:PersonInImage": [
+        "Erika Fictional"
+      ],
+      "Iptc4xmpCore:AltTextAccessibility": "Photo of Erika Fictional standing in front of the Golden Gate Bridge at sunset."
+    }
+  },
+  ...
+]
+```
+
+See also [Exploring c2patool and IPTC Photo Metadata](https://iptc.atlassian.net/wiki/spaces/PMD/pages/613613569/Exploring+c2patool+and+IPTC+Photo+Metadata) (Aug 2022).
+
+For a summary reference to IPTC metadata properties, see [IPTC properties](iptc-properties).
+
 
 ### Custom assertions
 
