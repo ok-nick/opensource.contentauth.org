@@ -171,7 +171,7 @@ For example, the `c2pa.hash.data` assertion shown in the [detailed manifest exam
 
 IPTC photo and video metadata assertions have the label `stds.iptc` and represent  properties from the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata) and [Video Metadata Standard](https://www.iptc.org/standards/video-metadata-hub/recommendation/) that describe ownership, rights, and descriptive metadata about an asset. IPTC properties are  stored in JSON-LD format using the XMP field names and structures specified in these standards.
 
-Earlier versions of the C2PA specification defined the `stds.iptc.photo-metedata` label for IPTC photo metadata; the current `stds.iptc` includes video metadata as well. 
+Earlier versions of the C2PA specification defined the `stds.iptc.photo-metedata` label for IPTC photo metadata; the current `stds.iptc` assertion includes video metadata as well. 
 
 For example:
 
