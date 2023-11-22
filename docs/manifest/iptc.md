@@ -5,7 +5,7 @@ hide_table_of_contents: true
 ---
 
 :::note
-This summary of IPTC properties is based on the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata) specification and is provided for convenience. In case of discrepancies or lack of detail, refer to the specification.
+This summary of IPTC properties based on the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata) is provided for convenience. In case of discrepancies or lack of detail, refer to the specification.
 ::: 
 
 The table below:
@@ -34,11 +34,11 @@ Some properties have non-primitive types, referred to in the IPTC specification 
 |Credit Line|The credit to person(s) and/or organization(s) required by the supplier of the image to be used when published. This is a free-text field.|Text|`photoshop:Credit`
 |CV-Term About Image|One or more topics, themes or entities the content is about, each one expressed by a term from a Controlled Vocabulary.|One or more [CV-Term structures](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#cv-term-structure)|`Iptc4xmpExt:AboutCvTerm`
 |Data Mining|Data mining prohibition or permission, optionally with constraints.| One of the URIs listed in [PLUS Specification Data Mining](http://ns.useplus.org/LDF/ldf-XMPSpecification#DataMining) section.|`plus:DataMining`
-|Date Created|Designates the date and optionally the time the content of the image was created rather than the date of the creation of the digital representation.| ISO8601 date See [note](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#date-value-type) |`photoshop:DateCreated`
+|Date Created|Designates the date and optionally the time the content of the image was created rather than the date of the creation of the digital representation.| Date in ISO 8601 format. See [note](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#date-value-type) |`photoshop:DateCreated`
 |Description|A textual description, including captions, of the image.|Text|`dc:description`
 |Description Writer|Identifier or the name of the person(s) involved in writing, editing or correcting the Description, Alt Text (Accessibility), or Extended Description (Accessibility) of the image.|Text|`photoshop:CaptionWriter`
 |Digital Image GUID|Globally unique identifier for this digital image. It is created and applied by the creator of the digital image at the time of its creation . This value shall not be changed after that time.|Text|`Iptc4xmpExt:DigImageGUID`
-|Digital Source Type|The type of the source of this digital image|An [IPTC digital source type code](assertions-actions#digital-source-type)|`Iptc4xmpExt:DigitalSourceType`
+|Digital Source Type|The type of the source of this digital image|An [IPTC digital source type code](./assertions-actions#digital-source-type)|`Iptc4xmpExt:DigitalSourceType`
 |Embedded Encoded Rights Expression|An embedded rights expression using any rights expression language| One or more [Embedded Encoded Rights Expression (EERE) structures](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#embedded-encoded-rights-expression-eere-structure) |`Iptc4xmpExt:EmbdEncRightsExpr`
 |Event Identifier|Identifier(s) of the specific event at which the photo was taken|One or more URIs|`Iptc4xmpExt:EventId`
 |Event Name|Names or describes the specific event at which the photo was taken.|Text|`Iptc4xmpExt:Event`
@@ -46,7 +46,7 @@ Some properties have non-primitive types, referred to in the IPTC specification 
 |Genre|Artistic, style, journalistic, product or other genre(s) of the image (expressed by a term from any Controlled Vocabulary)|One or more [CV-Term structures](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#cv-term-structure) |`Iptc4xmpExt:Genre`
 |Headline|A brief synopsis of the caption. Headline is not the same as Title.|Text|`photoshop:Headline`
 |Image Creator|Creator or creators of the image|[plus-ImageCreator](http://ns.useplus.org/LDF/ldf-XMPSpecification#ImageCreator) (up to three)|`plus:ImageCreator`
-|Image Rating|Rating of the image by its user or supplier|Decimal between 0 and 5, inclusive. <br/>-1: "rejected" <br/>0: "unrated". <br/>Default value is 0.|`xmp:Rating`
+|Image Rating|Rating of the image by its user or supplier|Decimal: <br/>-1: "rejected" <br/>0: "unrated" (default)<br/>0 to 5, inclusive. |`xmp:Rating`
 |Image Region|Sets a region inside an image by defining its boundaries. All pixels of the boundary are also part of the region. It may include metadata related to this region.| One or more [Image Region structures](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#image-region-structure) |`Iptc4xmpExt:ImageRegion`
 |Image Registry Entry|Both a Registry Item Id and a Registry Organization Id to record any registration of this digital image with a registry.| One or more [Registry Entry structures](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#registry-entry-structure) |`Iptc4xmpExt:RegistryId`
 |Image Supplier|Identifies the most recent supplier of the image, who is not necessarily its owner or creator.|[plus-ImageSupplier](http://ns.useplus.org/LDF/ldf-XMPSpecification#ImageSupplier) |`plus:ImageSupplier`
