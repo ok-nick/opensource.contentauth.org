@@ -26,6 +26,14 @@ The standard form of an assertion in a JSON manifest is:
 ]
 ```
 
+_Metadata assertions_ include
+- [Creative work](#creative-work-assertion)
+- [Exchangeable image file (Exif) information](#exif-assertion)
+- [IPTC photo and video metadata](#iptc-photo-and-video-metadata)
+
+Metadata assertions must include one or more `@context` properties in the `data` object, as explained in the [JSON-LD](https://www.w3.org/TR/json-ld/#the-context) specification.  Follow the examples shown in each section.
+
+
 ### C2PA standard assertions
 
 The C2PA Technical Specification defines a [set of standard assertions](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_standard_c2pa_assertion_summary) and their corresponding labels.  In addition, you can define [custom assertions](#custom-assertions) for your specific application.
@@ -39,32 +47,11 @@ The following table summarizes some of the most important standard assertions.
 | ["Do not train"](#do-not-train-assertion) | `c2pa.training-mining` | Whether the creator/owner of an asset grants permission to use it for data mining or AI/ML training.  |
 | [Exif information](#exif-assertion) | `stds.exif` | Camera information such as maker, lens stored in Exchangeable image file format (Exif). |
 | [Content bindings](#content-bindings) | `c2pa.hash.*`, `c2pa.soft-binding`, etc. | Uniquely identify portions of an asset and bind the assertion to it, for example using cryptographic hashes. |
-| IPTC photo and video metadata | `stds.iptc` | Properties from the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata) and [Video Metadata Standard](https://www.iptc.org/standards/video-metadata-hub/recommendation/), for example describing ownership, rights, and descriptive metadata about an asset. |
+| [IPTC photo and video metadata](#iptc-photo-and-video-metadata) | `stds.iptc` | Properties from the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata) and [Video Metadata Standard](https://www.iptc.org/standards/video-metadata-hub/recommendation/), for example describing ownership, rights, and descriptive metadata about an asset. |
 
 :::note
 CAI libraries and tools handle assertions for thumbnails, content bindings, and ingredients, so normally you don't need to think about them.
 :::
-
-### Creative work assertion
-
-A creative work assertion states that an asset was the product of creative effort, such as an original photograph or artwork. [Schema.org](https://schema.org/) provides a set of types and metadata fields, including [CreativeWork](https://schema.org/CreativeWork), which describes a representation of creative effort. This assertion provides information about the asset, including who created it and the date/time of publication.  For example:
-
-```json
-...
-"assertions": [
-  ...
-  {
-    "label": "stds.schema-org.CreativeWork",
-    "data": {
-      "@context": "https://schema.org",
-      "@type": "CreativeWork",
-      "url": "https://stock.adobe.com/615559889"
-    },
-    "kind": "Json"
-  },
-  ...
-]
-```
 
 ### Do not train assertion
 
@@ -110,6 +97,29 @@ Example:
 ]
 ```
 
+### Creative work assertion
+
+A creative work assertion states that an asset was the product of creative effort, such as an original photograph or artwork. [Schema.org](https://schema.org/) provides a set of types and metadata fields, including [CreativeWork](https://schema.org/CreativeWork), which describes a representation of creative effort. This assertion provides information about the asset, including who created it and the date/time of publication.  For example:
+
+```json
+...
+"assertions": [
+  ...
+  {
+    "label": "stds.schema-org.CreativeWork",
+    "data": {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "url": "https://stock.adobe.com/615559889"
+    },
+    "kind": "Json"
+  },
+  ...
+]
+```
+
+
+
 ### Exif assertion
 
 Exchangeable image file (Exif) format is a standard for storing technical metadata in image files of JPEG, TIFF, PNG, and other formats. Most digital cameras (including smartphones), scanners and other digital capture devices use Exif to store information such as device make and model, shutter speed, ISO number, date and time of capture, location, and so on.  For more information on Exif, see the [Exif specification](https://www.cipa.jp/std/documents/download_e.html?DC-008-Translation-2019-E).
@@ -139,6 +149,63 @@ Here is a simple example:
 ]
 ```
 
+### IPTC photo and video metadata
+
+IPTC photo and video metadata assertions have the label `stds.iptc` and represent  properties from the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata) and [Video Metadata Standard](https://www.iptc.org/standards/video-metadata-hub/recommendation/) that describe ownership, rights, and descriptive metadata about an asset. IPTC properties are  stored in JSON-LD format using the XMP field names and structures specified in these standards.
+
+Earlier versions of the C2PA specification defined the `stds.iptc.photo-metedata` label for IPTC photo metadata; the 1.3 version of the C2PA specification defines the `stds.iptc` assertion that includes video metadata as well. 
+
+For example:
+
+```json
+...
+"assertions": [
+  ...
+  {
+    "label": "stds.iptc",
+    "data": {
+      "@context" : {
+        "Iptc4xmpCore": "http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/",
+        "Iptc4xmpExt": "http://iptc.org/std/Iptc4xmpExt/2008-02-29/",
+        "dc" : "http://purl.org/dc/elements/1.1/",
+        "photoshop" : "http://ns.adobe.com/photoshop/1.0/",
+        "plus" : "http://ns.useplus.org/ldf/xmp/1.0/",
+        "xmp" : "http://ns.adobe.com/xap/1.0/",
+        "xmpDM" : "http://ns.adobe.com/xmp/1.0/DynamicMedia/",
+        "xmpRights" : "http://ns.adobe.com/xap/1.0/rights/"
+      },
+      "photoshop:DateCreated": "Aug 31, 2022",
+      "dc:creator": [ "Julie Smith" ],
+      "Iptc4xmpExt:DigitalSourceType": "https://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture",
+      "dc:rights": "Copyright (C) 2022 Example Photo Agency. All Rights Reserved.",
+      "photoshop:Credit": "Julie Smith/Example Photo Agency via Example Distributor",
+      "plus:licensor": [
+        {
+          "plus:LicensorName": "Example Photo Agency",
+          "plus:LicensorURL": "http://examplephotoagency.com/images/"
+        }
+      ],
+      "xmpRights:WebStatement": "http://examplephotoagency.com/terms.html",
+      "xmpRights:UsageTerms": [
+        "Not for online publication. Germany OUT"
+      ],
+      "Iptc4xmpExt:LocationCreated": {
+        "Iptc4xmpExt:City": "San Francisco"
+      },
+      "Iptc4xmpExt:PersonInImage": [
+        "Erika Fictional"
+      ],
+      "Iptc4xmpCore:AltTextAccessibility": "Photo of Erika Fictional standing in front of the Golden Gate Bridge at sunset."
+    }
+  },
+  ...
+]
+```
+
+See also [Exploring c2patool and IPTC Photo Metadata](https://iptc.atlassian.net/wiki/spaces/PMD/pages/613613569/Exploring+c2patool+and+IPTC+Photo+Metadata) (Aug 2022).
+
+For a summary reference to IPTC metadata properties, see [IPTC properties](iptc-properties).
+
 ### Content bindings
 
 Content bindings are standard assertions such as `c2pa.hash.boxes` and `c2pa.hash.data` that uniquely identify portions of an asset.  For more information on content bindings, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_binding_to_content).
@@ -167,63 +234,6 @@ For example, the `c2pa.hash.data` assertion shown in the [detailed manifest exam
   ...
 ]
 ```
-### IPTC photo and video metadata
-
-IPTC photo and video metadata assertions have the label `stds.iptc` and represent  properties from the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata) and [Video Metadata Standard](https://www.iptc.org/standards/video-metadata-hub/recommendation/) that describe ownership, rights, and descriptive metadata about an asset. IPTC properties are  stored in JSON-LD format using the XMP field names and structures specified in these standards.
-
-Earlier versions of the C2PA specification defined the `stds.iptc.photo-metedata` label for IPTC photo metadata; the current `stds.iptc` assertion includes video metadata as well. 
-
-For example:
-
-```json
-...
-"assertions": [
-  ...
-  {
-    "label": "stds.iptc",
-    "data": {
-      "@context" : {
-        "Iptc4xmpCore": "http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/",
-        "Iptc4xmpExt": "http://iptc.org/std/Iptc4xmpExt/2008-02-29/",
-        "dc" : "http://purl.org/dc/elements/1.1/",
-        "photoshop" : "http://ns.adobe.com/photoshop/1.0/",
-        "plus" : "http://ns.useplus.org/ldf/xmp/1.0/",
-        "xmp" : "http://ns.adobe.com/xap/1.0/",
-        "xmpDM" : "http://ns.adobe.com/xmp/1.0/DynamicMedia/",
-        "xmpRights" : "http://ns.adobe.com/xap/1.0/rights/"
-      },
-      "photoshop:DateCreated": "Aug 31, 2022",
-      "dc:creator": [ "Julie Smith" ],
-      "Iptc4xmpExt:DigitalSourceType": "https://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture",
-      "dc:rights": "Copyright (C) 2022 Example Photo Agency. All Rights Reserved.",
-      "photoshop:Credit": [ "Julie Smith/Example Photo Agency via Example Distributor" ],
-      "plus:licensor": [
-        {
-          "plus:LicensorName": "Example Photo Agency",
-          "plus:LicensorURL": "http://examplephotoagency.com/images/"
-        }
-      ],
-      "xmpRights:WebStatement": "http://examplephotoagency.com/terms.html",
-      "xmpRights:UsageTerms": [
-        "Not for online publication. Germany OUT"
-      ],
-      "Iptc4xmpExt:LocationCreated": {
-        "Iptc4xmpExt:City": "San Francisco"
-      },
-      "Iptc4xmpExt:PersonInImage": [
-        "Erika Fictional"
-      ],
-      "Iptc4xmpCore:AltTextAccessibility": "Photo of Erika Fictional standing in front of the Golden Gate Bridge at sunset."
-    }
-  },
-  ...
-]
-```
-
-See also [Exploring c2patool and IPTC Photo Metadata](https://iptc.atlassian.net/wiki/spaces/PMD/pages/613613569/Exploring+c2patool+and+IPTC+Photo+Metadata) (Aug 2022).
-
-For a summary reference to IPTC metadata properties, see [IPTC properties](iptc-properties).
-
 
 ### Custom assertions
 
@@ -289,7 +299,7 @@ For the complete list of standard actions, see the [C2PA Technical Specification
 
 ### Digital source type
 
-Use the `digitalSourceType` property to specify how an asset was created or modified, for example "digital capture", "digitized from negative" or "trained algorithmic media." 
+Use the `digitalSourceType` property to specify how an asset was created or modified, for example "digital capture", "digitized from negative," or "trained algorithmic media." 
 
 The value of `digitalSourceType` is one of the URLs specified by the International Press Telecommunications Council (IPTC) [NewsCodes Digital Source Type scheme](https://cv.iptc.org/newscodes/digitalsourcetype/) of the form `http://cv.iptc.org/newscodes/digitalsourcetype/negativeFilm/<CODE>`, where `<CODE>` is one of the codes shown in the following table.
 
@@ -315,30 +325,13 @@ The value of `digitalSourceType` is one of the URLs specified by the Internation
 This table is provided for convenience.  For the authoritative list, see the [IPTC NewsCodes Digital Source Type scheme (controlled vocabulary)](https://cv.iptc.org/newscodes/digitalsourcetype/).
 :::
 
-### Parameters 
-
-The `parameters` property can contain any data that provide more details on the action, for example:
-
-```json
-"actions": [
-  {
-    "action": "c2pa.color_adjustments",
-    "parameters": {
-      "com.adobe.acr": "Contrast2012",
-      "com.adobe.acr.value": "26"
-    }
-  },
-  ...
-]
-```
-
-For more information on action parameters, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_parameters).
-
 ### Generative AI action
 
 To specify that an asset was created using generative AI, use the `c2pa.created` action with `digitalSourceType` that's one of:
 - `trainedAlgorithmicMedia` for an asset created by generative AI tools.
 - `compositeWithTrainedAlgorithmicMedia` for an asset that contains one or more elements that were created by generative AI tools.
+
+For other possible values of `digitalSourceType`, see [Digital source type](#digital-source-type).
 
 ```json
 "assertions": [
@@ -360,6 +353,25 @@ To specify that an asset was created using generative AI, use the `c2pa.created`
 ```
 
 Where `<TOOL_NAME>` is the name of the generative AI tool or service.
+
+### Parameters 
+
+The `parameters` property can contain any data that provide more details on the action, for example:
+
+```json
+"actions": [
+  {
+    "action": "c2pa.color_adjustments",
+    "parameters": {
+      "com.adobe.acr": "Contrast2012",
+      "com.adobe.acr.value": "26"
+    }
+  },
+  ...
+]
+```
+
+For more information on action parameters, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_parameters).
 
 ### The instanceId property
 
