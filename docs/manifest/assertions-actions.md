@@ -155,6 +155,12 @@ IPTC photo and video metadata assertions have the label `stds.iptc` and represen
 
 Earlier versions of the C2PA specification defined the `stds.iptc.photo-metedata` label for IPTC photo metadata; the 1.3 version of the C2PA specification defines the `stds.iptc` assertion that includes video metadata as well. 
 
+See also:
+- [Exploring c2patool and IPTC Photo Metadata](https://iptc.atlassian.net/wiki/spaces/PMD/pages/613613569/Exploring+c2patool+and+IPTC+Photo+Metadata) (Aug 2022).
+- [IPTC Photo Metadata User Guide](https://www.iptc.org/std/photometadata/documentation/userguide/)
+
+For a summary reference to IPTC metadata properties, see [IPTC properties](iptc-properties).
+
 For example:
 
 ```json
@@ -201,10 +207,6 @@ For example:
   ...
 ]
 ```
-
-See also [Exploring c2patool and IPTC Photo Metadata](https://iptc.atlassian.net/wiki/spaces/PMD/pages/613613569/Exploring+c2patool+and+IPTC+Photo+Metadata) (Aug 2022).
-
-For a summary reference to IPTC metadata properties, see [IPTC properties](iptc-properties).
 
 ### Content bindings
 
