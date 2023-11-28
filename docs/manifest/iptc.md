@@ -73,7 +73,7 @@ For more information, see:
 |Keywords|Keywords to express the subject of the image. Keywords may be free text and don’t have to be taken from a controlled vocabulary. |Text|`dc:subject`
 |Licensor|A person or company that should be contacted to obtain a license for using the item or who has licensed the item.| Up to three [Licensor](#licensor) structures. |`plus:Licensor`
 |Linked Encoded Rights Expression|A linked rights expression using any rights expression language.| One or more [LinkedEncRightsExpr](#linkedencrightsexpr) structures.  |`Iptc4xmpExt:LinkedEncRightsExpr`
-|Location created|The location the photo was taken.| [Location](#location) structure.  |Iptc4xmpExt:LocationCreated
+|Location created|The location the photo was taken.| [Location](#location) structure.  |`Iptc4xmpExt:LocationCreated`
 |Location shown in the image|A location shown in the image.| One or more [Location](#location) structures. |`Iptc4xmpExt:LocationShown`
 |Max Avail Height|The maximum available height in pixels of the original photo from which this photo has been derived by downsizing.|Integer|`Iptc4xmpExt:MaxAvailHeight`
 |Max Avail Width|The maximum available width in pixels of the original photo from which this photo has been derived by downsizing.|Integer|`Iptc4xmpExt:MaxAvailWidth`
