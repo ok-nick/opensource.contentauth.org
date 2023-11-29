@@ -7,6 +7,33 @@ title: Introduction
 You're strongly encouraged to read this introduction and [Getting started](getting-started) to give you some basic background and context, before you dive right into development.  [Working with manifests](manifest/understanding-manifest) also has some crucial information common to all the language APIs
 :::
 
+## Who's involved
+
+| Website | Organization | Purpose / Description |
+|---|---|---|
+| https://contentcredentials.org/ | CAI | Industry consortium |
+| https://contentauthenticity.org/ | CAI|  Industry consortium |
+| https://c2pa.org/ | C2PA / Linux Foundation | Standards body |
+| https://contentcredentials.org/verify | Adobe | Website to display Content Credentials |
+
+### Content Authenticity Initiative (CAI)
+
+The Content Authenticity Initiative (CAI) is an Adobe-led cross-industry membership consortium that advocates for the adoption of Content Credentials.  
+
+The CAI is creating a secure end-to-end system for digital content provenance through open-source development and cross-industry collaboration. The CAI collaborates with software, publishing, social media companies, human rights organizations, photojournalism, and academic researchers to develop content attribution standards and tools. Members of the CAI include Adobe, Microsoft, The New York Times Co., The Associated Press, Intel, Qualcomm, and many more.  
+
+
+## Coalition for Content Provenance and Authenticity (C2PA)
+
+The Coalition for Content Provenance and Authenticity (C2PA) is a mutually-governed standards development organization (SDO) under the structure of the Linux Foundation’s Joint Development Foundation that creates formal standards for  content provenance. 
+
+The C2PA complements the efforts of the CAI by providing the technical specifications and open standards for creators, editors, publishers, media platforms, and consumers. The CAI develops tools and software based on C2PA standards.
+
+### The "cr" icon
+
+The "cr" icon is trademarked by the C2PA and is the _de facto_ mark for C2PA user experiences. Any application, tool, or website that implements Content Credentials should use this icon to provide a consistent user experience and set expectations that the app or tool follows C2PA standards.
+
+
 ## Overview
 
 The Content Authenticity Initiative's open-source offerings consist of:
