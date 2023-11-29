@@ -106,23 +106,23 @@ See [Artwork or Object in the Image structure](https://www.iptc.org/std/photomet
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| circaDateCreated | String | N/A | [circaDateCreated](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#circa-date-created)
-| contentDescription | Structure | [Localizable text](#localizable-text) | [contentDescription](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#content-description)
-| contributionDescription | Structure | [Localizable text](#localizable-text) | [contributionDescription](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#contribution-description)
-| copyrightNotice | String | N/A | [copyrightNotice](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#copyright-notice)
-| creatorNames | String | N/A | [creatorNames](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#creator)
-| creatorIdentifiers | String | URI | [creatorIdentifiers](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#creator-id)
-| currentCopyrightOwnerIdentifier | String | URI | [currentCopyrightOwnerIdentifier](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#current-copyright-owner-id)
-| currentCopyrightOwnerName | String | N/A | [currentCopyrightOwnerName](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#current-copyright-owner-name)
-| currentLicensorIdentifier | String | URI | [currentLicensorIdentifier](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#current-licensor-id)
-| currentLicensorName | String | N/A | [currentLicensorName](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#current-licensor-name)
-| dateCreated | String | date-time | [dateCreated](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#date-created)
-| physicalDescription | Structure | [Localizable text](#localizable-text) | [physicalDescription](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#physical-description)
-| source | String | N/A | [source](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#source)
-| sourceInventoryNr | String | N/A | [sourceInventoryNr](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#source-inventory-number)
-| sourceInventoryUrl | String | URL | [sourceInventoryUrl](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#source-inventory-url)
-| stylePeriod | String | N/A | [stylePeriod](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#style-period)
-| title | Structure | [Localizable text](#localizable-text) | [title](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#title)
+| `Iptc4xmpExt:AOCircaDateCreated` | String | N/A | [Circa Date Created](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#circa-date-created)
+| `Iptc4xmpExt:AOContentDescription` | Structure | [Localizable text](#localizable-text) | [Content Description](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#content-description)
+| `Iptc4xmpExt:AOContributionDescription` | Structure | [Localizable text](#localizable-text) | [Contribution Description](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#contribution-description)
+| `Iptc4xmpExt:AOCopyrightNotice` | String | N/A | [Copyright Notice](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#copyright-notice-2)
+| `Iptc4xmpExt:AOCreatorNames` | String | N/A | [Creator](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#creator-2)
+| `Iptc4xmpExt:AOCreatorIdentifiers` | String | URI | [Creator ID](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#creator-id)
+| `Iptc4xmpExt:AOCurrentCopyrightOwnerIdentifier` | String | URI | [Current Copyright Owner ID](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#current-copyright-owner-id)
+| `Iptc4xmpExt:AOCurrentCopyrightOwnerName` | String | N/A | [Current Copyright Owner Name](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#current-copyright-owner-name)
+| `Iptc4xmpExt:AOCurrentLicensorIdentifier` | String | URI | [Current Licensor Identifier](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#current-licensor-id)
+| `Iptc4xmpExt:AOCurrentLicensorName` | String | N/A | [Current LicensorName](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#current-licensor-name)
+| `Iptc4xmpExt:AODateCreated` | String | date-time | [Date Created](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#date-created)
+| `Iptc4xmpExt:AOPhysicalDescription` | Structure | [Localizable text](#localizable-text) | [Physical Description](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#physical-description)
+| `Iptc4xmpExt:AOSource` | String | N/A | [Source](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#source)
+| `Iptc4xmpExt:AOSourceInvNo` | String | N/A | [Source Inventory Number](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#source-inventory-number)
+| `Iptc4xmpExt:AOSourceInvURL` | String | URL | [Source Inventory URL](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#source-inventory-url)
+| `Iptc4xmpExt:AOStylePeriod` | String | N/A | [Style Period](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#style-period)
+| `Iptc4xmpExt:AOTitle` | Structure | [Localizable text](#localizable-text) | [Title](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#title-2)
 
 
 #### CopyrightOwner 
@@ -133,8 +133,8 @@ See [CopyrightOwner](http://ns.useplus.org/LDF/ldf-XMPSpecification#CopyrightOwn
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| copyrightOwnerId | String | N/A | [copyrightOwnerId](http://ns.useplus.org/LDF/ldf-XMPSpecification#CopyrightOwnerID)
-| copyrightOwnerName | String | N/A | [copyrightOwnerName](http://ns.useplus.org/LDF/ldf-XMPSpecification#CopyrightOwnerID)
+| `plus:CopyrightOwnerId` | String | N/A | [Copyright Owner ID](http://ns.useplus.org/LDF/ldf-XMPSpecification#CopyrightOwnerID)
+| `plus:CopyrightOwnerName` | String | N/A | [Copyright Owner Name](http://ns.useplus.org/LDF/ldf-XMPSpecification#CopyrightOwnerName)
 
 
 #### CreatorContactInfo 
@@ -145,14 +145,14 @@ See [Contact Info structure](https://www.iptc.org/std/photometadata/specificatio
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| address | String | N/A | [address](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#address)
-| city | String | N/A | [city](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#city)
-| country | String | N/A | [country](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#country)
-| emailwork | String | N/A | [emailwork](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#email-addresses)
-| phonework | String | N/A | [phonework](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#phone-numbers)
-| postalCode | String | N/A | [postalCode](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#postal-code)
-| region | String | N/A | [region](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#state/province)
-| weburlwork | String | URL | [weburlwork](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#web-urls)
+| `Iptc4xmpCore:CiAdrExtadr` | String | N/A | [Address](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#address)
+| `Iptc4xmpCore:CiAdrCity` | String | N/A | [City](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#city)
+| `Iptc4xmpCore:CiAdrCtry` | String | N/A | [Country](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#country)
+| `Iptc4xmpCore:CiEmailWork` | String | N/A | [Email address(es)](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#email-addresses)
+| `Iptc4xmpCore:CiTelWork` | String | N/A | [Phone number(s)](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#phone-numbers)
+| `Iptc4xmpCore:CiAdrPcode` | String | N/A | [Postal Code](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#postal-code)
+| `Iptc4xmpCore:CiAdrRegion ` | String | N/A | [State/Province](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#state/province)
+| `Iptc4xmpCore:CiUrlWork` | String | URL | [ Web URL(s)](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#web-urls)
 
 
 #### CvTerm 
@@ -163,10 +163,10 @@ See [CV-Term structure](https://www.iptc.org/std/photometadata/specification/IPT
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| cvId | String | URI | [cvId](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#cv-term-cv-id)
-| cvTermId | String | URI | [cvTermId](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#cv-term-id)
-| cvTermName | Structure | [Localizable text](#localizable-text) | [cvTermName](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#cv-term-name)
-| cvTermRefinedAbout | String | URI | [cvTermRefinedAbout](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#refined-'about'-relationship-of-the-cv-term)
+| `Iptc4xmpExt:CvId` | String | URI | [CV-Term CV ID](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#cv-term-cv-id)
+| `Iptc4xmpExt:CvTermId` | String | URI | [CV-Term ID](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#cv-term-id)
+| `Iptc4xmpExt:CvTermName` | Structure | [Localizable text](#localizable-text) | [CV-Term Name](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#cv-term-name)
+| `Iptc4xmpExt:CvTermRefinedAbout` | String | URI | [Refined 'about' Relationship of the CV-Term](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#refined-about-relationship-of-the-cv-term)
 
 
 #### EmbdEncRightsExpr 
@@ -177,9 +177,9 @@ See [Embedded Encoded Rights Expression (EERE) structure](https://www.iptc.org/s
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| encRightsExpr | String | N/A | [encRightsExpr](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#encoded-rights-expression)
-| rightsExprEncType | String | N/A | [rightsExprEncType](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#encoding-type)
-| rightsExprLangId | String | URI | [rightsExprLangId](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#rights-expression-language-id)
+| `Iptc4xmpExt:EncRightsExpr` | String | N/A | [Encoded Rights Expression](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#encoded-rights-expression)
+| `Iptc4xmpExt:RightsExprEncType` | String | N/A | [Encoding type](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#encoding-type)
+| `Iptc4xmpExt:RightsExprLangId` | String | URI | [Rights Expression Language ID](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#rights-expression-language-id)
 
 
 #### Entity
@@ -190,8 +190,8 @@ See [Entity or Concept structure](https://www.iptc.org/std/photometadata/specifi
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| identifiers | String | URI | [identifiers](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#identifier)
-| name | Structure | [Localizable text](#localizable-text) | [name](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#name)
+| `xmp:Identifier` | String | URI | [Identifier](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#identifier)
+| `Iptc4xmpExt:Name` | Structure | [Localizable text](#localizable-text) | [Name](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#name)
 
 
 #### EntityWRole
@@ -202,9 +202,9 @@ See [Entity or Concept with role structures](https://www.iptc.org/std/photometad
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| identifiers | String | URI | [identifiers](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#identifier)
-| name | Structure | [Localizable text](#localizable-text) | [name](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#name)
-| role | String | N/A | [role](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#role)
+| `xmp:Identifier` | String | URI | [Identifier](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#identifier-2)
+| `Iptc4xmpExt:Name` | Structure | [Localizable text](#localizable-text) | [Name](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#name-2)
+| `Iptc4xmpExt:Role` | String | N/A | [Role](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#role)
 
 
 #### ImageCreator
@@ -215,8 +215,8 @@ See [ImageCreator](http://ns.useplus.org/LDF/ldf-XMPSpecification#ImageCreator) 
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| imageCreatorId | String | N/A | [imageCreatorId](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#image-creator-id)
-| imageCreatorName | String | N/A | [imageCreatorName](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#image-creator-name)
+| `plus:ImageCreatorID` | String | N/A | [Image Creator ID](http://ns.useplus.org/LDF/ldf-XMPSpecification#ImageCreatorID)
+| `plus:ImageCreatorName` | String | N/A | [Image Creator Name](http://ns.useplus.org/LDF/ldf-XMPSpecification#ImageCreatorName)
 
 
 #### ImageRegion
@@ -227,12 +227,12 @@ See [Image Region structure](https://www.iptc.org/std/photometadata/specificatio
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| regionBoundary | Structure | [RegionBoundary](#regionboundary) | [regionBoundary](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#region-boundary)
-| rId | String | N/A | [rId](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#region-identifier)
-| name | Structure | [Localizable text](#localizable-text) | [name](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#region-name)
-| rCtype | Structure | Entity | [rCtype](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#region-content-type)
-| rRole | Structure | Entity | [rRole](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#region-role)
-| &lt;other&gt; | any | N/A | [Other metadata property](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#other-metadata-property)
+| `Iptc4xmpExt:RegionBoundary` | Structure | [RegionBoundary](#regionboundary) | [Region Boundary](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#region-boundary)
+| `Iptc4xmpExt:rId` | String | N/A | [Region Identifier](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#region-identifier)
+| `Iptc4xmpExt:Name` | Structure | [Localizable text](#localizable-text) | [Region Name](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#region-name)
+| `Iptc4xmpExt:rCtype` | Structure | Entity | [Region Content Type](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#region-content-type)
+| `Iptc4xmpExt:rRole` | Structure | Entity | [Region Role](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#region-role)
+| `Iptc4xmpExt:<other>` | Any | N/A | [Other metadata property](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#other-metadata-property)
 
 
 #### ImageSupplier
@@ -243,8 +243,8 @@ See [ImageSupplier](http://ns.useplus.org/LDF/ldf-XMPSpecification#ImageSupplier
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| imageSupplierId | String | N/A | [imageSupplierId](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#image-supplier-id)
-| imageSupplierName | String | N/A | [imageSupplierName](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#image-supplier-name)
+| `plus:ImageSupplierID` | String | N/A | [Image Supplier ID](http://ns.useplus.org/LDF/ldf-XMPSpecification#ImageSupplierID)
+| `plus:ImageSupplierName` | String | N/A | [Image Supplier Name](http://ns.useplus.org/LDF/ldf-XMPSpecification#ImageSupplierName)
 
 #### Licensor
 
@@ -254,20 +254,20 @@ See [Licensor](http://ns.useplus.org/LDF/ldf-XMPSpecification#Licensor) in the P
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| licensorId | String | N/A | [licensorId](https://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorID)
-| licensorName | String | N/A | [licensorName](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorName)
-| licensorAddress | String | N/A | [licensorAddress](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorAddress)
-| licensorAddressDetail | String | N/A | [licensorAddressDetail](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorAddressDetail)
-| licensorCity | String | N/A | [licensorCity](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorCity)
-| licensorStateProvince | String | N/A | [licensorStateProvince](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorRegion)
-| licensorPostalCode | String | N/A | [licensorPostalCode](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorPostalCode)
-| licensorCountryName | String | N/A | [licensorCountryName](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorCountry)
-| licensorTelephoneType1 | String | URL | [licensorTelephoneType1](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorTelephoneType1)
-| licensorTelephone1 | String | N/A | [licensorTelephone1](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorTelephone1)
-| licensorTelephoneType2 | String | URL | [licensorTelephoneType2](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorTelephoneType2)
-| licensorTelephone2 | String | N/A | [licensorTelephone2](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorTelephone2)
-| licensorEmail | String | N/A | [licensorEmail](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorEmail)
-| licensorUrl | String | URL | [licensorUrl](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorURL)
+| `plus:LicensorID` | String | N/A | [Licensor ID](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorID)
+| `plus:LicensorName` | String | N/A | [Licensor Name](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorName)
+| `plus:LicensorStreetAddress` | String | N/A | [Licensor Address](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorAddress)
+| `plus:LicensorExtendedAddress` | String | N/A | [Licensor Address Detail](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorAddressDetail)
+| `plus:LicensorCity` | String | N/A | [Licensor City](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorCity)
+| `plus:LicensorRegion` | String | N/A | [Licensor State or Province](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorRegion)
+| `plus:LicensorPostalCode` | String | N/A | [Licensor Postal Code](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorPostalCode)
+| `plus:LicensorCountry` | String | N/A | [Licensor Country](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorCountry)
+| `plus:LicensorTelephoneType1` | String | URL | [Licensor TelephoneType1](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorTelephoneType1)
+| `plus:LicensorTelephone1` | String | N/A | [Licensor Telephone1](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorTelephone1)
+| `plus:LicensorTelephoneType2` | String | URL | [Licensor TelephoneType2](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorTelephoneType2)
+| `plus:LicensorTelephone2` | String | N/A | [Licensor Telephone2](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorTelephone2)
+| `plus:LicensorEmail` | String | N/A | [Licensor Email](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorEmail)
+| `plus:LicensorURL` | String | URL | [Licensor URL](http://ns.useplus.org/LDF/ldf-XMPSpecification#LicensorURL)
 
 #### LinkedEncRightsExpr
 
@@ -277,9 +277,9 @@ See [Linked Encoded Rights Expression (LERE) structure](https://www.iptc.org/std
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| linkedRightsExpr | String | URL | [linkedRightsExpr](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#link-to-encoded-rights-expression)
-| rightsExprEncType | String | URI | [rightsExprEncType](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#encoding-type)
-| rightsExprLangId | String | URI | [rightsExprLangId](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#rights-expression-language-id)
+| `Iptc4xmpExt:LinkedRightsExpr` | String | URL | [Link to Encoded Rights Expression](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#link-to-encoded-rights-expression)
+| `Iptc4xmpExt:RightsExprEncType` | String | MIME Type / URI | [Encoding type](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#encoding-type-2)
+| `Iptc4xmpExt:RightsExprLangId` | String | URI | [Rights Expression Language ID](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#rights-expression-language-id)
 
 
 #### Location
@@ -290,17 +290,17 @@ See [Location structure](https://www.iptc.org/std/photometadata/specification/IP
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| city | String | N/A | [city](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#city)
-| countryCode | String | N/A | [countryCode](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#country-iso-code)
-| countryName | String | N/A | [countryName](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#country-name)
-| gpsAltitude | number | N/A | [gpsAltitude](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#gps-altitude)
-| gpsLatitude | number | N/A | [gpsLatitude](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#gps-latitude)
-| gpsLongitude | number | N/A | [gpsLongitude](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#gps-longitude)
-| identifiers | String | URI | [identifiers](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#location-identifier)
-| name | Structure | [Localizable text](#localizable-text) | [name](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#location-name)
-| provinceState | String | N/A | [provinceState](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#province-or-state)
-| sublocation | String | N/A | [sublocation](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#sublocation)
-| worldRegion | String | N/A | [worldRegion](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#world-region)
+| `Iptc4xmpExt:City` | String | N/A | [City](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#city)
+| `Iptc4xmpExt:CountryCode` | String | N/A | [Country Code](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#country-iso-code)
+| `Iptc4xmpExt:CountryName` | String | N/A | [Country Name](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#country-name)
+| `exif:GPSAltitude` | number | N/A | [GPS Altitude](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#gps-altitude)
+| `exif:GPSLatitude` | number | N/A | [GPS Latitude](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#gps-latitude)
+| `exif:GPSLongitude` | number | N/A | [GPS Longitude](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#gps-longitude)
+| `Iptc4xmpExt:LocationId` | String | URI | [Location Identifier](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#location-identifier)
+| `Iptc4xmpExt:LocationName` | Structure | [Localizable text](#localizable-text) | [Location Name](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#location-name)
+| `Iptc4xmpExt:ProvinceState` | String | N/A | [Province or State](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#province-or-state)
+| `Iptc4xmpExt:Sublocation` | String | N/A | [Sublocation](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#sublocation)
+| `Iptc4xmpExt:WorldRegion` | String | N/A | [World Region](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#world-region)
 
 
 #### PersonWDetails
@@ -311,10 +311,10 @@ See [Person structure](https://www.iptc.org/std/photometadata/specification/IPTC
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| characteristics | Structure | CvTerm | [characteristics](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#characteristics)
-| description | Structure | [Localizable text](#localizable-text) | [description](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#description)
-| identifiers | String | URI | [identifiers](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#identifier)
-| name | Structure | [Localizable text](#localizable-text) | [name](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#name)
+| `Iptc4xmpExt:PersonCharacteristic` | Structure | [CvTerm](#cvterm) | [Characteristics](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#characteristics)
+| `Iptc4xmpExt:PersonDescription` | Structure | [Localizable text](#localizable-text) | [Description](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#description-2)
+| `Iptc4xmpExt:PersonId` | String | URI | [Identifier](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#identifier-3)
+| `Iptc4xmpExt:PersonName` | Structure | [Localizable text](#localizable-text) | [Name](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#name-3)
 
 
 #### ProductWGtin
@@ -325,10 +325,10 @@ See [Product structure](https://www.iptc.org/std/photometadata/specification/IPT
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| description | Structure | [Localizable text](#localizable-text) | [description](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#description)
-| gtin | String | N/A | [gtin](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#gtin)
-| identifiers | String | URI | [identifiers](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#identifier)
-| name | Structure | [Localizable text](#localizable-text) | [name](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#name)
+| `Iptc4xmpExt:ProductDescription` | Structure | [Localizable text](#localizable-text) | [Description](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#description-3)
+| `Iptc4xmpExt:ProductGTIN` | String | N/A | [GTIN](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#gtin)
+| `Iptc4xmpExt:ProductId` | String | URI | [Identifier](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#identifier-4)
+| `Iptc4xmpExt:ProductName` | Structure | [Localizable text](#localizable-text) | [Name](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#name-4)
 
 
 #### RegionBoundary
@@ -368,8 +368,8 @@ See [Registry Entry structure](https://www.iptc.org/std/photometadata/specificat
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| assetIdentifier | String | N/A | [assetIdentifier](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#item-id)
-| registryIdentifier | String | N/A | [registryIdentifier](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#organisation-id)
-| role | String | URI | [role](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#role)
+| `Iptc4xmpExt:RegItemId` | String | N/A | [Registry Item ID](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#item-id)
+| `Iptc4xmpExt:RegOrgId` | String | N/A | [Registry Organization ID](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#organisation-id)
+| `Iptc4xmpExt:RegEntryRole` | String | URI | [Role](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#role-2)
 
 
