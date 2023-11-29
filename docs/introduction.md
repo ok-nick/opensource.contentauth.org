@@ -11,9 +11,9 @@ You're strongly encouraged to read this introduction and [Getting started](getti
 
 ## Overview
 
-The **Content Authenticity Initiative (CAI)** is an Adobe-led cross-industry consortium that advocates for the adoption of Content Credentials based on C2PA standards.  CAI develops and maintains open-source software for working with Content Credentials.
+The **Coalition for Content Provenance and Authenticity (C2PA)** creates formal standards for the source and history (or provenance) of media content.   
 
-The **Coalition for Content Provenance and Authenticity (C2PA)** is a mutually-governed standards development organization (SDO) under the structure of the [Linux Foundation’s Joint Development Foundation](https://jointdevelopment.org/) that creates formal standards for content provenance.  CAI open-source software is compliant with C2PA technical specifications.
+The **Content Authenticity Initiative (CAI)** is an Adobe-led cross-industry consortium that advocates for the adoption of Content Credentials based on C2PA standards.  CAI develops and maintains open-source software based on C2PA technical specifications.
 
 | Organization | Website | Purpose / Description |
 |--------------|---------|-----------------------|
@@ -22,22 +22,17 @@ The **Coalition for Content Provenance and Authenticity (C2PA)** is a mutually-g
 | CAI | [contentcredentials.org](https://contentcredentials.org/) | Industry consortium <br/> Consumer-friendly site|
 | CAI / Adobe | [Verify](https://contentcredentials.org/verify) | Web-based tool to display Content Credentials |
 
-### CAI
-
-The CAI is creating a secure end-to-end system for digital content provenance through open-source development and cross-industry collaboration. 
-
-The CAI collaborates with software, publishing, social media companies, human rights organizations, photojournalism, and academic researchers. 
-Members include Adobe, Microsoft, The New York Times Co., The Associated Press, Intel, Qualcomm, and many more.  
-
 ### C2PA
 
-The C2PA complements the efforts of the CAI by providing the technical specifications and open standards for creators, editors, publishers, media platforms, and consumers.  C2PA also provides a [User Experience Guide for Implementers](https://c2pa.org/specifications/specifications/1.1/ux/UX_Recommendations.html).
+C2PA provides the technical specifications and open standards for content provenance for use by creators, editors, publishers, media platforms, and consumers.  C2PA is a mutually-governed standards development organization (SDO) under the structure of the [Linux Foundation’s Joint Development Foundation](https://jointdevelopment.org/).
 
-The CAI develops tools and software based on C2PA standards.
+### CAI
+
+The CAI is creating a secure end-to-end system for digital content provenance through open-source development and cross-industry collaboration with software, publishing, and social media companies, human rights organizations, photojournalists, and academic researchers. CAI members include Adobe, Microsoft, The New York Times Co., The Associated Press, Intel, Qualcomm, and many more.  
 
 #### The "cr" icon
 
-<img src={cr_pin} width="60" style={{float: 'left', margin: 10}} />
+<img src={cr_pin} width="50" style={{float: 'left', margin: 10}} />
 
 The "cr" icon is trademarked by the C2PA and is the _de facto_ mark for C2PA user experiences. Use  this icon to provide a consistent user experience and set expectations that an application, tool, or website implements C2PA standards.
 
