@@ -17,7 +17,7 @@ The **Content Authenticity Initiative (CAI)** is an Adobe-led cross-industry con
 
 |  Website | Organization | Purpose / Description |
 |--------------|---------|-----------------------|
-| [c2pa.org](https://c2pa.org/)  | C2PA / Linux Foundation |  Standards body<br/>Technical specs and guidance documents |
+| [c2pa.org](https://c2pa.org/)  | C2PA / Linux Foundation |  Standards body<br/>Technical specifications and guidance documents |
 | [contentcredentials.org](https://contentcredentials.org/) | C2PA | Consumer-friendly site|
 | [Verify](https://contentcredentials.org/verify) | C2PA / Adobe | Web-based tool to display Content Credentials |
 | [contentauthenticity.org](https://contentauthenticity.org/)| CAI  | Industry consortium<br/>Open-source software and community resources |
@@ -26,15 +26,15 @@ The **Content Authenticity Initiative (CAI)** is an Adobe-led cross-industry con
 
 C2PA provides the technical specifications and open standards for content provenance for use by creators, editors, publishers, media platforms, and consumers.  C2PA is a mutually-governed standards development organization (SDO) under the structure of the [Linux Foundation’s Joint Development Foundation](https://jointdevelopment.org/).
 
-### CAI
-
-The CAI is creating a secure end-to-end system for digital content provenance through open-source development and cross-industry collaboration with software, publishing, and social media companies, human rights organizations, photojournalists, and academic researchers. CAI members include Adobe, Microsoft, The New York Times Co., The Associated Press, Intel, Qualcomm, and many more.  
-
 #### The "cr" icon
 
 <img src={cr_pin} width="50" style={{float: 'left', margin: 10}} />
 
 The "cr" icon is trademarked by the C2PA and is the _de facto_ mark for C2PA user experiences. Use  this icon to provide a consistent user experience and set expectations that an application, tool, or website implements C2PA standards.
+
+### CAI
+
+The CAI is creating a secure end-to-end system for digital content provenance through open-source development and cross-industry collaboration with software, publishing, and social media companies, human rights organizations, photojournalists, and academic researchers. CAI members include Adobe, Microsoft, The New York Times Co., The Associated Press, Intel, Qualcomm, and many more.  
 
 ## CAI open-source software
 
