@@ -293,9 +293,9 @@ See [Location structure](https://www.iptc.org/std/photometadata/specification/IP
 | `Iptc4xmpExt:City` | String | N/A | [City](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#city)
 | `Iptc4xmpExt:CountryCode` | String | N/A | [Country Code](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#country-iso-code)
 | `Iptc4xmpExt:CountryName` | String | N/A | [Country Name](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#country-name)
-| `exif:GPSAltitude` | number | N/A | [GPS Altitude](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#gps-altitude)
-| `exif:GPSLatitude` | number | N/A | [GPS Latitude](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#gps-latitude)
-| `exif:GPSLongitude` | number | N/A | [GPS Longitude](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#gps-longitude)
+| `exif:GPSAltitude` | Number | N/A | [GPS Altitude](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#gps-altitude)
+| `exif:GPSLatitude` | Number | N/A | [GPS Latitude](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#gps-latitude)
+| `exif:GPSLongitude` | Number | N/A | [GPS Longitude](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#gps-longitude)
 | `Iptc4xmpExt:LocationId` | String | URI | [Location Identifier](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#location-identifier)
 | `Iptc4xmpExt:LocationName` | Structure | [Localizable text](#localizable-text) | [Location Name](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#location-name)
 | `Iptc4xmpExt:ProvinceState` | String | N/A | [Province or State](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#province-or-state)
@@ -339,14 +339,14 @@ See [Region Boundary structure](https://www.iptc.org/std/photometadata/specifica
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| rbShape | String | N/A | [rbShape](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#boundary-shape)
-| rbUnit | String | N/A | [rbUnit](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#boundary-measuring-unit)
-| rbX | number | N/A | [rbX](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#x-axis-coordinate)
-| rbY | number | N/A | [rbY](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#y-axis-coordinate)
-| rbW | number | N/A | [rbW](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#rectangle-width)
-| rbH | number | N/A | [rbH](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#rectangle-height)
-| rbRx | number | N/A | [rbRx](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#circle-radius)
-| rbVertices | Structure | [RegionBoundaryPoint](#regionboundarypoint) | [rbVertices](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#polygon-vertices)
+| `Iptc4xmpExt:rbShape` | String | N/A | [rbShape](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#boundary-shape)
+| `Iptc4xmpExt:rbUnit` | String | N/A | [rbUnit](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#boundary-measuring-unit)
+| `Iptc4xmpExt:rbX` | Number | N/A | [rbX](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#x-axis-coordinate)
+| `Iptc4xmpExt:rbY` | Number | N/A | [rbY](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#y-axis-coordinate)
+| `Iptc4xmpExt:rbW` | Number | N/A | [rbW](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#rectangle-width)
+| `Iptc4xmpExt:rbH` | Number | N/A | [rbH](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#rectangle-height)
+| `Iptc4xmpExt:rbRx` | Number | N/A | [rbRx](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#circle-radius)
+| `Iptc4xmpExt:rbVertices` | Structure | [RegionBoundaryPoint](#regionboundarypoint) | [rbVertices](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#polygon-vertices)
 
 
 #### RegionBoundaryPoint
@@ -357,8 +357,8 @@ See [Region Boundary Point structure](https://www.iptc.org/std/photometadata/spe
 
 | Property | Datatype | Data format | Specification link |
 |----------|----------|-------------|-----------|
-| rbX | number | N/A | [rbX](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#x-axis-coordinate)
-| rbY | number | N/A | [rbY](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#y-axis-coordinate)
+| `Iptc4xmpExt:rbX` | Number | N/A | [rbX](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#x-axis-coordinate)
+| `Iptc4xmpExt:rbY` | Number | N/A | [rbY](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#y-axis-coordinate)
 
 #### RegistryEntry
 
