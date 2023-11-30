@@ -307,7 +307,7 @@
   ManifestStore
  </h2>
  <p>
-  A Container for a set of Manifests and a ValidationStatus list.
+  A Container for a set of Manifests and a ValidationStatus list..
  </p>
  <h3 id="properties">
   Properties
@@ -346,9 +346,7 @@
     </td>
     <!-- Description -->
     <td class="manifest-ref-table">
-     <p>
-      A label for the active (most recent) manifest in the store
-     </p>
+     A label for the active (most recent) manifest in the store
     </td>
     <td class="manifest-ref-table">
      <!-- Required? -->
@@ -365,9 +363,8 @@
     </td>
     <!-- Description -->
     <td class="manifest-ref-table">
-     <p>
-      A HashMap of Manifests
-     </p>
+     A HashMap of Manifests
+     <br>
      See
      <a href="#manifest">
       Manifest
@@ -395,9 +392,7 @@
     </td>
     <!-- Description -->
     <td class="manifest-ref-table">
-     <p>
-      ValidationStatus generated when loading the ManifestStore from an asset
-     </p>
+     ValidationStatus generated when loading the ManifestStore from an asset
     </td>
     <td class="manifest-ref-table">
      <!-- Required? -->
@@ -544,9 +539,7 @@
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       List of references to W3C Verifiable Credentials.
-      </p>
+      List of references to W3C Verifiable Credentials.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -575,13 +568,7 @@
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       An identifier for a human actor, used when the “type” is
-       <code class="language-plaintext highlighter-rouge">
-        humanEntry.identified
-       </code>
-       .
-      </p>
+      An identifier for a human actor, used when the “type” is humanEntry.identified.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -733,9 +720,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       hashed URI to the icon (either embedded or remote)
-      </p>
+      hashed URI to the icon (either embedded or remote)
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -760,9 +745,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       A human readable string naming the claim_generator
-      </p>
+      A human readable string naming the claim_generator
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -791,9 +774,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       A human readable string of the product’s version
-      </p>
+      A human readable string of the product’s version
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -861,15 +842,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       A list of
-       <a href="crate::Actor">
-        <code class="language-plaintext highlighter-rouge">
-         Actor
-        </code>
-       </a>
-       s associated with this source.
-      </p>
+      A list of Actors associated with this source.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -898,9 +871,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       A human-readable string giving details about the source of the assertion data.
-      </p>
+      A human-readable string giving details about the source of the assertion data.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -925,9 +896,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       A value from among the enumerated list indicating the source of the assertion.
-      </p>
+      A value from among the enumerated list indicating the source of the assertion.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -991,9 +960,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       hash algorithm used (“sha256”, “sha384”, “sha512”)
-      </p>
+      hash algorithm used (“sha256”, “sha384”, “sha512”)
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1022,9 +989,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       “alg” hash of stored as cbor byte string
-      </p>
+      “alg” hash of stored as cbor byte string
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1049,9 +1014,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       URI stored as tagged cbor
-      </p>
+      URI stored as tagged cbor
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1119,24 +1082,9 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       The active manifest label (if one exists).
-      </p>
-      <p>
-       If this ingredient has a
-       <a href="crate::ManifestStore">
-        <code class="language-plaintext highlighter-rouge">
-         ManifestStore
-        </code>
-       </a>
-       , this will hold the label of the active
-       <a href="crate::Manifest">
-        <code class="language-plaintext highlighter-rouge">
-         Manifest
-        </code>
-       </a>
-       .
-      </p>
+      The active manifest label (if one exists).
+
+If this ingredient has a ManifestStore, this will hold the label of the active Manifest.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1163,9 +1111,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       A reference to the actual data of the ingredient.
-      </p>
+      A reference to the actual data of the ingredient.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1194,9 +1140,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       Additional description of the ingredient.
-      </p>
+      Additional description of the ingredient.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1225,13 +1169,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       Document ID from
-       <code class="language-plaintext highlighter-rouge">
-        xmpMM:DocumentID
-       </code>
-       in XMP metadata.
-      </p>
+      Document ID from xmpMM:DocumentID in XMP metadata.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1256,9 +1194,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       The format of the source file as a MIME type.
-      </p>
+      The format of the source file as a MIME type.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1287,9 +1223,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       An optional hash of the asset to prevent duplicates.
-      </p>
+      An optional hash of the asset to prevent duplicates.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1318,9 +1252,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       URI to an informational page about the ingredient or its data.
-      </p>
+      URI to an informational page about the ingredient or its data.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1349,13 +1281,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       Instance ID from
-       <code class="language-plaintext highlighter-rouge">
-        xmpMM:InstanceID
-       </code>
-       in XMP metadata.
-      </p>
+      Instance ID from xmpMM:InstanceID in XMP metadata.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1382,15 +1308,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       A
-       <a href="crate::ManifestStore">
-        <code class="language-plaintext highlighter-rouge">
-         ManifestStore
-        </code>
-       </a>
-       from the source asset extracted as a binary C2PA blob.
-      </p>
+      A ManifestStore from the source asset extracted as a binary C2PA blob.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1417,15 +1335,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       Any additional
-       <a href="crate::Metadata">
-        <code class="language-plaintext highlighter-rouge">
-         Metadata
-        </code>
-       </a>
-       as defined in the C2PA spec.
-      </p>
+      Any additional Metadata as defined in the C2PA spec.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1454,13 +1364,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       URI from
-       <code class="language-plaintext highlighter-rouge">
-        dcterms:provenance
-       </code>
-       in XMP metadata.
-      </p>
+      URI from dcterms:provenance in XMP metadata.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1487,16 +1391,9 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       Set to
-       <code class="language-plaintext highlighter-rouge">
-        ParentOf
-       </code>
-       if this is the parent ingredient.
-      </p>
-      <p>
-       There can only be one parent ingredient in the ingredients.
-      </p>
+      Set to ParentOf if this is the parent ingredient.
+
+There can only be one parent ingredient in the ingredients.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1523,16 +1420,9 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       A thumbnail image capturing the visual state at the time of import.
-      </p>
-      <p>
-       A tuple of thumbnail MIME format (i.e.
-       <code class="language-plaintext highlighter-rouge">
-        image/jpeg
-       </code>
-       ) and binary bits of the image.
-      </p>
+      A thumbnail image capturing the visual state at the time of import.
+
+A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1557,9 +1447,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       A human-readable title, generally source filename.
-      </p>
+      A human-readable title, generally source filename.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1589,9 +1477,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       Validation results.
-      </p>
+      Validation results.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1655,9 +1541,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       A list of assertions
-      </p>
+      A list of assertions
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1682,9 +1566,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       A User Agent formatted string identifying the software/hardware/system produced this claim. Spaces are not allowed in names, versions can be specified with product/1.0 syntax
-      </p>
+      A User Agent formatted string identifying the software/hardware/system produced this claim. Spaces are not allowed in names, versions can be specified with product/1.0 syntax
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1746,17 +1628,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       An array of
-       <a href="https://verifiablecredentials.dev/">
-        W3C Verifiable Credentials
-       </a>
-       . See also the
-       <a href="https://www.w3.org/TR/vc-data-model/">
-        W3C Recommendation
-       </a>
-       . NOTE: This area is under active development and may change.
-      </p>
+      An array of W3C Verifiable Credentials. See also the W3C Recommendation. NOTE: This area is under active development and may change.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1781,9 +1653,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       The format of the source file as a MIME type.
-      </p>
+      The format of the source file as a MIME type.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1812,9 +1682,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       A List of ingredients
-      </p>
+      A List of ingredients
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1839,13 +1707,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       Instance ID from
-       <code class="language-plaintext highlighter-rouge">
-        xmpMM:InstanceID
-       </code>
-       in XMP metadata.
-      </p>
+      Instance ID from xmpMM:InstanceID in XMP metadata.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1906,9 +1768,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       A list of redactions - URIs to a redacted assertions
-      </p>
+      A list of redactions - URIs to a redacted assertions
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1935,9 +1795,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       Signature data (only used for reporting)
-      </p>
+      Signature data (only used for reporting)
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1993,9 +1851,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       A human-readable title, generally source filename.
-      </p>
+      A human-readable title, generally source filename.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2024,13 +1880,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       Optional prefix added to the generated Manifest Label This is typically Internet domain name for the vendor (i.e.
-       <code class="language-plaintext highlighter-rouge">
-        adobe
-       </code>
-       )
-      </p>
+      Optional prefix added to the generated Manifest Label This is typically Internet domain name for the vendor (i.e. adobe)
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2092,9 +1942,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       The data of the assertion as Value
-      </p>
+      The data of the assertion as Value
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2126,9 +1974,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       There can be more than one assertion for any label
-      </p>
+      There can be more than one assertion for any label
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2155,15 +2001,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       The
-       <a href="crate::ManifestAssertionKind">
-        <code class="language-plaintext highlighter-rouge">
-         ManifestAssertionKind
-        </code>
-       </a>
-       for this assertion (as stored in c2pa content).
-      </p>
+      The ManifestAssertionKind for this assertion (as stored in c2pa content).
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2188,9 +2026,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       An assertion label in reverse domain format
-      </p>
+      An assertion label in reverse domain format
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2329,9 +2165,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       A date time in ISO 8601 format.
-      </p>
+      A date time in ISO 8601 format.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2723,9 +2557,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       The serial number of the certificate
-      </p>
+      The serial number of the certificate
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2754,9 +2586,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       human readable issuing authority for this signature
-      </p>
+      human readable issuing authority for this signature
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2785,9 +2615,7 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       the time the signature was created
-      </p>
+      the time the signature was created
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2885,9 +2713,7 @@ See
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       Validation status code.
-      </p>
+      Validation status code.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2916,9 +2742,7 @@ See
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       Human-readable description of the validation that was performed.
-      </p>
+      Human-readable description of the validation that was performed.
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2947,9 +2771,7 @@ See
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      <p>
-       Internal JUMBF reference to the entity that was validated.
-      </p>
+      Internal JUMBF reference to the entity that was validated.
      </div>
     </td>
     <td class="manifest-ref-table">
