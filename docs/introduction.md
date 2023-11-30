@@ -15,12 +15,12 @@ The **Coalition for Content Provenance and Authenticity (C2PA)** creates formal 
 
 The **Content Authenticity Initiative (CAI)** is an Adobe-led cross-industry consortium that advocates for the adoption of Content Credentials based on C2PA standards.  CAI develops and maintains open-source software based on C2PA technical specifications.
 
-| Organization | Website | Purpose / Description |
+|  Website | Organization | Purpose / Description |
 |--------------|---------|-----------------------|
-| C2PA / Linux Foundation | [c2pa.org](https://c2pa.org/)  | Standards body |
-| CAI| [contentauthenticity.org](https://contentauthenticity.org/) | Industry consortium |
-| C2PA | [contentcredentials.org](https://contentcredentials.org/) | Consumer-friendly site|
-| C2PA / Adobe | [Verify](https://contentcredentials.org/verify) | Web-based tool to display Content Credentials |
+| [c2pa.org](https://c2pa.org/)  | C2PA / Linux Foundation |  Standards body<br/>Technical specs and guidance documents |
+| [contentcredentials.org](https://contentcredentials.org/) | C2PA | Consumer-friendly site|
+| [Verify](https://contentcredentials.org/verify) | C2PA / Adobe | Web-based tool to display Content Credentials |
+| [contentauthenticity.org](https://contentauthenticity.org/)| CAI  | Industry consortium<br/>Open-source software and community resources |
 
 ### C2PA
 
