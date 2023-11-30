@@ -19,8 +19,8 @@ The **Content Authenticity Initiative (CAI)** is an Adobe-led cross-industry con
 |--------------|---------|-----------------------|
 | C2PA / Linux Foundation | [c2pa.org](https://c2pa.org/)  | Standards body |
 | CAI| [contentauthenticity.org](https://contentauthenticity.org/) | Industry consortium |
-| CAI | [contentcredentials.org](https://contentcredentials.org/) | Industry consortium <br/> Consumer-friendly site|
-| CAI / Adobe | [Verify](https://contentcredentials.org/verify) | Web-based tool to display Content Credentials |
+| C2PA | [contentcredentials.org](https://contentcredentials.org/) | Consumer-friendly site|
+| C2PA / Adobe | [Verify](https://contentcredentials.org/verify) | Web-based tool to display Content Credentials |
 
 ### C2PA
 
