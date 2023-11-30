@@ -5,7 +5,7 @@ hide_table_of_contents: true
 ---
 
 :::note
-This summary of IPTC properties based on the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata) is provided for convenience. In case of discrepancies or lack of detail, refer to the specification.
+This summary of IPTC properties based on the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata) is provided for convenience.  It is not authoritative. In case of discrepancies or lack of detail, refer to the specification.
 ::: 
 
 The table below:

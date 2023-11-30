@@ -26,13 +26,14 @@ The standard form of an assertion in a JSON manifest is:
 ]
 ```
 
+**Metadata assertions**
+
 _Metadata assertions_ include
 - [Creative work](#creative-work-assertion)
 - [Exchangeable image file (Exif) information](#exif-assertion)
-- [IPTC photo and video metadata](#iptc-photo-and-video-metadata)
+- [IPTC photo and video metadata](#iptc-metadata-assertion)
 
 Metadata assertions must include one or more `@context` properties in the `data` object, as explained in the [JSON-LD](https://www.w3.org/TR/json-ld/#the-context) specification.  Follow the examples shown in each section.
-
 
 ### C2PA standard assertions
 
@@ -43,11 +44,11 @@ The following table summarizes some of the most important standard assertions.
 | Assertion | Label | Description |
 |-----------|--------------|-------------|
 | [Actions](#actions) |  `c2pa.actions` | Creation, edits, and other actions on an asset, such as cropping, color or contrast adjustment, and so on. |
-| [Creative work](#creative-work-assertion) | `stds.schema-org.CreativeWork`  | Indicates the asset is the product of creative effort.   |
 | ["Do not train"](#do-not-train-assertion) | `c2pa.training-mining` | Whether the creator/owner of an asset grants permission to use it for data mining or AI/ML training.  |
+| [Creative work](#creative-work-assertion) | `stds.schema-org.CreativeWork`  | Indicates the asset is the product of creative effort.   |
 | [Exif information](#exif-assertion) | `stds.exif` | Camera information such as maker, lens stored in Exchangeable image file format (Exif). |
 | [Content bindings](#content-bindings) | `c2pa.hash.*`, `c2pa.soft-binding`, etc. | Uniquely identify portions of an asset and bind the assertion to it, for example using cryptographic hashes. |
-| [IPTC photo and video metadata](#iptc-photo-and-video-metadata) | `stds.iptc` | Properties from the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata) and [Video Metadata Standard](https://www.iptc.org/standards/video-metadata-hub/recommendation/), for example describing ownership, rights, and descriptive metadata about an asset. |
+| [IPTC photo and video metadata](#iptc-metadata) | `stds.iptc` | Properties from the IPTC Photo and Video Metadata Standards, describing for example ownership, rights, and other metadata about a image or video asset. |
 
 :::note
 CAI libraries and tools handle assertions for thumbnails, content bindings, and ingredients, so normally you don't need to think about them.
@@ -99,7 +100,11 @@ Example:
 
 ### Creative work assertion
 
-A creative work assertion states that an asset was the product of creative effort, such as an original photograph or artwork. [Schema.org](https://schema.org/) provides a set of types and metadata fields, including [CreativeWork](https://schema.org/CreativeWork), which describes a representation of creative effort. This assertion provides information about the asset, including who created it and the date/time of publication.  For example:
+A creative work assertion states that an asset was the product of creative effort, such as an original photograph or artwork. [Schema.org](https://schema.org/) provides a set of types and metadata fields, including [CreativeWork](https://schema.org/CreativeWork), which describes a representation of creative effort. This assertion provides information about the asset, including who created it and the date/time of publication.  
+
+A creative work assertion has the label `stds.schema-org.CreativeWork`.
+
+For example:
 
 ```json
 ...
@@ -118,13 +123,11 @@ A creative work assertion states that an asset was the product of creative effor
 ]
 ```
 
-
-
 ### Exif assertion
 
 Exchangeable image file (Exif) format is a standard for storing technical metadata in image files of JPEG, TIFF, PNG, and other formats. Most digital cameras (including smartphones), scanners and other digital capture devices use Exif to store information such as device make and model, shutter speed, ISO number, date and time of capture, location, and so on.  For more information on Exif, see the [Exif specification](https://www.cipa.jp/std/documents/download_e.html?DC-008-Translation-2019-E).
 
-Use an Exif assertion to add Exif information to the asset in a way that can be validated cryptographically.  The label property for an Exif assertion has a value of `stds.exif`.
+Use an Exif assertion to add Exif information to the asset in a way that can be validated cryptographically.  An Exif assertion has the label `stds.exif`.
 
 Here is a simple example:
 
@@ -149,17 +152,17 @@ Here is a simple example:
 ]
 ```
 
-### IPTC photo and video metadata
+### IPTC metadata assertion
 
-IPTC photo and video metadata assertions have the label `stds.iptc` and represent  properties from the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata) and [Video Metadata Standard](https://www.iptc.org/standards/video-metadata-hub/recommendation/) that describe ownership, rights, and descriptive metadata about an asset. IPTC properties are  stored in JSON-LD format using the XMP field names and structures specified in these standards.
+International Press Telecommunications Council (IPTC) metadata assertions represent properties from the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata) and [Video Metadata Standard](https://www.iptc.org/standards/video-metadata-hub/recommendation/) that describe ownership, rights, and descriptive metadata about an asset. 
+
+An IPTC assertion has the label `stds.iptc` and is stored in JSON-LD format using the XMP field names and structures specified in the IPTC standards.
 
 Earlier versions of the C2PA specification defined the `stds.iptc.photo-metedata` label for IPTC photo metadata; the 1.3 version of the C2PA specification defines the `stds.iptc` assertion that includes video metadata as well. 
 
 See also:
 - [Exploring c2patool and IPTC Photo Metadata](https://iptc.atlassian.net/wiki/spaces/PMD/pages/613613569/Exploring+c2patool+and+IPTC+Photo+Metadata) (Aug 2022).
 - [IPTC Photo Metadata User Guide](https://www.iptc.org/std/photometadata/documentation/userguide/)
-
-For a summary reference to IPTC metadata properties, see [IPTC properties](iptc-properties).
 
 For example:
 
@@ -207,6 +210,8 @@ For example:
   ...
 ]
 ```
+
+For a summary reference to IPTC metadata properties, see [IPTC properties](iptc-properties).
 
 ### Content bindings
 

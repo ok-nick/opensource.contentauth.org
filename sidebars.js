@@ -18,10 +18,8 @@ const sidebars = {
       collapsed: true,
       items: [
         {
-          type: 'category',
-          label: 'Assertions and actions',
-          link: { type: 'doc', id: 'manifest/assertions-actions' },
-          items: ['manifest/iptc-properties'],
+          type: 'doc',
+          id: 'manifest/assertions-actions',
         },
         {
           type: 'doc',
