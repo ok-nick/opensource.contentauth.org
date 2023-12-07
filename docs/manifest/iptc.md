@@ -5,13 +5,20 @@ hide_table_of_contents: true
 ---
 
 :::note
-This summary of IPTC properties based on the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata) is provided for convenience.  It is not authoritative. In case of discrepancies or lack of detail, refer to the specification.
+This page provides a summary of IPTC photo metadata properties based on the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata). <br/>**This information is provided for convenience: It's not authoritative, and in all cases the specification takes precedence**. 
 ::: 
 
-The table below:
-- Summarizes both [IPTC core metadata properties](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#metadata-properties) and [IPTC extension properties](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#metadata-properties-2).
-- Does not include "legacy" core properties, since they are superseded by IPTC extension properties.
-- Does not include properties from the [IPTC Video Metadata Hub Specification](https://www.iptc.org/std/videometadatahub/userguide/#property-reference-table).
+Contents:
+- [Overview](#overview)
+- [Property reference](#property-reference)
+- [Structures](#structures)
+
+## Overview
+
+IPTC photo metadata provides data about photographs that can be processed by software. 
+
+The table below consolidates information from the two IPTC Photo Metadata schemas: The original IPTC Core Schema, released in 2004, and the IPTC Extension schema, released in 2008.
+
 
 ### Data types
 
@@ -34,7 +41,12 @@ For more information, see:
 - [AltLang structure](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#altlang-structure-2) in the IPTC specification.
 - [Language alternative](https://developer.adobe.com/xmp/docs/XMPNamespaces/XMPDataTypes/#language-alternative) in the XMP specification.
 
-### Property reference
+## Property reference
+
+The table below:
+- Summarizes both [IPTC core metadata properties](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#metadata-properties) and [IPTC extension properties](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata#metadata-properties-2).
+- Does not include "legacy" core properties, since they are superseded by IPTC extension properties.
+- Does not include properties from the [IPTC Video Metadata Hub Specification](https://www.iptc.org/std/videometadatahub/userguide/#property-reference-table).
 
 |Property | Description | Data Type /<br/> Allowed Values | Property Name |
 |---|---|---|---|
@@ -94,7 +106,7 @@ For more information, see:
 |Title|A shorthand reference for the digital image. Title provides a short human readable name which can be a text and/or numeric reference. It is not the same as Headline.|[Localizable text](#localizable-text)|`dc:title`
 |Web Statement of Rights|URL referencing a web resource providing a statement of the copyright ownership and usage rights of the image.|Text (URI) |`xmpRights:WebStatement`
 
-### Structures
+## Structures
 
 This section documents the object structures used for IPTC photo metadata properties.  It is based on the [IPTC Photo Metadata technical specification](https://iptc.org/std-dev/photometadata/specification/iptc-pmd-techreference_2023.1.json) in JSON format.
 
