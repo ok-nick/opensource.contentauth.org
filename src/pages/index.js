@@ -19,14 +19,11 @@ const manifestResolvers = resolvers.createTypedResolvers(
 export const features = [
   {
     id: 'js-sdk',
-    title: 'JavaScript SDK',
+    title: 'JavaScript library',
     icon: <JSSDKIcon />,
     hasC2paMetadata: true,
     description: (
-      <>
-        Everything you need to develop rich, browser-based experiences with
-        content credentials.
-      </>
+      <>Develop rich, browser-based experiences with Content Credentials.</>
     ),
     cta: {
       link: '/docs/js-sdk/getting-started/overview',
@@ -41,8 +38,8 @@ export const features = [
     hasC2paMetadata: false,
     description: (
       <>
-        Install this tool to create, verify and explore content credentials on
-        the command line.
+        Create, verify, and inspect content credentials using this command line
+        tool.
       </>
     ),
     cta: {
@@ -51,15 +48,35 @@ export const features = [
     },
     media: <img src="/img/c2patool@2x.png" />,
   },
+
   {
-    id: 'rust-sdk',
-    title: 'Rust SDK',
+    id: 'other-langs',
+    title: 'Other language libraries',
     icon: <RustSDKIcon />,
     hasC2paMetadata: false,
     description: (
       <>
-        Develop custom applications across desktop, mobile, and services that
-        create, verify, and display content credentials via our Rust library.
+        Develop custom applications for desktop, mobile, and web that create,
+        verify, and display content credentials using your preferred programming
+        language.
+      </>
+    ),
+    cta: {
+      link: '/docs/c2pa-c',
+      label: 'View documentation',
+    },
+    media: <img src="/img/other-langs.png" />,
+  },
+
+  {
+    id: 'rust-sdk',
+    title: 'Rust library',
+    icon: <RustSDKIcon />,
+    hasC2paMetadata: false,
+    description: (
+      <>
+        Develop custom applications across desktop, mobile, and web services
+        that create, verify, and display content credentials.
       </>
     ),
     cta: {
@@ -73,12 +90,12 @@ export const features = [
 const comparisonColumns = [
   {
     key: 'implementation',
-    label: 'Implementation',
+    label: 'Use To...',
     type: 'string',
   },
   {
     key: 'jsSDK',
-    label: 'JavaScript SDK',
+    label: 'JavaScript Library',
     type: 'boolean',
   },
   {
@@ -87,8 +104,13 @@ const comparisonColumns = [
     type: 'boolean',
   },
   {
+    key: 'otherLangs',
+    label: 'Other Language Libraries',
+    type: 'boolean',
+  },
+  {
     key: 'rustSDK',
-    label: 'Rust SDK',
+    label: 'Rust Library',
     type: 'boolean',
   },
 ];
@@ -98,36 +120,42 @@ const comparisonRecords = [
     implementation: 'Display C2PA data on your site or app',
     jsSDK: true,
     c2paTool: true,
+    otherLangs: true,
     rustSDK: true,
   },
   {
     implementation: 'Link C2PA data displayed on your site to Verify',
     jsSDK: true,
     c2paTool: true,
+    otherLangs: true,
     rustSDK: true,
   },
   {
     implementation: 'Write C2PA data into files',
     jsSDK: false,
     c2paTool: true,
+    otherLangs: true,
     rustSDK: true,
   },
   {
     implementation: 'Quickly create and inspect C2PA data',
     jsSDK: false,
     c2paTool: true,
+    otherLangs: true,
     rustSDK: true,
   },
   {
     implementation: 'Customize displaying and creating C2PA data',
     jsSDK: false,
     c2paTool: false,
+    otherLangs: true,
     rustSDK: true,
   },
   {
     implementation: 'Deploy on Web, mobile, and desktop',
     jsSDK: false,
     c2paTool: false,
+    otherLangs: true,
     rustSDK: true,
   },
 ];
@@ -150,15 +178,8 @@ export default function Home() {
             description={
               <>
                 Integrate secure provenance signals into your site, app, or
-                service using open-source tools developed by the&nbsp;
-                <a
-                  href="https://contentauthenticity.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Content Authenticity Initiative
-                </a>
-                . Join the ecosystem of transparency of provenance and
+                service using Content Authenticity Initiative open-source
+                software. Join the ecosystem of transparency of provenance and
                 attribution of digital content to counter the rise of
                 misinformation.
               </>

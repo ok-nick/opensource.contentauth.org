@@ -9,17 +9,17 @@ import cai_os_tools_table from '../static/img/cai-os-tools-table.png';
 import cai_levels from '../static/img/cai-levels.png';
 import cr_pin from '../static/img/cr-pin.png';
 
-This is a technical introduction to the Content Authenticity Initiative (CAI) open-source tools and libraries. It provides initial context and an overview of the technical aspects of implementing CAI solutions.
+This is a technical introduction to the Content Authenticity Initiative (CAI) open-source SDK that provides initial context and an overview of the technical aspects of implementing CAI solutions.
 
-This document refers to the implementations in the CAI open-source repositories, which are fully compliant with the C2PA specification. It's important to note that the specification is more general than the CAI open-source implementations, which don't support every feature in the specification.
+The CAI open-source SDK is fully compliant with the C2PA specification, but it's important to note that the specification is more general than the SDK, which doesn't support every feature in the specification.
 
 ## Important terminology
 
-To understand how CAI works, you need to understand some basic vocabulary. Having this vocabulary makes it easier to discuss CAI's technical aspects. The definitions below are summarized and slightly simplified from the [Glossary in the C2PA specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_glossary). This document is meant to convey the general concepts and may not cover all technical details or edge cases that the specification addresses.
+To understand how CAI works, you need to understand some basic vocabulary. Having this vocabulary makes it easier to discuss CAI's technical aspects. The definitions below are summarized and slightly simplified from the [Glossary in the C2PA specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_glossary). This document is meant to convey the general concepts and may not cover all technical details or edge cases that the specification addresses.
 
 Let's start with a broad definition of _content provenance_ which means information on the creation, authorship, and editing of a digital asset such as an image. _Content Credentials_ include this provenance information, along with the cryptographic means to authenticate that the information is correctly tied to the content and is unchanged from when it was originally added. Sometimes these two terms are used to loosely mean the same thing: Technology to verify the origin and history of a digital asset.
 
-In practice, Content Credentials are kept in a _C2PA manifest store_, which is what the CAI open-source tools and libraries work with. A manifest store consists of one or more individual _manifests_, each containing information about the asset. The most recently-added manifest is called the _active manifest_. The active manifest has content bindings that can be validated with the asset; that is, it's hashed with the asset to ensure its validity.
+In practice, Content Credentials are kept in a _C2PA manifest store_, which is what the CAI SDK works with. A manifest store consists of one or more individual _manifests_, each containing information about the asset. The most recently-added manifest is called the _active manifest_. The active manifest has content bindings that can be validated with the asset; that is, it's hashed with the asset to ensure its validity.
 
 As illustrated below, the manifest contains _assertions_ about the asset's creation and history, wrapped up with additional information into entities called _claims_ that are digitally signed with an _actor's_ private key (the _claim signature_).
 
@@ -57,15 +57,15 @@ For more definitions and detail, see the [C2PA specification](https://c2pa.org/s
 
 ## How it works
 
-A _manifest_ is a binary data structure that describes the history and identity data attached to digital asset. The CAI SDKs and tools enable applications and websites to attach a manifest to an asset and display it when requested. This enables viewers to understand the origin and evolution of the asset.
+A _manifest_ is a binary data structure that describes the history and identity data attached to digital asset. The CAI SDK enables applications and websites to attach a manifest to an asset and display it when requested. This helps viewers to understand the origin and evolution of the asset.
 
-Although the manifest structure described in the C2PA specification is a complex binary structure, CAI works with a JSON manifest format that's easier to understand and use. It's essentially a declarative language for representing and creating a manifest in binary format. For more information on the CAI JSON manifest, see [Working with manifests](manifest/understanding-manifest).
+Although the manifest structure described in the C2PA specification is a complex binary structure, the CAI SDK works with a JSON manifest format that's easier to understand and use. It's essentially a declarative language for representing and creating a manifest in binary format. For more information on the CAI JSON manifest, see [Working with manifests](manifest/understanding-manifest).
 
 The CAI uses _cryptographic asset hashing_ to provide verifiable, tamper-evident signatures that the asset and metadata haven't been altered since the asset was published with the attached manifest. This means that a hash function converts the digital asset data to a unique "fingerprint," which is signed using a certificate. Once the credentials are signed, if the asset is changed then its fingerprint also changes. That's why it's called "tamper evident." You're not prevented from changing an image that has Content Credentials, but if you do, the credentials are no longer valid unless you change it using a tool that updates and re-hashes the credentials, along with a timestamp and optionally a description of what changed. The C2PA specification refers to this as [hard binding](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_binding_to_content).
 
 ## Introduction to public key infrastructure
 
-For authentication, the CAI uses _public-key infrastructure_ (PKI) technology, a widely used international standard: The same technology used to secure websites using HTTPS, to secure email using S/MIME, and for many other digital security purposes. CAI uses the international [X.509](https://en.wikipedia.org/wiki/X.509) standard, the most common format for public key certificates.
+For authentication, C2PA uses _public key infrastructure_ (PKI) technology, a widely used international standard: The same technology used to secure websites using HTTPS, to secure email using S/MIME, and for many other digital security purposes. C2PA uses the international [X.509](https://en.wikipedia.org/wiki/X.509) standard, the most common format for public key certificates.
 
 A signed digital certificate verifies the authenticity of an entity, such as a server, a client, or an application. You typically purchase a certificate from a third-party certificate authority. A certificate can contain the following information to verify the identity of an entity:
 
@@ -80,11 +80,11 @@ Once you initially attach a manifest to an asset, it has information about the o
 
 Each manifest is digitally signed with the application's or client's credentials. To make validation of the credentials possible, the manifest also includes the signing certificate chain. The "chain" of certificates starts with the certificate from the last tool that signed the manifest (known as the "end-entity") followed by the certificate that signed it, and so on, back to the original CA issuer. In other words, a user knows they can trust that the manifest is valid because there is a "trust chain" that goes back to a trusted root certificate authority. That's why you need to acquire a security certificate from a legitimate certificate authority.
 
-In practice, to use a certificate with CAI SDKs and tools, you follow this process:
+In practice, to use a certificate with the CAI SDK, follow this process:
 
 1. Purchase security credentials (certificate and key) from a certificate authority. Either email protection or document signing certificates are valid.
 2. Extract the certificate by using a tool such as OpenSSL. You could also host the certificate in a secure environment like a hardware security module (HSM).
-3. Use the Rust SDK or c2patool to sign manifests using the certificate.
+3. Use the Rust library or c2patool to sign manifests using the certificate.
 
 :::tip
 For more details and a short tutorial example, see [Signing manifests](manifest/signing-manifests).
@@ -106,7 +106,7 @@ You must purchase a X.509 v3 security certificate from a certificate authority (
 The above list is for reference only; inclusion does not imply endorsement by CAI or Adobe, Inc.
 :::note
 
-When you purchase a certificate, you must select at least one of the extended key usage (EKU) fields that specify what the certificate can be used for: **email protection** and **document signing**. CAI tools and SDKs won't accept the certificate unless it has one of these EKUs.
+When you purchase a certificate, you must select at least one of the extended key usage (EKU) fields that specify what the certificate can be used for: **email protection** and **document signing**. Applications that use the CAI SDK won't accept the certificate unless it has one of these EKUs.
 
 Certificate authorities offer many levels of validation. For Content Credentials, one of these types is highly recommended (though not required):
 
@@ -142,24 +142,29 @@ In addition to simply adding a name and organization, Adobe tools can use the [C
 CAI open-source offerings consist of:
 
 - **The c2patool command-line tool** for working with manifests and media. This tool is a wrapper around the Rust SDK and provides most of the same capabilities that it does.
-- **Rust SDK** enables a desktop, mobile, or embedded application to create and sign manifests, embed manifests in certain file formats, and parse and validate manifests.
-- **Language-specific APIs** in C/C++, Python, Node.js and client JavaScript. NOTE: The C/C++, Python, Node.js libraries are prerelease versions whose APIs are subject to change.
+- **Language-specific libraries** in C/C++, Python, Node.js and client JavaScript. NOTE: The C/C++, Python, Node.js libraries are prerelease versions whose APIs are subject to change.
+- **The Rust library** enables a desktop, mobile, or embedded application to create and sign manifests, embed manifests in certain file formats, and parse and validate manifests.
 
-Behind the scenes, c2patool and language-specific APIs are built using the Rust SDK, to ensure consistency.
+Behind the scenes, c2patool and language-specific libraries are built using the Rust library to ensure consistency.
 
 The following diagram provides a high-level view of how to use the open-source CAI tools.
 
 <img src={cai_open_source} width="800" />
 
-You use the CAI open-source offerings in several different ways. The JavaScript SDK can display Content Credentials on a website or from a desktop app based on Node.js. The Rust SDK and the c2patool CLI&mdash;which is built on top of the Rust SDK&mdash;are more powerful and can also:
+You can use the CAI SDK in several different ways:
 
-- Create, modify, and sign C2PA manifests.
+- Web pages can use the JavaScript library to display Content Credentials.
+- Applications written in C++, Python, or Node.js can call out to c2patool or use the corresponding language libraries to:
+
+- Create, modify, and sign manifests.
 - Embed manifests into media files.
 - Parse and validate manifests.
 
-The ability for the JavaScript SDK to write manifests via Wasm may be released in the future to empower and broaden JavaScript development.
+Similarly, applications written in many programming languages can use the Rust Foreign Function Interface to call the Rust API and perform those same functions.
 
 <!--
+
+The ability for the JavaScript SDK to write manifests via Wasm may be released in the future to empower and broaden JavaScript development.
 
 This table summarizes the capabilities of the SDKs and c2patool.
 
@@ -168,7 +173,9 @@ This table summarizes the capabilities of the SDKs and c2patool.
 
 ### Native desktop or mobile applications
 
-Native applications use Rust's _Foreign Function Interface_ (FFI) to call functions in the Rust SDK. The FFI enables interoperability between Rust and libraries and frameworks written in other languages. Although the underlying technology of the Rust SDK supports all major programming languages, the bindings and APIs to make all of them workable and easy to use are still in development. CAI has prerelease versions of libraries that implement C++/C, Python, and Node.js APIs. As prerelease versions, these APIs are subject to change.
+Native applications use Rust's _Foreign Function Interface_ (FFI) to call functions in the Rust library. The FFI enables interoperability between Rust and code written in other languages.
+
+Although the underlying technology of the Rust library supports all major programming languages, the bindings and APIs to make all of them workable and easy to use are still in development. CAI has prerelease versions of C++/C, Python, and Node.js libraries. As prerelease versions, these APIs are subject to change.
 
 A Windows application can use the FFI to call Rust functions from languages such as C++ or C#. For an example, see the [c2c2pa repository](https://github.com/contentauth/c2c2pa).
 
@@ -178,17 +185,17 @@ An iOS application can use the C-ABI (C Application Binary Interface) to call Ru
 
 ### Websites
 
-A website can serve web pages that use the JavaScript SDK to display manifest data using client-side JavaScript. The ability to create and sign manifests from JavaScript via [WebAssembly](https://webassembly.org/) is under consideration and may be released in the future.
+A website can serve web pages that use the JavaScript library to display manifest data using client JavaScript. The ability to create and sign manifests from JavaScript via [WebAssembly](https://webassembly.org/) is under consideration and may be released in the future.
 
-Server-side web applications can create, modify, and sign claims (and view them) by:
+A server-side web application can create, modify, and sign claims (and view them) by:
 
 - Executing a shell command to invoke c2patool. For an example, see the [c2patool Node.js service example](c2pa-service-example).
-- Use the prerelease [Node.js](c2pa-node), [Python](c2pa-python), or [C++/C](c2pa-c) APIs.
-- Bind to the Rust SDK library and use it, similarly to native applications.
+- Use the prerelease [Node.js](c2pa-node), [Python](c2pa-python), or [C++/C](c2pa-c) libraries.
+- Bind to the Rust library and use it, similarly to native applications.
 
 ### Embedded applications
 
-An embedded application uses the FFI (foreign function interface) to call Rust functions from languages such as C or C++, similarly to a native application.
+An embedded application can use the Rust FFI (foreign function interface) to call Rust functions from languages such as C or C++, similarly to a native application.
 
 Embedded applications have unique constraints tied to the devices on which they run, including small memory footprint, low-powered hardware, intermittent network access, unique operating systems, or the lack of an operating system OS (running on bare metal). For these reasons, if you want to develop a CAI-enabled embedded application, please contact the CAI team directly.
 
@@ -232,7 +239,7 @@ The example shown below illustrates one way to implement levels of disclosure:
 
 Numerous Adobe tools and products implement Content Credentials. You can optionally attach credentials to images you create or modify using [Photoshop](https://helpx.adobe.com/photoshop/using/content-credentials.html) and [Lightroom](https://helpx.adobe.com/lightroom-cc/using/content-credentials-lightroom.html). Additionally, all images created using the [Firefly](https://blog.adobe.com/en/publish/2023/03/21/bringing-gen-ai-to-creative-cloud-adobe-firefly) generative AI tool automatically have attached Content Credentials. [Behance displays Content Credentials](https://www.behance.net/blog/cai-on-behance) if they are attached to media shared on the site, and still images provided through [Adobe Stock](https://stock.adobe.com/) automatically have Content Credentials attached.
 
-The CAI's own [Verify website](https://verify.contentauthenticity.org/) inspects image files and displays their Content Credentials if they exist.
+The C2PA's [Verify website](https://verify.contentauthenticity.org/) inspects image files and displays their Content Credentials if they exist.
 
 Additionally, several other organizations have implemented CAI solutions, including:
 

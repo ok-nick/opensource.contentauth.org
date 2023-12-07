@@ -36,15 +36,14 @@ The "cr" icon is trademarked by the C2PA and is the _de facto_ mark for C2PA use
 
 The CAI is creating a secure end-to-end system for digital content provenance through open-source development and cross-industry collaboration with software, publishing, and social media companies, human rights organizations, photojournalists, and academic researchers. CAI members include Adobe, Microsoft, The New York Times Co., The Associated Press, Intel, Qualcomm, and many more.  
 
-## CAI open-source software
+## CAI open-source SDK
 
-The Content Authenticity Initiative's open-source offerings consist of:
+The Content Authenticity Initiative's open-source SDK (software development kit) consists of:
 
 - [The c2patool command-line tool](#c2pa-tool).
-- [The Rust SDK](#rust-sdk).
-- [Language-specific libraries](#language-specific-libraries) that implement APIs for JavaScript, C++/C, Python, and Node.js.
-
-The Rust SDK is the fundamental library underlying everything else.  The c2patool uses it "under the hood" and language-specific APIs are all generated from it.
+- [The JavaScript library](#javascript-library) (for client JavaScript that runs, for example, in a web browser).
+- [Libraries for other programming languages](#other-language-libraries): C++/C, Python, and Node.js.
+- [The Rust library](#rust-sdk).
 
 ### c2patool
 
@@ -54,26 +53,29 @@ The Rust SDK is the fundamental library underlying everything else.  The c2patoo
 - Attach a manifest store to an asset, if it doesn't already have an associated manifest store.
 - Add a manifest to to the associated manifest store if the asset does have an associated manifest store.
 
-### Rust SDK
+#### JavaScript library
 
-The [Rust SDK](rust-sdk) enables **adding C2PA capabilities to a desktop, mobile, or embedded application**. Use the Rust SDK to:
-
-- Create and sign C2PA claims and manifests.
-- Embed a manifest store into certain asset file formats.
-- Parse and validate manifests found in certain asset file formats.
-
-### Language-specific libraries
-
-CAI includes libraries that provide APIs for JavaScript, C++/C, Python, and Node.js.
-
-#### JavaScript SDK
-
-The client [JavaScript SDK](js-sdk/getting-started/overview) enables **working with manifest data in the browser**. Use this SDK to:
+The client [JavaScript library](js-sdk/getting-started/overview) enables **working with manifest data in the browser**. Use this library to:
 
 - Verify and display manifest data on a website or web application.
 - Link manifest data displayed on your site to [Verify](https://verify.contentauthenticity.org/).
 - Easily add user interface elements to your website that display manifest data while following the [C2PA user experience recommendations](https://c2pa.org/specifications/specifications/1.0/ux/UX_Recommendations.html).
 
-#### Other languages
 
-The [C++/C](c2pa-c), [Python](c2pa-python), and [Node.js](c2pa-node) APIs are all early prerelease libraries. They may have bugs and unimplemented features, and their APIs are subject to change.
+### Other language libraries
+
+The [C++/C](c2pa-c), [Python](c2pa-python), and [Node.js](c2pa-node) libraries enable applications written in those languages to **create, verify, and display content credentials**.
+
+:::warning Warning
+These libraries are all early prerelease versions. They may have bugs and unimplemented features, and their APIs are subject to change.
+:::
+
+### Rust library
+
+The [Rust library](rust-sdk) enables **adding C2PA capabilities to a desktop, mobile, or embedded application**. The Rust library is the fundamental system underlying everything else.  The c2patool uses it "under the hood" and language-specific APIs are generated from it.
+
+You can use the Rust library directly instead of the language-specific libraries to:
+
+- Create and sign C2PA claims and manifests.
+- Embed a manifest store into certain asset file formats.
+- Parse and validate manifests found in certain asset file formats.
