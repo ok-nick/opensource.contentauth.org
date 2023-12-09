@@ -51,7 +51,7 @@ The following table summarizes some of the most important standard assertions.
 | [IPTC photo and video metadata](#iptc-metadata) | `stds.iptc` | Properties from the IPTC Photo and Video Metadata Standards, describing for example ownership, rights, and other metadata about a image or video asset. |
 
 :::note
-CAI libraries and tools handle assertions for thumbnails, content bindings, and ingredients, so normally you don't need to think about them.
+The CAI SDK handles assertions for thumbnails, content bindings, and ingredients, so normally you don't need to think about them.
 :::
 
 ### Do not train assertion
