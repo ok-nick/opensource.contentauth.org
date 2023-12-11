@@ -151,14 +151,13 @@ The following diagram provides a high-level view of how to use the open-source C
 
 <img src={cai_open_source} width="800" />
 
-You can use the CAI SDK in several different ways:
+Applications can use the CAI SDK in several different ways:
 
 - Web pages can use the JavaScript library to display Content Credentials.
-- Applications written in C++, Python, or Node.js can call out to c2patool or use the corresponding language libraries to:
-
-- Create, modify, and sign manifests.
-- Embed manifests into media files.
-- Parse and validate manifests.
+- Applications written in C++, Python, or Node.js can call c2patool directly or use the APIs of the corresponding language libraries to:
+  - Create, modify, and sign manifests.
+  - Embed manifests into media files.
+  - Parse and validate manifests.
 
 Similarly, applications written in many programming languages can use the Rust Foreign Function Interface to call the Rust API and perform those same functions.
 
@@ -173,9 +172,11 @@ This table summarizes the capabilities of the SDKs and c2patool.
 
 ### Native desktop or mobile applications
 
-Native applications use Rust's _Foreign Function Interface_ (FFI) to call functions in the Rust library. The FFI enables interoperability between Rust and code written in other languages.
+Applications written in C++, Python, or Node.js can call c2patool directly or use the corresponding language library APIs. CAI has prerelease versions of C++/C, Python, and Node.js libraries. As prerelease versions, these APIs are subject to change.
 
-Although the underlying technology of the Rust library supports all major programming languages, the bindings and APIs to make all of them workable and easy to use are still in development. CAI has prerelease versions of C++/C, Python, and Node.js libraries. As prerelease versions, these APIs are subject to change.
+Alternatively, native applications can use Rust's _Foreign Function Interface_ (FFI) to call functions in the Rust library. The FFI enables interoperability between Rust and code written in other languages.
+
+Although the underlying technology of the Rust library supports all major programming languages, the bindings and APIs to make all of them workable and easy to use are still in development.
 
 A Windows application can use the FFI to call Rust functions from languages such as C++ or C#. For an example, see the [c2c2pa repository](https://github.com/contentauth/c2c2pa).
 

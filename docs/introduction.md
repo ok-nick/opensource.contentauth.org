@@ -4,6 +4,7 @@ title: Introduction
 ---
 
 import cr_pin from '../static/img/cr-pin.png';
+import cai_open_source_red from '../static/img/cai-open-source-red.jpg';
 
 :::tip
 You're strongly encouraged to read this introduction and [Getting started](getting-started) to give you some basic background and context, before you dive right into development.  [Working with manifests](manifest/understanding-manifest) also has some crucial information common to all the language APIs
@@ -34,7 +35,7 @@ The "cr" icon is trademarked by the C2PA and is the _de facto_ mark for C2PA use
 
 ### CAI
 
-The CAI is creating a secure end-to-end system for digital content provenance through open-source development and cross-industry collaboration with software, publishing, and social media companies, human rights organizations, photojournalists, and academic researchers. CAI members include Adobe, Microsoft, The New York Times Co., The Associated Press, Intel, Qualcomm, and many more.  
+The CAI is creating a secure end-to-end system for digital content provenance through open-source development and cross-industry collaboration. CAI members include Adobe, Microsoft, The New York Times Co., The Associated Press, Intel, Qualcomm, and many more.  
 
 ## CAI open-source SDK
 
@@ -43,7 +44,9 @@ The Content Authenticity Initiative's open-source SDK (software development kit)
 - [The c2patool command-line tool](#c2pa-tool).
 - [The JavaScript library](#javascript-library) (for client JavaScript that runs, for example, in a web browser).
 - [Libraries for other programming languages](#other-language-libraries): C++/C, Python, and Node.js.
-- [The Rust library](#rust-sdk).
+- [The Rust library](#rust-library), which is the code that underlies everything else.  It's the "source of truth" that generates all the other APIs.
+
+<img src={cai_open_source_red} width="800" />
 
 ### c2patool
 
@@ -72,9 +75,9 @@ These libraries are all early prerelease versions. They may have bugs and unimpl
 
 ### Rust library
 
-The [Rust library](rust-sdk) enables **adding C2PA capabilities to a desktop, mobile, or embedded application**. The Rust library is the fundamental system underlying everything else.  The c2patool uses it "under the hood" and language-specific APIs are generated from it.
+The CAI Rust library enables **adding C2PA capabilities to a desktop, mobile, or embedded application**. The Rust library is the fundamental system underlying everything else.  The c2patool uses it "under the hood" and language-specific APIs are generated from it.
 
-You can use the Rust library directly instead of the language-specific libraries to:
+You can use the Rust library via the Foreign Function Interface (FFI) to:
 
 - Create and sign C2PA claims and manifests.
 - Embed a manifest store into certain asset file formats.
