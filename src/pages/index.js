@@ -62,7 +62,7 @@ export const features = [
       </>
     ),
     cta: {
-      link: '/docs/c2pa-c',
+      link: '/docs/other-langs',
       label: 'View documentation',
     },
     media: <img src="/img/other-langs.png" />,
