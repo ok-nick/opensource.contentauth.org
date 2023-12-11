@@ -19,7 +19,7 @@ To understand how CAI works, you need to understand some basic vocabulary. Havin
 
 Let's start with a broad definition of _content provenance_ which means information on the creation, authorship, and editing of a digital asset such as an image. _Content Credentials_ include this provenance information, along with the cryptographic means to authenticate that the information is correctly tied to the content and is unchanged from when it was originally added. Sometimes these two terms are used to loosely mean the same thing: Technology to verify the origin and history of a digital asset.
 
-In practice, Content Credentials are kept in a _C2PA manifest store_, which is what the CAI SDK works with. A manifest store consists of one or more individual _manifests_, each containing information about the asset. The most recently-added manifest is called the _active manifest_. The active manifest has content bindings that can be validated with the asset; that is, it's hashed with the asset to ensure its validity.
+In practice, Content Credentials are kept in a _C2PA manifest store_, and the CAI SDK works with that. A manifest store consists of one or more individual _manifests_, each containing information about the asset. The most recently-added manifest is called the _active manifest_. The active manifest has content bindings that can be validated with the asset; that is, it's hashed with the asset to ensure its validity.
 
 As illustrated below, the manifest contains _assertions_ about the asset's creation and history, wrapped up with additional information into entities called _claims_ that are digitally signed with an _actor's_ private key (the _claim signature_).
 
@@ -117,7 +117,7 @@ If you don't get an OV certificate, then the Content Credentials that use the ce
 
 ### Extracting the certificate
 
-To work with the certificate, you need to extract it. When CAI tools and libraries add Content Credentials to an asset, they will incorporate the certificate (including the associated public key) into the manifest.
+To work with the certificate, you need to extract it. When the CAI SDK adds Content Credentials to an asset, it incorporates the certificate (including the associated public key) into the manifest.
 
 :::danger
 The _private key_ associated with the certificate is extremely sensitive. Always treat it with the highest security to ensure your credentials are not compromised. If someone does obtain your private key, they will be able to sign C2PA manifests and other content on your behalf without your consent.
@@ -131,15 +131,15 @@ Similarly, using the Rust SDK, you can [add a manifest to an asset file](https:/
 
 ## Identity
 
-To identify who created or modified an asset, identity needs to be verifiable and bound to a manifest. CAI libraries and tools support [W3C verifiable credentials](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_w3c_verifiable_credentials) standard recommendation (part of the C2PA specification), but they don't currently have a way to validate these credentials or ensure that they properly reflect authorship of the content. An actor can add one or more identities to a manifest using the W3C verifiable credentials data model. Currently, a verifier must trust the manifest signer to properly authenticate the identity.
+To identify who created or modified an asset, identity needs to be verifiable and bound to an asset and its manifest store. The CAI SDK supports the [W3C verifiable credentials](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_w3c_verifiable_credentials) standard recommendation (part of the C2PA specification), but doesn't currently have a way to validate these credentials or ensure that they properly reflect authorship of the content. An actor can add one or more identities to a manifest using the W3C verifiable credentials data model. Currently, a verifier must trust the manifest signer to properly authenticate the identity.
 
 Identity can be bolstered with other kinds of evidence such as _Adobe connected accounts_. In the future, the identity credentials will be separately verifiable. In the future, these verifiable credentials will be strongly bound to the manifest and media and be independently verifiable.
 
 In addition to simply adding a name and organization, Adobe tools can use the [Connected Accounts service](https://connected-accounts.adobe.com/) to connect social media accounts such as Behance, Instagram, or Twitter to an identity in a manifest. This service uses OAuth, so a user must be able to log in to the account to connect it.
 
-## How to use CAI tools and libraries
+## How to use the SDK
 
-CAI open-source offerings consist of:
+The CAI open-source SDK consist of:
 
 - **The c2patool command-line tool** for working with manifests and media. This tool is a wrapper around the Rust SDK and provides most of the same capabilities that it does.
 - **Language-specific libraries** in C/C++, Python, Node.js and client JavaScript. NOTE: The C/C++, Python, Node.js libraries are prerelease versions whose APIs are subject to change.
@@ -147,7 +147,7 @@ CAI open-source offerings consist of:
 
 Behind the scenes, c2patool and language-specific libraries are built using the Rust library to ensure consistency.
 
-The following diagram provides a high-level view of how to use the open-source CAI tools.
+The following diagram provides a high-level view of how to use the open-source CAI SDK.
 
 <img src={cai_open_source} width="800" />
 

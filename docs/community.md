@@ -9,9 +9,9 @@ The Content Authenticity Initiative has an active and growing community of devel
 
 All the open-source code is hosted in GitHub in the [CAI GitHub organization](https://github.com/contentauth) and we welcome input in the form of issues in the repositories:
 
-- **Rust SDK**: [c2pa-rs](https://github.com/contentauth/c2pa-rs/issues)
+- **Rust Library**: [c2pa-rs](https://github.com/contentauth/c2pa-rs/issues)
 - **CLI tool**: [c2patool](https://github.com/contentauth/c2patool/issues)
-- **JavaScript SDK**: [c2pa-js](https://github.com/contentauth/c2pa-js/issues)
+- **JavaScript library**: [c2pa-js](https://github.com/contentauth/c2pa-js/issues)
 - **JavaScript examples**: [c2pa-js-examples](https://github.com/contentauth/c2pa-js-examples)
 
 If you think you've found a bug or want to request a feature, please open an issue in the appropriate repository.

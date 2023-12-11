@@ -41,16 +41,16 @@ The CAI is creating a secure end-to-end system for digital content provenance th
 
 The Content Authenticity Initiative's open-source SDK (software development kit) consists of:
 
-- [The c2patool command-line tool](#c2pa-tool).
-- [The JavaScript library](#javascript-library) (for client JavaScript that runs, for example, in a web browser).
-- [Libraries for other programming languages](#other-language-libraries): C++/C, Python, and Node.js.
+- [The c2patool command-line tool](#c2pa-tool): a command-line tool for working with C2PA manifests and media assets (audio, image or video files).
+- [The JavaScript library](#javascript-library) (also known as the JavaScript SDK): Client JavaScript library for code that runs, for example, in a web browser.
+- [Libraries for other programming languages](#other-language-libraries): Prerelease libraries for C++/C, Python, and Node.js.
 - [The Rust library](#rust-library), which is the code that underlies everything else.  It's the "source of truth" that generates all the other APIs.
 
 <img src={cai_open_source_red} width="800" />
 
-### c2patool
+### C2PA Tool 
 
-[C2patool](c2patool) is a **command-line utility for working with C2PA manifest data**. Use this tool to work with assets in a supported file format to:
+C2PA Tool ([c2patool](c2patool)) is a **command-line utility for working with C2PA manifest data**. Use this tool to work with assets in a supported file format to:
 
 - Read a JSON report of manifest data.
 - Attach a manifest store to an asset, if it doesn't already have an associated manifest store.
