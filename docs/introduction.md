@@ -67,7 +67,7 @@ The client [JavaScript library](js-sdk/getting-started/overview) enables **worki
 
 ### Other language libraries
 
-The [C++/C](c2pa-c), [Python](c2pa-python), and [Node.js](c2pa-node) libraries enable applications written in those languages to **create, verify, and display content credentials**.
+The [C++/C](c2pa-c), [Python](c2pa-python), and [Node.js](c2pa-node) libraries enable applications written in those languages to **create, verify, and display Content Credentials**.
 
 :::warning Warning
 These libraries are all early prerelease versions. They may have bugs and unimplemented features, and their APIs are subject to change.

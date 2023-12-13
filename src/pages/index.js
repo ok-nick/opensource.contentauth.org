@@ -38,7 +38,7 @@ export const features = [
     hasC2paMetadata: false,
     description: (
       <>
-        Create, verify, and inspect content credentials using this command line
+        Create, verify, and inspect Content Credentials using this command line
         tool.
       </>
     ),
@@ -57,7 +57,7 @@ export const features = [
     description: (
       <>
         Develop custom applications for desktop, mobile, and web that create,
-        verify, and display content credentials using your preferred programming
+        verify, and display Content Credentials using your preferred programming
         language.
       </>
     ),
@@ -76,7 +76,7 @@ export const features = [
     description: (
       <>
         Develop custom applications across desktop, mobile, and web services
-        that create, verify, and display content credentials.
+        that create, verify, and display Content Credentials.
       </>
     ),
     cta: {
