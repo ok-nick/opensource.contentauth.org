@@ -6,7 +6,7 @@ hide_table_of_contents: true
 
 import Sandbox from '../../../src/components/Sandbox';
 
-## Initializing the SDK
+## Initializing the library
 
 The way that you import `wasmSrc` and `workerSrc` varies depending on the build system you use. For more information, see [Quick start](../getting-started/quick-start#bringing-in-the-library).
 
@@ -18,7 +18,7 @@ The [`manifestStore`](../../js-sdk/api/c2pa.c2pareadresult.manifeststore) object
 
 - **manifests**: An object containing _all_ manifests found in an asset, keyed by UUID.
 - **activeManifest**: A pointer to the latest [`manifest`](../../js-sdk/api/c2pa.manifest) in the manifest store. Effectively the "parent" manifest, this is the likely starting point when inspecting an asset's C2PA data.
-- **validationStatus**: A list of any validation errors the SDK generated when processing an asset. See [Validation](./validation) for more information.
+- **validationStatus**: A list of any validation errors the library generated when processing an asset. See [Validation](./validation) for more information.
 
 [`Manifest`](../../js-sdk/api/c2pa.manifest) objects contain properties pertaining to an asset's provenance, along with convenient interfaces for [accessing assertion data](../../js-sdk/api/c2pa.assertionaccessor) and [generating a thumbnail](../../js-sdk/api/c2pa.thumbnail). The example in this sandbox demonstrates a basic workflow: reading a sample image, checking for the presence of a manifest store, and displaying the data in the active manifest:
 

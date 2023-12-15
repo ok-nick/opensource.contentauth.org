@@ -6,9 +6,9 @@ title: Hosting C2PA assets
 ## Cross-origin (CORS) support
 
 Processing images from a URL or DOM selector requires the
-client to download the source image for processing. If the image is not on the [same origin](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) as the site running the SDK, the server hosting the images must return the following HTTP response headers for cross-origin resource sharing [(CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS):
+client to download the source image for processing. If the image is not on the [same origin](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) as the site running the JavaScript library, the server hosting the images must return the following HTTP response headers for cross-origin resource sharing [(CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS):
 
-- [`Access-Control-Allow-Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) must either return the origin of the server running the SDK, or `*` to allow all origins from requests without credentials.
+- [`Access-Control-Allow-Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) must either return the origin of the server running the JavaScript library, or `*` to allow all origins from requests without credentials.
 - [`Access-Control-Allow-Methods`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) must include at least the `GET` method.
 - [`Access-Control-Allow-Headers`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) must include include `Range` to support [Range requests](#range-requests), in addition to the `Accept-Ranges: bytes` header itself.
 
@@ -16,7 +16,7 @@ The vast majority of major CDNs and hosting providers allow customizing these he
 
 ### Range requests
 
-Since images can be quite large, the SDK uses [HTTP range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests) to download the first part of the file (by default, the first 64KB). It then tests if C2PA manifest data exists in this downloaded fragment; if it does, the download proceeds and the SDK processes the rest of the file. This avoids downloading potentially large amounts of data if an image does not contain a manifest.
+Since images can be quite large, the JavaScript library uses [HTTP range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests) to download the first part of the file (by default, the first 64KB). It then tests if C2PA manifest data exists in this downloaded fragment; if it does, the download proceeds and the JavaScript library processes the rest of the file. This avoids downloading potentially large amounts of data if an image does not contain a manifest.
 
 For this feature to work, the server hosting the images must support HTTP range requests. To check, open
 your terminal and enter the following command (assuming you have [curl](https://curl.se/) installed):
@@ -32,7 +32,7 @@ Content-Length: 86405
 
 If the response contains `Accept-Ranges: bytes`, then your server is set up to take advantage of this feature.
 
-If the response contains `Accept-Ranges: none` or no `Accept-Ranges` field in the header, the SDK will automatically re-request the image without the `Range` header, forcing a full download of the file.
+If the response contains `Accept-Ranges: none` or no `Accept-Ranges` field in the header, the JavaScript library will automatically re-request the image without the `Range` header, forcing a full download of the file.
 
 ## Library assets
 
@@ -57,5 +57,5 @@ const c2pa = await createC2pa({
 Where `your_static_asset_uri` is the URI where you're serving the library asset files.
 
 :::caution
-When hosting the library files, make sure you are using the correct version number that aligns with the version of the SDK you're using.
+When hosting the library files, make sure you are using the correct version number that aligns with the version of the library you're using.
 :::
