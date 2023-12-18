@@ -3,7 +3,15 @@ id: overview
 title: JavaScript library
 ---
 
-The CAI JavaScript library (sometimes referred to as the "JavaScript SDK") enables client JavaScript applications to view and verify [C2PA](https://c2pa.org/) data. It performs only **read** operations on C2PA manifests, unlike the [Rust library](https://opensource.contentauthenticity.org/docs/rust-sdk/), which can both read and write manifests.
+The CAI JavaScript library (sometimes referred to as the "JavaScript SDK") enables client JavaScript applications to view and verify [C2PA](https://c2pa.org/) data. It performs only **read** operations on C2PA manifests, unlike the [Rust library](../../rust-sdk/), and the [prerelease libraries](../../other-langs) which can both read and write manifests.
+
+## What you should already know
+
+:::info
+The JavaScript library is intended for experienced JavaScript developers. It uses a number of modern JavaScript technologies such as [WebAssembly](https://webassembly.org/) and [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) (see [below](#browser-support) for the full list).
+
+To use the library, you should be familiar with these technologies, and at least one popular build and bundler tool such as [Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/), or [Vite](https://vitejs.dev/).
+:::
 
 ## Overview
 

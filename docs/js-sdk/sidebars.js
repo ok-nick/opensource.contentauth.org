@@ -9,6 +9,11 @@ const sidebars = {
     },
     {
       type: 'doc',
+      label: 'Examples',
+      id: 'js-sdk/guides/examples',
+    },
+    {
+      type: 'doc',
       label: 'Architecture',
       id: 'js-sdk/getting-started/architecture',
     },
