@@ -3,7 +3,23 @@ id: overview
 title: JavaScript library
 ---
 
-The CAI JavaScript library (sometimes referred to as the "JavaScript SDK") enables client JavaScript applications to view and verify [C2PA](https://c2pa.org/) data. It performs only **read** operations on C2PA manifests, unlike the [Rust library](https://opensource.contentauthenticity.org/docs/rust-sdk/), which can both read and write manifests.
+The CAI JavaScript library (sometimes referred to as the "JavaScript SDK") enables client JavaScript applications to view and verify [C2PA](https://c2pa.org/) data. It performs only **read** operations on C2PA manifests, unlike the [Rust library](../../rust-sdk/), and the [prerelease libraries](../../other-langs) which can both read and write manifests.
+
+## What you should already know
+
+:::info
+The JavaScript library is intended for experienced JavaScript developers. It uses a number of modern JavaScript technologies, as detailed below. To use the library, you should be familiar with these technologies, and at least one popular build and bundler tool such as [Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/), or [Vite](https://vitejs.dev/).
+:::
+
+### Technologies that the library uses
+
+The JavaScript library uses several modern browser technologies, including:
+
+- [WebAssembly](https://webassembly.org/)
+- [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
+- [Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
+- [Typed arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays)
+- [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 ## Overview
 
@@ -37,14 +53,7 @@ Key features of the JavaScript library include:
 
 ## Browser support
 
-The library uses several modern browser technologies, including:
-
-- [WebAssembly](https://webassembly.org/)
-- [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
-- [Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
-- [Typed arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays)
-- [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-
+The JavaScript library uses several [modern browser technologies](#technologies-that-the-library-uses).
 Because of these requirements, **the library is not supported on any version of Internet Explorer and on a few less-used mobile browsers**. The chart below from [caniuse.com](https://caniuse.com/wasm,webworkers,cryptography,typedarrays,fetch) summarizes the browsers and versions that support the library.
 
 ![CAI JavaScript library browser support](../../../static/img/caniuse.png)
