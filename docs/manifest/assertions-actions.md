@@ -7,7 +7,7 @@ title: Assertions and actions
 
 Assertions provide information about when, where, and how an asset was created or transformed. 
 
-In the JSON manifest, each assertion is specified by a [ManifestAssertion](manifest-ref#manifestassertion) object.  All the assertions in the manifest are in the `assertions` array. A ManifestAssertion object has two required properties, `label`, a string, and `data`, which can contain arbitrary information; and two optional properties, `kind` and `instance`. 
+In the JSON manifest, each assertion is specified by a [ManifestAssertion](../manifest/manifest-ref#manifestassertion) object.  All the assertions in the manifest are in the `assertions` array. A ManifestAssertion object has two required properties, `label`, a string, and `data`, which can contain arbitrary information; and two optional properties, `kind` and `instance`. 
 
 The standard form of an assertion in a JSON manifest is:
 
@@ -272,7 +272,7 @@ For example:
 
 ## Actions
 
-Actions provide information about creation, edits, and other actions on an asset. In the manifest, an `actions` assertion is an array of [ManifestAssertion](manifest-ref#manifestassertion) objects.   For example:
+Actions provide information about creation, edits, and other actions on an asset. In the manifest, an `actions` assertion is an array of [ManifestAssertion](../manifest/manifest-ref#manifestassertion) objects.   For example:
 
 ```json
 ...
@@ -457,4 +457,4 @@ For example, the following action identifies that the `c2pa.opened` action was p
 
 This documentation covers C2PA v1 actions.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions) also describes expanded v2 actions.  V1 actions are fully specified in the actions array. However, a v2 action may either be specified by an element of the actions array or from an element in the templates array with the same action name.
 
-There are some additional differences between v1 and v2 actions, for example in v2, `softwareAgent` is a [ClaimGeneratorInfo](manifest-ref#claimgeneratorinfo) structure instead of a string. The CAI APIs can read all v2 actions and write most v2 actions.
+There are some additional differences between v1 and v2 actions, for example in v2, `softwareAgent` is a [ClaimGeneratorInfo](../manifest/manifest-ref#claimgeneratorinfo) structure instead of a string. The CAI APIs can read all v2 actions and write most v2 actions.
