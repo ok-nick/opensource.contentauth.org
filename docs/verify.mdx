@@ -3,33 +3,29 @@ id: verify
 title: Using the Verify tool
 ---
 
-The C2PA **[Verify tool](https://contentcredentials.org/verify)** is useful both for consumers and for CAI application developers.
-
-## How to use Verify
-
 import verify_site from '../static/img/verify.png';
+
+The C2PA **[Verify tool](https://contentcredentials.org/verify)** is useful both for consumers and for CAI application developers.
 
 <img
   src={verify_site}
   style={{
-    float: 'right',
     width: '400px',
-    marginBottom: '20px',
     border: '1px solid #ccc',
   }}
 />
 
-Using Verify, you can inspect a digital asset file in two ways:
+## How to use Verify
 
-- Upload a file from your local computer.
-- Enter a URL to a publicly-visible asset.
+You can inspect a digital asset file using Verify in two ways:
+
+- [Upload an asset file](#uploading-an-asset) from your local computer.
+- [Enter a publicly-visible URL](#entering-an-asset-url) to an asset file.
 
 Supported asset file types include:
 
 - **Image**: AVIF, DNG, HEIC, HEIF, JPEG, PNG, SVG, TIFF, and WebP.
 - **Video and audio**: M4A, MP3, MP4, and WAV.
-
-<br clear="all" />
 
 :::tip
 Verify shows the complete current list of supported file types (when no asset is displayed on the page).
@@ -52,33 +48,159 @@ where `<ASSET_URL>` is the URL of the asset.
 For example: https://contentcredentials.org/verify?source=https://crandmck.github.io/public-testfiles/image/jpeg/adobe-20220124-CICA.jpg.
 
 :::note
-To use Verify on an asset URL, the hosting server must allow cross-origin resource sharing (CORS) in the `Access-Control-Allow-Origin` HTTP response header.
+To use Verify on an asset URL, the URL must not require any authentication and the hosting server must allow cross-origin resource sharing (CORS) in the `Access-Control-Allow-Origin` HTTP response header.
 :::
 
 ## Information displayed
 
-Once you've uploaded an asset or entered an asset URL, Verify displays information from the asset's Content Credentials, in the three vertical sections:
+Once you've uploaded an asset or entered an asset URL:
 
-- The left section shows the asset file name and a thumbnail. Cick **Search for possible matches** to search the Adobe Content Credentials Cloud for similar content.
-- The center section shows all the asset's ingredients in a tree-like layout. Click on an ingredient to display more information about it in the right section. Click **Compare** in the lower right of the center section to compare the ingredients either side-by-side or using a slider.
-- The right section shows information from the asset's manifest store, as described below.
+- If the asset file does not have any associated manifest store, Verify displays the message **No Content Credential**.
+- If the asset does have an associated manifest store, Verify displays information from it in the three vertical panels, as illustrated in the example below.
+
+import verify_sections from '../static/img/verify-sections.png';
+
+<img src={verify_sections} style={{ width: '800px', marginBottom: '20px' }} />
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ width: '260px', backgroundColor: '#ccc' }}>
+        Left panel &uarr;{' '}
+      </th>
+      <th style={{ width: '300px', backgroundColor: '#ccc' }}>
+        Center panel &uarr;
+      </th>
+      <th style={{ width: '250px', backgroundColor: '#ccc' }}>
+        Right panel &uarr;
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td valign="top">
+        Shows the asset name from the <code>title</code> property in the active
+        manifest. This may not be the same as the file name. and a thumbnail
+        image. <br />
+        Cick <strong>Search for possible matches</strong> to search the Adobe Content
+        Credentials Cloud for similar content.
+      </td>
+      <td valign="top">
+        Shows all the asset's ingredients in a tree-like layout. NOTE: The
+        example above shows only one ingredient.
+        <ul>
+          <li>
+            {' '}
+            Click on an ingredient to display more information about it in the right
+            panel.{' '}
+          </li>
+          <li>
+            {' '}
+            Click <strong>Compare</strong> to compare ingredients either side-by-side
+            or using a slider.{' '}
+          </li>
+        </ul>
+      </td>
+      <td valign="top">
+        Shows information from the asset's manifest store, as described below.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Title and signing information
+
+import verify_title_date from '../static/img/verify-title-date.png';
+
+<img
+  src={verify_title_date}
+  style={{ width: '250px', marginBottom: '20px', marginLeft: '20px' }}
+/>
+
+The top of the right panel displays a thumbnail of the image with the title of the asset from the `title` property in the active manifest. The value of this property may not be the same as the file name.
+
+For example:
+
+```json
+ "manifests": {
+    "adobe:urn:uuid:f2513d23-8ca4-4135-82e8-15344e800ca6": {
+      "claim_generator": "Adobe_Stock c2pa-rs/0.4.2",
+      "title": "AdobeStock_135017891.jpeg",
+      ...
+    }
+ }
+```
+
+This area also shows the `issuer` and `time` of the claim signature from the `signature_info` property. The date is converted from UTC to the local time zone.
+
+```json
+"signature_info": {
+        "issuer": "Adobe Inc.",
+        "cert_serial_number": "121561926467332750920512530884092488196",
+        "time": "2022-10-26T16:46:46+00:00"
+      },
+```
+
+::: note
+If the issuer string is too long, then the data may be truncated and an ellipsis (`...`) is shown at the end or it may not be shown at all. If so, refer to the [About this Content Credential](#about-this-content-credential) section for the full date.
+:::
 
 ### Credit and usage
 
-![Credit and usage](../static/img/verify-credit.png)
+import verify_credit from '../static/img/verify-credit.png';
 
-The **Credit and usage** section displays information derived from the [CreativeWork assertion](manifest/assertions-actions#creative-work-assertion). If there is an associated `name` property , then it says **Produced by**; if there is an associated `url` property, then it says **Website\* along with a link to the site. If there is an associated `license` property, then it says **License** along with a link to the license. If there is an associated `usage` property, then it says **Usage\*\* along with the usage information.
+<img src={verify_credit} style={{ width: '250px' }} />
+
+The **Credit and usage** section displays information derived from the [CreativeWork assertion](manifest/assertions-actions#creative-work-assertion). If the associated `data` object has an `author` property, then the `name` property is shown under **Produced by**. If there is a `url` or `license` property, then it says **Website** with a link to the site.
+
+For example:
+
+```json
+"assertions": [
+        {
+          "label": "stds.schema-org.CreativeWork",
+          "data": {
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "url": "https://stock.adobe.com/135017891"
+          },
+          "kind": "Json"
+        },
+        ...]
+```
+
+If the active manifest contains a [do not train assertion](manifest/assertions-actions#do-not-train-assertion), then the **Credit and usage** section displays the following message:
+
+<div
+  style={{
+    width: '200px',
+    border: '1px solid #ccc',
+    padding: '5px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    fontSize: '80%',
+  }}
+>
+  <b>AI model usage</b>
+  <br />
+  Do not use my content to train AI models
+</div>
 
 ### Process
 
-The **Process** section displays information about the process used to create the asset.
+The **Process** section displays information about the process used to create the asset. For example:
 
 import verify_process from '../static/img/verify-process.png';
 
-<img
-  src={verify_process}
-  style={{ float: 'right', width: '200px', marginBottom: '23px' }}
-/>
+<img src={verify_process} style={{ width: '600px' }} />
+
+#### App or device used
+
+The value shown for **App or device used** is derived from the `claim_generator` property in the active manifest. The string is truncated after the first slash character or space and then underscores are converted to spaces. In the above example, `"claim_generator": "make_test_images/0.16.1 c2pa-rs/0.16.1"` is displayed as **make test images**.
+
+#### Actions
+
+**Actions** lists actions from the [actions](manifest/assertions-actions#actions) in the active manifest, as illustrated above. Here is the `actions` array from the corresponding active manifest:
 
 ```json
 "actions": [
@@ -114,18 +236,40 @@ import verify_process from '../static/img/verify-process.png';
 ]
 ```
 
-### AI-generated content
+#### Ingredients
 
-![AI-generated content](../static/img/verify-process-ai.png)
+Finally, **Ingredients** shows the used to create the asset, derived from the `ingredients` array in the active manifest. A thumbnail image is shown for each ingredient, if applicable. If an ingredient itself had Content Credentials, the "cr" icon is shown next to the thumbnail. In the above example, the asset was created by combining two ingredients, `CAI.jpg` and `A.jpg`, the first of which had Content Credentials.
+
+References:
+
+- https://contentcredentials.org/verify?source=https://crandmck.github.io/public-testfiles/image/jpeg/adobe-20220124-CAICAI.jpg
+- https://crandmck.github.io/public-testfiles/manifests/image/jpeg/adobe-20220124-CAICAI/manifest_store.json
+
+#### AI-generated content
+
+import verify_process_ai from '../static/img/verify-process-ai.png';
+
+<img src={verify_process_ai} style={{ width: '250px' }} />
+
+If one or more of the asset's ingredients was generated by a artificial intelligence, as specified by the [generative AI action](manifest/assertions-actions#generative-ai-action), then a **Content summary** is shown and the **Process** section will also show the **AI tool used**, as shown in the example above.
 
 ### About this Content Credential
 
-![About this Content Credential](../static/img/verify-about.png)
+This section displays the same information as described in [Title and singing information](#title-and-signing-information).
 
-### details
+### Camera capture details
+
+If the active manifest includes Exif metadata, then it's shown in an additional **Camera capture details** section; for example:
 
 !['EXIF metadata'](../static/img/verify-exif.png)
+
+References:
+
+- https://contentcredentials.org/verify?source=https://crandmck.github.io/public-testfiles/image/jpeg/truepic-20230212-camera.jpg
+- https://crandmck.github.io/public-testfiles/manifests/image/jpeg/truepic-20230212-camera/manifest_store.json
 
 ## Searching for matching Content Credentials
 
 Click **Search for possible matches** to search the Adobe Content Credentials Cloud for similar content.
+
+<div class="review-comment">Anything else to say here?</div>
