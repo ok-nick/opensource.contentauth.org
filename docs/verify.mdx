@@ -135,14 +135,14 @@ This area also shows the `issuer` and `time` of the claim signature from the `si
 
 ```json
 "signature_info": {
-        "issuer": "Adobe Inc.",
-        "cert_serial_number": "121561926467332750920512530884092488196",
-        "time": "2022-10-26T16:46:46+00:00"
-      },
+  "issuer": "Adobe Inc.",
+  "cert_serial_number": "121561926467332750920512530884092488196",
+  "time": "2022-10-26T16:46:46+00:00"
+},
 ```
 
-::: note
-If the issuer string is too long, then the data may be truncated and an ellipsis (`...`) is shown at the end or it may not be shown at all. If so, refer to the [About this Content Credential](#about-this-content-credential) section for the full date.
+:::note
+If the issuer string is too long, then the data may be truncated or may not be shown at all. If so, refer to the [About this Content Credential](#about-this-content-credential) section for the full date.
 :::
 
 ### Credit and usage
@@ -157,16 +157,16 @@ For example:
 
 ```json
 "assertions": [
-        {
-          "label": "stds.schema-org.CreativeWork",
-          "data": {
-            "@context": "https://schema.org",
-            "@type": "CreativeWork",
-            "url": "https://stock.adobe.com/135017891"
-          },
-          "kind": "Json"
-        },
-        ...]
+  {
+    "label": "stds.schema-org.CreativeWork",
+    "data": {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "url": "https://stock.adobe.com/135017891"
+    },
+    "kind": "Json"
+  },
+...]
 ```
 
 If the active manifest contains a [do not train assertion](manifest/assertions-actions#do-not-train-assertion), then the **Credit and usage** section displays the following message:
@@ -196,7 +196,7 @@ import verify_process from '../static/img/verify-process.png';
 
 #### App or device used
 
-The value shown for **App or device used** is derived from the `claim_generator` property in the active manifest. The string is truncated after the first slash character or space and then underscores are converted to spaces. In the above example, `"claim_generator": "make_test_images/0.16.1 c2pa-rs/0.16.1"` is displayed as **make test images**.
+The value shown for **App or device used** is derived from the `claim_generator` property in the active manifest. The string is truncated at the first space character and then underscore and slash characters are converted to spaces. In the above example, `"claim_generator": "make_test_images/0.16.1 c2pa-rs/0.16.1"` is displayed as **make test images 0.16.1**.
 
 #### Actions
 
@@ -238,7 +238,7 @@ The value shown for **App or device used** is derived from the `claim_generator`
 
 #### Ingredients
 
-Finally, **Ingredients** shows the used to create the asset, derived from the `ingredients` array in the active manifest. A thumbnail image is shown for each ingredient, if applicable. If an ingredient itself had Content Credentials, the "cr" icon is shown next to the thumbnail. In the above example, the asset was created by combining two ingredients, `CAI.jpg` and `A.jpg`, the first of which had Content Credentials.
+**Ingredients** shows the resources used to create the asset, derived from the `ingredients` array in the active manifest. A thumbnail image is shown for each ingredient, if applicable. If an ingredient itself had Content Credentials, the "cr" icon is shown next to the thumbnail. In the above example, the asset was created by combining two ingredients, `CAI.jpg` and `A.jpg`, the first of which had Content Credentials.
 
 References:
 
@@ -259,9 +259,83 @@ This section displays the same information as described in [Title and singing in
 
 ### Camera capture details
 
-If the active manifest includes Exif metadata, then it's shown in an additional **Camera capture details** section; for example:
+If the active manifest includes [Exif metadata assertions](manifest/assertions-actions#exif-assertion), then select information is shown in an additional **Camera capture details** section; for example:
 
-!['EXIF metadata'](../static/img/verify-exif.png)
+import verify_exif from '../static/img/verify-exif.png';
+
+<img src={verify_exif} style={{ width: '600px' }} />
+
+The example above shows the following Exif metadata assertions:
+
+````json
+
+```json
+"assertions": [
+  {
+    "label": "com.truepic.libc2pa",
+    "data": {
+      "git_hash": "023bb51",
+      "lib_name": "Truepic C2PA C++ Library",
+      "lib_version": "2.5.1",
+      "target_spec_version": "1.2"
+    },
+    "kind": "Json"
+  },
+  {
+    "label": "stds.exif",
+    "data": {
+      "@context": {
+        "EXIF": "http://ns.adobe.com/EXIF/1.0/",
+        "EXIFEX": "http://cipa.jp/EXIF/2.32/",
+        "dc": "http://purl.org/dc/elements/1.1/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "tiff": "http://ns.adobe.com/tiff/1.0/",
+        "xmp": "http://ns.adobe.com/xap/1.0/"
+      },
+      "EXIF:GPSAltitude": "123.5",
+      "EXIF:GPSHorizontalAccuracy": "16.4",
+      "EXIF:GPSLatitude": "43.152093900000",
+      "EXIF:GPSLongitude": "-77.580532800000",
+      "EXIF:GPSTimeStamp": "2023-02-12T18:44:26Z"
+    },
+    "kind": "Json"
+  },
+  {
+    "label": "stds.exif",
+    "data": {
+      "@context": {
+        "EXIF": "http://ns.adobe.com/EXIF/1.0/",
+        "EXIFEX": "http://cipa.jp/EXIF/2.32/",
+        "dc": "http://purl.org/dc/elements/1.1/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "tiff": "http://ns.adobe.com/tiff/1.0/",
+        "xmp": "http://ns.adobe.com/xap/1.0/"
+      },
+      "EXIF:Make": "Google",
+      "EXIF:Model": "Pixel 5"
+    },
+    "instance": 1,
+    "kind": "Json"
+  },
+  {
+    "label": "stds.exif",
+    "data": {
+      "@context": {
+        "EXIF": "http://ns.adobe.com/EXIF/1.0/",
+        "EXIFEX": "http://cipa.jp/EXIF/2.32/",
+        "dc": "http://purl.org/dc/elements/1.1/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "tiff": "http://ns.adobe.com/tiff/1.0/",
+        "xmp": "http://ns.adobe.com/xap/1.0/"
+      },
+      "EXIF:DateTimeOriginal": "2023-02-12T18:44:26Z"
+    },
+    "instance": 2,
+    "kind": "Json"
+    },
+    ...
+]
+````
 
 References:
 
@@ -270,6 +344,4 @@ References:
 
 ## Searching for matching Content Credentials
 
-Click **Search for possible matches** to search the Adobe Content Credentials Cloud for similar content.
-
-<div class="review-comment">Anything else to say here?</div>
+Click **Search for possible matches** to search the Adobe Content Credentials Cloud for similar content. The search is based on the asset's ingredients, as described in the [Ingredients](#ingredients) section above. Some Adobe products save manifest stores in the Adobe Content Credentials Cloud.
