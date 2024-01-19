@@ -17,7 +17,7 @@ The C2PA **[Verify tool](https://contentcredentials.org/verify)** is useful both
 
 ## How to use Verify
 
-You can inspect a digital asset file using Verify in two ways:
+Verify is a web tool that you can inspect a digital asset file in two ways:
 
 - [Upload an asset file](#uploading-an-asset) from your local computer.
 - [Enter a publicly-visible URL](#entering-an-asset-url) to an asset file.
@@ -175,7 +175,8 @@ If the active manifest contains a [do not train assertion](manifest/assertions-a
   style={{
     width: '200px',
     border: '1px solid #ccc',
-    padding: '5px',
+    backgroundColor: '#fff',
+    padding: '7px',
     marginLeft: 'auto',
     marginRight: 'auto',
     fontSize: '80%',
@@ -267,8 +268,6 @@ import verify_exif from '../static/img/verify-exif.png';
 
 The example above shows the following Exif metadata assertions:
 
-````json
-
 ```json
 "assertions": [
   {
@@ -335,7 +334,7 @@ The example above shows the following Exif metadata assertions:
     },
     ...
 ]
-````
+```
 
 References:
 
@@ -344,4 +343,5 @@ References:
 
 ## Searching for matching Content Credentials
 
-Click **Search for possible matches** to search the Adobe Content Credentials Cloud for similar content. The search is based on the asset's ingredients, as described in the [Ingredients](#ingredients) section above. Some Adobe products save manifest stores in the Adobe Content Credentials Cloud.
+Adobe products can save manifest stores in the Adobe Content Credentials Cloud.
+Click **Search for possible matches** to search the Adobe Content Credentials Cloud for content similar to the asset's ingredients, as described in the [Ingredients](#ingredients) section above.
