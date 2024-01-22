@@ -5,7 +5,7 @@ title: Using the Verify tool
 
 import verify_site from '../static/img/verify.png';
 
-The C2PA **[Verify tool](https://contentcredentials.org/verify)** is useful both for consumers and for CAI application developers.
+The C2PA **[Verify tool](https://contentcredentials.org/verify)** (often referred to as simply "Verify") is useful both for consumers and for CAI application developers.
 
 <img
   src={verify_site}
@@ -80,29 +80,37 @@ import verify_sections from '../static/img/verify-sections.png';
     <tr>
       <td valign="top">
         Shows the asset name from the <code>title</code> property in the active
-        manifest. This may not be the same as the file name. and a thumbnail
-        image. <br />
-        Cick <strong>Search for possible matches</strong> to search the Adobe Content
-        Credentials Cloud for similar content.
+        manifest (may not be the same as the file name) and a thumbnail image.
+        <br />
+        Cick <strong>Search for possible matches</strong> to search the Adobe
+        Content Credentials Cloud for similar content. <br />
+        For more information, see <a href="#searching-for-matching-content-credentials">
+          Searching for matching Content Credentials
+        </a> below.
       </td>
       <td valign="top">
-        Shows all the asset's ingredients in a tree-like layout. NOTE: The
-        example above shows only one ingredient.
+        Shows all the asset's ingredients in a tree-like layout.
         <ul>
           <li>
-            {' '}
-            Click on an ingredient to display more information about it in the right
-            panel.{' '}
+            Click on an ingredient to display more information about it in the
+            right panel.
           </li>
           <li>
-            {' '}
-            Click <strong>Compare</strong> to compare ingredients either side-by-side
-            or using a slider.{' '}
+            Click <strong>Compare</strong> to compare ingredients either
+            side-by-side or using a slider.
           </li>
         </ul>
+        NOTE: The example above shows only one ingredient.
       </td>
       <td valign="top">
-        Shows information from the asset's manifest store, as described below.
+        Shows information from the asset's manifest store, as described below:
+        <ul>
+          <li>Title and signing information</li>
+          <li>Credit and usage</li>
+          <li>Process</li>
+          <li>About this Content Credential</li>
+          <li>Camera capture details</li>
+        </ul>
       </td>
     </tr>
   </tbody>
@@ -142,7 +150,7 @@ This area also shows the `issuer` and `time` of the claim signature from the `si
 ```
 
 :::note
-If the issuer string is too long, then the data may be truncated or may not be shown at all. If so, refer to the [About this Content Credential](#about-this-content-credential) section for the full date.
+If the issuer string is too long, then the data may be truncated or may not be shown at all. If so, refer to the [**About this Content Credential**](#about-this-content-credential) section for the full date.
 :::
 
 ### Credit and usage
@@ -189,11 +197,23 @@ If the active manifest contains a [do not train assertion](manifest/assertions-a
 
 ### Process
 
-The **Process** section displays information about the process used to create the asset. For example:
+The **Process** section displays information about the process used to create the asset, divided into the following subsections:
+
+- **App or device used**
+- **Actions**
+- **Ingredients**
+- **AI-generated content** (only shown if the active manifest includes a [generative AI action](manifest/assertions-actions#generative-ai-action)).
+
+For example:
 
 import verify_process from '../static/img/verify-process.png';
 
 <img src={verify_process} style={{ width: '600px' }} />
+
+See the above example yourself, based on a C2PA test image:
+
+- [Inspect using Verify](https://contentcredentials.org/verify?source=https://crandmck.github.io/public-testfiles/image/jpeg/adobe-20220124-CAICAI.jpg)
+- [View the corresponding manifest report from C2PA Tool](https://crandmck.github.io/public-testfiles/image/jpeg/manifests/adobe-20220124-CAICAI/manifest_store.json)
 
 #### App or device used
 
@@ -241,11 +261,6 @@ The value shown for **App or device used** is derived from the `claim_generator`
 
 **Ingredients** shows the resources used to create the asset, derived from the `ingredients` array in the active manifest. A thumbnail image is shown for each ingredient, if applicable. If an ingredient itself had Content Credentials, the "cr" icon is shown next to the thumbnail. In the above example, the asset was created by combining two ingredients, `CAI.jpg` and `A.jpg`, the first of which had Content Credentials.
 
-References:
-
-- https://contentcredentials.org/verify?source=https://crandmck.github.io/public-testfiles/image/jpeg/adobe-20220124-CAICAI.jpg
-- https://crandmck.github.io/public-testfiles/manifests/image/jpeg/adobe-20220124-CAICAI/manifest_store.json
-
 #### AI-generated content
 
 import verify_process_ai from '../static/img/verify-process-ai.png';
@@ -260,7 +275,7 @@ This section displays the same information as described in [Title and singing in
 
 ### Camera capture details
 
-If the active manifest includes [Exif metadata assertions](manifest/assertions-actions#exif-assertion), then select information is shown in an additional **Camera capture details** section; for example:
+If the active manifest includes [Exif metadata assertions](manifest/assertions-actions#exif-assertion), then an additional **Camera capture details** section shows information about the device used to create the asset, as illustrated below:
 
 import verify_exif from '../static/img/verify-exif.png';
 
@@ -336,10 +351,10 @@ The example above shows the following Exif metadata assertions:
 ]
 ```
 
-References:
+See the above example yourself, based on a C2PA test image:
 
-- https://contentcredentials.org/verify?source=https://crandmck.github.io/public-testfiles/image/jpeg/truepic-20230212-camera.jpg
-- https://crandmck.github.io/public-testfiles/manifests/image/jpeg/truepic-20230212-camera/manifest_store.json
+- [Inspect using Verify](https://contentcredentials.org/verify?source=https://crandmck.github.io/public-testfiles/image/jpeg/truepic-20230212-camera.jpg)
+- [View the corresponding manifest report from C2PA Tool](https://crandmck.github.io/public-testfiles/image/jpeg/manifests/truepic-20230212-camera/manifest_store.json)
 
 ## Searching for matching Content Credentials
 
