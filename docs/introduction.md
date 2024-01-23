@@ -7,7 +7,7 @@ import cr_pin from '../static/img/cr-pin.png';
 import cai_open_source_red from '../static/img/cai-open-source-red.jpg';
 
 :::tip
-You're strongly encouraged to read this introduction and [Getting started](getting-started) to give you some basic background and context, before you dive right into development.  [Working with manifests](manifest/understanding-manifest) also has some crucial information common to all the language APIs
+You're strongly encouraged to read this introduction and [Getting started](getting-started) to give you some basic background and context, before you dive right into development.  [Working with manifests](manifest/understanding-manifest) also has some crucial information, regardless of which language and library you use.
 :::
 
 ## Overview
