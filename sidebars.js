@@ -7,9 +7,16 @@ const sidebars = {
       id: 'introduction',
     },
     {
-      type: 'doc',
-      id: 'getting-started',
+      type: 'category',
       label: 'Getting started',
+      link: { type: 'doc', id: 'getting-started' },
+      collapsed: true,
+      items: [
+        {
+          type: 'doc',
+          id: 'verify',
+        },
+      ],
     },
     {
       type: 'category',
