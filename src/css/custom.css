@@ -391,3 +391,10 @@ body:not(.is-scrolling) .navbar {
   padding: 5px;
   font-style: italic;
 }
+
+.custom_summary {
+  background-color: #b0c7af;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #e6e3e0;
+}
