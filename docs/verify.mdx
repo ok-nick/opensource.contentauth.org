@@ -161,7 +161,7 @@ import verify_credit from '../static/img/verify-credit.png';
 
 <img src={verify_credit} style={{ width: '250px' }} />
 
-The above example shows the following CreativeWork assertion from the active manifest:
+The above example shows the following CreativeWork assertion from the active manifest. The `url` property is the URL of the asset on the Adobe Stock site:
 
 ```json
 "assertions": [
@@ -176,6 +176,69 @@ The above example shows the following CreativeWork assertion from the active man
   },
 ...]
 ```
+
+#### Social media accounts
+
+If you've connected social media accounts to your Adobe account, then the **Credit and usage** section may also show your handles for Behance, Instagram, and X (Twitter). For example:
+
+import verify_social from '../static/img/verify-social.png';
+
+<img src={verify_social} style={{ width: '250px' }} />
+
+The CreativeWork assertion for these social media accounts from the active manifest is shown below.
+
+```json
+{
+  "label": "stds.schema-org.CreativeWork",
+  "data": {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "author": [
+      {
+        "@type": "Person",
+        "credential": [
+          {
+            "alg": "sha256",
+            "hash": "IcZeS318070nuvDYmPqfQdZmOI7jGumMjHTxNshA2ao=",
+            "url": "self#jumbf=/c2pa/adobe:urn:uuid:4fd5a284-6fe9-479c-a8af-9bcbbf851d92/c2pa.credentials/did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e"
+          }
+        ],
+        "identifier": "did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e",
+        "name": "obidigbo nzeribe"
+      },
+      {
+        "@id": "https://www.instagram.com/obidinzeribe",
+        "@type": "Person",
+        "credential": [
+          {
+            "alg": "sha256",
+            "hash": "IcZeS318070nuvDYmPqfQdZmOI7jGumMjHTxNshA2ao=",
+            "url": "self#jumbf=/c2pa/adobe:urn:uuid:4fd5a284-6fe9-479c-a8af-9bcbbf851d92/c2pa.credentials/did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e"
+          }
+        ],
+        "identifier": "did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e",
+        "name": "obidinzeribe"
+      },
+      {
+        "@id": "https://www.behance.net/obidigbonzeribe",
+        "@type": "Person",
+        "credential": [
+          {
+            "alg": "sha256",
+            "hash": "IcZeS318070nuvDYmPqfQdZmOI7jGumMjHTxNshA2ao=",
+            "url": "self#jumbf=/c2pa/adobe:urn:uuid:4fd5a284-6fe9-479c-a8af-9bcbbf851d92/c2pa.credentials/did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e"
+          }
+        ],
+        "identifier": "did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e",
+        "name": "obidigbo nzeribe"
+      }
+    ]
+  },
+  "kind": "Json"
+}
+```
+
+#### AI model usage
 
 If the active manifest contains a [do not train assertion](manifest/assertions-actions#do-not-train-assertion), then the **Credit and usage** section displays the following message:
 
