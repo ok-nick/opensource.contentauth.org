@@ -35,9 +35,9 @@ Verify shows the complete current list of supported file types (when no asset is
 
 Click **Select a file from your device** then use the native picker or drag and drop a file to upload it and display information from the associated Content Credentials (if any) such as the author, the tools used to create the asset, and so on.
 
-### Entering an asset URL
+### Using an asset URL
 
-You can also create a link to display Content Credentials information for an asset at a publicly-visible URL, by using a URL like this:
+You can also create a URL using the following form to display Content Credentials information for an asset at a publicly-visible URL:
 
 ```
 https://contentcredentials.org/verify?source=<ASSET_URL>
@@ -155,7 +155,16 @@ If the issuer string is too long, then the date may be truncated or may not be s
 
 ### Credit and usage
 
-The **Credit and usage** section displays information derived from the [CreativeWork assertion](manifest/assertions-actions#creative-work-assertion). If the associated `data` object has an `author` property, then the `name` property is shown under **Produced by**. If there is a `url` or `license` property, then it says **Website** with a link to the site. For example:
+The **Credit and usage** section displays information about the asset's author and usage rights, divided into the following subsections:
+
+- [Produced by](#produced-by)
+- [Social media accounts](#social-media-accounts)
+- [AI model usage](#ai-model-usage) (if the active manifest contains a [do not train assertion](manifest/assertions-actions#do-not-train-assertion))
+
+#### Produced by
+
+The **Produced by** subsection shows information derived from the [CreativeWork assertion](manifest/assertions-actions#creative-work-assertion) in the active manifest.
+If the associated `data` object has an `author` property, then the `name` property is shown under **Produced by**. If there is a `url` or `license` property, then it says **Website** with a link to the site. For example:
 
 import verify_credit from '../static/img/verify-credit.png';
 
@@ -179,16 +188,25 @@ The above example shows the following CreativeWork assertion from the active man
 
 #### Social media accounts
 
-If you've connected social media accounts to your Adobe account, then the **Credit and usage** section may also show your handles for Behance, Instagram, and X (Twitter). For example:
+If the asset was created with Adobe tools and the asset's creator has [connected social media accounts](https://connected-accounts.adobe.com/), then the **Credit and usage** section shows the information for Behance, Instagram, LinkedIn,and X (Twitter).
+
+For example:
 
 import verify_social from '../static/img/verify-social.png';
 
 <img src={verify_social} style={{ width: '250px' }} />
 
-The CreativeWork assertion for these social media accounts from the active manifest is shown below. The `identifier` property is the DID of the social media account, and the `name` property is the handle. The `credential` property is a [Credential](https://www.w3.org/TR/vc-data-model/#credentials) that contains a hash of the DID and the URL of the Credential itself.
+The `identifier` property is the DID of the social media account, and the `name` property is the handle. The `credential` property is a [Credential](https://www.w3.org/TR/vc-data-model/#credentials) that contains a hash of the DID and the URL of the Credential itself.
 
-<details style={{ backgroundColor: 'white'}} >
-<summary class="custom_summary">Show manifest code</summary>
+<div class="review-comment">
+  Is the above statement right? Can we provide any more useful info on ho to
+  write this part of the manifest?
+</div>
+
+The CreativeWork assertion from manifest JSON for the above example is shown below.
+
+<details style={{backgroundColor: 'transparent'}}>
+<summary class="code_summary">Show manifest code</summary>
 
 ```json
 {
@@ -291,6 +309,9 @@ The value shown for **App or device used** is derived from the `claim_generator`
 
 The **Actions** subsection lists [actions](manifest/assertions-actions#actions) in the active manifest. For example, here is the `actions` array for the above example:
 
+<details style={{backgroundColor: 'transparent'}}>
+<summary class="code_summary">Show manifest code</summary>
+
 ```json
 "actions": [
   {
@@ -325,6 +346,8 @@ The **Actions** subsection lists [actions](manifest/assertions-actions#actions) 
 ]
 ```
 
+</details>
+
 #### Ingredients
 
 **Ingredients** shows the resources used to create the asset, derived from the `ingredients` array in the active manifest. A thumbnail image is shown for each ingredient, if applicable. If an ingredient itself had Content Credentials, the "cr" icon is shown next to the thumbnail. In the above example, the asset was created by combining two ingredients, `CAI.jpg` and `A.jpg`, the first of which had Content Credentials.
@@ -347,9 +370,12 @@ If the active manifest includes [Exif metadata assertions](manifest/assertions-a
 
 import verify_exif from '../static/img/verify-exif.png';
 
-<img src={verify_exif} style={{ width: '600px' }} />
+<img src={verify_exif} style={{ width: '500px' }} />
 
-The example above shows the following Exif metadata assertions:
+The Exif metadata assertions from the JSON manifest for the above example is shown below:
+
+<details style={{backgroundColor: 'transparent'}}>
+<summary class="code_summary">Show manifest code</summary>
 
 ```json
 "assertions": [
@@ -418,6 +444,8 @@ The example above shows the following Exif metadata assertions:
     ...
 ]
 ```
+
+</details>
 
 See the above example yourself, based on a C2PA test image:
 
