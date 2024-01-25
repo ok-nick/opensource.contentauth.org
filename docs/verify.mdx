@@ -35,9 +35,9 @@ Verify shows the complete current list of supported file types (when no asset is
 
 Click **Select a file from your device** then use the native picker or drag and drop a file to upload it and display information from the associated Content Credentials (if any) such as the author, the tools used to create the asset, and so on.
 
-### Entering an asset URL
+### Using an asset URL
 
-You can also create a link to display Content Credentials information for an asset at a publicly-visible URL, by using a URL like this:
+You can also display Content Credentials information for an asset with a publicly-visible URL by using a URL with the following format:
 
 ```
 https://contentcredentials.org/verify?source=<ASSET_URL>
@@ -51,12 +51,12 @@ For example: https://contentcredentials.org/verify?source=https://c2pa.org/publi
 To use Verify on an asset URL, the URL must not require any authentication and the hosting server must allow cross-origin resource sharing (CORS) in the `Access-Control-Allow-Origin` HTTP response header.
 :::
 
-## Information displayed
+## Information Verify displays
 
-Once you've uploaded an asset or entered an asset URL:
+Once you've uploaded an asset or entered an asset URL, if the asset:
 
-- If the asset file does not have any associated manifest store, Verify displays the message **No Content Credential**.
-- If the asset does have an associated manifest store, Verify displays information from it in the three vertical panels, as illustrated in the example below.
+- Does not have an associated manifest store, Verify displays the message **No Content Credential**.
+- Does have an associated manifest store, Verify displays information from it in the three vertical panels, for example as shown below.
 
 import verify_sections from '../static/img/verify-sections.png';
 
@@ -82,24 +82,28 @@ import verify_sections from '../static/img/verify-sections.png';
         Shows the asset name from the <code>title</code> property in the active
         manifest (may not be the same as the file name) and a thumbnail image.
         <br />
-        Cick <strong>Search for possible matches</strong> to search the Adobe
-        Content Credentials Cloud for similar content. <br />
-        For more information, see <a href="#searching-for-matching-content-credentials">
+        <br />
+        Cick <strong>Search for possible matches</strong> to search the Adobe Content
+        Credentials Cloud for similar content; see <a href="#searching-for-matching-content-credentials">
           Searching for matching Content Credentials
-        </a> below.
+        </a> for more information.
       </td>
       <td valign="top">
         Shows all the asset's ingredients in a tree-like layout.
         <ul>
           <li>
-            Click on an ingredient to display more information about it in the
-            right panel.
+            Click on an ingredient thumbnail to inspect its Content Credentials
+            in the right panel.
           </li>
           <li>
             Click <strong>Compare</strong> to compare ingredients either
             side-by-side or using a slider.
           </li>
         </ul>
+        You can zoom in and out in this view using the mouse wheel or trackpad
+        and pan by dragging.
+        <br />
+        <br />
         NOTE: The example above shows only one ingredient.
       </td>
       <td valign="top">
@@ -155,13 +159,22 @@ If the issuer string is too long, then the date may be truncated or may not be s
 
 ### Credit and usage
 
-The **Credit and usage** section displays information derived from the [CreativeWork assertion](manifest/assertions-actions#creative-work-assertion). If the associated `data` object has an `author` property, then the `name` property is shown under **Produced by**. If there is a `url` or `license` property, then it says **Website** with a link to the site. For example:
+The **Credit and usage** section displays information about the asset's author and usage rights, divided into the following subsections:
+
+- [Produced by](#produced-by)
+- [Social media accounts](#social-media-accounts)
+- [AI model usage](#ai-model-usage) (if the active manifest contains a [do not train assertion](manifest/assertions-actions#do-not-train-assertion))
+
+#### Produced by
+
+The **Produced by** subsection shows information derived from the [CreativeWork assertion](manifest/assertions-actions#creative-work-assertion) in the active manifest.
+If the associated `data` object has an `author` property, then the `name` property is shown under **Produced by**. If there is a `url` or `license` property, then it says **Website** with a link to the site. For example:
 
 import verify_credit from '../static/img/verify-credit.png';
 
 <img src={verify_credit} style={{ width: '250px' }} />
 
-The above example shows the following CreativeWork assertion from the active manifest:
+The above example shows the following CreativeWork assertion from the active manifest. The `url` property is the URL of the asset on the Adobe Stock site:
 
 ```json
 "assertions": [
@@ -176,6 +189,85 @@ The above example shows the following CreativeWork assertion from the active man
   },
 ...]
 ```
+
+#### Social media accounts
+
+If the asset was created with Adobe Photoshop or Adobe Lightroom and the asset's creator has [connected social media accounts](https://connected-accounts.adobe.com/), then the **Credit and usage** section shows the information added for any connected accounts, which can include Behance, Instagram, LinkedIn, and X (Twitter).
+
+For more information, see:
+
+- [Content Credentials (Beta) in Photoshop - Connect accounts for creative attribution](https://helpx.adobe.com/photoshop/using/connect-accounts.html)
+- [Content Credentials (Beta) in Lightroom](https://helpx.adobe.com/lightroom-cc/using/content-credentials-lightroom.html)
+
+For example:
+
+import verify_social from '../static/img/verify-social.png';
+
+<img src={verify_social} style={{ width: '250px' }} />
+
+<!--
+The `identifier` property is the decentralized identifier (DID) of the social media account, and the `name` property is the handle. The `credential` property is a [Credential](https://www.w3.org/TR/vc-data-model/#credentials) that contains a hash of the DID and the URL of the Credential itself.
+-->
+
+The CreativeWork assertion from the JSON manifest for the above example is shown below.
+
+<details style={{backgroundColor: 'transparent'}}>
+<summary class="code_summary">Show manifest code</summary>
+
+```json
+{
+  "label": "stds.schema-org.CreativeWork",
+  "data": {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "author": [
+      {
+        "@type": "Person",
+        "credential": [
+          {
+            "alg": "sha256",
+            "hash": "IcZeS318070nuvDYmPqfQdZmOI7jGumMjHTxNshA2ao=",
+            "url": "self#jumbf=/c2pa/adobe:urn:uuid:4fd5a284-6fe9-479c-a8af-9bcbbf851d92/c2pa.credentials/did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e"
+          }
+        ],
+        "identifier": "did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e",
+        "name": "obidigbo nzeribe"
+      },
+      {
+        "@id": "https://www.instagram.com/obidinzeribe",
+        "@type": "Person",
+        "credential": [
+          {
+            "alg": "sha256",
+            "hash": "IcZeS318070nuvDYmPqfQdZmOI7jGumMjHTxNshA2ao=",
+            "url": "self#jumbf=/c2pa/adobe:urn:uuid:4fd5a284-6fe9-479c-a8af-9bcbbf851d92/c2pa.credentials/did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e"
+          }
+        ],
+        "identifier": "did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e",
+        "name": "obidinzeribe"
+      },
+      {
+        "@id": "https://www.behance.net/obidigbonzeribe",
+        "@type": "Person",
+        "credential": [
+          {
+            "alg": "sha256",
+            "hash": "IcZeS318070nuvDYmPqfQdZmOI7jGumMjHTxNshA2ao=",
+            "url": "self#jumbf=/c2pa/adobe:urn:uuid:4fd5a284-6fe9-479c-a8af-9bcbbf851d92/c2pa.credentials/did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e"
+          }
+        ],
+        "identifier": "did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e",
+        "name": "obidigbo nzeribe"
+      }
+    ]
+  },
+  "kind": "Json"
+}
+```
+
+</details>
+
+#### AI model usage
 
 If the active manifest contains a [do not train assertion](manifest/assertions-actions#do-not-train-assertion), then the **Credit and usage** section displays the following message:
 
@@ -199,10 +291,10 @@ If the active manifest contains a [do not train assertion](manifest/assertions-a
 
 The **Process** section displays information about the process used to create the asset, divided into the following subsections:
 
-- **App or device used**
-- **Actions**
-- **Ingredients**
-- **AI-generated content** (if the active manifest includes a [generative AI action](manifest/assertions-actions#generative-ai-action)).
+- [App or device used](#app-or-device-used)
+- [Actions](#actions)
+- [Ingredients](#ingredients)
+- [AI-generated content](#ai-generated-content) (if the active manifest includes a [generative AI action](manifest/assertions-actions#generative-ai-action))
 
 For example:
 
@@ -222,6 +314,9 @@ The value shown for **App or device used** is derived from the `claim_generator`
 #### Actions
 
 The **Actions** subsection lists [actions](manifest/assertions-actions#actions) in the active manifest. For example, here is the `actions` array for the above example:
+
+<details style={{backgroundColor: 'transparent'}}>
+<summary class="code_summary">Show manifest code</summary>
 
 ```json
 "actions": [
@@ -257,6 +352,8 @@ The **Actions** subsection lists [actions](manifest/assertions-actions#actions) 
 ]
 ```
 
+</details>
+
 #### Ingredients
 
 **Ingredients** shows the resources used to create the asset, derived from the `ingredients` array in the active manifest. A thumbnail image is shown for each ingredient, if applicable. If an ingredient itself had Content Credentials, the "cr" icon is shown next to the thumbnail. In the above example, the asset was created by combining two ingredients, `CAI.jpg` and `A.jpg`, the first of which had Content Credentials.
@@ -279,9 +376,12 @@ If the active manifest includes [Exif metadata assertions](manifest/assertions-a
 
 import verify_exif from '../static/img/verify-exif.png';
 
-<img src={verify_exif} style={{ width: '600px' }} />
+<img src={verify_exif} style={{ width: '500px' }} />
 
-The example above shows the following Exif metadata assertions:
+The Exif metadata assertions from the JSON manifest for the above example is shown below:
+
+<details style={{backgroundColor: 'transparent'}}>
+<summary class="code_summary">Show manifest code</summary>
 
 ```json
 "assertions": [
@@ -351,6 +451,8 @@ The example above shows the following Exif metadata assertions:
 ]
 ```
 
+</details>
+
 See the above example yourself, based on a C2PA test image:
 
 - [Inspect using Verify](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/truepic-20230212-camera.jpg)
@@ -358,5 +460,5 @@ See the above example yourself, based on a C2PA test image:
 
 ## Searching for matching Content Credentials
 
-Adobe products can save manifest stores in the Adobe Content Credentials Cloud.
+Adobe products can save manifest stores in the [Adobe Content Credentials Cloud](getting-started#storing-a-manifest-in-the-cloud).
 Click **Search for possible matches** to search the Adobe Content Credentials Cloud for content similar to the asset's ingredients, as described in the [Ingredients](#ingredients) section above.
