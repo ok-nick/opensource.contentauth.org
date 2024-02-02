@@ -12,20 +12,13 @@ You're strongly encouraged to read this introduction and [Getting started](getti
 
 ## Overview
 
-The **Coalition for Content Provenance and Authenticity (C2PA)** creates formal standards for the source and history (or provenance) of media content.
+The Coalition for Content Provenance and Authenticity (C2PA) and Content Authenticity Initiative (CAI) are groups working together to develop and promote adoption of an open industry standard for content authenticity and provenance.
 
-The **Content Authenticity Initiative (CAI)** is an Adobe-led cross-industry consortium that advocates for the adoption of Content Credentials based on C2PA standards. CAI develops and maintains open-source software based on C2PA technical specifications.
-
-| Website                                                     | Organization            | Purpose / Description                                                                                          |
-| ----------------------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------- |
-| [c2pa.org](https://c2pa.org/)                               | C2PA / Linux Foundation | Standards body<br/>Technical specifications and guidance documents                                             |
-| [contentcredentials.org](https://contentcredentials.org/)   | C2PA                    | Consumer-friendly site                                                                                         |
-| [Verify](https://contentcredentials.org/verify)             | C2PA / Adobe            | Web-based tool to display Content Credentials. <br/> For more information, see [Using the Verify tool](verify) |
-| [contentauthenticity.org](https://contentauthenticity.org/) | CAI                     | Industry consortium<br/>Open-source software and community resources                                           |
+The CAI open-source SDK is a set of tools and libraries that enable developers to create, verify, and display Content Credentials based on C2PA standards.
 
 ### C2PA
 
-C2PA provides the technical specifications and open standards for content provenance for use by creators, editors, publishers, media platforms, and consumers. C2PA is a mutually-governed standards development organization (SDO) under the structure of the [Linux Foundation’s Joint Development Foundation](https://jointdevelopment.org/).
+C2PA provides the formal technical specifications and open standards for content provenance for use by creators, editors, publishers, media platforms, and consumers. C2PA is a mutually-governed standards development organization (SDO) under the structure of the [Linux Foundation’s Joint Development Foundation](https://jointdevelopment.org/).
 
 #### The "cr" icon
 
@@ -39,18 +32,21 @@ For detailed guidance on using the "cr" icon, see [C2PA User Experience Guidance
 
 ### CAI
 
-The CAI is creating a secure end-to-end system for digital content provenance through open-source development and cross-industry collaboration. CAI members include Adobe, Microsoft, The New York Times Co., The Associated Press, Intel, Qualcomm, and many more.
+**CAI** is an Adobe-led cross-industry consortium that advocates for the adoption of Content Credentials based on C2PA standards. CAI develops and maintains open-source software based on C2PA technical specifications.
+CAI members include Adobe, Microsoft, The New York Times Co., The Associated Press, Intel, Qualcomm, and many more.
 
 ## What's in the SDK
 
-The Content Authenticity Initiative's open-source SDK (software development kit) consists of:
+<img src={cai_open_source_red} width="800" />
 
-- [The c2patool command-line tool](#c2pa-tool): a command-line tool for working with C2PA manifests and media assets (audio, image or video files).
+The CAI open-source SDK (software development kit) consists of:
+
+- [C2PA Tool](#c2pa-tool): a command-line tool for working with C2PA manifests and media assets (audio, image or video files).
 - [The JavaScript library](#javascript-library) (also known as the JavaScript SDK): Client JavaScript library for code that runs, for example, in a web browser.
 - [Libraries for other programming languages](#other-language-libraries): Prerelease libraries for C++/C, Python, and Node.js.
 - [The Rust library](#rust-library), which is the code that underlies everything else. It's the "source of truth" that generates all the other APIs.
 
-<img src={cai_open_source_red} width="800" />
+To see a summary of what each tool and library can do, see [Which tool is right for you?](#which-tool-is-right-for-you).
 
 ### C2PA Tool
 
@@ -103,77 +99,97 @@ import green_check from '../static/img/green_check.png';
   <tbody>
     <tr>
       <td style={{ textAlign: 'left' }}>
-        Display C2PA data on your site or app
+        {' '}
+        Display C2PA data on your site or app{' '}
       </td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
     </tr>
     <tr>
       <td style={{ textAlign: 'left' }}>
-        Link C2PA data displayed on your site to Verify
+        {' '}
+        Link C2PA data displayed on your site to Verify{' '}
       </td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
     </tr>
     <tr>
       <td style={{ textAlign: 'left' }}>Write C2PA data into files</td>
       <td style={{ textAlign: 'center' }}></td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
     </tr>
     <tr>
       <td style={{ textAlign: 'left' }}>
-        Quickly create and inspect C2PA data
+        {' '}
+        Quickly create and inspect C2PA data{' '}
       </td>
       <td style={{ textAlign: 'center' }}></td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
     </tr>
     <tr>
       <td style={{ textAlign: 'left' }}>
-        Customize displaying and creating C2PA data
+        {' '}
+        Customize displaying and creating C2PA data{' '}
       </td>
       <td style={{ textAlign: 'center' }}></td>
       <td style={{ textAlign: 'center' }}></td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
     </tr>
     <tr>
@@ -181,11 +197,24 @@ import green_check from '../static/img/green_check.png';
       <td style={{ textAlign: 'center' }}></td>
       <td style={{ textAlign: 'center' }}></td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
       <td style={{ textAlign: 'center' }}>
-        <img src={green_check} width="30" />
+        {' '}
+        <img src={green_check} width="30" />{' '}
       </td>
     </tr>
   </tbody>
 </table>
+
+## More information
+
+For more information about the C2PA and CAI, see the following websites:
+
+| Website                                                     | Organization            | Purpose / Description                                                                                          |
+| ----------------------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------- |
+| [c2pa.org](https://c2pa.org/)                               | C2PA / Linux Foundation | Standards body<br/>Technical specifications and guidance documents                                             |
+| [contentcredentials.org](https://contentcredentials.org/)   | C2PA                    | Consumer-friendly site                                                                                         |
+| [Verify](https://contentcredentials.org/verify)             | C2PA / Adobe            | Web-based tool to display Content Credentials. <br/> For more information, see [Using the Verify tool](verify) |
+| [contentauthenticity.org](https://contentauthenticity.org/) | CAI                     | Industry consortium<br/>Open-source software and community resources                                           |
