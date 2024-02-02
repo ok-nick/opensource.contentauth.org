@@ -41,22 +41,22 @@ CAI members include Adobe, Microsoft, The New York Times Co., The Associated Pre
 
 The CAI open-source SDK (software development kit) consists of:
 
-- [C2PA Tool](#c2pa-tool): a command-line tool for working with C2PA manifests and media assets (audio, image or video files).
+- [C2PA Tool](#c2pa-tool): a command-line tool for working with C2PA manifests and media assets.
 - [The JavaScript library](#javascript-library) (also known as the JavaScript SDK): Client JavaScript library for code that runs, for example, in a web browser.
-- [Libraries for other programming languages](#other-language-libraries): Prerelease libraries for C++/C, Python, and Node.js.
-- [The Rust library](#rust-library), which is the code that underlies everything else. It's the "source of truth" that generates all the other APIs.
+- [Prerelease libraries](#prerelease-libraries) for Node.js, Python, and C++/C.
+- [The Rust library](#rust-library), which is the code that underlies everything else. It's the "source of truth" that all the other libraries use.
 
 To see a summary of what each tool and library can do, see [Which tool is right for you?](#which-tool-is-right-for-you).
 
 ### C2PA Tool
 
-C2PA Tool ([c2patool](c2patool)) is a **command-line utility for working with C2PA manifest data**. Use this tool to work with assets in a supported file format to:
+[C2PA Tool](c2patool), is a **command-line utility for working with C2PA manifest data**. Use this tool to work with assets in a supported file format to:
 
 - Read a JSON report of manifest data.
 - Attach a manifest store to an asset, if it doesn't already have an associated manifest store.
 - Add a manifest to to the associated manifest store if the asset does have an associated manifest store.
 
-#### JavaScript library
+### JavaScript library
 
 The client [JavaScript library](js-sdk/getting-started/overview) enables **working with manifest data in the browser**. Use this library to:
 
@@ -64,7 +64,7 @@ The client [JavaScript library](js-sdk/getting-started/overview) enables **worki
 - Link manifest data displayed on your site to [Verify](https://verify.contentauthenticity.org/).
 - Easily add user interface elements to your website that display manifest data while following the [C2PA user experience recommendations](https://c2pa.org/specifications/specifications/1.0/ux/UX_Recommendations.html).
 
-### Prerelease language libraries
+### Prerelease libraries
 
 The [C++/C](c2pa-c), [Python](c2pa-python), and [Node.js](c2pa-node) libraries enable applications written in those languages to **create, verify, and display Content Credentials**.
 
@@ -74,7 +74,7 @@ These libraries are all early prerelease versions. They may have bugs and unimpl
 
 ### Rust library
 
-The CAI Rust library enables **adding C2PA capabilities to a desktop, mobile, or embedded application**. The Rust library is the fundamental system underlying everything else. The c2patool uses it "under the hood" and language-specific APIs are generated from it.
+The [Rust library](rust-sdk) enables **adding C2PA capabilities to a desktop, mobile, or embedded application**. The Rust library is the fundamental system underlying everything else. The c2patool uses it "under the hood" and language-specific APIs are generated from it.
 
 You can use the Rust library via the Foreign Function Interface (FFI) to:
 
