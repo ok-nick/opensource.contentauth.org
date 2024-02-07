@@ -53,9 +53,25 @@ The ingredient object's `relationship` property describes its relationship to th
 | `componentOf` | This ingredient is one of the assets that composes the current asset. |
 | `inputTo` | This ingredient was used as input to a computational process, such as an AI/ML model, that led to the creation or modification of this asset. |
 
+## Validation status
+
+When ingredients are added, their Content Credentials (if any) are validated.  When you inspect an asset using [Verify](../verify), it validates the current state of the asset. So, Verify can indicate valid credentials for a component ingredient but invalid credentials for the composed asset, even if they were signed using the same credentials, if, for example, the credential was valid when the ingredient was signed but is no longer valid.
+
+For example, [this example image with two ingredients](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CAICA.jpg) shows invalid credentials, but its ingredient, CA.jpg, shows valid credentials.
+
+<!--
+As shown in the example, signed ingredients DO show as verified/valid, but the active manifest for the composed asset does not (shows the "unknown source" warning). It's  confusing that BOTH assets show the same info in **About this Content Credential**, but the  composed asset says "...issued by unknown source" while the ingredient says "Issued by C2PA Test Signing Cert" without that warning.
+
+What it is telling you is that the make_test_images app considered all the ingredients valid when the were added, because it was using its own certs which it thinks are valid and is not doing the trust list validation that verify is using. Verify, in turn, is only validating the active manifest against the trust list, and failing. 
+
+If they were all created at the same time by make_test_images, they will all have the same certs, and all the ingredients should have been verified as valid.
+
+We do not validate certs for ingredients BTW per the spec.  The ingredient certs are validated when they are added to the manifest not during validation of the current asset.
+-->
+
 ## Examples
 
-The [C2PA public-testfiles](https://c2pa.org/public-testfiles/image/) repository has several examples of assets with multiple ingredients:
+The [C2PA public-testfiles](https://c2pa.org/public-testfiles/image/) repository has several examples of images with multiple ingredients:
 - [Image with two ingredients](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CAICA.jpg); [View JSON manifest store](https://c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-CAICA/manifest_store.json)
 - [Image with seven ingredients](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CAIAIIICAICIICAIICICA.jpg); [View JSON manifest store](https://c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-CAIAIIICAICIICAIICICA/manifest_store.json)
 
