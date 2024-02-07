@@ -7,16 +7,15 @@ title: Ingredients
 
 Digital assets are often not created entirely from scratch, but instead created from one or more existing assets, for example placing an image into a layer in Photoshop.  Such constituent assets are called _ingredients_. 
 
-Each ingredient used to create an asset is listed in the JSON manifest `ingredients` array. 
-When an ingredient has a manifest store, those manifests are inserted into the composed asset's manifest store to keep the provenance data intact. 
-
 :::note
 This documentation covers C2PA v1 ingredients.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.34/specs/C2PA_Specification.html#_ingredient) also describes improved v2 ingredients.
 :::
 
 ## Ingredient objects
 
-The JSON manfiest `ingredients` array contains an [ingredient object](manifest-ref#ingredient) for each ingredient used.  The only required property of the ingredient object is the `title` property, which usually is the source file name.
+Each ingredient used to create an asset is listed in the [JSON manifest](manifest-ref) `ingredients` array.  When an ingredient itself has a Content Credentials, those manifests are included in the composed asset's manifest store to keep the provenance data intact. 
+
+The `ingredients` array contains an [ingredient object](manifest-ref#ingredient) for each ingredient.  The only required property of the `ingredient` object is the `title` property, which usually is the source file name.
 
 Other important properties of the ingredient object include:
 - `format`: MIME type of the source file.
@@ -54,11 +53,11 @@ The ingredient object's `relationship` property describes its relationship to th
 | `componentOf` | This ingredient is one of the assets that composes the current asset. |
 | `inputTo` | This ingredient was used as input to a computational process, such as an AI/ML model, that led to the creation or modification of this asset. |
 
-### Examples
+## Examples
 
 The [C2PA public-testfiles](https://c2pa.org/public-testfiles/image/) repository has several examples of assets with multiple ingredients:
-- [Asset with two ingredients](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CAICA.jpg); [View JSON manifest store](https://c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-CAICA/manifest_store.json)
-- [Asset with seven ingredients](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CAIAIIICAICIICAIICICA.jpg); [View JSON manifest store](https://c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-CAIAIIICAICIICAIICICA/manifest_store.json)
+- [Image with two ingredients](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CAICA.jpg); [View JSON manifest store](https://c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-CAICA/manifest_store.json)
+- [Image with seven ingredients](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CAIAIIICAICIICAIICICA.jpg); [View JSON manifest store](https://c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-CAIAIIICAICIICAIICICA/manifest_store.json)
 
 
 
