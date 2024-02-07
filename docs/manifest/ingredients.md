@@ -54,5 +54,11 @@ The ingredient object's `relationship` property describes its relationship to th
 | `componentOf` | This ingredient is one of the assets that composes the current asset. |
 | `inputTo` | This ingredient was used as input to a computational process, such as an AI/ML model, that led to the creation or modification of this asset. |
 
+### Examples
+
+The [C2PA public-testfiles](https://c2pa.org/public-testfiles/image/) repository has several examples of assets with multiple ingredients:
+- [Asset with two ingredients](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CAICA.jpg); [View JSON manifest store](https://c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-CAICA/manifest_store.json)
+- [Asset with seven ingredients](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CAIAIIICAICIICAIICICA.jpg); [View JSON manifest store](https://c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-CAIAIIICAICIICAIICICA/manifest_store.json)
+
 
 
