@@ -1,4 +1,4 @@
-// Redirects /docs route to /docs/introduction
+// Redirects root route / to /docs/introduction
 
 import React from 'react';
 import { Redirect } from '@docusaurus/router';
