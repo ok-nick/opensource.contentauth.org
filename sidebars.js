@@ -19,11 +19,6 @@ const sidebars = {
       ],
     },
     {
-      type: 'doc',
-      label: 'FAQs',
-      id: 'faqs',
-    },
-    {
       type: 'category',
       label: 'Working with manifests',
       link: { type: 'doc', id: 'manifest/understanding-manifest' },
@@ -158,6 +153,11 @@ const sidebars = {
           href: 'https://github.com/contentauth/c2pa-rs',
         },
       ],
+    },
+    {
+      type: 'doc',
+      label: 'FAQs',
+      id: 'faqs',
     },
     {
       type: 'doc',
