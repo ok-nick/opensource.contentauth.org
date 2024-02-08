@@ -8,11 +8,20 @@ import TOCInline from '@theme/TOCInline';
 
 <TOCInline toc={toc} />
 
+export const FaqAnswer = ({ children }) => (
+  <details style={{ backgroundColor: '#fff' }}>
+    <summary>
+      <b>Show answer</b>
+    </summary>
+    {children}
+  </details>
+);
+
 ### Do Content Credentials indicate if an image is fake or altered?
 
-<details style={{backgroundColor: 'rgba(250,250,250,50)'}} >
-<summary><b>Show answer</b></summary>
-Content Credentials don't indicate if an image is fake or altered. They can provide information on the origin of an image and how it was edited.  For example, if an image was generated with AI, the Content Credentials would indicate that. If an image was taken with a C2PA-enabled camera, the Content Credentials would show that, along with any subsequent edits, if they were made with C2PA-enabled software tools.
+<FaqAnswer>
+
+Content Credentials don't indicate if an image is fake or altered. They can provide information on the origin of an image and how it was edited. For example, if an image was generated with AI, the Content Credentials would indicate that. If an image was taken with a C2PA-enabled camera, the Content Credentials would show that, along with any subsequent edits, if they were made with C2PA-enabled software tools.
 
 :::info
 Content Credentials provide a **positive signal** about the origin and history of an image, but they don't provide a **negative signal** about the authenticity of an image.
@@ -20,50 +29,47 @@ Content Credentials provide a **positive signal** about the origin and history o
 
 An image with Content Credentials is like box of cereal with a nutrition label that tells you what's in it; on the other hand, an image with no Content Credentials is like a box of cerreal without any nutrition information, so you really don't know what it really is or where it came from. Because the Content Credentials are cryptographically signed, you can trust the information they provide and detect if they've been tampered with.
 
-</details>
+</FaqAnswer>
 
 ### What happens if someone takes a photo or screenshot of an existing image?
 
-<details style={{backgroundColor: 'rgba(250,250,250,50)'}} >
-<summary><b>Show answer</b></summary>
+<FaqAnswer>
+
 Content Credentials don't prevent anyone from taking a screenshot or photo of an image, but they indicate when a file does not have historical data. A screenshot of an image wouldn't include C2PA metadata from the original image.
 
 Conversely, if you use a C2PA-enabled camera to take a photo of an image, the camera will sign the image, but since it has no way of detecting what it is, the Content Credentials won't reflect that. For example, if the original image was generated with AI, the camera won't flag it as such. In general, the camera will indicate the device, when and where the image was taken in metadata, but it is not capable of analyzing the content of the image.
 
-</details>
+</FaqAnswer>
 
 ### What information is embedded in Content Credentials?
 
-<details style={{ backgroundColor: 'rgba(250,250,250,50)' }}>
-  <summary>
-    <b>Show answer</b>
-  </summary>
-  The information embedded in Content Credentials is totally up to each implementor.
-  The [manifest](manifest/understanding-manifest) that defines the Content Credentials
-  can include various assertions about the image, including the ingredients, the
-  date and time, the location, and the device that created the image.
-</details>
+<FaqAnswer>
+
+The information embedded in Content Credentials is totally up to each implementor.
+The [manifest](manifest/understanding-manifest) that defines the Content Credentials
+can include various assertions about the image, including the ingredients, the
+date and time, the location, and the device that created the image.
+
+</FaqAnswer>
 
 ### How can I prove time and place an image was created without revealing my identity?
 
-<details style={{ backgroundColor: 'rgba(250,250,250,50)' }}>
-  <summary>
-    <b>Show answer</b>
-  </summary>
-  Identity is optional in any Content Credential. For example, using Photoshop you
-  can add Content Credentials that indicate what edits were made without saying who
-  did it. You would know Adobe signed the Content Credentials and that's it. Regardless
-  of the "who", the cryptographically-signed manifest ensures you know the date and
-  time. A camera could also include Exif metadata with location information.
-</details>
+<FaqAnswer>
+
+Content Credentials can specify identity by using the [Schema.org CreativeWork assertion](manifest/assertions-actions#creative-work-assertion), but it is _entirely optional_.
+
+For example, using Photoshop you
+can add Content Credentials that indicate what edits were made without saying who
+did it. You would know Adobe signed the Content Credentials and that's it. Regardless
+of the "who", the cryptographically-signed manifest ensures you know the date and
+time. A camera could also include Exif metadata with location information.
+
+</FaqAnswer>
 
 ### How do you prevent faking GPS location metadata?
 
-<details style={{ backgroundColor: 'rgba(250,250,250,50)' }}>
-  <summary>
-    <b>Show answer</b>
-  </summary>
-  The location data is based on the implementor. People would trust the data based
-  on the various "trust signals" they are given in the manifest, such as who signed
-  it and when.
-</details>
+<FaqAnswer>
+
+The location data included in [Exif metadata](manifest/assertions-actions#exif-assertion) is based on the implementor. People would trust the data based on the various "trust signals" they are given in the manifest, such as who signed it and when.
+
+</FaqAnswer>
