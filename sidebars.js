@@ -19,11 +19,6 @@ const sidebars = {
       ],
     },
     {
-      type: 'doc',
-      label: 'FAQs',
-      id: 'faqs',
-    },
-    {
       type: 'category',
       label: 'Working with manifests',
       link: { type: 'doc', id: 'manifest/understanding-manifest' },
