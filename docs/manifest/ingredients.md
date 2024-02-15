@@ -7,8 +7,10 @@ title: Ingredients
 
 Digital assets are often not created entirely from scratch, but instead created from one or more existing assets, for example placing an image into a layer in Photoshop.  Such constituent assets are called _ingredients_. 
 
+This documentation covers C2PA v1 ingredients.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_ingredient) also describes improved v2 ingredients.
+
 :::note
-This documentation covers C2PA v1 ingredients.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.34/specs/C2PA_Specification.html#_ingredient) also describes improved v2 ingredients.
+The C2PA Technical Specification describes _ingredient assertions_ but the CAI SDK treats ingredients separately as their own objects in the JSON manifest rather than as a type of assertion.
 :::
 
 ## Ingredient objects
@@ -49,7 +51,7 @@ The ingredient object's `relationship` property describes its relationship to th
 
 |  Value of `relationship` | Description |
 |--------------------------|-------------|
-| `parentOf` | The current asset is a derived asset or asset rendition of this ingredient. This relationship value is also used with update manifests. |
+| `parentOf` | The current asset is a derived asset or asset rendition of this ingredient. This relationship value is also used with update manifests.  There can be at most one parent ingredient in a manifest. |
 | `componentOf` | This ingredient is one of the assets that composes the current asset. |
 | `inputTo` | This ingredient was used as input to a computational process, such as an AI/ML model, that led to the creation or modification of this asset. |
 
