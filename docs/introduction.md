@@ -60,7 +60,7 @@ C2PA Tool ([c2patool](c2patool)) is a **command-line utility for working with C2
 - Attach a manifest store to an asset, if it doesn't already have an associated manifest store.
 - Add a manifest to to the associated manifest store if the asset does have an associated manifest store.
 
-#### JavaScript library
+### JavaScript library
 
 The client [JavaScript library](js-sdk/getting-started/overview) enables **working with manifest data in the browser**. Use this library to:
 
