@@ -44,13 +44,13 @@ The [“Produced by” section](verify#produced-by) in Verify refers to the name
 
 <FaqAnswer>
 
-Content Credentials don't indicate if an image is fake or altered. They can provide information on the origin of an image and how it was edited. For example, if an image was generated with AI, the Content Credentials would indicate that. If an image was taken with a C2PA-enabled camera, the Content Credentials would show that, along with any subsequent edits, if they were made with C2PA-enabled software tools.
+Content Credentials don't indicate if an image is fake or altered. They can provide information on the origin of an image and how it was edited. For example, if an AI tool supports Content Credentials, then they indicate if [an image was generated with AI](manifest/assertions-actions#generative-ai-action). If an image was taken with a C2PA-enabled camera, the Content Credentials would show that, along with any subsequent edits, if they were made with C2PA-enabled software tools.
 
 :::info
 Content Credentials provide a **positive signal** about the origin and history of an image, but they don't provide a **negative signal** about the authenticity of an image.
 :::
 
-An image with Content Credentials is like box of cereal with a nutrition label that tells you what's in it; on the other hand, an image with no Content Credentials is like a box of cerreal without any nutrition information, so you really don't know what it really is or where it came from. Because the Content Credentials are cryptographically signed, you can trust the information they provide and detect if they've been tampered with.
+An image with Content Credentials is like box of cereal with a nutrition label that tells you what's in it; on the other hand, an image with no Content Credentials is like a box of cerreal without any nutrition information, so you don't know what's in it or where it came from. Because the Content Credentials are cryptographically signed, you can trust the information they provide and detect if they've been tampered with.
 
 </FaqAnswer>
 
