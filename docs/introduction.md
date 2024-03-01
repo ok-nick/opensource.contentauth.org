@@ -62,7 +62,7 @@ C2PA Tool ([c2patool](c2patool)) is a **command-line utility for working with C2
 
 ### JavaScript library
 
-The client [JavaScript library](js-sdk/getting-started/overview) enables **working with manifest data in the browser**. Use this library to:
+The client [JavaScript library](js-sdk/getting-started/overview) enables **working with manifest data in the browser**. Use this library to: 
 
 - Verify and display manifest data on a website or web application.
 - Link manifest data displayed on your site to [Verify](https://verify.contentauthenticity.org/).
