@@ -12,13 +12,13 @@ You're strongly encouraged to read this introduction and [Getting started](getti
 
 The Coalition for Content Provenance and Authenticity (C2PA) and Content Authenticity Initiative (CAI) are groups working together to develop and promote adoption of an open industry standard for content authenticity and provenance.
 
-The CAI open-source SDK is a set of tools and libraries that enable developers to create, verify, and display Content Credentials based on C2PA standards.
-
 ## What's in the SDK
+
+The CAI open-source SDK (software development kit) is a set of tools and libraries that enable developers to create, verify, and display Content Credentials based on C2PA standards.
 
 <img src={cai_open_source_red} width="800" />
 
-The CAI open-source SDK (software development kit) consists of:
+The CAI open-source SDK consists of:
 
 - [C2PA Tool](#c2pa-tool): a command-line tool for working with C2PA manifests and media assets.
 - [The JavaScript library](#javascript-library) (also known as the JavaScript SDK): Client JavaScript library for code that runs, for example, in a web browser.
@@ -53,7 +53,7 @@ These libraries are all early prerelease versions. They may have bugs and unimpl
 
 ### Rust library
 
-The [Rust library](rust-sdk) enables **adding C2PA capabilities to a desktop, mobile, or embedded application**. The Rust library is the fundamental system underlying everything else. The c2patool uses it "under the hood" and language-specific APIs are generated from it.
+The [Rust library](rust-sdk) enables **adding C2PA capabilities to a desktop, mobile, or embedded application**. The Rust library is the fundamental system underlying everything else. C2PA Tool uses it "under the hood" and language-specific APIs are generated from it.
 
 You can use the Rust library via the Foreign Function Interface (FFI) to:
 
@@ -78,97 +78,77 @@ import green_check from '../static/img/green_check.png';
   <tbody>
     <tr>
       <td style={{ textAlign: 'left' }}>
-        {' '}
-        Display C2PA data on your site or app{' '}
+        Display C2PA data on your site or app
       </td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
     </tr>
     <tr>
       <td style={{ textAlign: 'left' }}>
-        {' '}
-        Link C2PA data displayed on your site to Verify{' '}
+        Link C2PA data displayed on your site to Verify
       </td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
     </tr>
     <tr>
       <td style={{ textAlign: 'left' }}>Write C2PA data into files</td>
       <td style={{ textAlign: 'center' }}></td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
     </tr>
     <tr>
       <td style={{ textAlign: 'left' }}>
-        {' '}
-        Quickly create and inspect C2PA data{' '}
+        Quickly create and inspect C2PA data
       </td>
       <td style={{ textAlign: 'center' }}></td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
     </tr>
     <tr>
       <td style={{ textAlign: 'left' }}>
-        {' '}
-        Customize displaying and creating C2PA data{' '}
+        Customize displaying and creating C2PA data
       </td>
       <td style={{ textAlign: 'center' }}></td>
       <td style={{ textAlign: 'center' }}></td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
     </tr>
     <tr>
@@ -176,12 +156,10 @@ import green_check from '../static/img/green_check.png';
       <td style={{ textAlign: 'center' }}></td>
       <td style={{ textAlign: 'center' }}></td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
       <td style={{ textAlign: 'center' }}>
-        {' '}
-        <img src={green_check} width="30" />{' '}
+        <img src={green_check} width="30" />
       </td>
     </tr>
   </tbody>
