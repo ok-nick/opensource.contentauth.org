@@ -42,7 +42,7 @@ The C2PA Technical Specification defines a [set of standard assertions](https://
 The following table summarizes some of the most important standard assertions.
 
 | Assertion | Label | Description |
-|-----------|--------------|-------------|
+|-----------|-------|-------------|
 | [Actions](#actions) |  `c2pa.actions` | Creation, edits, and other actions on an asset, such as cropping, color or contrast adjustment, and so on. |
 | ["Do not train"](#do-not-train-assertion) | `c2pa.training-mining` | Whether the creator/owner of an asset grants permission to use it for data mining or AI/ML training.  |
 | [Creative work](#creative-work-assertion) | `stds.schema-org.CreativeWork`  | Indicates the asset is the product of creative effort.   |
