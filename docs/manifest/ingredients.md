@@ -57,19 +57,51 @@ The ingredient object's `relationship` property describes its relationship to th
 
 ## Validation status
 
-When ingredients are added, their Content Credentials (if any) are validated.  When you inspect an asset using [Verify](../verify), it validates the current state of the asset. So, Verify can indicate valid credentials for a component ingredient but invalid credentials for the composed asset, even if they were signed using the same credentials, if, for example, the credential was valid when the ingredient was signed but is no longer valid.
+When ingredients are added, the SDK validates their Content Credentials (if any).  But it's important to note that the validation status of an ingredient does not imply anything about the validation status of the composed asset containing the ingredient. In other words:
+- A composed asset's Content Credentials may be valid, but one or more of its ingredients may have invalid Content Credentials. For example, test file [adobe-20220124-XCA.jpg](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-XCA.jpg)
+- A composed asset's Content Credentials may be invalid, but one or more of its ingredients may have valid Content Credentials. For example, test file [adobe-20220124-CIE-sig-CA.jpg](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CIE-sig-CA.jpg). 
 
-For example, [this example image with two ingredients](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CAICA.jpg) shows invalid credentials, but its ingredient, CA.jpg, shows valid credentials.
+It's also important to note that ingredient certificates are validated when they are added to the manifest store, NOT during validation of the composed asset. 
 
-<!--
-As shown in the example, signed ingredients DO show as verified/valid, but the active manifest for the composed asset does not (shows the "unknown source" warning). It's  confusing that BOTH assets show the same info in **About this Content Credential**, but the  composed asset says "...issued by unknown source" while the ingredient says "Issued by C2PA Test Signing Cert" without that warning.
 
-What it is telling you is that the make_test_images app considered all the ingredients valid when the were added, because it was using its own certs which it thinks are valid and is not doing the trust list validation that verify is using. Verify, in turn, is only validating the active manifest against the trust list, and failing. 
+### Example of ingredient with invalid credentials
 
-If they were all created at the same time by make_test_images, they will all have the same certs, and all the ingredients should have been verified as valid.
+As noted above, the test file [adobe-20220124-CIE-sig-CA.jpg](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CIE-sig-CA.jpg) has an ingredient with invalid Content Credentials, as shown in this snippet from the manifest store: 
 
-We do not validate certs for ingredients BTW per the spec.  The ingredient certs are validated when they are added to the manifest not during validation of the current asset.
--->
+```json
+...
+{
+  "active_manifest": "contentauth:urn:uuid:40f2636a-402c-4792-9da4-644a63d1f7d0",
+  "manifests": {
+    "contentauth:urn:uuid:40f2636a-402c-4792-9da4-644a63d1f7d0": {
+    ...
+    "ingredients": [
+      {
+        "title": "E-sig-CA.jpg",
+        "format": "image/jpeg",
+        "instance_id": "xmp:iid:81ca15f6-4ed0-422a-96cb-3e8014e29ac6",
+        "thumbnail": {
+          "format": "image/jpeg",
+          "identifier": "xmp-iid-81ca15f6-4ed0-422a-96cb-3e8014e29ac6.jpg"
+        },
+        "relationship": "componentOf",
+        "active_manifest": "contentauth:urn:uuid:04cdf4ec-f713-4e47-a8d6-7af56501ce4b",
+        "validation_status": [
+          {
+            "code": "timeStamp.mismatch",
+            "url": "Cose_Sign1",
+            "explanation": "timestamp message imprint did not match"
+          },
+          {
+            "code": "claimSignature.mismatch",
+            "url": "self#jumbf=/c2pa/contentauth:urn:uuid:04cdf4ec-f713-4e47-a8d6-7af56501ce4b/c2pa.signature",
+            "explanation": "claim signature is not valid"
+          }
+          ...
+        ]
+      }
+    ]
+```
 
 ## Examples
 
