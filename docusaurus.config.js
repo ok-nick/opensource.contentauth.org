@@ -104,6 +104,7 @@ const config = {
           src: 'img/logo-cai.svg',
           width: 180,
           height: 54,
+          href: 'https://contentauthenticity.org',
         },
         items: [
           {
