@@ -30,6 +30,10 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'manifest/ingredients',
+        },
+        {
+          type: 'doc',
           id: 'manifest/manifest-validation',
         },
         {
