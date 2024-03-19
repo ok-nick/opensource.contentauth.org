@@ -57,12 +57,13 @@ The ingredient object's `relationship` property describes its relationship to th
 
 ## Validation status
 
-When ingredients are added, the SDK validates their Content Credentials (if any).  But it's important to note that the validation status of an ingredient does not imply anything about the validation status of the composed asset containing the ingredient. In other words:
+When ingredients are added, the SDK validates their Content Credentials (if any).  However, the validation status of an ingredient does not imply anything about the validation status of the composed asset containing the ingredient. In other words:
 - A composed asset's Content Credentials may be valid, but one or more of its ingredients may have invalid Content Credentials. For example, test file [adobe-20220124-XCA.jpg](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-XCA.jpg)
 - A composed asset's Content Credentials may be invalid, but one or more of its ingredients may have valid Content Credentials. For example, test file [adobe-20220124-CIE-sig-CA.jpg](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CIE-sig-CA.jpg). 
 
-It's also important to note that ingredient certificates are validated when they are added to the manifest store, NOT during validation of the composed asset. 
-
+:::note
+Ingredient certificates are validated when they are added to the manifest store, NOT during validation of the composed asset. 
+:::
 
 ### Example of ingredient with invalid credentials
 
