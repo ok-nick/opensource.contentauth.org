@@ -100,18 +100,17 @@ const sidebars = {
       items: [
         {
           type: 'category',
-          label: 'C++ / C',
-          link: { type: 'doc', id: 'c2pa-c/readme' },
+          label: 'Node.js',
+          link: { type: 'doc', id: 'c2pa-node/readme' },
           collapsed: true,
           items: [
             {
               type: 'link',
               label: 'GitHub',
-              href: 'https://github.com/contentauth/c2pa-c',
+              href: 'https://github.com/contentauth/c2pa-node',
             },
           ],
         },
-
         {
           type: 'category',
           label: 'Python',
@@ -125,17 +124,16 @@ const sidebars = {
             },
           ],
         },
-
         {
           type: 'category',
-          label: 'Node.js',
-          link: { type: 'doc', id: 'c2pa-node/readme' },
+          label: 'C++ / C',
+          link: { type: 'doc', id: 'c2pa-c/readme' },
           collapsed: true,
           items: [
             {
               type: 'link',
               label: 'GitHub',
-              href: 'https://github.com/contentauth/c2pa-node',
+              href: 'https://github.com/contentauth/c2pa-c',
             },
           ],
         },
@@ -159,6 +157,11 @@ const sidebars = {
           href: 'https://github.com/contentauth/c2pa-rs',
         },
       ],
+    },
+    {
+      type: 'doc',
+      label: 'FAQs',
+      id: 'faqs',
     },
     {
       type: 'doc',
