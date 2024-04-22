@@ -109,6 +109,10 @@ const sidebars = {
               label: 'GitHub',
               href: 'https://github.com/contentauth/c2pa-node',
             },
+            {
+              type: 'doc',
+              id: 'c2pa-node-example/readme',
+            },
           ],
         },
         {
