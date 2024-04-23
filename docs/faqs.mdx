@@ -17,7 +17,7 @@ export const FaqAnswer = ({ children }) => (
   </details>
 );
 
-### Is Content Credentials alone sufficient to prevent the spread of misinformation.
+### Are Content Credentials alone sufficient to prevent the spread of misinformation.
 
 <FaqAnswer>
 
@@ -26,11 +26,13 @@ Together, these approaches can make the metadata durable, or able to persist in 
 
 This "three-pronged" approach includes:
 
-- **Secure metadata**: Verifiable information about how content was made that is baked into the content itself, in a way that cannot be altered without leaving evidence of alteration. A Content Credential can indicate the provenance of any digital media asset and indicate how content may have been altered, what content was combined to produce the final content, and even what device or software was involved in each stage of production.
-- **Watermarking**: Although this term is often used generically to refer to data that is permanently attached to content and hard or impossible to remove, here, it refers to hidden information undetectable by humans but that can be decoded using a watermark detector. State-of-the-art watermarks can be impervious to alterations such as cropping or rotating or the addition of noise to video and audio. Importantly, the strength of a watermark is that it can survive rebroadcasting efforts like screenshotting, pictures of pictures, or re-recording of media, which effectively remove secure metadata.
+- **Secure metadata**: Verifiable information about how content was made that is baked into the content itself, in a way that cannot be altered without leaving evidence of alteration. This metadata can indicate the provenance of any digital media asset and indicate how content has been altered, what content was combined to produce the final content, and even what device or software was involved in each stage of production.
+
+- **Watermarking**: We use this term here to refer to hidden information undetectable by humans but that can be decoded using a specialized watermark detector. State-of-the-art watermarks can be impervious to alterations such as cropping or rotating or the addition of noise to video and audio. Importantly, a watermark can survive rebroadcasting efforts like screenshotting, pictures of pictures, or re-recording of media, which can remove secure metadata.
+
 - **Fingerprinting**: A way to create a unique code based on pixels, frames, or audio waveforms that can be computed and matched against other instances of the same content, even if there has been some degree of alteration. The fingerprint can be stored separately from the content as part of the Content Credential. The fingerprint can be re-computed on the fly and matched against a database of Content Credentials and associated stored fingerprints. This technique does not require embedding of information in the media itself and is immune to information removal because there is no information to remove.
 
-For more information, see the blog post from April 8, [Durable Content Credentials](https://contentauthenticity.org/blog/durable-content-credentials).
+For more information, see the blog post from April 8, 2024, [Durable Content Credentials](https://contentauthenticity.org/blog/durable-content-credentials).
 
 </FaqAnswer>
 
