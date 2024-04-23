@@ -17,6 +17,23 @@ export const FaqAnswer = ({ children }) => (
   </details>
 );
 
+### Is Content Credentials alone sufficient to prevent the spread of misinformation.
+
+<FaqAnswer>
+
+The most effective approach to content provenance is a combination of technologies and practices, including secure metadata, undetectable watermarks, and content fingerprinting.
+Together, these approaches can make the metadata durable, or able to persist in the face of screenshots and rebroadcast attacks.
+
+This "three-pronged" approach includes:
+
+- Secure metadata: This is verifiable information about how content was made that is baked into the content itself, in a way that cannot be altered without leaving evidence of alteration. A Content Credential can indicate the provenance of any digital media asset and indicate how content may have been altered, what content was combined to produce the final content, and even what device or software was involved in each stage of production.
+- Watermarking: This term is often used in a generic way to refer to data that is permanently attached to content and hard or impossible to remove. For our purposes here, I specifically refer to watermarking as a kind of hidden information that is not detectable by humans. It embeds a small amount of information in content that can be decoded using a watermark detector. State-of-the-art watermarks can be impervious to alterations such as the cropping or rotating of images or the addition of noise to video and audio. Importantly, the strength of a watermark is that it can survive rebroadcasting efforts like screenshotting, pictures of pictures, or re-recording of media, which effectively remove secure metadata.
+- Fingerprinting: This is a way to create a unique code based on pixels, frames, or audio waveforms that can be computed and matched against other instances of the same content, even if there has been some degree of alteration. Think of the way your favorite music-matching service works, locating a specific song from an audio sample you provide. The fingerprint can be stored separately from the content as part of the Content Credential. When someone encounters the content, the fingerprint can be re-computed on the fly and matched against a database of Content Credentials and its associated stored fingerprints. The advantage of this technique is it does not require the embedding of any information in the media itself. It is immune to information removal because there is no information to remove.
+
+For more information, see the blog post from April 8, [Durable Content Credentials](https://contentauthenticity.org/blog/durable-content-credentials).
+
+</FaqAnswer>
+
 ### Are Content Credentials a blockchain system?
 
 <FaqAnswer>
@@ -71,7 +88,7 @@ The C2PA specification allows for recovery of metadata stripped from an asset th
 <FaqAnswer>
 
 The information embedded in Content Credentials is totally up to each implementor.
-The [manifest](manifest/understanding-manifest) that defines the Content Credentials
+The [manifest store](manifest/understanding-manifest) that defines the Content Credentials
 can include various assertions about the image, including the ingredients, the
 date and time, the location, and the device that created the image.
 
