@@ -60,6 +60,11 @@ const readmes = [
     path: 'README.md',
   },
   {
+    dest: resolve(__dirname, '../docs/c2pa-node-example/readme.md'),
+    repo: 'contentauth/c2pa-node-example',
+    path: 'README.md',
+  },
+  {
     dest: resolve(__dirname, '../docs/c2pa-python/readme.md'),
     repo: 'contentauth/c2pa-python',
     path: 'README.md',
