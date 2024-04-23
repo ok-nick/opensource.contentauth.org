@@ -21,16 +21,17 @@ export const FaqAnswer = ({ children }) => (
 
 <FaqAnswer>
 
-The most effective approach to content provenance is a combination of technologies and practices, including secure metadata, undetectable watermarks, and content fingerprinting.
-Together, these approaches can make the metadata durable, or able to persist in the face of screenshots and rebroadcast attacks.
+The most effective approach to content provenance is a combination of technologies and practices, including secure metadata, undetectable watermarks, and content fingerprinting. Each of these approaches has its strengths and weaknesses, but when used together, they can make the content provenance more robust.
 
-This "three-pronged" approach includes:
+This "three-pronged" approach includes using:
 
-- **Secure metadata**: Verifiable information about how content was made that is baked into the content itself, in a way that cannot be altered without leaving evidence of alteration. This metadata can indicate the provenance of any digital media asset and indicate how content has been altered, what content was combined to produce the final content, and even what device or software was involved in each stage of production.
+- **Secure metadata**: Verifiable information about how content was made that is baked into the content itself, in a way that cannot be altered without leaving evidence of alteration. This metadata can indicate the provenance of any digital media asset and indicate how content has been altered, what content was combined to produce the final content, and even what device or software was involved in each stage of production. This is the purpose of the CAI open-source SDK.
 
-- **Watermarking**: We use this term here to refer to hidden information undetectable by humans but that can be decoded using a specialized watermark detector. State-of-the-art watermarks can be impervious to alterations such as cropping or rotating or the addition of noise to video and audio. Importantly, a watermark can survive rebroadcasting efforts like screenshotting, pictures of pictures, or re-recording of media, which can remove secure metadata.
+- **Watermarking**: Here, this term refers to hidden information undetectable by humans but that can be decoded using a specialized watermark detector. State-of-the-art watermarks can be impervious to alterations such as cropping or rotating or the addition of noise to video and audio. Importantly, a watermark can survive rebroadcasting efforts like screenshotting, pictures of pictures, or re-recording of media, which can remove secure metadata.
 
 - **Fingerprinting**: A way to create a unique code based on pixels, frames, or audio waveforms that can be computed and matched against other instances of the same content, even if there has been some degree of alteration. The fingerprint can be stored separately from the content as part of the Content Credential. The fingerprint can be re-computed on the fly and matched against a database of Content Credentials and associated stored fingerprints. This technique does not require embedding of information in the media itself and is immune to information removal because there is no information to remove.
+
+Combining these three approaches provides a unified solution that is robust and secure enough to ensure that provenance information is reliable.
 
 For more information, see the blog post from April 8, 2024, [Durable Content Credentials](https://contentauthenticity.org/blog/durable-content-credentials).
 
