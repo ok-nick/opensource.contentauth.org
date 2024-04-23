@@ -30,6 +30,10 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'manifest/ingredients',
+        },
+        {
+          type: 'doc',
           id: 'manifest/manifest-validation',
         },
         {
@@ -105,6 +109,10 @@ const sidebars = {
               label: 'GitHub',
               href: 'https://github.com/contentauth/c2pa-node',
             },
+            {
+              type: 'doc',
+              id: 'c2pa-node-example/readme',
+            },
           ],
         },
         {
@@ -153,6 +161,11 @@ const sidebars = {
           href: 'https://github.com/contentauth/c2pa-rs',
         },
       ],
+    },
+    {
+      type: 'doc',
+      label: 'FAQs',
+      id: 'faqs',
     },
     {
       type: 'doc',

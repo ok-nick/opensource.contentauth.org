@@ -9,7 +9,7 @@ Before reading this page, be sure to read [Getting started](/docs/getting-starte
 
 ## Overview
 
-To sign a C2PA manifest you need an end-entity certificate that complies with the C2PA trust model. Then you can use your private key and public certificates in the signing process. This page walks through an example of obtaining appropriate credentials and then using c2patool to  to sign a manifest using them.
+To sign a C2PA manifest you need an end-entity certificate that complies with the C2PA trust model. Then you can use your private key and public certificates in the signing process. This page walks through an example of obtaining appropriate credentials and then signing a manifest with them using C2PA Tool.
 
 :::note
 Best practices for handling keys and certificates are beyond the scope of this documentation.  Always protect your private keys with the highest level of security; for example, never share them through insecure channels such as email.  
@@ -33,9 +33,23 @@ A certificate used to sign C2PA manifests must:
   - The `anyExtendedKeyUsageEKU` field (2.5.29.37.0) must not be present.
   - If the configuration store does not contain a list of EKUs, a certificate that signs C2PA manifests must be valid for the `id-kp-emailProtection` (1.3.6.1.5.5.7.3.4) purpose and/or the `id-kp-documentSigning` (1.3.6.1.5.5.7.3.36) purpose.
 
+### Test certificates
+
+The CAI SDK does not allow you to use a self-signed certificate to sign a manifest.
+For development and testing, use the sample certificates provided with the SDK. The [Rust library `sdk/tests/fixtures/certs/` folder](https://github.com/contentauth/c2pa-rs/tree/main/sdk/tests/fixtures/certs) contains certificates and signing keys for many of the supported signature types [described below](#signature-types).
+
+Additionally, for convenience, CAI prerelease libraries also provide a subset of test certificates in each repository's `tests/fixtures` folder. The Node.js library even provides a [`CreateTestSigner()`](https://github.com/contentauth/c2pa-node/blob/main/docs/README.md#createtestsigner) convenience function to create a local signer instance using the test certificate.
+
+:::warning Warning
+These certificates are for use during development and testing only.  Do not use them in production!
+:::
+
+Although not recommended due to complexity and difficulty, you can create your own certificates for development and testing. Follow the requirements in the C2PA Technical Specification [Credential Types](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_credential_types) and [Digital Signatures](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_digital_signatures) sections.
+
+
 ### Signature types
 
-The following table describes the signature algorithms and recommended signature types that the [c2patool](/docs/c2patool) and [Rust library](/docs/rust-sdk) support. You must supply credentials (certificates and keys) that correspond to the signing algorithm. Signing/validation will fail if the the supplied credentials don't support the signature type. 
+The following table describes the signature algorithms and recommended signature types that the [C2PA Tool](/docs/c2patool) and [Rust library](/docs/rust-sdk) support. You must supply credentials (certificates and keys) that correspond to the signing algorithm. Signing/validation will fail if the the supplied credentials don't support the signature type. 
 
 | Certificate `signatureAlgorithm` | Description  | Recommended signature type | RFC Reference |
 | -------------------------------- | ------------ | -------------------------- | ------------- |
@@ -113,7 +127,7 @@ For many certificate providers, the `.pfx` file contains not just your certifica
 openssl pkcs12 -in mycertfile.pfx -nokeys -out mycerts.pem
 ```
 
-## Using credentials with c2patool
+## Using credentials with C2PA Tool
 
 To use the credentials extracted above you must know the signature types they support. Typically, this information is available from your certificate provider. If it is not, enter this OpenSSL command to dump certificate information:
 
@@ -143,7 +157,7 @@ Certificate:
 .
 ```
 
-You now have all the needed information to configure c2patool for manifest signing. Edit your [manifest store file](/docs/c2patool/manifest) to have the following content:
+You now have all the needed information to configure C2PA Tool for manifest signing. Edit your [manifest store file](/docs/c2patool/manifest) to have the following content:
 
 ```json
 "alg": "ps256",
@@ -155,7 +169,7 @@ You now have all the needed information to configure c2patool for manifest signi
 The `private_key` and `sign_cert` properties must be full paths to the key and certificate chain files generated above.
 :::note
 
-You can now use c2patool as described in the [c2patool documentation](/docs/c2patool/#adding-a-manifest-to-an-asset-file) to add a to add a manifest to an image or other asset file. The command will be something like this:
+You can now use C2PA Tool as described in its [documentation](/docs/c2patool/#adding-a-manifest-to-an-asset-file) to add a to add a manifest to an image or other asset file. The command will be something like this:
 
 ```
 c2patool -m my_manifest.json -o signed_image.jpg my_image.jpg
@@ -165,7 +179,7 @@ The example above uses the information in `my_manifest.json` to add a new manife
 
 ### Confirm it worked
 
-Use c2patool to confirm that you successfully signed the asset. Enter a command like this:
+Use C2PA Tool to confirm that you successfully signed the asset. Enter a command like this:
 
 ```
 c2patool signed_image.jpg 

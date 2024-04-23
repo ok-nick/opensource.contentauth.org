@@ -56,18 +56,16 @@ The CAI SDK handles assertions for thumbnails, content bindings, and ingredients
 
 ### Do not train assertion
 
-A "do not train" assertion specifies whether permission is granted to use an asset in data mining or AI/ML training.  The `label` property of such an assertion has the value `c2pa.training-mining` and  the corresponding data object has four relevant properties:
+Assertions with the `c2pa.training-mining` label indicate whether permission is granted to use an asset in data mining, machine learning (ML) training, or inference.   The latter is sometimes referred to as the "do not infer" assertion.
 
-- `c2pa.data_mining` - Whether text or data be extracted from the asset for purposes of determining "patterns, trends and correlations", including images containing text, where the text could be extracted via OCR.
-- `c2pa.ai_inference` - Whether the asset be used as input to a trained AI/ML model for the purposes of inferring a result.
-- `c2pa.ai_generative_training` - Whether the asset be used as training data for a generative AI/ML model that could produce derivative assets?  
-- `c2pa.ai_training` - Whether the asset be used as data to train non-generative AI/ML models, such as those used for classification, object detection, and so on.
+| Entry Key | Whether permission is granted...  | Possible values of `use` property |
+|-----------|-------------|-------------|
+| `c2pa.data_mining` | To extract text or data from the asset for purposes of determining "patterns, trends and correlations," including images containing text, where the text could be extracted via OCR. | `allowed`,<br/>  `notAllowed`,<br/>or `constrained` |
+| `c2pa.ai_training` |To use the asset to train non-generative AI/ML models, such as those used for classification, object detection, and so on. | `allowed`,<br/>  `notAllowed`,<br/>or `constrained` |
+| `c2pa.ai_generative_training`  | To use the asset as training data for a generative AI/ML model that could produce derivative assets. | `allowed`,<br/>  `notAllowed`,<br/>or `constrained`  |
+| `c2pa.ai_inference` | To use the asset as input to a trained AI/ML model for the purposes of inferring a result. Sometimes referred to as the "do not infer" assertion. | `allowed`,<br/>  `notAllowed`,<br/>or `constrained` |
 
-:::note
-The `c2pa.ai_generative_training` property enables creating derivative assets using generative AI, while other uses do not.
-:::
-
-The value of each of the above properties is an object with a `use` property that can have one of these properties:
+The value of each of these properties is an object with a `use` property that can have one of these values:
 
 - `allowed`: Permission is granted for this type of use.
 - `notAllowed`: Permission is NOT granted for this type of use.
@@ -75,7 +73,7 @@ The value of each of the above properties is an object with a `use` property tha
 
 For more information, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_training_and_data_mining).
 
-Example:
+For example:
 
 ```json
 "assertions": [
@@ -164,6 +162,7 @@ Earlier versions of the C2PA specification defined the `stds.iptc.photo-metadata
 Do not use the IPTC `plus:DataMining` property to specify whether permission is granted to use an asset in data mining or AI/ML training. Instead use the C2PA ["do not train" assertion](#do-not-train-assertion).
 :::
 
+For a summary reference to IPTC metadata properties, see [IPTC properties](iptc-properties).
 
 See also:
 - [Exploring c2patool and IPTC Photo Metadata](https://iptc.atlassian.net/wiki/spaces/PMD/pages/613613569/Exploring+c2patool+and+IPTC+Photo+Metadata) (Aug 2022).
@@ -215,8 +214,6 @@ For example:
   ...
 ]
 ```
-
-For a summary reference to IPTC metadata properties, see [IPTC properties](iptc-properties).
 
 ### Content bindings
 
@@ -272,7 +269,7 @@ For example:
 
 ## Actions
 
-Actions provide information about creation, edits, and other actions on an asset. In the manifest, an `actions` assertion is an array of [ManifestAssertion](../manifest/manifest-ref#manifestassertion) objects.   For example:
+Actions provide information about creation, edits, and other things that have occurred to an asset. In the manifest, an `actions` assertion is an array of [ManifestAssertion](../manifest/manifest-ref#manifestassertion) objects.   For example:
 
 ```json
 ...
