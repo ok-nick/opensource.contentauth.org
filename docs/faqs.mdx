@@ -17,21 +17,21 @@ export const FaqAnswer = ({ children }) => (
   </details>
 );
 
-### Are Content Credentials alone sufficient to prevent the spread of misinformation.
+### Are Content Credentials alone sufficient to prevent the spread of misinformation?
 
 <FaqAnswer>
 
-The most effective approach to content provenance is a combination of technologies and practices, including secure metadata, undetectable watermarks, and content fingerprinting. Each of these approaches has its strengths and weaknesses, but when used together, they can make the content provenance more robust.
+The most effective approach to content provenance is a combination of technologies and practices, including Content Credentials' secure metadata, undetectable watermarks, and content fingerprinting. Using these three technologies together in concert can make content provenance more robust than using just one.
 
 This "three-pronged" approach includes using:
 
-- **Secure metadata**: Verifiable information about how content was made that is baked into the content itself, in a way that cannot be altered without leaving evidence of alteration. This metadata can indicate the provenance of any digital media asset and indicate how content has been altered, what content was combined to produce the final content, and even what device or software was involved in each stage of production. This is the purpose of the CAI open-source SDK.
+- **Secure metadata** (Content Credentials): Verifiable information about how content was made that cannot be altered without leaving evidence of alteration. This metadata can indicate the provenance of a digital media asset and indicate how it was created. The CAI open-source SDK enables applications to create and securely attach this metdata to assets and display it to end-users.
 
-- **Watermarking**: Here, this term refers to hidden information undetectable by humans but that can be decoded using a specialized watermark detector. State-of-the-art watermarks can be impervious to alterations such as cropping or rotating or the addition of noise to video and audio. Importantly, a watermark can survive rebroadcasting efforts like screenshotting, pictures of pictures, or re-recording of media, which can remove secure metadata.
+- **Watermarking**: Hidden information undetectable by humans but that can be decoded using a specialized watermark detector. State-of-the-art watermarks can be impervious to alterations such as cropping or rotating or the addition of noise to video and audio. Importantly, a watermark can survive rebroadcasting efforts like screenshotting, pictures of pictures, or re-recording of media, which can remove secure metadata.
 
-- **Fingerprinting**: A way to create a unique code based on pixels, frames, or audio waveforms that can be computed and matched against other instances of the same content, even if there has been some degree of alteration. The fingerprint can be stored separately from the content as part of the Content Credential. The fingerprint can be re-computed on the fly and matched against a database of Content Credentials and associated stored fingerprints. This technique does not require embedding of information in the media itself and is immune to information removal because there is no information to remove.
+- **Fingerprinting**: A way to create a unique code based on pixels, frames, or audio waveforms that can be computed and matched against other instances of the same content, even if there has been some alteration. The fingerprint can be stored separately from the content, re-computed on the fly, and matched against a database of Content Credentials and associated stored fingerprints. This technique does not require embedding of information in the media itself and is immune to information removal because there is no information to remove.
 
-Combining these three approaches provides a unified solution that is robust and secure enough to ensure that provenance information is reliable.
+Combining these three approaches provides a unified solution that is robust and secure enough to ensure reliable provenance information.
 
 For more information, see the blog post from April 8, 2024, [Durable Content Credentials](https://contentauthenticity.org/blog/durable-content-credentials).
 
