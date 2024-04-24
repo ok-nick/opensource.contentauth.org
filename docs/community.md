@@ -7,11 +7,15 @@ The Content Authenticity Initiative has an active and growing community of devel
 
 ## GitHub
 
-All the open-source code is hosted in GitHub in the [CAI GitHub organization](https://github.com/contentauth) and we welcome input in the form of issues in the repositories:
+All the open-source CAI code is hosted in GitHub in the [CAI GitHub organization](https://github.com/contentauth) and we welcome input in the form of issues and pull requestsin the repositories:
 
-- **Rust Library**: [c2pa-rs](https://github.com/contentauth/c2pa-rs/issues)
-- **CLI tool**: [c2patool](https://github.com/contentauth/c2patool/issues)
-- **JavaScript library**: [c2pa-js](https://github.com/contentauth/c2pa-js/issues)
+- **Rust Library**: [c2pa-rs](https://github.com/contentauth/c2pa-rs)
+- **CLI tool**: [c2patool](https://github.com/contentauth/c2patool)
+- **JavaScript library**: [c2pa-js](https://github.com/contentauth/c2pa-js)
+- **Prerelease libraries**: 
+  - [c2pa-python](https://github.com/contentauth/c2pa-python)
+  - [c2pa-node](https://github.com/contentauth/c2pa-node)
+  - [c2pa-c](https://github.com/contentauth/c2pa-c)
 - **JavaScript examples**: [c2pa-js-examples](https://github.com/contentauth/c2pa-js-examples)
 
 If you think you've found a bug or want to request a feature, please open an issue in the appropriate repository.
@@ -20,6 +24,15 @@ We also welcome thoughtful pull requests (PRs) from the community, following the
 
 Participants are required to follow the [Adobe Code of Conduct](https://github.com/contentauth/c2pa-js/blob/main/CODE_OF_CONDUCT.md) to maintain an open and welcoming environment for all.
 
+### Related projects
+
+These related projects may be of interest, but the CAI team doesn't maintain or support them:
+
+- [**Drupal module**](https://github.com/contentauth/c2pa-drupal): Enables Drupal sites to process and display Content Credentials for supported image types.
+- [**DASH video player**](https://github.com/contentauth/dash.js/tree/c2pa-dash):  DASH video player that displays Content Credentials in browsers for supported media types. This repo/branch is a work-in-progress forked from [dash.js](https://github.com/Dash-Industry-Forum/dash.js), the canonical reference JavaScript implementation for the playback of MPEG DASH. 
+- [**TrustMark**](https://github.com/adobe/trustmark): Open-source Python implementation of watermarking for encoding, decoding and removing image watermarks.
+- [**C2PA Security Testing Tool**](https://github.com/contentauth/c2pa-attacks): A CLI tool derived from [c2patool](https://github.com/contentauth/c2patool) that performs security testing on a Content Credentials application.  This tool is intended for use by software security professionals.
+
 ## Discussions on Discord
 
 The CAI maintains a [Discord server](https://discord.gg/CAI) for open technical discussions within the developer community, with several text channels focused on different projects and topics.
@@ -27,9 +40,7 @@ The CAI maintains a [Discord server](https://discord.gg/CAI) for open technical 
 ## Other resources
 
 - **Newsletter**: [Subscribe to the CAI mailing list](https://contentauthenticity.org/newsletter) to get the latest news and updates about CAI tools via email.
-
-- **General FAQs**: In case you missed it, the [Frequently asked questions](https://contentauthenticity.org/faq) address a number of high-level issues.
-
+- **FAQs**: In case you missed it, the [Frequently asked questions](./faqs) address a number of high-level questions.
 - **Twitter feed**: Follow [CAI on Twitter](https://twitter.com/ContentAuth) for the latest general announcements and information.
 
 ## Developer questionnaire
