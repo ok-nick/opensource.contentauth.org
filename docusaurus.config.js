@@ -5,30 +5,13 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const copyright = `
-<div>
-  Copyright © ${new Date().getFullYear()} Adobe. All rights reserved.<br /><a
-    href="https://www.adobe.com/privacy.html"
-    target="_blank"
-    rel="noopener noreferrer"
-    >Privacy</a
-  >
-  |
-  <a
-    href="https://www.adobe.com/legal/terms.html"
-    target="_blank"
-    rel="noopener noreferrer"
-    >Terms of Use</a
-  >
-  |
-  <button href="/" id="ot-sdk-button" class="ot-sdk-show-settings">
-    Cookie Preferences</button
-  ><br /><a
-    href="https://www.adobe.com/privacy/us-rights.html"
-    target="_blank"
-    rel="noopener noreferrer"
-    >Do not sell or share my personal information</a
-  >
-</div>`;
+<div style="font-size: 0.75rem;">
+  Copyright © ${new Date().getFullYear()} Adobe. All rights reserved.
+| <a style="text-decoration: underline;" href="https://www.adobe.com/privacy.html" target="_blank" rel="noopener noreferrer">Privacy</a>
+| <a style="text-decoration: underline;" href="https://www.adobe.com/legal/terms.html" target="_blank" rel="noopener noreferrer">Terms of use</a>
+| <a style="text-decoration: underline;" href="https://www.adobe.com/privacy/us-rights.html" target="_blank" rel="noopener noreferrer">Do not sell or share my personal information</a>
+</div>
+`;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -79,9 +62,10 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       metadata: [
-        { property: 'twitter:card', content: 'summary_large_image' },
+        //  { property: 'twitter:card', content: 'summary_large_image' },
         { property: 'og:card', content: 'summary_large_image' },
-        {
+        /*  
+      {
           property: 'twitter:image',
           content:
             'https://opensource.contentauthenticity.org/img/open-source@2x.png?v=1',
@@ -91,15 +75,18 @@ const config = {
           content:
             'Integrate secure provenance signals into your site, app, or service using open-source tools developed by the Content Authenticity Initiative.',
         },
+        */
         {
           property: 'og:description',
           content:
             'Integrate secure provenance signals into your site, app, or service using open-source tools developed by the Content Authenticity Initiative.',
         },
+        /*
         {
           property: 'twitter:title',
           content: 'Open-source tools for content authenticity and provenance',
         },
+        */
         {
           property: 'og:title',
           content: 'Open-source tools for content authenticity and provenance',
@@ -117,18 +104,9 @@ const config = {
           src: 'img/logo-cai.svg',
           width: 180,
           height: 54,
+          href: 'https://contentauthenticity.org',
         },
         items: [
-          {
-            to: '/docs/introduction',
-            position: 'right',
-            label: 'Docs',
-          },
-          {
-            to: 'https://www.contentauthenticity.org',
-            label: 'Learn more',
-            position: 'right',
-          },
           {
             href: 'https://discord.gg/CAI',
             position: 'right',
@@ -139,20 +117,24 @@ const config = {
             position: 'right',
             className: 'header-logo header-github-link',
           },
+          /*
           {
             href: 'https://twitter.com/ContentAuth',
             position: 'right',
             className: 'header-logo header-twitter-link',
           },
+          */
         ],
       },
       footer: {
         style: 'light',
+        /*
         logo: {
           src: '#', // stop warning.
           alt: 'Content Authenticity Initiative',
           href: 'https://contentauthenticity.org',
         },
+        */
         copyright,
       },
       prism: {

@@ -6,7 +6,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --cai-color-background: #f8f6f4;
+  --cai-color-background: #ffffff;
   --cai-color-on-background: #000000;
   --cai-color-background-dark: #e6e3e0;
   --cai-color-on-background-dark: #000000;
@@ -57,7 +57,7 @@
   --ifm-container-width-xxl: 1600px;
   --ifm-container-width-xl: 1200px;
   --ifm-container-width: 1080px;
-  --ifm-heading-font-family: var(--cai-font-family-acuminprowide-black);
+  --ifm-heading-font-family: var(--cai-font-family-acuminpro-bold);
   --ifm-heading-line-height: 1.1;
   --ifm-heading-color: var(--cai-color-on-background);
   --ifm-color-content: var(--cai-color-on-background);
