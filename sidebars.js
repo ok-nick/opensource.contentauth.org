@@ -16,6 +16,10 @@ const sidebars = {
           type: 'doc',
           id: 'verify',
         },
+        {
+          type: 'doc',
+          id: 'verify-trust-list',
+        },
       ],
     },
     {
