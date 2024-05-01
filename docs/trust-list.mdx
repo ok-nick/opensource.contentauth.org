@@ -13,36 +13,68 @@ If an asset's Content Credential was not signed by a public key in the trust lis
 The C2PA intends to publish an official C2PA public trust list. Until then, Verify uses a temporary known certificate list. The list is subject to change, and will be deprecated when the official trust list is published.
 :::
 
-## Trust list
+### Using the temporary known certificate list
 
-The Verify trust list is in ...
+The contentcredentials.org site hosts the following files that are used to [validate signing certificates](https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#_c2pa_signers):
 
-<div class="review-comment">
-NOTE: https://github.com/contentauth/contentcredentials.org/blob/main/static/trust/allowed.pem is not publicly visible.
+- https://contentcredentials.org/trust/anchors.pem contains the certificates of the trust anchors.
+- https://contentcredentials.org/trust/allowed.pem consists of trusted end-entity certificates that the site allows. To save bandwidth, a [version](https://contentcredentials.org/trust/allowed.sha256.txt) with the SHA-256 hashes of the certificates is also available.
+- https://contentcredentials.org/trust/store.cfg contains the trust configuration. Currently this consists of accepted Extended Key Usage (EKU) values that the site supports.
 
-Where can users find the trust list?
+#### Usage with c2patool
 
-</div>
+Please view the [c2patool documentation](https://opensource.contentauthenticity.org/docs/c2patool/#using-the-temporary-contentcredentialsorg--verify-trust-settings) which walks through how to use these resources with c2patool.
 
-### Certificate requirements
+#### Usage with c2pa-js
 
-_How to buy cert and specific requirements for certs_
+You can load these lists into c2pa-js by passing them to the `read` or `readAll` functions as shown in the following example:
 
-TBD
+```ts
+import { createC2pa, type ToolkitSettings } from 'c2pa';
+import wasmSrc from 'c2pa/dist/assets/wasm/toolkit_bg.wasm?url';
+import workerSrc from 'c2pa/dist/c2pa.worker.min.js?url';
 
-### How to add a key to the trust list
+async function loadTrustResource(file: string): Promise<string> {
+  const res = await fetch(`https://contentcredentials.org/trust/${file}`);
 
-To add a public key to the trust list:
+  return res.text();
+}
 
-... _PROCEDURE TBD_
+async function getToolkitSettings(): Promise<ToolkitSettings> {
+  const [trustAnchors, allowedList, trustConfig] = await Promise.all(
+    ['anchors.pem', 'allowed.sha256.txt', 'store.cfg'].map(loadTrustResource),
+  );
+
+  return {
+    trust: {
+      trustConfig,
+      trustAnchors,
+      allowedList,
+    },
+    verify: {
+      verifyTrust: true,
+    },
+  };
+}
+
+async function readFile(asset: File) {
+  const c2pa = await createC2pa({
+    wasmSrc,
+    workerSrc,
+  });
+
+  return c2pa.read(asset, {
+    settings: await getToolkitSettings(),
+  });
+}
+```
+
+:::note
+This code is for illustration purposes only. Production code should reuse the `c2pa` object and have a short-lived cache on the `getToolkitSettings()` output to avoid making unnecessary network calls.
+:::
+
+### How to add a certificate to the temporary known certificate list
+
+If you are interested in adding a certificate to the temporary known certificate list, please email tbd@contentcredentials.org.
 
 ## Anchor trust list
-
-The anchor trust list is a list of root CAs in https://github.com/contentauth/contentcredentials.org/blob/main/static/trust/anchors.pem.
-
-<div class="review-comment">
-EXPLAIN DIFF BETWEEN THIS AN THE TRUST LIST.
-
-NOTE: This file is not publicly visible either.
-
-</div>
