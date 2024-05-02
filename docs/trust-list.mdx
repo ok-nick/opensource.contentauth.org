@@ -3,31 +3,39 @@ id: verify-trust-list
 title: Verify tool trust list
 ---
 
-The C2PA **[Verify tool](https://contentcredentials.org/verify)** uses a trust list of public keys to verify that a Content Credential was issued by a known source.
-
-If an asset's Content Credential was not signed by a public key in the trust list, the Verify tool will display this message:
-
-**This Content Credential was issued by an unknown source**.
+import verify_unknown_source from '../static/img/verify-cc-unknown-source.png';
 
 :::note
-The C2PA intends to publish an official C2PA public trust list. Until then, Verify uses a temporary known certificate list. The list is subject to change, and will be deprecated when the official trust list is published.
+The C2PA intends to publish an official public trust list. Until then, Verify uses a temporary known certificate list. The list is subject to change, and will be deprecated when the official trust list is published.
 :::
 
-### Using the temporary known certificate list
+The C2PA **[Verify tool](https://contentcredentials.org/verify)** uses a trust list of certificates to verify that a Content Credential was issued by a known source.
+
+If an asset's Content Credential was not signed by a certificate in the trust list, the Verify tool will display this message:
+
+<img src={verify_unknown_source} width="300" />
+
+## Temporary known certificate list
 
 The contentcredentials.org site hosts the following files that are used to [validate signing certificates](https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#_c2pa_signers):
 
 - https://contentcredentials.org/trust/anchors.pem contains the certificates of the trust anchors.
 - https://contentcredentials.org/trust/allowed.pem consists of trusted end-entity certificates that the site allows. To save bandwidth, a [version](https://contentcredentials.org/trust/allowed.sha256.txt) with the SHA-256 hashes of the certificates is also available.
-- https://contentcredentials.org/trust/store.cfg contains the trust configuration. Currently this consists of accepted Extended Key Usage (EKU) values that the site supports.
+- https://contentcredentials.org/trust/store.cfg contains the trust configuration that consists of accepted Extended Key Usage (EKU) values that the site supports.
 
-#### Usage with c2patool
+<div class="review-comment">Let's explain what we mean by "trust anchors"</div>
 
-Please view the [c2patool documentation](https://opensource.contentauthenticity.org/docs/c2patool/#using-the-temporary-contentcredentialsorg--verify-trust-settings) which walks through how to use these resources with c2patool.
+## Usage with c2patool
 
-#### Usage with c2pa-js
+The [c2patool documentation](../c2patool/#using-the-temporary-contentcredentialsorg--verify-trust-settings) explains how to use these resources with c2patool.
 
-You can load these lists into c2pa-js by passing them to the `read` or `readAll` functions as shown in the following example:
+## Usage with JavaScript library
+
+To load and use these lists with the JavaScript librar (`c2pa-js`), pass them to the `read` or `readAll` functions as shown in the following TypeScript example:
+
+<div class="review-comment">
+  Do you mean `readFile`? I don't see `readAll` in the code below.
+</div>
 
 ```ts
 import { createC2pa, type ToolkitSettings } from 'c2pa';
@@ -78,3 +86,5 @@ This code is for illustration purposes only. Production code should reuse the `c
 If you are interested in adding a certificate to the temporary known certificate list, please email tbd@contentcredentials.org.
 
 ## Anchor trust list
+
+??
