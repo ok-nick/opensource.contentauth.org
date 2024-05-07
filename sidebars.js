@@ -171,6 +171,11 @@ const sidebars = {
       type: 'doc',
       id: 'community-resources',
     },
+    {
+      type: 'doc',
+      label: 'Roadmap',
+      id: 'roadmap',
+    },
   ],
 };
 
