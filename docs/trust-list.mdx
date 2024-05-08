@@ -5,11 +5,11 @@ title: Verify tool trust list
 
 import verify_unknown_source from '../static/img/verify-cc-unknown-source.png';
 
-:::note
-The C2PA intends to publish an official public trust list. Until then, Verify uses a temporary known certificate list. The list is subject to change, and will be deprecated when the official trust list is published.
-:::
-
 The C2PA **[Verify tool](https://contentcredentials.org/verify)** uses a trust list of certificates to verify that a Content Credential was issued by a known source.
+
+:::note
+The C2PA intends to publish an official public trust list. Until then, **[Verify](https://contentcredentials.org/verify)** uses a temporary known certificate list. The list is subject to change and will be deprecated when the official trust list is published.
+:::
 
 If an asset's Content Credential was not signed by a certificate in the trust list, the Verify tool will display this message:
 
@@ -75,7 +75,7 @@ async function readFile(asset: File) {
 ```
 
 :::note
-This code is for illustration purposes only. Production code should reuse the `c2pa` object and have a short-lived cache on the `getToolkitSettings()` output to avoid making unnecessary network calls.
+This code is for illustration purposes only. Production code should reuse the `c2pa` object and cache the output of `getToolkitSettings()` to avoid making unnecessary network calls.
 :::
 
 ### How to add a certificate to the temporary known certificate list
@@ -86,5 +86,5 @@ If you are interested in adding a certificate to the temporary known certificate
 
 <div class="review-comment">
   Is this the same as "trust anchors". If so, to avoid any possible confusion,
-  let's pick one term: either "anchor trust list" or "trust anchors".{' '}
+  let's pick one term: either "anchor trust list" or "trust anchors".
 </div>
