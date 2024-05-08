@@ -20,10 +20,11 @@ If an asset's Content Credential was not signed by a certificate in the trust li
 The contentcredentials.org site hosts the following files that are used to [validate signing certificates](https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#_c2pa_signers):
 
 - https://contentcredentials.org/trust/anchors.pem contains the certificates of the trust anchors.
+  <div class="review-comment">
+    Let's explain what we mean by "trust anchors"
+  </div>
 - https://contentcredentials.org/trust/allowed.pem consists of trusted end-entity certificates that the site allows. To save bandwidth, a [version](https://contentcredentials.org/trust/allowed.sha256.txt) with the SHA-256 hashes of the certificates is also available.
 - https://contentcredentials.org/trust/store.cfg contains the trust configuration that consists of accepted Extended Key Usage (EKU) values that the site supports.
-
-<div class="review-comment">Let's explain what we mean by "trust anchors"</div>
 
 ## Usage with c2patool
 
@@ -83,4 +84,7 @@ If you are interested in adding a certificate to the temporary known certificate
 
 ## Anchor trust list
 
-??
+<div class="review-comment">
+  Is this the same as "trust anchors". If so, to avoid any possible confusion,
+  let's pick one term: either "anchor trust list" or "trust anchors".{' '}
+</div>
