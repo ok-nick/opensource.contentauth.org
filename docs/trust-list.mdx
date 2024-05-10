@@ -24,9 +24,8 @@ The C2PA intends to publish an official public trust list. Until then, **[Verify
 The [contentcredentials.org](https://contentcredentials.org/) site hosts the following files that it uses to [validate signing certificates](https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#_c2pa_signers). Together, these files form the temporary trust list:
 
 - **The temporary known certificate list** in https://contentcredentials.org/trust/allowed.pem consists of trusted end-entity certificates that the site allows. If the certificate is on this list, it is trusted. To reduce bandwidth consumption, a [version](https://contentcredentials.org/trust/allowed.sha256.txt) with the SHA-256 hashes of the certificates is also available.
-- **The temporary known anchor list** in https://contentcredentials.org/trust/anchors.pem contains the certificates of the trust anchors.  
-  If an end-entity [certificate's chain](getting-started#signing-and-certificates) can be traced back to an anchor certificate on this list, the certificate is trusted.
-- The configuration file https://contentcredentials.org/trust/store.cfg specifies the accepted Extended Key Usage (EKU) values that the site supports.
+- **The temporary known anchor list** in https://contentcredentials.org/trust/anchors.pem contains the certificates of the trust anchors. If an end-entity [certificate's chain](getting-started#signing-and-certificates) can be traced back to an anchor certificate on this list, the certificate is trusted.
+- **The configuration file**, https://contentcredentials.org/trust/store.cfg, specifies the accepted Extended Key Usage (EKU) values that the site supports.
 
 <div class="review-comment">
   Maurice: Does EKU filtering apply ONLY to known anchor list? Or also
