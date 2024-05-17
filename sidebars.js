@@ -18,7 +18,7 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'verify-trust-list',
+          id: 'verify-known-cert-list',
         },
       ],
     },

@@ -1,45 +1,44 @@
 ---
-id: verify-trust-list
-title: Verify tool trust list
+id: verify-known-cert-list
+title: Verify tool known certificate list
 ---
 
 import verify_unknown_source from '../static/img/verify-cc-unknown-source.png';
 
-The C2PA **[Verify tool](https://contentcredentials.org/verify)** uses a
-_trust list_ of certificates to verify that a Content Credential was issued by a known source. If an asset's Content Credential was not signed by a "trusted certificate" (as explained below), the Verify tool will display this message:
+The C2PA **[Verify tool](https://contentcredentials.org/verify)** uses a list of _known certificates_ to determine that a Content Credential was issued by a known source. If an asset's Content Credential was not signed by a certificate on the list (as explained below), the Verify tool will display this message:
 
 <img
   src={verify_unknown_source}
   style={{ width: '300px', display: 'block', margin: '10px auto' }}
 />
 
-Conversely, if the Content Credential was signed by a trusted certificate, the Verify tool will display the [name of the certificate owner and time of the claim signature](verify#title-and-signing-information).
+Conversely, if the Content Credential was signed by a certificate on the list, the Verify tool will display the [name of the certificate owner and time of the claim signature](verify#title-and-signing-information).
 
 :::note
-The C2PA intends to publish an official public trust list. Until then, **[Verify](https://contentcredentials.org/verify)** uses a temporary trust list. The list is subject to change and will be deprecated when C2PA publishes the official trust list.
+The C2PA intends to publish an official public list of known certificates. Until then, **[Verify](https://contentcredentials.org/verify)** uses a temporary list. The list is subject to change and will be deprecated when C2PA publishes the official list.
 :::
 
-## Temporary trust list
+## Temporary known certificate list
 
-The [contentcredentials.org](https://contentcredentials.org/) site hosts the following files that it uses to [validate signing certificates](https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#_c2pa_signers). Together, these files form the temporary trust list:
+The [contentcredentials.org](https://contentcredentials.org/) site hosts the following files that it uses to [validate signing certificates](https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#_c2pa_signers). Together, these files form the temporary known certificate list:
 
-- **The temporary known certificate list** in https://contentcredentials.org/trust/allowed.pem consists of trusted end-entity certificates that the site allows. If the certificate is on this list, it is trusted. To reduce bandwidth consumption, a [version](https://contentcredentials.org/trust/allowed.sha256.txt) with the SHA-256 hashes of the certificates is also available.
-- **The temporary known anchor list** in https://contentcredentials.org/trust/anchors.pem contains the certificates of the trust anchors. If an end-entity [certificate's chain](getting-started#signing-and-certificates) can be traced back to an anchor certificate on this list, the certificate is trusted.
+- **The temporary end-entity certificate list** in https://contentcredentials.org/trust/allowed.pem consists of end-entity certificates. If the certificate is on this list, it is considered "known." To reduce bandwidth consumption, a [version](https://contentcredentials.org/trust/allowed.sha256.txt) with the SHA-256 hashes of the certificates is also available.
+- **The temporary known anchor list** in https://contentcredentials.org/trust/anchors.pem contains the list of known anchor certificates. If an end-entity [certificate's chain](getting-started#signing-and-certificates) can be traced back to an anchor certificate on this list, the certificate is considered "known."
 - **The configuration file**, https://contentcredentials.org/trust/store.cfg, specifies the accepted Extended Key Usage (EKU) values that the site supports.
 
 <div class="review-comment">
-  Maurice: Does EKU filtering apply ONLY to known anchor list? Or also
-  end-entity cert? (Eric--might be nice to have a loophole for accidental
-  misconfig).
+  Maurice: Does EKU filtering apply ONLY to anchor certs? Or also end-entity
+  cert? (Eric--might be nice to have a loophole for accidental misconfig). Does
+  this mean that only certs that have these EKUs are accepted?
 </div>
 
-## Using the trust list
+## Using the known certificate list
 
-You can use the C2PA Tool or the CAI JavaScript library to determine whether a certificate is on the temporary trust list.
+You can use the C2PA Tool or the CAI JavaScript library to determine whether a certificate is on the temporary known certificate list.
 
 ### Using with C2PA Tool
 
-The [C2PA Tool documentation](./c2patool/#using-the-temporary-contentcredentialsorg--verify-trust-settings) explains how to use the temporary trust list with the tool.
+The [C2PA Tool documentation](./c2patool/#using-the-temporary-contentcredentialsorg--verify-trust-settings) explains how to use the temporary known certificate list with the tool.
 
 ### Using with the JavaScript library
 
@@ -89,6 +88,7 @@ async function readFile(asset: File) {
 This code is for illustration purposes only. To ensure acceptable performance, production code should reuse the `c2pa` object and cache the output of `getToolkitSettings()` to avoid making unnecessary network calls.
 :::
 
-## How to add a certificate to the trust list
+## How to add a certificate to the known certificate list
 
-To request adding a certificate to the temporary known certificate list, please email `tbd@contentcredentials.org`.
+If you have an application that is in production and publicly available, you can request adding the signing certificate to the temporary known certificate list.
+Please email `tbd@contentcredentials.org` with the pertinent information.
