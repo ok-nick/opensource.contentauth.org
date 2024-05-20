@@ -5,14 +5,14 @@ title: Verify tool known certificate list
 
 import verify_unknown_source from '../static/img/verify-cc-unknown-source.png';
 
-The C2PA **[Verify tool](https://contentcredentials.org/verify)** uses a list of _known certificates_ to determine that a Content Credential was issued by a known source. If an asset's Content Credential was not signed by a certificate on the list (as explained below), the Verify tool will display this message:
+The C2PA **[Verify tool](https://contentcredentials.org/verify)** uses a list of _known certificates_ to determine that a Content Credential was issued by a known source. If an asset's Content Credential was not signed by a known certificate (as explained below), the Verify tool will display this message:
 
 <img
   src={verify_unknown_source}
   style={{ width: '300px', display: 'block', margin: '10px auto' }}
 />
 
-Conversely, if the Content Credential was signed by a certificate on the list, the Verify tool will display the [name of the certificate owner and time of the claim signature](verify#title-and-signing-information).
+Conversely, if the Content Credential was signed by a known certificate, the Verify tool will display the [name of the certificate owner and time of the claim signature](verify#title-and-signing-information).
 
 :::note
 The C2PA intends to publish an official public list of known certificates. Until then, **[Verify](https://contentcredentials.org/verify)** uses a temporary list. The list is subject to change and will be deprecated when C2PA publishes the official list.
@@ -91,4 +91,17 @@ This code is for illustration purposes only. To ensure acceptable performance, p
 ## How to add a certificate to the known certificate list
 
 If you have an application that is in production and publicly available, you can request adding the signing certificate to the temporary known certificate list.
-Please email `tbd@contentcredentials.org` with the pertinent information.
+
+To request adding a certificate to the list, email `tbd@contentcredentials.org` with the following information:
+
+- Organization name.
+- Type of certificate (root, intermediate, or end-entity).
+- Certificate or certificate chain as a text file in PEM format (`.pem` or `.txt`).
+- Sample image for testing.
+
+We will review your request. If it is approved, it will be deployed to Verify and you will receive a confirmation email.
+
+<div class="review-comment">
+  We need to either create the email address or use the AirTable form:
+  https://bit.ly/cert-form-request.
+</div>
