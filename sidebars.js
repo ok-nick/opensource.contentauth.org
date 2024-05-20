@@ -173,7 +173,7 @@ const sidebars = {
     },
     {
       type: 'doc',
-      label: 'Roadmap',
+      label: 'Task planning & roadmap',
       id: 'roadmap',
     },
   ],
