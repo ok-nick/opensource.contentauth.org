@@ -24,13 +24,7 @@ The [contentcredentials.org](https://contentcredentials.org/) site hosts the fol
 
 - **The temporary end-entity certificate list** in https://contentcredentials.org/trust/allowed.pem consists of end-entity certificates. If the certificate is on this list, it is considered "known." To reduce bandwidth consumption, a [version](https://contentcredentials.org/trust/allowed.sha256.txt) with the SHA-256 hashes of the certificates is also available.
 - **The temporary known anchor list** in https://contentcredentials.org/trust/anchors.pem contains the list of known anchor certificates. If an end-entity [certificate's chain](getting-started#signing-and-certificates) can be traced back to an anchor certificate on this list, the certificate is considered "known."
-- **The configuration file**, https://contentcredentials.org/trust/store.cfg, specifies the accepted Extended Key Usage (EKU) values that the site supports.
-
-<div class="review-comment">
-  Maurice: Does EKU filtering apply ONLY to anchor certs? Or also end-entity
-  cert? (Eric--might be nice to have a loophole for accidental misconfig). Does
-  this mean that only certs that have these EKUs are accepted?
-</div>
+- **The configuration file**, https://contentcredentials.org/trust/store.cfg, specifies the [Extended Key Usage (EKU)](https://datatracker.ietf.org/doc/html/rfc9336) values accepted for end-entity certificates. An end-entity certificate must have at least one of the EKUs in this list to be valid.
 
 ## Using the known certificate list
 
@@ -92,7 +86,7 @@ This code is for illustration purposes only. To ensure acceptable performance, p
 
 If you have an application that is in production and publicly available, you can request adding the signing certificate to the temporary known certificate list.
 
-To request adding a certificate to the list, email `tbd@contentcredentials.org` with the following information:
+To request adding a certificate to the list, email `verify-tl@c2pa.org` with the following information:
 
 - Organization name.
 - Type of certificate (root, intermediate, or end-entity).
@@ -100,8 +94,3 @@ To request adding a certificate to the list, email `tbd@contentcredentials.org` 
 - Sample image for testing.
 
 We will review your request. If it is approved, it will be deployed to Verify and you will receive a confirmation email.
-
-<div class="review-comment">
-  We need to either create the email address or use the AirTable form:
-  https://bit.ly/cert-form-request.
-</div>
