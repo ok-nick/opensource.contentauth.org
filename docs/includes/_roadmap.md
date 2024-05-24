@@ -6,65 +6,11 @@
 
 <p>The task has been coded, checked in, and in a repository (SDK library) tagged release.  At this point, the feature or fix is available for use and the task is considered complete.</p>
 
-<table>
-<tr>
-<th>Task</th>
-<th>Repository</th>
-</tr>
-
-
-<tr>
-<td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/328"> C2PA-rs returns wrong validation code for box hash failure </a> </td>
-<td>c2pa-rs </td>
-</tr>
-
-
-<tr>
-<td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/350"> Update openssl create, verify compatibility with OpenSSL 3.x </a> </td>
-<td>c2pa-rs </td>
-</tr>
-
-
-<tr>
-<td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/pull/355"> Add support for ARW and NEF </a> </td>
-<td>c2pa-rs </td>
-</tr>
-
-
-<tr>
-<td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/377"> Trust list to SDK </a> </td>
-<td>c2pa-rs </td>
-</tr>
-
-
-<tr>
-<td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/378"> OCSP enablement SDK </a> </td>
-<td>c2pa-rs </td>
-</tr>
-
-
-<tr>
-<td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/380"> OCSP solution for Verify </a> </td>
-<td>c2pa-rs </td>
-</tr>
-
-
-<tr>
-<td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/399"> New signing protocol </a> </td>
-<td>c2pa-rs </td>
-</tr>
-
-
-<tr>
-<td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/395"> Regions of Interest support </a> </td>
-<td>c2pa-rs </td>
-</tr>
-
-
-<tr>
-<td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/413"> Add support for SDK configuration settings </a> </td>
-<td>c2pa-rs </td>
-</tr></table>
+<p>Changes that have been released are listed in the repository change logs:</p>
+<ul>
+<li><a href="https://github.com/contentauth/c2pa-rs/blob/main/CHANGELOG.md">c2pa-rs change log</a></li>
+<li><a href="https://github.com/contentauth/c2patool/blob/main/CHANGELOG.md">c2patool change log</a></li>
+</ul>
 
 <h3 id="merged-to-main">Merged to Main</h3>
 
