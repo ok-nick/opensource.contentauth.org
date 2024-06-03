@@ -1,16 +1,3 @@
-<h2 id="done">Done</h2>
-
-<p>These tasks are completed, but may not yet be in a release.</p>
-
-<h3 id="released">Released</h3>
-
-<p>The task has been coded, checked in, and in a repository (SDK library) tagged release.  At this point, the feature or fix is available for use and the task is considered complete.</p>
-
-<p>Changes that have been released are listed in the repository change logs:</p>
-<ul>
-<li><a href="https://github.com/contentauth/c2pa-rs/blob/main/CHANGELOG.md">c2pa-rs change log</a></li>
-<li><a href="https://github.com/contentauth/c2patool/blob/main/CHANGELOG.md">c2patool change log</a></li>
-</ul>
 
 <h3 id="merged-to-main">Merged to Main</h3>
 
@@ -23,10 +10,12 @@
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/389"> BMFF Streaming </a> </td>
 <td>c2pa-rs </td>
 </tr>
+
 
 
 <tr>
@@ -35,16 +24,19 @@
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/414"> Support streaming writes for TIFF format </a> </td>
 <td>c2pa-rs </td>
 </tr>
 
 
+
 <tr>
 <td>Add `no_openssl` feature to allow builds on systems without OpenSSL  </td>
 <td> </td>
 </tr>
+
 
 
 <tr>
@@ -63,10 +55,12 @@
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/374"> V2 Remote signing </a> </td>
 <td>c2pa-rs </td>
 </tr>
+
 
 
 <tr>
@@ -75,10 +69,12 @@
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/454"> Create a build that only exposes 2024 APIs </a> </td>
 <td>c2pa-rs </td>
 </tr>
+
 
 
 <tr>
@@ -87,14 +83,11 @@
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/449"> Support RemoteSigner API via AsyncSigner </a> </td>
 <td>c2pa-rs </td>
 </tr></table>
-
-<h2 id="underway">Underway</h2>
-
-<p>These tasks are in progress or in planning.</p>
 
 <h3 id="in-progress">In Progress</h3>
 
@@ -107,10 +100,12 @@
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/384"> Rust API 2024 first release </a> </td>
 <td>c2pa-rs </td>
 </tr>
+
 
 
 <tr>
@@ -119,10 +114,12 @@
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-python/issues/13"> Python API 2024 first release </a> </td>
 <td>c2pa-python </td>
 </tr>
+
 
 
 <tr>
@@ -131,10 +128,12 @@
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2patool/issues/166"> C2patool updates to expose new features </a> </td>
 <td>c2patool </td>
 </tr>
+
 
 
 <tr>
@@ -143,10 +142,12 @@
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/396"> Testing infrastructure </a> </td>
 <td>c2pa-rs </td>
 </tr>
+
 
 
 <tr>
@@ -155,16 +156,19 @@
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-c/issues/12"> C++ istream/ostream support </a> </td>
 <td>c2pa-c </td>
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/455"> API 2024 documentation review </a> </td>
 <td>c2pa-rs </td>
 </tr>
+
 
 
 <tr>
@@ -183,16 +187,19 @@
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/452"> API 2024 errors review </a> </td>
 <td>c2pa-rs </td>
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/375"> Redaction </a> </td>
 <td>c2pa-rs </td>
 </tr>
+
 
 
 <tr>
@@ -211,16 +218,26 @@
 </tr>
 
 
+
 <tr>
-<td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/381"> Read only mode for specific formats </a> </td>
+<td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/477"> Validate timestamp signature </a> </td>
 <td>c2pa-rs </td>
 </tr>
 
 
+
 <tr>
-<td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/382"> Compressed Manifests </a> </td>
+<td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/475"> Enable BoxHash generation (1.4) </a> </td>
 <td>c2pa-rs </td>
 </tr>
+
+
+
+<tr>
+<td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/382"> Compressed Manifests (1.4) </a> </td>
+<td>c2pa-rs </td>
+</tr>
+
 
 
 <tr>
@@ -229,10 +246,19 @@
 </tr>
 
 
+
+<tr>
+<td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/381"> Read only mode for specific formats </a> </td>
+<td>c2pa-rs </td>
+</tr>
+
+
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/406"> Zip format support </a> </td>
 <td>c2pa-rs </td>
 </tr>
+
 
 
 <tr>
@@ -241,10 +267,19 @@
 </tr>
 
 
+
+<tr>
+<td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/476"> Add GIF support </a> </td>
+<td>c2pa-rs </td>
+</tr>
+
+
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/387"> DASH Completion </a> </td>
 <td>c2pa-rs </td>
 </tr>
+
 
 
 <tr>
@@ -253,10 +288,12 @@
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/390"> Cloud URLs in Manifests (icons &amp; etc...) </a> </td>
 <td>c2pa-rs </td>
 </tr>
+
 
 
 <tr>
@@ -265,10 +302,12 @@
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/393"> Android Support </a> </td>
 <td>c2pa-rs </td>
 </tr>
+
 
 
 <tr>
@@ -277,10 +316,12 @@
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/394"> TIFF Hash Update </a> </td>
 <td>c2pa-rs </td>
 </tr>
+
 
 
 <tr>
@@ -289,10 +330,12 @@
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/397"> Regions of interest for text </a> </td>
 <td>c2pa-rs </td>
 </tr>
+
 
 
 <tr>
@@ -301,10 +344,12 @@
 </tr>
 
 
+
 <tr>
 <td>Automated builds for all platforms, including mobile  </td>
 <td> </td>
 </tr>
+
 
 
 <tr>
@@ -313,10 +358,12 @@
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/398"> Separating Asset_IO to support third party contributions </a> </td>
 <td>c2pa-rs </td>
 </tr>
+
 
 
 <tr>
@@ -325,10 +372,12 @@
 </tr>
 
 
+
 <tr>
 <td>Provide an external way to do OCSP stapling  </td>
 <td> </td>
 </tr>
+
 
 
 <tr>
@@ -337,10 +386,12 @@
 </tr>
 
 
+
 <tr>
 <td> <a target="_blank" href="https://github.com/contentauth/c2pa-rs/issues/432"> Add native XMP write support for PNG </a> </td>
 <td>c2pa-rs </td>
 </tr>
+
 
 
 <tr>
@@ -349,8 +400,8 @@
 </tr>
 
 
+
 <tr>
 <td>AIFF support  </td>
 <td> </td>
 </tr></table>
-
