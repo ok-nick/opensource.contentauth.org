@@ -82,15 +82,8 @@ async function readFile(asset: File) {
 This code is for illustration purposes only. To ensure acceptable performance, production code should reuse the `c2pa` object and cache the output of `getToolkitSettings()` to avoid making unnecessary network calls.
 :::
 
-## How to add a certificate to the known certificate list
+## How to add a certificate to the list
 
-If you have an application that is in production and publicly available, you can request adding the signing certificate to the temporary known certificate list.
+If you have an application that is in production and publicly available, you can request to add its signing certificate to the temporary known certificate list: Simply email `verify-tl@c2pa.org`.
 
-To request adding a certificate to the list, email `verify-tl@c2pa.org` with the following information:
-
-- Organization name.
-- Type of certificate (root, intermediate, or end-entity).
-- Certificate or certificate chain as a text file in PEM format (`.pem` or `.txt`).
-- Sample image for testing.
-
-We will review your request. If it is approved, it will be deployed to Verify and you will receive a confirmation email.
+We will review your request, and if it is approved, we'll ask for more details. Once we receive them and deploy the change, you will receive a confirmation email.
