@@ -409,3 +409,8 @@ body:not(.is-scrolling) .navbar {
   background-color: transparent;
   padding: 0;
 }
+
+.roadmap_table {
+  width: 100%;
+  table-layout: fixed;
+}
