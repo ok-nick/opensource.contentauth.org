@@ -58,7 +58,7 @@ The [C2PA public-testfiles](https://c2pa.org/public-testfiles/image/) repository
 
 Currently, most of the asset files in the repository are JPEG images, but a few [PDF](https://c2pa.org/public-testfiles/pdf/) and [video](https://c2pa.org/public-testfiles/video/) test files are also available.
 
-## Information Verify displays
+## Information displayed
 
 Once you've uploaded an asset or entered an asset URL, if the asset:
 
@@ -116,11 +116,25 @@ import verify_sections from '../static/img/verify-sections.png';
       <td valign="top">
         Shows information from the asset's manifest store, as described below:
         <ul>
-          <li>Title and signing information</li>
-          <li>Credit and usage</li>
-          <li>Process</li>
-          <li>About this Content Credential</li>
-          <li>Camera capture details</li>
+          <li>
+            <a href="#title-and-signing-information">
+              Title and signing information
+            </a>
+          </li>
+          <li>
+            <a href="#credit-and-usage">Credit and usage</a>
+          </li>
+          <li>
+            <a href="#process">Process</a>
+          </li>
+          <li>
+            <a href="#about-this-content-credential">
+              About this Content Credential
+            </a>
+          </li>
+          <li>
+            <a href="#camera-capture-details">Camera capture details</a>
+          </li>
         </ul>
       </td>
     </tr>
@@ -129,16 +143,18 @@ import verify_sections from '../static/img/verify-sections.png';
 
 ### Title and signing information
 
-The top of the right panel displays a thumbnail of the image with the title of the asset from the `title` property in the active manifest. The value of this property might not be the same as the file name. For example, suppose you downloaded a file from Adobe Stock and renamed it `my_stock_download.jpeg`. In Verify it could appear as follows:
-
 import verify_title_date from '../static/img/verify-title-date.png';
 
 <img
   src={verify_title_date}
-  style={{ width: '250px', marginBottom: '20px', marginLeft: '20px' }}
+  style={{ width: '250px', margin: '20px', float: 'right' }}
 />
 
-The manifest store for the above example contains the following `title` property:
+The top of the right panel displays a thumbnail of the image with the title of the asset from the `title` property in the active manifest. The value of this property might not be the same as the file name.
+
+For example, suppose you downloaded a file from Adobe Stock and renamed it `my_stock_download.jpeg`. In Verify it would appear as shown at right when the manifest store contains the `title` property shown in the snippet below.
+
+<br clear="all" />
 
 ```json
  "manifests": {
@@ -150,7 +166,11 @@ The manifest store for the above example contains the following `title` property
  }
 ```
 
-The issuer and time of the claim signature are based on the `signature_info` property's `issuer` and `time` in the active manifest, as shown in the snippet below. The date is converted from UTC to the local time zone.
+**Signing information**
+
+This section displays the the issuer of the claim signature from the `signature_info.issuer` property in the active manifest, as shown in the example snippet below.
+
+If the Content Credential was signed by a certificate on the [known certificate list](verify-known-cert-list), then this section also displays the time of the claim signature from the `signature_info.time` property in the active manifest, as shown in the example snippet below. The date is converted from UTC to the local time zone.
 
 ```json
 "signature_info": {
@@ -160,13 +180,20 @@ The issuer and time of the claim signature are based on the `signature_info` pro
 },
 ```
 
-:::note
-If the issuer string is too long, then the date may be truncated or may not be shown at all. If so, refer to the [**About this Content Credential**](#about-this-content-credential) section for the full date.
-:::
+If the issuer string is too long, then the date might be truncated or not shown at all. If so, refer to the [**About this Content Credential**](#about-this-content-credential) section for the full date.
+
+If the Content Credential was signed by a certificate that is NOT on the [known certificate list](verify-known-cert-list), then Verify displays this notice:
+
+import verify_unknown_source from '../static/img/verify-cc-unknown-source.png';
+
+<img
+  src={verify_unknown_source}
+  style={{ width: '300px', display: 'block', margin: '10px auto' }}
+/>
 
 ### Credit and usage
 
-The **Credit and usage** section displays information about the asset's author and usage rights, divided into the following subsections:
+The **Credit and usage** section displays information about the asset's author and usage rights, divided into these subsections:
 
 - [Produced by](#produced-by)
 - [Social media accounts](#social-media-accounts)

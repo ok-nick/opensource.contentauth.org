@@ -127,7 +127,15 @@ The _private key_ associated with the certificate is extremely sensitive. Always
 
 The simplest way to add a C2PA manifest to an asset file is by using c2patool. You can run c2patool tool manually from the command line (for example, during development) and more generally from any executable program that can call out to the shell, such as a Node.js application as shown in the [c2patool Node.js service example](c2pa-service-example).
 
+You can also add Content Credentials using the prerelease libraries for [Node.js](c2pa-node/), [Python](c2pa-python/), and [C++/C](c2pa-c/)
+
 Similarly, using the Rust SDK, you can [add a manifest to an asset file](https://docs.rs/c2pa/latest/c2pa/#example-adding-a-manifest-to-a-file), referencing the certificate and private key file. For a simple example of creating and signing a manifest from a C program, see the [c2c2pa repository](https://github.com/contentauth/c2c2pa).
+
+### Verify known certificate list
+
+import verify_unknown_source from '../static/img/verify-cc-unknown-source.png';
+
+The C2PA [Verify tool](https://contentcredentials.org/verify) uses a list of _known certificates_ (sometimes referred to as a "trust list") to determine whether a Content Credential was issued by a known source. The known certificate list applies only to **[Verify ](https://contentcredentials.org/verify)**. For more information, see [Verify tool known certificate list](verify-known-cert-list)
 
 ## Identity
 
