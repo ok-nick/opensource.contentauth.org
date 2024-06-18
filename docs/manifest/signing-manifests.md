@@ -44,7 +44,7 @@ Additionally, for convenience, CAI prerelease libraries also provide a subset of
 These certificates are for use during development and testing only.  Do not use them in production!
 :::
 
-Although not recommended due to complexity and difficulty, you can create your own certificates for development and testing. Follow the requirements in the C2PA Technical Specification [Credential Types](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_credential_types) and [Digital Signatures](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_digital_signatures) sections.
+Although not recommended due to complexity and difficulty, you can create your own certificates for development and testing. Follow the requirements in the C2PA Technical Specification [Credential Types](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_credential_types) and [Digital Signatures](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_digital_signatures) sections.
 
 
 ### Signature types
@@ -65,7 +65,7 @@ The following table describes the signature algorithms and recommended signature
 | `id-Ed25519` | EdDSA (Edwards-Curve DSA) with SHA-512 (SHA-2) and Curve25519 | Ed25519 instance ONLY.| [RFC 8410 section 3](https://www.rfc-editor.org/rfc/rfc8410.html#section-3) |
 
 
-The information in this table is based on the [C2PA specification Trust Model section](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_trust_model). The C2PA specification also covers two other certificates for timestamp responses and OCSP certificate revocation, which are not covered here.
+The information in this table is based on the [C2PA specification Trust Model section](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_trust_model). The C2PA specification also covers two other certificates for timestamp responses and OCSP certificate revocation, which are not covered here.
 
 ## Example
 
