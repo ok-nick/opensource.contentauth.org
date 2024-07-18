@@ -414,3 +414,7 @@ body:not(.is-scrolling) .navbar {
   width: 100%;
   table-layout: fixed;
 }
+
+.trust-table th:nth-child(1) {
+  width: 170px;
+}
