@@ -1,0 +1,22 @@
+---
+id: prod-cert
+title: Configuring and using signing certificate in production
+---
+
+## Overview
+
+For convenience, C2PA Tool and the prerelease libraries include one or more [test certificates](manifest/signing-manifests#test-certificates) and a private key to use during development.
+
+While these test certificates and keys are useful during development and testing, for production deployment you must purchase and configure your own certificate and private key. This page walks you through this process in detail.
+
+Certificates and private keys are often stored on a hardware security module (HSM), a physical device that attaches directly to a computer or server and is used to securely manage and perform operations on cryptographic keys.
+
+An HSM generates cryptographic keys and signs information without revealing private-key material to the outside world. These are hardened, intrusion-resistant devices that typically provide features like on-board key-generation, key storage and accelerated encryption. HSMs are commonly used in Public Key Cryptography (PKI) deployments to secure Certificate Authority keys.
+
+This example uses [SoftHSM](https://www.opendnssec.org/softhsm/), a software implementation of a generic PKCS#11 device.
+
+### Procedure
+
+1. Purchase cert.
+2. Install cert using HSM or other secure mechanism.
+3. Configure app to use cert.

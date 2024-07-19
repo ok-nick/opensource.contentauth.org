@@ -168,6 +168,11 @@ const sidebars = {
     },
     {
       type: 'doc',
+      label: 'Using a signing certificate',
+      id: 'prod-cert',
+    },
+    {
+      type: 'doc',
       label: 'FAQs',
       id: 'faqs',
     },
