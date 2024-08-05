@@ -7,7 +7,7 @@ The Content Authenticity Initiative has an active and growing community of devel
 
 ## GitHub
 
-All the open-source CAI code is hosted in GitHub in the [CAI GitHub organization](https://github.com/contentauth) and we welcome input in the form of issues and pull requestsin the repositories:
+All the open-source CAI code is hosted in GitHub in the [CAI GitHub organization](https://github.com/contentauth) and we welcome input in the form of issues and pull requests in the repositories:
 
 - **Rust Library**: [c2pa-rs](https://github.com/contentauth/c2pa-rs)
 - **CLI tool**: [c2patool](https://github.com/contentauth/c2patool)
@@ -19,6 +19,11 @@ All the open-source CAI code is hosted in GitHub in the [CAI GitHub organization
 - **JavaScript examples**: [c2pa-js-examples](https://github.com/contentauth/c2pa-js-examples)
 
 If you think you've found a bug or want to request a feature, please open an issue in the appropriate repository.
+
+:::note
+Do not create a public GitHub issue for suspected security vulnerabilities. Instead, please file an issue through [Adobe's HackerOne page](https://hackerone.com/adobe?type=team). 
+For more information on reporting security issues, see [SECURITY.md](https://github.com/contentauth/c2pa-rs/blob/main/SECURITY.md).
+:::
 
 We also welcome thoughtful pull requests (PRs) from the community, following the contribution guidelines provided out in each repository. The guidelines are generally the same for each of the three project repositories; for example. see the [c2pa-rs contribution guidelines](https://github.com/contentauth/c2pa-rs/blob/main/CONTRIBUTING.md).
 
