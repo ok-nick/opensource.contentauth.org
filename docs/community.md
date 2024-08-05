@@ -25,9 +25,9 @@ Do not create a public GitHub issue for suspected security vulnerabilities. Inst
 For more information on reporting security issues, see [SECURITY.md](https://github.com/contentauth/c2pa-rs/blob/main/SECURITY.md).
 :::
 
-We also welcome thoughtful pull requests (PRs) from the community, following the contribution guidelines provided out in each repository. The guidelines are generally the same for each of the three project repositories; for example. see the [c2pa-rs contribution guidelines](https://github.com/contentauth/c2pa-rs/blob/main/CONTRIBUTING.md).
+We also welcome thoughtful pull requests (PRs) from the community, following the contribution guidelines provided out in each repository. The guidelines are generally the same for all the SDK repositories; for example. see the [c2pa-rs contribution guidelines](https://github.com/contentauth/c2pa-rs/blob/main/CONTRIBUTING.md).
 
-Participants are required to follow the [Adobe Code of Conduct](https://github.com/contentauth/c2pa-js/blob/main/CODE_OF_CONDUCT.md) to maintain an open and welcoming environment for all.
+Participants are required to follow the [Adobe Code of Conduct](https://github.com/contentauth/c2pa-rs/blob/main/CODE_OF_CONDUCT.md) to maintain an open and welcoming environment for all.
 
 ### Related projects
 
