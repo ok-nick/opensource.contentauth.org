@@ -130,6 +130,12 @@ const sidebars = {
               label: 'GitHub',
               href: 'https://github.com/contentauth/c2pa-python',
             },
+            /*
+            {
+              type: 'doc',
+              id: 'c2pa-python-example/readme',
+            },     
+            */
           ],
         },
         {
@@ -168,7 +174,7 @@ const sidebars = {
     },
     {
       type: 'doc',
-      label: 'Using a signing certificate',
+      label: 'Using a certificate in production',
       id: 'prod-cert',
     },
     {
