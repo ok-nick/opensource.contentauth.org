@@ -9,13 +9,32 @@ For convenience, C2PA Tool, the Rust library, and the CAI prerelease libraries i
 
 While these test certificates and keys are useful during development and testing, for production deployment you must use your own private key and purchase and configure your own certificate, as explained in [Getting a security certificate](getting-started#getting-a-security-certificate).
 
-Certificates and private keys are often stored on a hardware security module (HSM), a physical device that attaches directly to a computer or server and is used to securely manage and perform operations on cryptographic keys.
+Certificates and private keys are often stored on a hardware security module (HSM), a physical device that attaches directly to a computer or server and is used to securely manage and perform operations on cryptographic keys. A Key Management Service (KMS) is software used to manage keys in a networked environment. A KMS can be connected to a HSM for extra security.
 
-<div class="review-comment">
-  How does using Amazon KMS compare to an HSM? Should we recommend KMS? Can we
-  provide any guidance here?
-</div>
+## Purchasing a certificate
 
-## The Python example
+To create or modify Content Credentials, you must purchase a valid X.509 v3 security certificate and key that conform to the requirements laid out in the [C2PA specification](https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#x509_certificates) from a certificate authority (CA). There are many CAs; some popular ones are listed in [Getting started](getting-started#getting-a-security-certificate).
 
-The [c2pa-python-example](/c2pa-python-example) app provides an example of constructing a certificate signing request to help you get started.
+When you purchase a certificate, you must select at least one of the extended key usage (EKU) fields that specify what the certificate can be used for: **email protection** and **document signing**. Applications that use the CAI SDK won't accept the certificate unless it has one of these EKUs.
+
+When purchasing a certificate and key, you might be able to simply click a "Buy" button on the CA's website. Or your can make your own key, create a certificate signing request (CSR), and send it to CA. In either case, what comes back is the signed certificate that you use to create a certificate chain.
+
+A CSR is just an unsigned certificate that is the template for the final certificate. The CA will take the CSR and create a new certificate with the same parameters and sign it with their root certificate, which makes it a "real" certificate.
+
+The process is different for each CA (links below are to [Digicert](https://www.digicert.com), but there are many other CAs). Additionally, CAs offer a variety of different kinds of certificates and levels of vetting and validation:
+
+- The simplest and least expensive option is an [S/MIME email certificate](https://www.digicert.com/tls-ssl/compare-secure-email-smime-certificates).
+- Other options, such as [document signing certificate](https://www.digicert.com/signing/compare-document-signing-certificates) require more rigor (like proving your identity) and cost more.
+
+### CA validation
+
+Certificate authorities offer many levels of validation. For Content Credentials, one of these types is highly recommended (though not required):
+
+- **Organization Validated (OV).** The CA validates the organization's identity by checking its credentials against extensive databases, including those held by local governments.
+- **Extended Validation (EV).** A fully authenticated certificate, needed to offer secure web locations, email, and financial transactions.
+
+If you don't get an OV certificate, then the C2PA [Verify tool](https://verify.contentauthenticity.org/) won't display your organization name in the Content Credentials.
+
+### The C2PA Python example
+
+The [c2pa-python-example](/c2pa-python-example) app provides an example of constructing a certificate signing request (CSR) and of using a certificate in a way suitable for a production environment.

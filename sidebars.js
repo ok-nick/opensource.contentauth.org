@@ -169,6 +169,11 @@ const sidebars = {
           label: 'GitHub',
           href: 'https://github.com/contentauth/c2pa-rs',
         },
+        {
+          type: 'doc',
+          label: 'C2PA Rust example application',
+          id: 'c2pa-min/readme',
+        },
       ],
     },
     {
