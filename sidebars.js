@@ -130,12 +130,11 @@ const sidebars = {
               label: 'GitHub',
               href: 'https://github.com/contentauth/c2pa-python',
             },
-            /*
             {
               type: 'doc',
+              label: 'C2PA Python Example',
               id: 'c2pa-python-example/readme',
-            },     
-            */
+            },
           ],
         },
         {
