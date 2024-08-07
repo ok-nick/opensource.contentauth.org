@@ -73,7 +73,6 @@ const readmes = [
     dest: resolve(__dirname, '../docs/c2pa-python-example/readme.md'),
     repo: 'contentauth/c2pa-python-example',
     path: 'README.md',
-    branch: 'flesh-out-doc',
   },
 ];
 

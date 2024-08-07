@@ -5,13 +5,16 @@ title: Configuring and using a signing certificate in production
 
 ## Overview
 
-For convenience, C2PA Tool, the Rust library, and the CAI prerelease libraries include one or more [test certificates](manifest/signing-manifests#test-certificates) to use during development, typically in the `tests/fixtures` directory.
+For convenience, C2PA Tool, the Rust library, and the CAI prerelease libraries include one or more [test certificates](manifest/signing-manifests#test-certificates) and private keys for use during development, typically in the `tests/fixtures` directory.
 
-While these test certificates and keys are useful during development and testing, for production deployment you must purchase and configure your own certificate and private key.
+While these test certificates and keys are useful during development and testing, for production deployment you must use your own private key and purchase and configure your own certificate, as explained in [Getting a security certificate](getting-started#getting-a-security-certificate).
 
 Certificates and private keys are often stored on a hardware security module (HSM), a physical device that attaches directly to a computer or server and is used to securely manage and perform operations on cryptographic keys.
 
-An HSM generates cryptographic keys and signs information without revealing private-key material to the outside world. These are hardened, intrusion-resistant devices that typically provide features like on-board key-generation, key storage and accelerated encryption. HSMs are commonly used in Public Key Cryptography (PKI) deployments to secure Certificate Authority keys.
+<div class="review-comment">
+  How does using Amazon KMS compare to an HSM? Should we recommend KMS? Can we
+  provide any guidance here?
+</div>
 
 ## The Python example
 
