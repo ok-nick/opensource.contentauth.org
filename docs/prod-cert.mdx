@@ -21,7 +21,7 @@ The certificate chain starts with the certificate from the last tool that signed
 
 ### Certificate signing requests (CSRs)
 
-A CSR is just an unsigned certificate that's a template for the certificate that you're requesting. The CA create a new certificate with the parameters specified in the CSR, and signs it with their root certificate, which makes it a "real" certificate.
+A CSR is just an unsigned certificate that's a template for the certificate that you're requesting. The CA create a new certificate with the parameters specified in the CSR, and signs it with their root certificate, which makes it a valid certificate.
 
 A CSR comprises a public key, as well as ["distinguished name" information](https://knowledge.digicert.com/general-information/what-is-a-distinguished-name) that identifies the individual or organization requesting the certificate, including a common name, organization, city, state, country, and e-mail address. Not all of these fields are required and will vary depending with the assurance level of the desired certificate.
 
