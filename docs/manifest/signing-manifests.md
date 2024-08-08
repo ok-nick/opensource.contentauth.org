@@ -165,9 +165,7 @@ You now have all the needed information to configure C2PA Tool for manifest sign
 "sign_cert": "mycerts.pem"
 ```
 
-:::note
 The `private_key` and `sign_cert` properties must be full paths to the key and certificate chain files generated above.
-:::note
 
 You can now use C2PA Tool as described in its [documentation](/docs/c2patool/#adding-a-manifest-to-an-asset-file) to add a manifest to an image or other asset file. The command will be something like this:
 
@@ -178,7 +176,7 @@ c2patool -m my_manifest.json -o signed_image.jpg my_image.jpg
 The example above uses the information in `my_manifest.json` to add a new manifest to output `signed_image.jpg` using source `my_image.jpg`. The manifest will be signed using the PS256 signature algorithm with private key `mykey.pem`. The manifest will contain the trust chain specified in `mycerts.pem`.
 
 :::warning
-In a production application, do not access a private key and certificate directly from the file system as shown in this example. Doing so is fine during development, but not in production because it exposes these sensitive files to potential attackers. Instead use a hardware security module (HSM) and optionally a Key Management Service (KMS) to access them; for example as show in the [C2PA Python Example](https://github.com/contentauth/c2pa-python-example).
+In a production application, do not access a private key and certificate directly from the file system as shown in this example. Doing so is fine during development, but not in production because it exposes these sensitive files to potential attackers. Instead use a hardware security module (HSM) and optionally a Key Management Service (KMS) to access them; for example as show in the [C2PA Python Example](../../docs/c2pa-python-example).
 :::
 
 ### Confirm it worked
