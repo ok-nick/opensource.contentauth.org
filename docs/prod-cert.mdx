@@ -15,15 +15,15 @@ To create or modify Content Credentials, you must have a valid X.509 v3 security
 
 When you purchase a certificate, you must select at least one of the extended key usage (EKU) fields that specify what the certificate can be used for: **email protection** and **document signing**. Applications that use the CAI SDK won't accept the certificate unless it has one of these EKUs.
 
-The process to purchase a certificate and key is different for each CA: You might be able to simply click a "Buy" button on the CA's website. Or your can make your own key, create a certificate signing request (CSR), and send it to CA. Regardless of the process, what you get back is a signed certificate that you use to create a certificate chain.
+The process to purchase a certificate and key is different for each CA: You might be able to simply click a "Buy" button on the CA's website. Or your can make your own key and use it to create a certificate signing request (CSR) that you send to the CA (see below). Regardless of the process, what you get back is a signed certificate that you use to create a certificate chain.
 
 The certificate chain starts with the certificate from the last tool that signed the manifest (known as the "end-entity") followed by the certificate that signed it, and so on, back to the original CA issuer. This enables a validating application to determine that the manifest is valid because the certificate chain goes back to a trusted root certificate authority.
 
 ### Certificate signing requests (CSRs)
 
-A CSR is just an unsigned certificate that's a template for the certificate that you're requesting. The CA create a new certificate with the parameters specified in the CSR, and signs it with their root certificate, which makes it a valid certificate.
+A CSR is just an unsigned certificate that's a template for the certificate that you're requesting. The CA creates a new certificate with the parameters specified in the CSR, and signs it with their root certificate, which makes it a valid certificate.
 
-A CSR comprises a public key, as well as ["distinguished name" information](https://knowledge.digicert.com/general-information/what-is-a-distinguished-name) that identifies the individual or organization requesting the certificate, including a common name, organization, city, state, country, and e-mail address. Not all of these fields are required and will vary depending with the assurance level of the desired certificate.
+A CSR comprises a public key, as well as ["distinguished name" information](https://knowledge.digicert.com/general-information/what-is-a-distinguished-name) that identifies the individual or organization requesting the certificate. The distinguished name includes a common name, organization, city, state, country, and e-mail address. Not all of these fields are required and will vary depending with the assurance level of the desired certificate.
 
 You sign the CSR with your private key; this proves to the CA that you have control of the private key that corresponds to the public key included in the CSR. Once the requested information in a CSR passes a vetting process and domain control is established, the CA may sign the public key to indicate that it can be publicly trusted.
 
