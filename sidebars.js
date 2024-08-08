@@ -178,7 +178,7 @@ const sidebars = {
     },
     {
       type: 'doc',
-      label: 'Using a certificate in production',
+      label: 'Getting and using a certificate',
       id: 'prod-cert',
     },
     {
