@@ -49,7 +49,7 @@ Although not recommended due to complexity and difficulty, you can create your o
 
 ### Signature types
 
-The following table describes the signature algorithms and recommended signature types that the [C2PA Tool](/docs/c2patool) and [Rust library](/docs/rust-sdk) support. You must supply credentials (certificates and keys) that correspond to the signing algorithm. Signing/validation will fail if the the supplied credentials don't support the signature type. 
+The following table describes the signature algorithms and recommended signature types that the CAI SDK supports. You must supply credentials (certificates and keys) that correspond to the signing algorithm. Signing/validation will fail if the the supplied credentials don't support the signature type. 
 
 | Certificate `signatureAlgorithm` | Description  | Recommended signature type | RFC Reference |
 | -------------------------------- | ------------ | -------------------------- | ------------- |
