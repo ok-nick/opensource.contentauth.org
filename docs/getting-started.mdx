@@ -131,6 +131,10 @@ The prerelease libraries for [Node.js](c2pa-node/), [Python](c2pa-python/), and 
 
 Similarly, using the Rust SDK, you can [add a manifest to an asset file](https://docs.rs/c2pa/latest/c2pa/#example-adding-a-manifest-to-a-file), referencing the certificate and private key file. For a simple example of creating and signing a manifest from a C program, see the [c2c2pa repository](https://github.com/contentauth/c2c2pa).
 
+:::warning Warning
+Do not access a private key and certificate directly from the file system in production. Doing so is not secure because it exposes these sensitive files to potential attackers. Instead use a hardware security module (HSM) and optionally a Key Management Service (KMS); for example as show in the [C2PA Python Example](https://github.com/contentauth/c2pa-python-example).
+:::
+
 ### Verify known certificate list
 
 import verify_unknown_source from '../static/img/verify-cc-unknown-source.png';
