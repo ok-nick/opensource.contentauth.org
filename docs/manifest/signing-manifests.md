@@ -43,7 +43,7 @@ Additionally, for convenience, CAI prerelease libraries also provide a subset of
 :::warning Warning
 The test certificates are for use during development and testing only.  Do not use them in production!
 
-Also, do not access a private key and certificate directly from the file system in production because it's not secure. Instead use a hardware security module (HSM) and optionally a Key Management Service (KMS) to access them; for example as show in the [C2PA Python Example](https://github.com/contentauth/c2pa-python-example).
+Also, in production do not access a private key and certificate directly from the file system. Doing so is not not secure because it exposes these sensitive files to potential attackers. Instead use a hardware security module (HSM) and optionally a Key Management Service (KMS) to access them; for example as show in the [C2PA Python Example](https://github.com/contentauth/c2pa-python-example).
 :::
 
 Although not recommended due to complexity and difficulty, you can create your own certificates for development and testing. Follow the requirements in the C2PA Technical Specification [Credential Types](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_credential_types) and [Digital Signatures](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_digital_signatures) sections.
