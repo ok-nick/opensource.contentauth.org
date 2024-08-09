@@ -41,15 +41,15 @@ For development and testing, use the sample certificates provided with the SDK. 
 Additionally, for convenience, CAI prerelease libraries also provide a subset of test certificates in each repository's `tests/fixtures` folder. The Node.js library even provides a [`CreateTestSigner()`](https://github.com/contentauth/c2pa-node/blob/main/docs/README.md#createtestsigner) convenience function to create a local signer instance using the test certificate.
 
 :::warning Warning
-These certificates are for use during development and testing only.  Do not use them in production!
+The test certificates are for use during development and testing only.  Do not use them in production!
 :::
 
-Although not recommended due to complexity and difficulty, you can create your own certificates for development and testing. Follow the requirements in the C2PA Technical Specification [Credential Types](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_credential_types) and [Digital Signatures](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_digital_signatures) sections.
+Although not recommended due to complexity and difficulty, you can create your own certificates for development and testing. Follow the requirements in the C2PA Technical Specification [Credential Types](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_credential_types) and [Digital Signatures](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_digital_signatures) sections.
 
 
 ### Signature types
 
-The following table describes the signature algorithms and recommended signature types that the [C2PA Tool](/docs/c2patool) and [Rust library](/docs/rust-sdk) support. You must supply credentials (certificates and keys) that correspond to the signing algorithm. Signing/validation will fail if the the supplied credentials don't support the signature type. 
+The following table describes the signature algorithms and signature types that the CAI SDK supports. You must supply credentials (certificates and keys) that correspond to the signing algorithm. Signing/validation will fail if the the supplied credentials don't support the signature type. 
 
 | Certificate `signatureAlgorithm` | Description  | Recommended signature type | RFC Reference |
 | -------------------------------- | ------------ | -------------------------- | ------------- |
@@ -65,7 +65,7 @@ The following table describes the signature algorithms and recommended signature
 | `id-Ed25519` | EdDSA (Edwards-Curve DSA) with SHA-512 (SHA-2) and Curve25519 | Ed25519 instance ONLY.| [RFC 8410 section 3](https://www.rfc-editor.org/rfc/rfc8410.html#section-3) |
 
 
-The information in this table is based on the [C2PA specification Trust Model section](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_trust_model). The C2PA specification also covers two other certificates for timestamp responses and OCSP certificate revocation, which are not covered here.
+The information in this table is based on the [C2PA specification Trust Model section](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_trust_model). The C2PA specification also covers two other certificates for timestamp responses and OCSP certificate revocation, which are not covered here.
 
 ## Example
 
@@ -85,7 +85,7 @@ Follow the instructions to purchase and download your `.pfx` file. This file is 
 
 :::warning Warning
 This example uses an inexpensive personal certificate, which is fine for development and testing, but for production use an enterprise certificate is strongly recommended. An enterprise certificate is required for [Verify](https://verify.contentauthenticity.org/) to display your organization name when for signed assets.
-:::info
+:::
 
 The rest of this tutorial uses OpenSSL (a set of cryptographic utilities). If OpenSSL is not installed on your system, see [OpenSSL](https://www.openssl.org/source/) for the source distribution or the [list of unofficial binary distributions](https://wiki.openssl.org/index.php/Binaries).
 
@@ -165,17 +165,19 @@ You now have all the needed information to configure C2PA Tool for manifest sign
 "sign_cert": "mycerts.pem"
 ```
 
-:::note
 The `private_key` and `sign_cert` properties must be full paths to the key and certificate chain files generated above.
-:::note
 
-You can now use C2PA Tool as described in its [documentation](/docs/c2patool/#adding-a-manifest-to-an-asset-file) to add a to add a manifest to an image or other asset file. The command will be something like this:
+You can now use C2PA Tool as described in its [documentation](/docs/c2patool/#adding-a-manifest-to-an-asset-file) to add a manifest to an image or other asset file. The command will be something like this:
 
 ```
 c2patool -m my_manifest.json -o signed_image.jpg my_image.jpg
 ```
 
 The example above uses the information in `my_manifest.json` to add a new manifest to output `signed_image.jpg` using source `my_image.jpg`. The manifest will be signed using the PS256 signature algorithm with private key `mykey.pem`. The manifest will contain the trust chain specified in `mycerts.pem`.
+
+:::warning
+In a production application, do not access a private key and certificate directly from the file system as shown in this example. Doing so is fine during development, but not in production because it exposes these sensitive files to potential attackers. Instead use a hardware security module (HSM) and optionally a Key Management Service (KMS) to access them; for example as show in the [C2PA Python Example](../../docs/c2pa-python-example).
+:::
 
 ### Confirm it worked
 

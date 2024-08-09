@@ -84,7 +84,7 @@ In practice, to use a certificate with the CAI SDK, follow this process:
 
 1. Purchase security credentials (certificate and key) from a certificate authority. Either email protection or document signing certificates are valid.
 2. Extract the certificate by using a tool such as OpenSSL. You could also host the certificate in a secure environment like a hardware security module (HSM).
-3. Use the Rust library or C2PA Tool to sign manifests using the certificate.
+3. Use one of the supporting CAI libraries or C2PA Tool to sign manifests using the certificate. 
 
 :::tip
 For more details and a short tutorial example, see [Signing manifests](manifest/signing-manifests).
@@ -127,9 +127,13 @@ The _private key_ associated with the certificate is extremely sensitive. Always
 
 The simplest way to add a C2PA manifest to an asset file is by using C2PA Tool (`c2patool`). You can run C2PA Tool tool manually from the command line (for example, during development) and more generally from any executable program that can call out to the shell, such as a Node.js application as shown in the [c2patool Node.js service example](c2pa-service-example).
 
-You can also add Content Credentials using the prerelease libraries for [Node.js](c2pa-node/), [Python](c2pa-python/), and [C++/C](c2pa-c/)
+The prerelease libraries for [Node.js](c2pa-node/), [Python](c2pa-python/), and [C++/C](c2pa-c/) can also add and sign a manifest.
 
 Similarly, using the Rust SDK, you can [add a manifest to an asset file](https://docs.rs/c2pa/latest/c2pa/#example-adding-a-manifest-to-a-file), referencing the certificate and private key file. For a simple example of creating and signing a manifest from a C program, see the [c2c2pa repository](https://github.com/contentauth/c2c2pa).
+
+:::warning Warning
+Do not access a private key and certificate directly from the file system in production. Doing so is not secure because it exposes these sensitive files to potential attackers. Instead use a hardware security module (HSM) and optionally a Key Management Service (KMS); for example as show in the [C2PA Python Example](../docs/c2pa-python-example).
+:::
 
 ### Verify known certificate list
 

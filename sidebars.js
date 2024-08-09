@@ -130,6 +130,11 @@ const sidebars = {
               label: 'GitHub',
               href: 'https://github.com/contentauth/c2pa-python',
             },
+            {
+              type: 'doc',
+              label: 'C2PA Python Example',
+              id: 'c2pa-python-example/readme',
+            },
           ],
         },
         {
@@ -164,7 +169,17 @@ const sidebars = {
           label: 'GitHub',
           href: 'https://github.com/contentauth/c2pa-rs',
         },
+        {
+          type: 'doc',
+          label: 'C2PA Rust example application',
+          id: 'c2pa-min/readme',
+        },
       ],
+    },
+    {
+      type: 'doc',
+      label: 'Getting and using a certificate',
+      id: 'prod-cert',
     },
     {
       type: 'doc',
