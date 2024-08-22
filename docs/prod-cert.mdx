@@ -5,13 +5,13 @@ title: Getting and using a signing certificate
 
 ## Overview
 
-For convenience, C2PA Tool, the Rust library, and the CAI prerelease libraries include one or more [test certificates](manifest/signing-manifests#test-certificates) and private keys for use during development, typically in the `tests/fixtures` directory. While these test certificates and keys are useful during development and testing, for production deployment you must use your own private key and certificate.
+For convenience, C2PA Tool, the Rust library, and the CAI prerelease libraries include one or more [test certificates](manifest/signing-manifests.md#test-certificates) and private keys for use during development, typically in the `tests/fixtures` directory. While these test certificates and keys are useful during development and testing, for production deployment you must use your own private key and certificate.
 
 Certificates and private keys are often stored on a hardware security module (HSM), a physical device that attaches directly to a computer or server and is used to securely manage and perform operations on cryptographic keys. A Key Management Service (KMS) is software used to manage keys in a networked environment. A KMS can be connected to a HSM for extra security. For example, the [Python example application](/c2pa-python-example) uses [AWS KMS](https://aws.amazon.com/kms/).
 
 ## Purchasing a certificate
 
-To create or modify Content Credentials, you must have a valid X.509 v3 security certificate and key that conform to the requirements laid out in the [C2PA specification](https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#x509_certificates). You must purchase a certificate from a certificate authority (CA). There are many CAs; some popular ones are listed in [Getting started](getting-started#getting-a-security-certificate).
+To create or modify Content Credentials, you must have a valid X.509 v3 security certificate and key that conform to the requirements laid out in the [C2PA specification](https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#x509_certificates). You must purchase a certificate from a certificate authority (CA). There are many CAs; some popular ones are listed in [Getting started](getting-started.mdx#getting-a-security-certificate).
 
 When you purchase a certificate, you must select at least one of the extended key usage (EKU) fields that specify what the certificate can be used for: **email protection** and **document signing**. Applications that use the CAI SDK won't accept the certificate unless it has one of these EKUs.
 
