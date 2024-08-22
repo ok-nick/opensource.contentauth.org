@@ -7,7 +7,7 @@ title: Getting and using a signing certificate
 
 For convenience, C2PA Tool, the Rust library, and the CAI prerelease libraries include one or more [test certificates](manifest/signing-manifests.md#test-certificates) and private keys for use during development, typically in the `tests/fixtures` directory. While these test certificates and keys are useful during development and testing, for production deployment you must use your own private key and certificate.
 
-Certificates and private keys are often stored on a hardware security module (HSM), a physical device that attaches directly to a computer or server and is used to securely manage and perform operations on cryptographic keys. A Key Management Service (KMS) is software used to manage keys in a networked environment. A KMS can be connected to a HSM for extra security. For example, the [Python example application](/c2pa-python-example) uses [AWS KMS](https://aws.amazon.com/kms/).
+Certificates and private keys are often stored on a hardware security module (HSM), a physical device that attaches directly to a computer or server and is used to securely manage and perform operations on cryptographic keys. A Key Management Service (KMS) is software used to manage keys in a networked environment. A KMS can be connected to a HSM for extra security. For example, the [Python example application](c2pa-python-example/) uses [AWS KMS](https://aws.amazon.com/kms/).
 
 ## Purchasing a certificate
 
@@ -45,4 +45,4 @@ If you don't get an OV certificate, then the C2PA [Verify tool](https://verify.c
 
 ## The C2PA Python example
 
-The [c2pa-python-example](/c2pa-python-example) app provides an example of constructing a certificate signing request (CSR) and of using a certificate in a way suitable for a production environment.
+The [c2pa-python-example](c2pa-python-example/) app provides an example of constructing a certificate signing request (CSR) and of using a certificate in a way suitable for a production environment.
