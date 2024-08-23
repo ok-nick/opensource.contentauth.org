@@ -108,13 +108,6 @@ The above list is for reference only; inclusion does not imply endorsement by CA
 
 When you purchase a certificate, you must select at least one of the extended key usage (EKU) fields that specify what the certificate can be used for: **email protection** and **document signing**. Applications that use the CAI SDK won't accept the certificate unless it has one of these EKUs.
 
-Certificate authorities offer many levels of validation. For Content Credentials, one of these types is highly recommended (though not required):
-
-- **Organization Validated (OV).** The CA validates the organization's identity by checking its credentials against extensive databases, including those held by local governments.
-- **Extended Validation (EV).** A fully authenticated certificate, needed to offer secure web locations, email, and financial transactions.
-
-If you don't get an OV certificate, then the [C2PA Verify tool](https://verify.contentauthenticity.org/) won't display your organization name in the Content Credentials.
-
 ### Extracting the certificate
 
 To work with the certificate, you need to extract it. When the CAI SDK adds Content Credentials to an asset, it incorporates the certificate (including the associated public key) into the manifest.
