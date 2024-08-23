@@ -33,7 +33,7 @@ Now, let's drill down a bit to clarify some of these terms.
 
 **Action**: An operation that an _actor_ performs on an _asset._ For example, "create," "embed," or "change contrast."
 
-**Assertion**: Part of the manifest "asserted" by an actor that contains data about an asset's creation, authorship, how it's been edited, and other relevant information. For example, an assertion might be "change image contrast." For a list of standard C2PA assertions, see the [C2PA Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_c2pa_standard_assertions).
+**Assertion**: Part of the manifest "asserted" by an actor that contains data about an asset's creation, authorship, how it's been edited, and other relevant information. For example, an assertion might be "change image contrast." For a list of standard C2PA assertions, see the [C2PA Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_c2pa_standard_assertions).
 
 **Certificate Authority (CA)**: A trusted third party that verifies the identity of an organization applying for a digital certificate. After verifying the organization's identity, the CA issues a certificate and binds the organization's identity to a public key. A digital certificate can be trusted because it is chained to the CA's root certificate.
 
@@ -53,15 +53,15 @@ Now, let's drill down a bit to clarify some of these terms.
 
 **Manifest store**: A collection of manifests associated with asset. The most recent manifest in the manifest store is the _active manifest_, which has the set of _content bindings_ that are hashed with the asset and thus can be validated.
 
-For more definitions and detail, see the [C2PA specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_glossary).
+For more definitions and detail, see the [C2PA specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_glossary).
 
 ## How it works
 
 A _manifest_ is a binary data structure that describes the history and identity data attached to digital asset. The CAI SDK enables applications and websites to attach a manifest to an asset and display it when requested. This helps viewers to understand the origin and evolution of the asset.
 
-Although the manifest structure described in the C2PA specification is a complex binary structure, the CAI SDK works with a JSON manifest format that's easier to understand and use. It's essentially a declarative language for representing and creating a manifest in binary format. For more information on the CAI JSON manifest, see [Working with manifests](manifest/understanding-manifest).
+Although the manifest structure described in the C2PA specification is a complex binary structure, the CAI SDK works with a JSON manifest format that's easier to understand and use. It's essentially a declarative language for representing and creating a manifest in binary format. For more information on the CAI JSON manifest, see [Working with manifests](manifest/understanding.md).
 
-The CAI uses _cryptographic asset hashing_ to provide verifiable, tamper-evident signatures to indicate that the asset and metadata haven't been altered since the asset was published with the attached manifest. This means that a hash function converts the digital asset data to a unique "fingerprint," which is signed using a certificate. Once the credentials are signed, if the asset is changed then its fingerprint also changes. That's why it's called "tamper evident." You're not prevented from changing an image that has Content Credentials, but if you do, the credentials are no longer valid unless you change it using a tool that updates and re-hashes the credentials, along with a timestamp and optionally a description of what changed. The C2PA specification refers to this as [hard binding](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_binding_to_content).
+The CAI uses _cryptographic asset hashing_ to provide verifiable, tamper-evident signatures to indicate that the asset and metadata haven't been altered since the asset was published with the attached manifest. This means that a hash function converts the digital asset data to a unique "fingerprint," which is signed using a certificate. Once the credentials are signed, if the asset is changed then its fingerprint also changes. That's why it's called "tamper evident." You're not prevented from changing an image that has Content Credentials, but if you do, the credentials are no longer valid unless you change it using a tool that updates and re-hashes the credentials, along with a timestamp and optionally a description of what changed. The C2PA specification refers to this as [hard binding](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_binding_to_content).
 
 ## Introduction to public key infrastructure
 
@@ -87,12 +87,12 @@ In practice, to use a certificate with the CAI SDK, follow this process:
 3. Use one of the supporting CAI libraries or C2PA Tool to sign manifests using the certificate. 
 
 :::tip
-For more details and a short tutorial example, see [Signing manifests](manifest/signing-manifests).
+For more details and a short tutorial example, see [Signing manifests](manifest/signing-manifests.md).
 :::
 
 ### Getting a security certificate
 
-To create or modify Content Credentials, you must have a valid security certificate and key that conform to the requirements laid out in the [C2PA specification Trust Model section](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_trust_model).
+To create or modify Content Credentials, you must have a valid security certificate and key that conform to the requirements laid out in the [C2PA specification Trust Model section](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_trust_model).
 
 You must purchase a X.509 v3 security certificate from a certificate authority (CA). There are many CAs that issue certificates. Some of the most popular ones are:
 
@@ -118,14 +118,14 @@ The _private key_ associated with the certificate is extremely sensitive. Always
 
 ### Using the certificate to sign a manifest
 
-The simplest way to add a C2PA manifest to an asset file is by using C2PA Tool (`c2patool`). You can run C2PA Tool tool manually from the command line (for example, during development) and more generally from any executable program that can call out to the shell, such as a Node.js application as shown in the [c2patool Node.js service example](c2pa-service-example).
+The simplest way to add a C2PA manifest to an asset file is by using C2PA Tool (`c2patool`). You can run C2PA Tool tool manually from the command line (for example, during development) and more generally from any executable program that can call out to the shell, such as a Node.js application as shown in the [c2patool Node.js service example](c2pa-node-example/).
 
 The prerelease libraries for [Node.js](c2pa-node/), [Python](c2pa-python/), and [C++/C](c2pa-c/) can also add and sign a manifest.
 
 Similarly, using the Rust SDK, you can [add a manifest to an asset file](https://docs.rs/c2pa/latest/c2pa/#example-adding-a-manifest-to-a-file), referencing the certificate and private key file. For a simple example of creating and signing a manifest from a C program, see the [c2c2pa repository](https://github.com/contentauth/c2c2pa).
 
 :::warning Warning
-Do not access a private key and certificate directly from the file system in production. Doing so is not secure because it exposes these sensitive files to potential attackers. Instead use a hardware security module (HSM) and optionally a Key Management Service (KMS); for example as show in the [C2PA Python Example](../docs/c2pa-python-example).
+Accessing a private key and certificate directly from the file system is fine during development, but doing so in production may be insecure. Instead use a Key Management Service (KMS) or a hardware security module (HSM) to access the certificate and key; for example as show in the [C2PA Python Example](https://github.com/contentauth/c2pa-python-example).
 :::
 
 ### Verify known certificate list
@@ -136,7 +136,7 @@ The C2PA [Verify tool](https://contentcredentials.org/verify) uses a list of _kn
 
 ## Identity
 
-To identify who created or modified an asset, identity needs to be verifiable and bound to an asset and its manifest store. The CAI SDK supports the [W3C verifiable credentials](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_w3c_verifiable_credentials) standard recommendation (part of the C2PA specification), but doesn't currently have a way to validate these credentials or ensure that they properly reflect authorship of the content. An actor can add one or more identities to a manifest using the W3C verifiable credentials data model. Currently, a verifier must trust the manifest signer to properly authenticate the identity.
+To identify who created or modified an asset, identity needs to be verifiable and bound to an asset and its manifest store. The CAI SDK supports the [W3C verifiable credentials](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_w3c_verifiable_credentials) standard recommendation (part of the C2PA specification), but doesn't currently have a way to validate these credentials or ensure that they properly reflect authorship of the content. An actor can add one or more identities to a manifest using the W3C verifiable credentials data model. Currently, a verifier must trust the manifest signer to properly authenticate the identity.
 
 Identity can be bolstered with other kinds of evidence such as _Adobe connected accounts_. In the future, the identity credentials will be separately verifiable. In the future, these verifiable credentials will be strongly bound to the manifest and media and be independently verifiable.
 
@@ -220,7 +220,7 @@ Embedding a manifest in an asset usually increases the size of the file. Two thi
 
 ### Storing a manifest in the cloud
 
-In addition to storing the manifest with the asset, Adobe tools use the _Adobe Content Credentials Cloud_, a public, persistent storage option for attribution and history data. Publishing to this cloud keeps files smaller and makes Content Credentials more resilient, because if stripped from an asset they can be recovered by searching at [verify.contentauthenticity.org](https://verify.contentauthenticity.org/). On the other hand, embedding the manifest keeps the file self-contained and means no web access is required to validate.
+In addition to storing the manifest with the asset, Adobe tools use the _Adobe Content Credentials Cloud_, a public, persistent storage option for attribution and history data. Publishing to this cloud keeps files smaller and makes Content Credentials more resilient, because if stripped from an asset they can be recovered by searching with the [C2PA Verify tool](https://verify.contentauthenticity.org/). On the other hand, embedding the manifest keeps the file self-contained and means no web access is required to validate.
 
 Currently, Adobe Content Credentials Cloud (ACCC) is only available to Adobe tools, though in the future other credentials clouds may become available if other organizations want to host a credential service. Currently, most manifests will be embedded in assets since ACCC is specific to Adobe.
 

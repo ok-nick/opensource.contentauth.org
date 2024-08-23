@@ -12,7 +12,7 @@ The C2PA **[Verify tool](https://contentcredentials.org/verify)** uses a list of
   style={{ width: '300px', display: 'block', margin: '10px auto' }}
 />
 
-Conversely, if the Content Credential was signed by a known certificate, the Verify tool will display the [name of the certificate owner and time of the claim signature](../verify#title-and-signing-information).
+Conversely, if the Content Credential was signed by a known certificate, the Verify tool will display the [name of the certificate owner and time of the claim signature](verify.mdx#title-and-signing-information).
 
 :::note
 The C2PA intends to publish an official public list of known certificates. Until then, **[Verify](https://contentcredentials.org/verify)** uses a temporary list. The list is subject to change and will be deprecated when C2PA publishes the official list.
@@ -20,10 +20,10 @@ The C2PA intends to publish an official public list of known certificates. Until
 
 ## Temporary known certificate list
 
-The [contentcredentials.org](https://contentcredentials.org/) site hosts the following files that it uses to [validate signing certificates](https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#_c2pa_signers). Together, these files form the temporary known certificate list:
+The [contentcredentials.org](https://contentcredentials.org/) site hosts the following files that it uses to [validate signing certificates](https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#_c2pa_signers). Together, these files form the _temporary known certificate list_:
 
 - **The temporary end-entity certificate list** in https://contentcredentials.org/trust/allowed.pem consists of end-entity certificates. If the certificate is on this list, it is considered "known." To reduce bandwidth consumption, a [version with SHA-256 hashes](https://contentcredentials.org/trust/allowed.sha256.txt) of the certificates is also available.
-- **The temporary known anchor list** in https://contentcredentials.org/trust/anchors.pem contains the list of known anchor certificates. If an end-entity [certificate's chain](../getting-started#signing-and-certificates) can be traced back to an anchor certificate on this list, the certificate is considered "known."
+- **The temporary known anchor list** in https://contentcredentials.org/trust/anchors.pem contains the list of known anchor certificates. If an end-entity [certificate's chain](../getting-started.mdx#signing-and-certificates) can be traced back to an anchor certificate on this list, the certificate is considered "known."
 - **The configuration file**, https://contentcredentials.org/trust/store.cfg, specifies the [Extended Key Usage (EKU)](https://datatracker.ietf.org/doc/html/rfc9336) values accepted for end-entity certificates. An end-entity certificate must have at least one of the EKUs in this list to be valid.
 
 ## Using the known certificate list
@@ -32,7 +32,7 @@ You can use the C2PA Tool or the CAI JavaScript library to determine whether a c
 
 ### Using with C2PA Tool
 
-The [C2PA Tool documentation](../c2patool/#using-the-temporary-contentcredentialsorg--verify-trust-settings) explains how to use the temporary known certificate list with the tool.
+The [C2PA Tool documentation](c2patool/readme.md#using-the-temporary-contentcredentialsorg--verify-trust-settings) explains how to use the temporary known certificate list with the tool.
 
 ### Using with the JavaScript library
 

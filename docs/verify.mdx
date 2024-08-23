@@ -168,7 +168,7 @@ For example, suppose you downloaded a file from Adobe Stock and renamed it `my_s
 
 **Signing information**
 
-This section displays the the issuer of the claim signature from the `signature_info.issuer` property in the active manifest, as shown in the example snippet below.
+This section displays the the issuer of the claim signature from the `signature_info.issuer` property in the active manifest, as shown in the example snippet below. It shows the organization name only if the signing certificate includes the "O" or [Organization Name attribute](https://www.alvestrand.no/objectid/2.5.4.10.html) (OID value 2.5.4.10) in the certificate's distinguished name information.
 
 If the Content Credential was signed by a certificate on the [known certificate list](verify-known-cert-list), then this section also displays the time of the claim signature from the `signature_info.time` property in the active manifest, as shown in the example snippet below. The date is converted from UTC to the local time zone.
 

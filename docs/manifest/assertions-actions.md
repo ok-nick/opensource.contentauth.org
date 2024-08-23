@@ -7,7 +7,7 @@ title: Assertions and actions
 
 Assertions provide information about when, where, and how an asset was created or transformed. 
 
-In the JSON manifest, each assertion is specified by a [ManifestAssertion](../manifest/manifest-ref#manifestassertion) object.  All the assertions in the manifest are in the `assertions` array. A ManifestAssertion object has two required properties, `label`, a string, and `data`, which can contain arbitrary information; and two optional properties, `kind` and `instance`. 
+In the JSON manifest, each assertion is specified by a [ManifestAssertion](../manifest/manifest-ref.mdx#manifestassertion) object.  All the assertions in the manifest are in the `assertions` array. A ManifestAssertion object has two required properties, `label`, a string, and `data`, which can contain arbitrary information; and two optional properties, `kind` and `instance`. 
 
 The standard form of an assertion in a JSON manifest is:
 
@@ -37,7 +37,7 @@ Metadata assertions must include one or more `@context` properties in the `data`
 
 ### C2PA standard assertions
 
-The C2PA Technical Specification defines a [set of standard assertions](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_standard_c2pa_assertion_summary) and their corresponding labels.  In addition, you can define [custom assertions](#custom-assertions) for your specific application.
+The C2PA Technical Specification defines a [set of standard assertions](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_standard_c2pa_assertion_summary) and their corresponding labels.  In addition, you can define [custom assertions](#custom-assertions) for your specific application.
 
 The following table summarizes some of the most important standard assertions.
 
@@ -71,7 +71,7 @@ The value of each of these properties is an object with a `use` property that ca
 - `notAllowed`: Permission is NOT granted for this type of use.
 - `constrained`: Permission is not unconditionally granted for this use.  You can provide more details (such as contact information) in the `constraints_info` text property.
 
-For more information, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_training_and_data_mining).
+For more information, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_training_and_data_mining).
 
 For example:
 
@@ -156,7 +156,7 @@ An International Press Telecommunications Council (IPTC) metadata assertion repr
 
 An IPTC assertion has the label `stds.iptc` and is stored in JSON-LD format using the XMP field names and structures specified in the IPTC standards.
 
-Earlier versions of the C2PA specification defined the `stds.iptc.photo-metadata` label for IPTC photo metadata; the 1.3 version of the C2PA specification defines the `stds.iptc` assertion that includes video metadata as well. 
+Earlier versions of the C2PA specification defined the `stds.iptc.photo-metadata` label for IPTC photo metadata; starting with version 1.3, the C2PA specification defines the `stds.iptc` assertion that includes video metadata as well. 
 
 :::note
 Do not use the IPTC `plus:DataMining` property to specify whether permission is granted to use an asset in data mining or AI/ML training. Instead use the C2PA ["do not train" assertion](#do-not-train-assertion).
@@ -217,13 +217,13 @@ For example:
 
 ### Content bindings
 
-Content bindings are standard assertions such as `c2pa.hash.boxes` and `c2pa.hash.data` that uniquely identify portions of an asset.  For more information on content bindings, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_binding_to_content).
+Content bindings are standard assertions such as `c2pa.hash.boxes` and `c2pa.hash.data` that uniquely identify portions of an asset.  For more information on content bindings, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_binding_to_content).
 
 :::note
 The CAI SDK writes content bindings assertions, so normally you don't need to write them, just read them.
 :::
 
-For example, the `c2pa.hash.data` assertion shown in the [detailed manifest example](manifest-examples/#detailed-manifest) specifies an exclusion hash:
+For example, the `c2pa.hash.data` assertion shown in the [detailed manifest example](examples.mdx/#detailed-manifest) specifies an exclusion hash:
 
 ```json
 "assertions": [
@@ -269,7 +269,7 @@ For example:
 
 ## Actions
 
-Actions provide information about creation, edits, and other things that have occurred to an asset. In the manifest, an `actions` assertion is an array of [ManifestAssertion](../manifest/manifest-ref#manifestassertion) objects.   For example:
+Actions provide information about creation, edits, and other things that have occurred to an asset. In the manifest, an `actions` assertion is an array of [ManifestAssertion](manifest-ref.mdx#manifestassertion) objects.   For example:
 
 ```json
 ...
@@ -301,9 +301,9 @@ Each object in the `actions` array has the following standard properties.
 
 ### Action names
 
-The value of the `action` property must be either one of the pre-defined [standard C2PA action strings](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions) of the form `c2pa.*` or a custom action name. The set of standard C2PA actions includes fundamental ones as `c2pa.created` for when an asset is first created, and others (`c2pa.cropped`, `c2pa.resized`, and so on) for when an asset's content is modified in some way.  
+The value of the `action` property must be either one of the pre-defined [standard C2PA action strings](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_actions) of the form `c2pa.*` or a custom action name. The set of standard C2PA actions includes fundamental ones as `c2pa.created` for when an asset is first created, and others (`c2pa.cropped`, `c2pa.resized`, and so on) for when an asset's content is modified in some way.  
 
-For the complete list of standard actions, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions).
+For the complete list of standard actions, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_actions).
 
 
 ### Digital source type
@@ -380,7 +380,7 @@ The `parameters` property can contain any data that provide more details on the 
 ]
 ```
 
-For more information on action parameters, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_parameters).
+For more information on action parameters, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_parameters).
 
 ### The instanceId property
 
@@ -452,6 +452,6 @@ For example, the following action identifies that the `c2pa.opened` action was p
 
 ### V2 actions
 
-This documentation covers C2PA v1 actions.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_actions) also describes expanded v2 actions.  V1 actions are fully specified in the actions array. However, a v2 action may either be specified by an element of the actions array or from an element in the templates array with the same action name.
+This documentation covers C2PA v1 actions.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_actions) also describes expanded v2 actions.  V1 actions are fully specified in the actions array. However, a v2 action may either be specified by an element of the actions array or from an element in the templates array with the same action name.
 
 There are some additional differences between v1 and v2 actions, for example in v2, `softwareAgent` is a [ClaimGeneratorInfo](../manifest/manifest-ref#claimgeneratorinfo) structure instead of a string. The CAI APIs can read all v2 actions and write most v2 actions.
