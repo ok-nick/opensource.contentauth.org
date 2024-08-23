@@ -7,7 +7,7 @@ title: Assertions and actions
 
 Assertions provide information about when, where, and how an asset was created or transformed. 
 
-In the JSON manifest, each assertion is specified by a [ManifestAssertion](../manifest/manifest-ref#manifestassertion) object.  All the assertions in the manifest are in the `assertions` array. A ManifestAssertion object has two required properties, `label`, a string, and `data`, which can contain arbitrary information; and two optional properties, `kind` and `instance`. 
+In the JSON manifest, each assertion is specified by a [ManifestAssertion](../manifest/manifest-ref.mdx#manifestassertion) object.  All the assertions in the manifest are in the `assertions` array. A ManifestAssertion object has two required properties, `label`, a string, and `data`, which can contain arbitrary information; and two optional properties, `kind` and `instance`. 
 
 The standard form of an assertion in a JSON manifest is:
 
@@ -37,7 +37,7 @@ Metadata assertions must include one or more `@context` properties in the `data`
 
 ### C2PA standard assertions
 
-The C2PA Technical Specification defines a [set of standard assertions](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_standard_c2pa_assertion_summary) and their corresponding labels.  In addition, you can define [custom assertions](#custom-assertions) for your specific application.
+The C2PA Technical Specification defines a [set of standard assertions](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_standard_c2pa_assertion_summary) and their corresponding labels.  In addition, you can define [custom assertions](#custom-assertions) for your specific application.
 
 The following table summarizes some of the most important standard assertions.
 
@@ -71,7 +71,7 @@ The value of each of these properties is an object with a `use` property that ca
 - `notAllowed`: Permission is NOT granted for this type of use.
 - `constrained`: Permission is not unconditionally granted for this use.  You can provide more details (such as contact information) in the `constraints_info` text property.
 
-For more information, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_training_and_data_mining).
+For more information, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_training_and_data_mining).
 
 For example:
 
