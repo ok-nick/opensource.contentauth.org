@@ -40,13 +40,13 @@ These related projects may be of interest, but the CAI team doesn't maintain or 
 
 ## Discussions on Discord
 
-The CAI maintains a [Discord server](https://discord.gg/CAI) for open technical discussions within the developer community, with several text channels focused on different projects and topics.
+The CAI maintains a [Discord server](https://discord.gg/CAI) for open technical discussions within the developer community, with channels focused on different projects and topics.
 
 ## Other resources
 
-- **Newsletter**: [Subscribe to the CAI mailing list](https://contentauthenticity.org/newsletter) to get the latest news and updates about CAI tools via email.
-- **FAQs**: In case you missed it, the [Frequently asked questions](./faqs) address a number of high-level questions.
-- **Twitter feed**: Follow [CAI on Twitter](https://twitter.com/ContentAuth) for the latest general announcements and information.
+- **Read the [CAI blog](https://contentauthenticity.org/blog)** to get the latest news and updates about CAI.
+- **Follow [CAI on Twitter](https://twitter.com/ContentAuth)** for the latest general announcements and information.
+- **[The FAQ](./faqs)** address a number of high-level questions.
 
 ## Developer questionnaire
 
