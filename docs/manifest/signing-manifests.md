@@ -53,16 +53,22 @@ The following table describes the signature algorithms and signature types that 
 
 | Certificate `signatureAlgorithm` | Description  | Recommended signature type | RFC Reference |
 | -------------------------------- | ------------ | -------------------------- | ------------- |
-| `ecdsa-with-SHA256`    | ECDSA with SHA-256  | ES256  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
-| `ecdsa-with-SHA384`    | ECDSA with SHA-384  | ES384  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
-| `ecdsa-with-SHA512`    | ECDSA with SHA-512  | ES512  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
+| `ecdsa-with-SHA256`    | ECDSA with SHA-256  | ES256<sup>*</sup>  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
+| `ecdsa-with-SHA384`    | ECDSA with SHA-384  | ES384<sup>*</sup>  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
+| `ecdsa-with-SHA512`    | ECDSA with SHA-512  | ES512<sup>*</sup>  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
 | `sha256WithRSAEncryption`   | RSASSA-PSS with SHA-256<br/>MGF1 with SHA-256| PS256  | [RFC 8017 appendix A.2.4](https://www.rfc-editor.org/rfc/rfc8017.html#appendix-A.2.4) |
 | `sha384WithRSAEncryption`   | RSASSA-PSS<br/>SHA-384, MGF1 with SHA-384    | PS384  | [RFC 8017 appendix A.2.4](https://www.rfc-editor.org/rfc/rfc8017.html#appendix-A.2.4) |
 | `sha512WithRSAEncryption`   | RSASSA-PSS<br/>SHA-512, MGF1 with SHA-512    | PS512  | [RFC 8017 appendix A.2.4](https://www.rfc-editor.org/rfc/rfc8017.html#appendix-A.2.4) |
-| `id-RSASSA-PSS` - ASN1 OID: prime256v1, NIST CURVE: P-256 | RSA-PSS| ES256  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
-| `id-RSASSA-PSS` - ASN1 OID: secp384r1 | RSA-PSS| ES384  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
-| `id-RSASSA-PSS` - ASN1 OID: secp521r1 | RSA-PSS| ES512  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
+| `id-RSASSA-PSS` - ASN1 OID: prime256v1, NIST CURVE: P-256 | RSA-PSS| ES256<sup>*</sup>  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
+| `id-RSASSA-PSS` - ASN1 OID: secp384r1 | RSA-PSS| ES384<sup>*</sup>  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
+| `id-RSASSA-PSS` - ASN1 OID: secp521r1 | RSA-PSS| ES512<sup>*</sup>  | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)  |
 | `id-Ed25519` | EdDSA (Edwards-Curve DSA) with SHA-512 (SHA-2) and Curve25519 | Ed25519 instance ONLY.| [RFC 8410 section 3](https://www.rfc-editor.org/rfc/rfc8410.html#section-3) |
+
+
+:::info 
+<a name="table-note"></a><sup>*</sup> ES256, ES384, and ES512 signatures must be in IEEE P1363 format.
+
+:::
 
 
 The information in this table is based on the [C2PA specification Trust Model section](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_trust_model). The C2PA specification also covers two other certificates for timestamp responses and OCSP certificate revocation, which are not covered here.
