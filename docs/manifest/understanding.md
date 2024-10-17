@@ -43,7 +43,7 @@ Manifests without time-stamps cease to be valid when the signing credential expi
 
 An RFC 3161 time-stamp enables you to prove the existence of a particular piece of data at a particular time. Think of it as a notary service for data. You present a piece of data (in this case, the C2PA claim data structure) and the third-party TSA verifies that it saw that data at a time that can be audited and is independently verifiable.
 
-The time-stamp is typically defined as part of the signing information. You can set this via the c2patool `ta_url` field or by using the API. The time-stamp then appears in the `SignatureInfo` JSON object when reading the manifest store.
+The time-stamp is typically defined as part of the signing information. You can set this by using C2PA Tool in the `ta_url` field or by using the SDK. The time-stamp then appears in the `SignatureInfo` JSON object when reading the manifest store.
 
 ## References
 
