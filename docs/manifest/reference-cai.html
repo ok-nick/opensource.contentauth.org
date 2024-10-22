@@ -151,15 +151,7 @@
    <div style="display: table-cell; line-height: 100%; padding-top: 0;">
     :
     <span style="font-size:80%;">
-     An array of
-     <a href="https://verifiablecredentials.dev/">
-      W3C Verifiable Credentials
-     </a>
-     . See also the
-     <a href="https://www.w3.org/TR/vc-data-model/">
-      W3C Recommendation
-     </a>
-     . NOTE: This area is under active development and may change.
+     A List of verified credentials
     </span>
    </div>
   </div>
@@ -199,7 +191,7 @@
    <div style="display: table-cell; line-height: 100%; padding-top: 0;">
     :
     <span style="font-size:80%;">
-     A User Agent formatted string identifying the software/hardware/system produced this claim. Spaces are not allowed in names, versions can be specified with product/1.0 syntax
+     A User Agent formatted string identifying the software/hardware/system produced this claim Spaces are not allowed in names, versions can be specified with product/1.0 syntax
     </span>
    </div>
   </div>
@@ -303,11 +295,14 @@
    </polyline>
   </svg>
  </div>
+ <p>
+  <!-- modified schema -->
+ </p>
  <h2 id="manifeststore">
   ManifestStore
  </h2>
  <p>
-  A Container for a set of Manifests and a ValidationStatus list..
+  A Container for a set of Manifests and a ValidationStatus list.
  </p>
  <h3 id="properties">
   Properties
@@ -346,7 +341,9 @@
     </td>
     <!-- Description -->
     <td class="manifest-ref-table">
-     A label for the active (most recent) manifest in the store.
+     <p>
+      A label for the active (most recent) manifest in the store
+     </p>
     </td>
     <td class="manifest-ref-table">
      <!-- Required? -->
@@ -363,7 +360,9 @@
     </td>
     <!-- Description -->
     <td class="manifest-ref-table">
-     A HashMap of Manifests
+     <p>
+      A HashMap of Manifests
+     </p>
      <br>
      See
      <a href="#manifest">
@@ -392,7 +391,9 @@
     </td>
     <!-- Description -->
     <td class="manifest-ref-table">
-     ValidationStatus generated when loading the ManifestStore from an asset
+     <p>
+      ValidationStatus generated when loading the ManifestStore from an asset
+     </p>
     </td>
     <td class="manifest-ref-table">
      <!-- Required? -->
@@ -422,16 +423,24 @@
       ClaimGeneratorInfo
      </a>
      <br>
+     <a href="#coordinate">
+      Coordinate
+     </a>
+     <br>
      <a href="#datasource">
       DataSource
+     </a>
+     <br>
+    </td>
+    <td style="border: 0; vertical-align: top;">
+     <a href="#frame">
+      Frame
      </a>
      <br>
      <a href="#hasheduri">
       HashedUri
      </a>
      <br>
-    </td>
-    <td style="border: 0; vertical-align: top;">
      <a href="#ingredient">
       Ingredient
      </a>
@@ -444,6 +453,8 @@
       ManifestAssertion
      </a>
      <br>
+    </td>
+    <td style="border: 0; vertical-align: top;">
      <a href="#manifestassertionkind">
       ManifestAssertionKind
      </a>
@@ -452,10 +463,22 @@
       ManifestData
      </a>
      <br>
-    </td>
-    <td style="border: 0; vertical-align: top;">
      <a href="#metadata">
       Metadata
+     </a>
+     <br>
+     <a href="#range">
+      Range
+     </a>
+     <br>
+     <a href="#rangetype">
+      RangeType
+     </a>
+     <br>
+    </td>
+    <td style="border: 0; vertical-align: top;">
+     <a href="#regionofinterest">
+      RegionOfInterest
      </a>
      <br>
      <a href="#relationship">
@@ -470,8 +493,52 @@
       ReviewRating
      </a>
      <br>
+     <a href="#role">
+      Role
+     </a>
+     <br>
+    </td>
+    <td style="border: 0; vertical-align: top;">
+     <a href="#shape">
+      Shape
+     </a>
+     <br>
+     <a href="#shapetype">
+      ShapeType
+     </a>
+     <br>
      <a href="#signatureinfo">
       SignatureInfo
+     </a>
+     <br>
+     <a href="#signingalg">
+      SigningAlg
+     </a>
+     <br>
+     <a href="#text">
+      Text
+     </a>
+     <br>
+    </td>
+    <td style="border: 0; vertical-align: top;">
+     <a href="#textselector">
+      TextSelector
+     </a>
+     <br>
+     <a href="#textselectorrange">
+      TextSelectorRange
+     </a>
+     <br>
+     <a href="#time">
+      Time
+     </a>
+     <br>
+     <a href="#timetype">
+      TimeType
+     </a>
+     <br>
+     <a href="#unittype">
+      UnitType
      </a>
      <br>
     </td>
@@ -497,6 +564,9 @@
  <h3 id="actor">
   Actor
  </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
  <p class="prop_desc">
   Identifies a person responsible for an action.
  </p>
@@ -539,7 +609,9 @@
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      List of references to W3C Verifiable Credentials.
+      <p>
+       List of references to W3C Verifiable Credentials.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -568,7 +640,13 @@
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      An identifier for a human actor, used when the “type” is humanEntry.identified.
+      <p>
+       An identifier for a human actor, used when the “type” is
+       <code class="language-plaintext highlighter-rouge">
+        humanEntry.identified
+       </code>
+       .
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -591,6 +669,9 @@
  <h3 id="assettype">
   AssetType
  </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
  <p class="prop_desc">
  </p>
  <table class="manifest-ref-table" style="margin-top: 10px;">
@@ -679,6 +760,9 @@
  <h3 id="claimgeneratorinfo">
   ClaimGeneratorInfo
  </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
  <p class="prop_desc">
   Description of the claim generator, or the software used in generating the claim.
 
@@ -720,7 +804,9 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      hashed URI to the icon (either embedded or remote)
+      <p>
+       hashed URI to the icon (either embedded or remote)
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -745,7 +831,9 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      A human readable string naming the claim_generator
+      <p>
+       A human readable string naming the claim_generator
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -774,7 +862,9 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      A human readable string of the product’s version
+      <p>
+       A human readable string of the product’s version
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -797,9 +887,108 @@ This structure is also used for actions softwareAgent
    Scroll To Top
   </a>
  </p>
+ <h3 id="coordinate">
+  Coordinate
+ </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
+ <p class="prop_desc">
+  An x, y coordinate used for specifying vertices in polygons.
+ </p>
+ <table class="manifest-ref-table" style="margin-top: 10px;">
+  <thead>
+   <tr>
+    <th class="manifest-ref-table">
+     Property
+    </th>
+    <th class="manifest-ref-table">
+     Type
+    </th>
+    <th class="manifest-ref-table">
+     Description
+    </th>
+    <th class="manifest-ref-table">
+     Required?
+    </th>
+    <th class="manifest-ref-table">
+     Default Value
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td class="manifest-ref-table">
+     x
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!--   -->
+     Number
+  
+    FORMAT = double
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The coordinate along the x-axis.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     YES
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     y
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!--   -->
+     Number
+  
+    FORMAT = double
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The coordinate along the y-axis.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     YES
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <!-- Not an object but an enum -->
+ <p>
+  <a class="top-scroll-btn" title="Go to top" href="#manifeststore">
+   Scroll To Top
+  </a>
+ </p>
  <h3 id="datasource">
   DataSource
  </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
  <p class="prop_desc">
   A description of the source for assertion data
  </p>
@@ -842,7 +1031,15 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      A list of Actors associated with this source.
+      <p>
+       A list of
+       <a href="#actor">
+        <code class="language-plaintext highlighter-rouge">
+         Actor
+        </code>
+       </a>
+       s associated with this source.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -871,7 +1068,9 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      A human-readable string giving details about the source of the assertion data.
+      <p>
+       A human-readable string giving details about the source of the assertion data.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -896,7 +1095,9 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      A value from among the enumerated list indicating the source of the assertion.
+      <p>
+       A value from among the enumerated list indicating the source of the assertion.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -916,11 +1117,133 @@ This structure is also used for actions softwareAgent
    Scroll To Top
   </a>
  </p>
+ <h3 id="frame">
+  Frame
+ </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
+ <p class="prop_desc">
+  A frame range representing starting and ending frames or pages.
+
+If both
+  <code class="language-plaintext highlighter-rouge">
+   start
+  </code>
+  and
+  <code class="language-plaintext highlighter-rouge">
+   end
+  </code>
+  are missing, the frame will span the entire asset.
+ </p>
+ <table class="manifest-ref-table" style="margin-top: 10px;">
+  <thead>
+   <tr>
+    <th class="manifest-ref-table">
+     Property
+    </th>
+    <th class="manifest-ref-table">
+     Type
+    </th>
+    <th class="manifest-ref-table">
+     Description
+    </th>
+    <th class="manifest-ref-table">
+     Required?
+    </th>
+    <th class="manifest-ref-table">
+     Default Value
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td class="manifest-ref-table">
+     end
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     Integer
+     <!--  -->
+     <br>
+     Format: int32
+     <br>
+     Minimum:
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The end of the frame inclusive or the end of the asset if not present.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     start
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     Integer
+     <!--  -->
+     <br>
+     Format: int32
+     <br>
+     Minimum:
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The start of the frame or the end of the asset if not present.
+      </p>
+      <p>
+       The first frame/page starts at 0.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <!-- Not an object but an enum -->
+ <p>
+  <a class="top-scroll-btn" title="Go to top" href="#manifeststore">
+   Scroll To Top
+  </a>
+ </p>
  <h3 id="hasheduri">
   HashedUri
  </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
  <p class="prop_desc">
-  Hashed Uri structure as defined by C2PA spec. It is annotated to produce the correctly tagged cbor serialization.
+  Hashed Uri structure as defined by C2PA spec It is annotated to produce the correctly tagged cbor serialization
  </p>
  <table class="manifest-ref-table" style="margin-top: 10px;">
   <thead>
@@ -959,9 +1282,9 @@ This structure is also used for actions softwareAgent
     </td>
     <!-- Description -->
     <td class="manifest-ref-table">
-     <div class="prop_desc">
-      hash algorithm used (“sha256”, “sha384”, “sha512”)
-     </div>
+     <p class="comment">
+      Description TBD.
+     </p>
     </td>
     <td class="manifest-ref-table">
      <!-- Required? -->
@@ -988,9 +1311,9 @@ This structure is also used for actions softwareAgent
     </td>
     <!-- Description -->
     <td class="manifest-ref-table">
-     <div class="prop_desc">
-      “alg” hash of stored as cbor byte string
-     </div>
+     <p class="comment">
+      Description TBD.
+     </p>
     </td>
     <td class="manifest-ref-table">
      <!-- Required? -->
@@ -1013,9 +1336,9 @@ This structure is also used for actions softwareAgent
     </td>
     <!-- Description -->
     <td class="manifest-ref-table">
-     <div class="prop_desc">
-      URI stored as tagged cbor
-     </div>
+     <p class="comment">
+      Description TBD.
+     </p>
     </td>
     <td class="manifest-ref-table">
      <!-- Required? -->
@@ -1037,12 +1360,15 @@ This structure is also used for actions softwareAgent
  <h3 id="ingredient">
   Ingredient
  </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
  <p class="prop_desc">
   An
   <code class="language-plaintext highlighter-rouge">
    Ingredient
   </code>
-  is any external asset that has been used in the creation of an image.
+  is any external asset that has been used in the creation of an asset.
  </p>
  <table class="manifest-ref-table" style="margin-top: 10px;">
   <thead>
@@ -1082,9 +1408,24 @@ This structure is also used for actions softwareAgent
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      The active manifest label (if one exists).
-
-If this ingredient has a ManifestStore, this will hold the label of the active Manifest.
+      <p>
+       The active manifest label (if one exists).
+      </p>
+      <p>
+       If this ingredient has a
+       <a href="crate::ManifestStore">
+        <code class="language-plaintext highlighter-rouge">
+         ManifestStore
+        </code>
+       </a>
+       , this will hold the label of the active
+       <a href="crate::Manifest">
+        <code class="language-plaintext highlighter-rouge">
+         Manifest
+        </code>
+       </a>
+       .
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1111,7 +1452,41 @@ If this ingredient has a ManifestStore, this will hold the label of the active M
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      A reference to the actual data of the ingredient.
+      <p>
+       A reference to the actual data of the ingredient.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     data_types
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     Array of
+     <a href="#assettype">
+      AssetType
+     </a>
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       Additional information about the data’s type to the ingredient V2 structure.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1140,7 +1515,9 @@ If this ingredient has a ManifestStore, this will hold the label of the active M
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      Additional description of the ingredient.
+      <p>
+       Additional description of the ingredient.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1169,7 +1546,13 @@ If this ingredient has a ManifestStore, this will hold the label of the active M
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      Document ID from xmpMM:DocumentID in XMP metadata.
+      <p>
+       Document ID from
+       <code class="language-plaintext highlighter-rouge">
+        xmpMM:DocumentID
+       </code>
+       in XMP metadata.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1194,7 +1577,9 @@ If this ingredient has a ManifestStore, this will hold the label of the active M
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      The format of the source file as a MIME type.
+      <p>
+       The format of the source file as a MIME type.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1223,7 +1608,9 @@ If this ingredient has a ManifestStore, this will hold the label of the active M
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      An optional hash of the asset to prevent duplicates.
+      <p>
+       An optional hash of the asset to prevent duplicates.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1252,7 +1639,9 @@ If this ingredient has a ManifestStore, this will hold the label of the active M
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      URI to an informational page about the ingredient or its data.
+      <p>
+       URI to an informational page about the ingredient or its data.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1281,7 +1670,13 @@ If this ingredient has a ManifestStore, this will hold the label of the active M
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      Instance ID from xmpMM:InstanceID in XMP metadata.
+      <p>
+       Instance ID from
+       <code class="language-plaintext highlighter-rouge">
+        xmpMM:InstanceID
+       </code>
+       in XMP metadata.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1308,7 +1703,15 @@ If this ingredient has a ManifestStore, this will hold the label of the active M
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      A ManifestStore from the source asset extracted as a binary C2PA blob.
+      <p>
+       A
+       <a href="crate::ManifestStore">
+        <code class="language-plaintext highlighter-rouge">
+         ManifestStore
+        </code>
+       </a>
+       from the source asset extracted as a binary C2PA blob.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1335,7 +1738,15 @@ If this ingredient has a ManifestStore, this will hold the label of the active M
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      Any additional Metadata as defined in the C2PA spec.
+      <p>
+       Any additional
+       <a href="crate::Manifest">
+        <code class="language-plaintext highlighter-rouge">
+         Metadata
+        </code>
+       </a>
+       as defined in the C2PA spec.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1364,7 +1775,13 @@ If this ingredient has a ManifestStore, this will hold the label of the active M
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      URI from dcterms:provenance in XMP metadata.
+      <p>
+       URI from
+       <code class="language-plaintext highlighter-rouge">
+        dcterms:provenance
+       </code>
+       in XMP metadata.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1391,9 +1808,16 @@ If this ingredient has a ManifestStore, this will hold the label of the active M
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      Set to ParentOf if this is the parent ingredient.
-
-There can only be one parent ingredient in the ingredients.
+      <p>
+       Set to
+       <code class="language-plaintext highlighter-rouge">
+        ParentOf
+       </code>
+       if this is the parent ingredient.
+      </p>
+      <p>
+       There can only be one parent ingredient in the ingredients.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1420,9 +1844,16 @@ There can only be one parent ingredient in the ingredients.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      A thumbnail image capturing the visual state at the time of import.
-
-A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
+      <p>
+       A thumbnail image capturing the visual state at the time of import.
+      </p>
+      <p>
+       A tuple of thumbnail MIME format (for example
+       <code class="language-plaintext highlighter-rouge">
+        image/jpeg
+       </code>
+       ) and binary bits of the image.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1447,7 +1878,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      A human-readable title, generally source filename.
+      <p>
+       A human-readable title, generally source filename.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1477,7 +1910,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      Validation results.
+      <p>
+       Validation results.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1500,8 +1935,11 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
  <h3 id="manifest">
   Manifest
  </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
  <p class="prop_desc">
-  Represents all the information in a c2pa manifest.
+  A Manifest represents all the information in a c2pa manifest
  </p>
  <table class="manifest-ref-table" style="margin-top: 10px;">
   <thead>
@@ -1541,7 +1979,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      A list of assertions
+      <p>
+       A list of assertions
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1566,7 +2006,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      A User Agent formatted string identifying the software/hardware/system produced this claim. Spaces are not allowed in names, versions can be specified with product/1.0 syntax
+      <p>
+       A User Agent formatted string identifying the software/hardware/system produced this claim Spaces are not allowed in names, versions can be specified with product/1.0 syntax
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1575,7 +2017,7 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     </td>
     <td class="manifest-ref-table">
      <!-- Default Value -->
-     c2pa/0.25.2
+     c2pa/0.36.3
     </td>
    </tr>
    <tr>
@@ -1595,9 +2037,11 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     </td>
     <!-- Description -->
     <td class="manifest-ref-table">
-     <p class="comment">
-      Description TBD.
-     </p>
+     <div class="prop_desc">
+      <p>
+       A list of claim generator info data identifying the software/hardware/system produced this claim
+      </p>
+     </div>
     </td>
     <td class="manifest-ref-table">
      <!-- Required? -->
@@ -1621,14 +2065,16 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
 
       
          
-        &#34;object&#34;
+        true
      <!--  or  -->
      <!--  -->
     </td>
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      An array of W3C Verifiable Credentials. See also the W3C Recommendation. NOTE: This area is under active development and may change.
+      <p>
+       A List of verified credentials
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1653,7 +2099,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      The format of the source file as a MIME type.
+      <p>
+       The format of the source file as a MIME type.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1682,7 +2130,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      A List of ingredients
+      <p>
+       A List of ingredients
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1707,7 +2157,13 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      Instance ID from xmpMM:InstanceID in XMP metadata.
+      <p>
+       Instance ID from
+       <code class="language-plaintext highlighter-rouge">
+        xmpMM:InstanceID
+       </code>
+       in XMP metadata.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1716,7 +2172,7 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     </td>
     <td class="manifest-ref-table">
      <!-- Default Value -->
-     xmp:iid:3b9389f3-0bcb-4554-9a3c-1ab73ac5b81c
+     xmp:iid:eafef862-379d-44a1-99f7-2ead485e279d
     </td>
    </tr>
    <tr>
@@ -1750,6 +2206,38 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
    </tr>
    <tr>
     <td class="manifest-ref-table">
+     metadata
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     Array of
+     <a href="#metadata">
+      Metadata
+     </a>
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A list of user metadata for this claim
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
      redactions
     </td>
     <!-- Type  -->
@@ -1768,7 +2256,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      A list of redactions - URIs to a redacted assertions
+      <p>
+       A list of redactions - URIs to a redacted assertions
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1795,7 +2285,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      Signature data (only used for reporting)
+      <p>
+       Signature data (only used for reporting)
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1851,7 +2343,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      A human-readable title, generally source filename.
+      <p>
+       A human-readable title, generally source filename.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1880,7 +2374,13 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      Optional prefix added to the generated Manifest Label This is typically Internet domain name for the vendor (i.e. adobe)
+      <p>
+       Optional prefix added to the generated Manifest Label This is typically Internet domain name for the vendor (i.e.
+       <code class="language-plaintext highlighter-rouge">
+        adobe
+       </code>
+       )
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1903,6 +2403,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
  <h3 id="manifestassertion">
   ManifestAssertion
  </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
  <p class="prop_desc">
   A labeled container for an Assertion value in a Manifest
  </p>
@@ -1942,7 +2445,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      The data of the assertion as Value
+      <p>
+       The data of the assertion as Value
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -1974,7 +2479,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      There can be more than one assertion for any label
+      <p>
+       There can be more than one assertion for any label
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2001,7 +2508,13 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      The ManifestAssertionKind for this assertion (as stored in c2pa content).
+      <p>
+       The
+       <a href="crate::ManifestAssertionKind">
+        ManifestAssertionKind
+       </a>
+       for this assertion (as stored in c2pa content)
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2026,7 +2539,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      An assertion label in reverse domain format
+      <p>
+       An assertion label in reverse domain format
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2049,6 +2564,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
  <h3 id="manifestassertionkind">
   ManifestAssertionKind
  </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
  <p>
   A string that is one of the following:
  </p>
@@ -2075,6 +2593,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
  <h3 id="manifestdata">
   ManifestData
  </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
  <p class="comment">
   Description TBD.
  </p>
@@ -2101,6 +2622,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
  <h3 id="metadata">
   Metadata
  </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
  <p class="prop_desc">
   The Metadata structure can be used as part of other assertions or on its own to reference others
  </p>
@@ -2127,7 +2651,7 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
   <tbody>
    <tr>
     <td class="manifest-ref-table">
-     data_source
+     dataSource
     </td>
     <!-- Type  -->
     <td class="manifest-ref-table">
@@ -2165,7 +2689,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      A date time in ISO 8601 format.
+      <p>
+       A date time in ISO 8601 format.
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2186,6 +2712,33 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
      <!--  -->
      <a href="#hasheduri">
       HashedUri
+     </a>
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <p class="comment">
+      Description TBD.
+     </p>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     regionOfInterest
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <a href="#regionofinterest">
+      RegionOfInterest
      </a>
      <!--  -->
     </td>
@@ -2245,34 +2798,14 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
    Scroll To Top
   </a>
  </p>
- <h3 id="relationship">
-  Relationship
+ <h3 id="range">
+  Range
  </h3>
  <p>
-  A string that is one of the following:
+  <!-- end of oneOf entity -->
  </p>
- <ul>
-  <li>
-   “parentOf”
-  </li>
-  <li>
-   “componentOf”
-  </li>
-  <li>
-   “inputTo”
-   <!-- Not an object or enum, but a string -->
-  </li>
- </ul>
- <p>
-  <a class="top-scroll-btn" title="Go to top" href="#manifeststore">
-   Scroll To Top
-  </a>
- </p>
- <h3 id="resourceref">
-  ResourceRef
- </h3>
  <p class="prop_desc">
-  A reference to a resource to be used in JSON serialization
+  A spatial, temporal, frame, or textual range describing the region of interest.
  </p>
  <table class="manifest-ref-table" style="margin-top: 10px;">
   <thead>
@@ -2297,6 +2830,645 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
   <tbody>
    <tr>
     <td class="manifest-ref-table">
+     frame
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <a href="#frame">
+      Frame
+     </a>
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A frame range.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     shape
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <a href="#shape">
+      Shape
+     </a>
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A spatial range.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     text
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <a href="#text">
+      Text
+     </a>
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A textual range.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     time
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <a href="#time">
+      Time
+     </a>
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A temporal range.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     type
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <a href="#rangetype">
+      RangeType
+     </a>
+     <!-- obj.type is an array of possible types-->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The type of range of interest.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     YES
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <!-- Not an object but an enum -->
+ <p>
+  <a class="top-scroll-btn" title="Go to top" href="#manifeststore">
+   Scroll To Top
+  </a>
+ </p>
+ <h3 id="rangetype">
+  RangeType
+ </h3>
+ <p>
+  The type of range for the region of interest.
+ </p>
+ <table class="manifest-ref-table" style="margin-top: 10px;">
+  <thead>
+   <tr>
+    <th class="manifest-ref-table">
+     RangeType
+    </th>
+    <th class="manifest-ref-table">
+     Type
+    </th>
+    <th class="manifest-ref-table">
+     Description
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td class="manifest-ref-table">
+     spatial
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A spatial range, see
+       <a href="#Shape">
+        <code class="language-plaintext highlighter-rouge">
+         Shape
+        </code>
+       </a>
+       for more details.
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     temporal
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A temporal range, see
+       <a href="#Time">
+        <code class="language-plaintext highlighter-rouge">
+         Time
+        </code>
+       </a>
+       for more details.
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     frame
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A spatial range, see
+       <a href="#Frame">
+        <code class="language-plaintext highlighter-rouge">
+         Frame
+        </code>
+       </a>
+       for more details.
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     textual
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A textual range, see
+       <a href="#Text">
+        <code class="language-plaintext highlighter-rouge">
+         Text
+        </code>
+       </a>
+       for more details.
+      </p>
+     </div>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
+ <p>
+  <a class="top-scroll-btn" title="Go to top" href="#manifeststore">
+   Scroll To Top
+  </a>
+ </p>
+ <h3 id="regionofinterest">
+  RegionOfInterest
+ </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
+ <p class="prop_desc">
+  A region of interest within an asset describing the change.
+
+This struct can be used from
+  <a href="https://docs.rs/c2pa/latest/c2pa/assertions/struct.Action.html#method.changes">
+   <code class="language-plaintext highlighter-rouge">
+    Action::changes
+   </code>
+  </a>
+  or
+  <a href="https://docs.rs/c2pa/latest/c2pa/assertions/struct.Metadata.html#method.region_of_interest">
+   <code class="language-plaintext highlighter-rouge">
+    Metadata::region_of_interest
+   </code>
+  </a>
+  .
+ </p>
+ <table class="manifest-ref-table" style="margin-top: 10px;">
+  <thead>
+   <tr>
+    <th class="manifest-ref-table">
+     Property
+    </th>
+    <th class="manifest-ref-table">
+     Type
+    </th>
+    <th class="manifest-ref-table">
+     Description
+    </th>
+    <th class="manifest-ref-table">
+     Required?
+    </th>
+    <th class="manifest-ref-table">
+     Default Value
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td class="manifest-ref-table">
+     description
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     String
+     <!--  -->
+     <br>
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A free-text string.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     identifier
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     String
+     <!--  -->
+     <br>
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A free-text string representing a machine-readable, unique to this assertion, identifier for the region.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     metadata
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <a href="#metadata">
+      Metadata
+     </a>
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       Additional information about the asset.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     name
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     String
+     <!--  -->
+     <br>
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A free-text string representing a human-readable name for the region which might be used in a user interface.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     region
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!--   -->
+     <!--  -->
+     An array of
+     <a href="#range">
+      Range
+     </a>
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A range describing the region of interest for the specific asset.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     YES
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     role
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <a href="#role">
+      Role
+     </a>
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A value from our controlled vocabulary or an entity-specific value (e.g., com.litware.coolArea) that represents the role of a region among other regions.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     type
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     String
+     <!--  -->
+     <br>
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A value from a controlled vocabulary such as
+       <a href="https://cv.iptc.org/newscodes/imageregiontype/">
+        https://cv.iptc.org/newscodes/imageregiontype/
+       </a>
+       or an entity-specific value (e.g., com.litware.newType) that represents the type of thing(s) depicted by a region.
+      </p>
+      <p>
+       Note this field serializes/deserializes into the name
+       <code class="language-plaintext highlighter-rouge">
+        type
+       </code>
+       .
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <!-- Not an object but an enum -->
+ <p>
+  <a class="top-scroll-btn" title="Go to top" href="#manifeststore">
+   Scroll To Top
+  </a>
+ </p>
+ <h3 id="relationship">
+  Relationship
+ </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
+ <p>
+  A string that is one of the following:
+ </p>
+ <ul>
+  <li>
+   “parentOf”
+  </li>
+  <li>
+   “componentOf”
+  </li>
+  <li>
+   “inputTo”
+   <!-- Not an object or enum, but a string -->
+  </li>
+ </ul>
+ <p>
+  <a class="top-scroll-btn" title="Go to top" href="#manifeststore">
+   Scroll To Top
+  </a>
+ </p>
+ <h3 id="resourceref">
+  ResourceRef
+ </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
+ <p class="prop_desc">
+  A reference to a resource to be used in JSON serialization.
+
+The underlying data can be read as a stream via
+  <a href="https://docs.rs/c2pa/latest/c2pa/struct.Reader.html#method.resource_to_stream">
+   <code class="language-plaintext highlighter-rouge">
+    Reader::resource_to_stream
+   </code>
+  </a>
+  .
+ </p>
+ <table class="manifest-ref-table" style="margin-top: 10px;">
+  <thead>
+   <tr>
+    <th class="manifest-ref-table">
+     Property
+    </th>
+    <th class="manifest-ref-table">
+     Type
+    </th>
+    <th class="manifest-ref-table">
+     Description
+    </th>
+    <th class="manifest-ref-table">
+     Required?
+    </th>
+    <th class="manifest-ref-table">
+     Default Value
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td class="manifest-ref-table">
+     alg
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     String
+     <!--  -->
+     <br>
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The algorithm used to hash the resource (if applicable).
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
      data_types
     </td>
     <!-- Type  -->
@@ -2312,9 +3484,11 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     </td>
     <!-- Description -->
     <td class="manifest-ref-table">
-     <p class="comment">
-      Description TBD.
-     </p>
+     <div class="prop_desc">
+      <p>
+       More detailed data types as defined in the C2PA spec.
+      </p>
+     </div>
     </td>
     <td class="manifest-ref-table">
      <!-- Required? -->
@@ -2337,13 +3511,46 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     </td>
     <!-- Description -->
     <td class="manifest-ref-table">
-     <p class="comment">
-      Description TBD.
-     </p>
+     <div class="prop_desc">
+      <p>
+       The mime type of the referenced resource.
+      </p>
+     </div>
     </td>
     <td class="manifest-ref-table">
      <!-- Required? -->
      YES
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     hash
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     String
+     <!--  -->
+     <br>
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The hash of the resource (if applicable).
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
     </td>
     <td class="manifest-ref-table">
      <!-- Default Value -->
@@ -2362,9 +3569,14 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     </td>
     <!-- Description -->
     <td class="manifest-ref-table">
-     <p class="comment">
-      Description TBD.
-     </p>
+     <div class="prop_desc">
+      <p>
+       A URI that identifies the resource as referenced from the manifest.
+      </p>
+      <p>
+       This may be a JUMBF URI, a file path, a URL or any other string. Relative JUMBF URIs will be resolved with the manifest label. Relative file paths will be resolved with the base path if provided.
+      </p>
+     </div>
     </td>
     <td class="manifest-ref-table">
      <!-- Required? -->
@@ -2386,6 +3598,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
  <h3 id="reviewrating">
   ReviewRating
  </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
  <p class="prop_desc">
   A rating on an
   <a href="crate::ManifestAssertion">
@@ -2396,10 +3611,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
   .
 
  See
-  <a href="https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_claim_review">
-   https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_claim_review
+  <a href="https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_review_ratings.">
+   Review Ratings in C2PA spec
   </a>
-  .
  </p>
  <table class="manifest-ref-table" style="margin-top: 10px;">
   <thead>
@@ -2513,9 +3727,522 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
    Scroll To Top
   </a>
  </p>
+ <h3 id="role">
+  Role
+ </h3>
+ <p>
+  A role describing the region.
+ </p>
+ <table class="manifest-ref-table" style="margin-top: 10px;">
+  <thead>
+   <tr>
+    <th class="manifest-ref-table">
+     Role
+    </th>
+    <th class="manifest-ref-table">
+     Type
+    </th>
+    <th class="manifest-ref-table">
+     Description
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td class="manifest-ref-table">
+     c2pa.areaOfInterest
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       Arbitrary area worth identifying.
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     c2pa.cropped
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       This area is all that is left after a crop action.
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     c2pa.edited
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       This area has had edits applied to it.
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     c2pa.placed
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The area where an ingredient was placed/added.
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     c2pa.redacted
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       Something in this area was redacted.
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     c2pa.subjectArea
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       Area specific to a subject (human or not).
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     c2pa.deleted
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A range of information was removed/deleted.
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     c2pa.styled
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       Styling was applied to this area.
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     c2pa.watermarked
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       Invisible watermarking was applied to this area for the purpose of soft binding.
+      </p>
+     </div>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
+ <p>
+  <a class="top-scroll-btn" title="Go to top" href="#manifeststore">
+   Scroll To Top
+  </a>
+ </p>
+ <h3 id="shape">
+  Shape
+ </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
+ <p class="prop_desc">
+  A spatial range representing rectangle, circle, or a polygon.
+ </p>
+ <table class="manifest-ref-table" style="margin-top: 10px;">
+  <thead>
+   <tr>
+    <th class="manifest-ref-table">
+     Property
+    </th>
+    <th class="manifest-ref-table">
+     Type
+    </th>
+    <th class="manifest-ref-table">
+     Description
+    </th>
+    <th class="manifest-ref-table">
+     Required?
+    </th>
+    <th class="manifest-ref-table">
+     Default Value
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td class="manifest-ref-table">
+     height
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     Number
+     <!--  -->
+     <br>
+     Format: double
+     <br>
+     Minimum:
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The height of a rectnagle.
+      </p>
+      <p>
+       This field can be ignored for circles and polygons.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     inside
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     Boolean
+     <!--  -->
+     <br>
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       If the range is inside the shape.
+      </p>
+      <p>
+       The default value is true.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     origin
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <a href="#coordinate">
+      Coordinate
+     </a>
+     <!-- obj.type is an array of possible types-->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       THe origin of the coordinate in the shape.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     YES
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     type
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <a href="#shapetype">
+      ShapeType
+     </a>
+     <!-- obj.type is an array of possible types-->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The type of shape.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     YES
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     unit
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <a href="#unittype">
+      UnitType
+     </a>
+     <!-- obj.type is an array of possible types-->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The type of unit for the shape range.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     YES
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     vertices
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     Array of
+     <a href="#coordinate">
+      Coordinate
+     </a>
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The vertices of the polygon.
+      </p>
+      <p>
+       This field can be ignored for rectangles and circles.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     width
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     Number
+     <!--  -->
+     <br>
+     Format: double
+     <br>
+     Minimum:
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The width for rectangles or diameter for circles.
+      </p>
+      <p>
+       This field can be ignored for polygons.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <!-- Not an object but an enum -->
+ <p>
+  <a class="top-scroll-btn" title="Go to top" href="#manifeststore">
+   Scroll To Top
+  </a>
+ </p>
+ <h3 id="shapetype">
+  ShapeType
+ </h3>
+ <p>
+  The type of shape for the range.
+ </p>
+ <table class="manifest-ref-table" style="margin-top: 10px;">
+  <thead>
+   <tr>
+    <th class="manifest-ref-table">
+     ShapeType
+    </th>
+    <th class="manifest-ref-table">
+     Type
+    </th>
+    <th class="manifest-ref-table">
+     Description
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td class="manifest-ref-table">
+     rectangle
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A rectangle.
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     circle
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A circle.
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     polygon
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       A polygon.
+      </p>
+     </div>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
+ <p>
+  <a class="top-scroll-btn" title="Go to top" href="#manifeststore">
+   Scroll To Top
+  </a>
+ </p>
  <h3 id="signatureinfo">
   SignatureInfo
  </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
  <p class="prop_desc">
   Holds information about a signature
  </p>
@@ -2542,6 +4269,35 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
   <tbody>
    <tr>
     <td class="manifest-ref-table">
+     alg
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <a href="#signingalg">
+      SigningAlg
+     </a>
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       human readable issuing authority for this signature
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
      cert_serial_number
     </td>
     <!-- Type  -->
@@ -2557,7 +4313,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      The serial number of the certificate
+      <p>
+       The serial number of the certificate
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2586,7 +4344,40 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      human readable issuing authority for this signature
+      <p>
+       human readable issuing authority for this signature
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     revocation_status
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     Boolean
+     <!--  -->
+     <br>
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       revocation status of the certificate
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2615,7 +4406,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
     <!-- Description -->
     <td class="manifest-ref-table">
      <div class="prop_desc">
-      the time the signature was created
+      <p>
+       the time the signature was created
+      </p>
      </div>
     </td>
     <td class="manifest-ref-table">
@@ -2635,9 +4428,699 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
    Scroll To Top
   </a>
  </p>
+ <h3 id="signingalg">
+  SigningAlg
+ </h3>
+ <p>
+  Describes the digital signature algorithms allowed by the
+  <a href="https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_digital_signatures">
+   C2PA spec
+  </a>
+  :
+ </p>
+ <blockquote>
+  <p>
+   All digital signatures that are stored in a C2PA Manifest shall be generated using one of the digital signature algorithms and key types listed as described in this section.
+  </p>
+ </blockquote>
+ <table class="manifest-ref-table" style="margin-top: 10px;">
+  <thead>
+   <tr>
+    <th class="manifest-ref-table">
+     SigningAlg
+    </th>
+    <th class="manifest-ref-table">
+     Type
+    </th>
+    <th class="manifest-ref-table">
+     Description
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td class="manifest-ref-table">
+     Es256
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       ECDSA with SHA-256
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     Es384
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       ECDSA with SHA-384
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     Es512
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       ECDSA with SHA-512
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     Ps256
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       RSASSA-PSS using SHA-256 and MGF1 with SHA-256
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     Ps384
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       RSASSA-PSS using SHA-384 and MGF1 with SHA-384
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     Ps512
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       RSASSA-PSS using SHA-512 and MGF1 with SHA-512
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     Ed25519
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       Edwards-Curve DSA (Ed25519 instance only)
+      </p>
+     </div>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
+ <p>
+  <a class="top-scroll-btn" title="Go to top" href="#manifeststore">
+   Scroll To Top
+  </a>
+ </p>
+ <h3 id="text">
+  Text
+ </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
+ <p class="prop_desc">
+  A textual range representing multiple (possibly discontinuous) ranges of text.
+ </p>
+ <table class="manifest-ref-table" style="margin-top: 10px;">
+  <thead>
+   <tr>
+    <th class="manifest-ref-table">
+     Property
+    </th>
+    <th class="manifest-ref-table">
+     Type
+    </th>
+    <th class="manifest-ref-table">
+     Description
+    </th>
+    <th class="manifest-ref-table">
+     Required?
+    </th>
+    <th class="manifest-ref-table">
+     Default Value
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td class="manifest-ref-table">
+     selectors
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!--   -->
+     <!--  -->
+     An array of
+     <a href="#textselectorrange">
+      TextSelectorRange
+     </a>
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The ranges of text to select.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     YES
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <!-- Not an object but an enum -->
+ <p>
+  <a class="top-scroll-btn" title="Go to top" href="#manifeststore">
+   Scroll To Top
+  </a>
+ </p>
+ <h3 id="textselector">
+  TextSelector
+ </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
+ <p class="prop_desc">
+  Selects a range of text via a fragment identifier.
+
+This is modeled after the W3C Web Annotation selector model.
+ </p>
+ <table class="manifest-ref-table" style="margin-top: 10px;">
+  <thead>
+   <tr>
+    <th class="manifest-ref-table">
+     Property
+    </th>
+    <th class="manifest-ref-table">
+     Type
+    </th>
+    <th class="manifest-ref-table">
+     Description
+    </th>
+    <th class="manifest-ref-table">
+     Required?
+    </th>
+    <th class="manifest-ref-table">
+     Default Value
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td class="manifest-ref-table">
+     end
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     Integer
+     <!--  -->
+     <br>
+     Format: int32
+     <br>
+     Minimum:
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The end character offset or the end of the fragment if not present.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     fragment
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!--   -->
+     String
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       Fragment identifier as per RFC3023 (XML) or ISO 32000-2 (PDF), Annex O.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     YES
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     start
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     Integer
+     <!--  -->
+     <br>
+     Format: int32
+     <br>
+     Minimum:
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The start character offset or the start of the fragment if not present.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <!-- Not an object but an enum -->
+ <p>
+  <a class="top-scroll-btn" title="Go to top" href="#manifeststore">
+   Scroll To Top
+  </a>
+ </p>
+ <h3 id="textselectorrange">
+  TextSelectorRange
+ </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
+ <p class="prop_desc">
+  One or two
+  <a href="#TextSelector">
+   <code class="language-plaintext highlighter-rouge">
+    TextSelector
+   </code>
+  </a>
+  identifying the range to select.
+ </p>
+ <table class="manifest-ref-table" style="margin-top: 10px;">
+  <thead>
+   <tr>
+    <th class="manifest-ref-table">
+     Property
+    </th>
+    <th class="manifest-ref-table">
+     Type
+    </th>
+    <th class="manifest-ref-table">
+     Description
+    </th>
+    <th class="manifest-ref-table">
+     Required?
+    </th>
+    <th class="manifest-ref-table">
+     Default Value
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td class="manifest-ref-table">
+     end
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <a href="#textselector">
+      TextSelector
+     </a>
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The end of the text range.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     selector
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <a href="#textselector">
+      TextSelector
+     </a>
+     <!-- obj.type is an array of possible types-->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The start (or entire) text range.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     YES
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <!-- Not an object but an enum -->
+ <p>
+  <a class="top-scroll-btn" title="Go to top" href="#manifeststore">
+   Scroll To Top
+  </a>
+ </p>
+ <h3 id="time">
+  Time
+ </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
+ <p class="prop_desc">
+  A temporal range representing a starting time to an ending time.
+ </p>
+ <table class="manifest-ref-table" style="margin-top: 10px;">
+  <thead>
+   <tr>
+    <th class="manifest-ref-table">
+     Property
+    </th>
+    <th class="manifest-ref-table">
+     Type
+    </th>
+    <th class="manifest-ref-table">
+     Description
+    </th>
+    <th class="manifest-ref-table">
+     Required?
+    </th>
+    <th class="manifest-ref-table">
+     Default Value
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td class="manifest-ref-table">
+     end
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     String
+     <!--  -->
+     <br>
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The end time or the end of the asset if not present.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     start
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <!-- Either -->
+     String
+     <!--  -->
+     <br>
+     <!--  or  -->
+     <!--  -->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The start time or the start of the asset if not present.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     N/A
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     type
+    </td>
+    <!-- Type  -->
+    <td class="manifest-ref-table">
+     <!--  -->
+     <a href="#timetype">
+      TimeType
+     </a>
+     <!-- obj.type is an array of possible types-->
+    </td>
+    <!-- Description -->
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       The type of time.
+      </p>
+     </div>
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Required? -->
+     NO
+    </td>
+    <td class="manifest-ref-table">
+     <!-- Default Value -->
+     npt
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <!-- Not an object but an enum -->
+ <p>
+  <a class="top-scroll-btn" title="Go to top" href="#manifeststore">
+   Scroll To Top
+  </a>
+ </p>
+ <h3 id="timetype">
+  TimeType
+ </h3>
+ <p>
+  The type of time.
+ </p>
+ <table class="manifest-ref-table" style="margin-top: 10px;">
+  <thead>
+   <tr>
+    <th class="manifest-ref-table">
+     TimeType
+    </th>
+    <th class="manifest-ref-table">
+     Type
+    </th>
+    <th class="manifest-ref-table">
+     Description
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td class="manifest-ref-table">
+     npt
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       Times are described using Normal Play Time (npt) as described in RFC 2326.
+      </p>
+     </div>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
+ <p>
+  <a class="top-scroll-btn" title="Go to top" href="#manifeststore">
+   Scroll To Top
+  </a>
+ </p>
+ <h3 id="unittype">
+  UnitType
+ </h3>
+ <p>
+  The type of unit for the range.
+ </p>
+ <table class="manifest-ref-table" style="margin-top: 10px;">
+  <thead>
+   <tr>
+    <th class="manifest-ref-table">
+     UnitType
+    </th>
+    <th class="manifest-ref-table">
+     Type
+    </th>
+    <th class="manifest-ref-table">
+     Description
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td class="manifest-ref-table">
+     pixel
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       Use pixels.
+      </p>
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td class="manifest-ref-table">
+     percent
+    </td>
+    <td class="manifest-ref-table">
+     string
+    </td>
+    <td class="manifest-ref-table">
+     <div class="prop_desc">
+      <p>
+       Use percentage.
+      </p>
+     </div>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
+ <p>
+  <a class="top-scroll-btn" title="Go to top" href="#manifeststore">
+   Scroll To Top
+  </a>
+ </p>
  <h3 id="uriorresource">
   UriOrResource
  </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
  <p class="comment">
   Description TBD.
  </p>
@@ -2666,6 +5149,9 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
  <h3 id="validationstatus">
   ValidationStatus
  </h3>
+ <p>
+  <!-- end of oneOf entity -->
+ </p>
  <p class="prop_desc">
   A
   <code class="language-plaintext highlighter-rouge">
@@ -2674,8 +5160,8 @@ A tuple of thumbnail MIME format (i.e. image/jpeg) and binary bits of the image.
   struct describes the validation status of a specific part of a manifest.
 
 See
-  <a href="https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_existing_manifests">
-   https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_existing_manifests
+  <a href="https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_existing_manifests">
+   https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_existing_manifests
   </a>
   .
  </p>
@@ -2712,9 +5198,9 @@ See
     </td>
     <!-- Description -->
     <td class="manifest-ref-table">
-     <div class="prop_desc">
-      Validation status code.
-     </div>
+     <p class="comment">
+      Description TBD.
+     </p>
     </td>
     <td class="manifest-ref-table">
      <!-- Required? -->
@@ -2741,9 +5227,9 @@ See
     </td>
     <!-- Description -->
     <td class="manifest-ref-table">
-     <div class="prop_desc">
-      Human-readable description of the validation that was performed.
-     </div>
+     <p class="comment">
+      Description TBD.
+     </p>
     </td>
     <td class="manifest-ref-table">
      <!-- Required? -->
@@ -2770,9 +5256,9 @@ See
     </td>
     <!-- Description -->
     <td class="manifest-ref-table">
-     <div class="prop_desc">
-      Internal JUMBF reference to the entity that was validated.
-     </div>
+     <p class="comment">
+      Description TBD.
+     </p>
     </td>
     <td class="manifest-ref-table">
      <!-- Required? -->
