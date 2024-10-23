@@ -168,9 +168,18 @@ For example, suppose you downloaded a file from Adobe Stock and renamed it `my_s
 
 **Signing information**
 
-This section displays the the issuer of the claim signature from the `signature_info.issuer` property in the active manifest, as shown in the example snippet below. It shows the organization name only if the signing certificate includes the "O" or [Organization Name attribute](https://www.alvestrand.no/objectid/2.5.4.10.html) (OID value 2.5.4.10) in the certificate's distinguished name information.
+If the Content Credential was signed by a certificate that is NOT on the [known certificate list](verify-known-cert-list), such as the CAI test certificate in the SDK, then Verify displays "Unrecognized" at the top of this section with this notice:
 
-If the Content Credential was signed by a certificate on the [known certificate list](verify-known-cert-list), then this section also displays the time of the claim signature from the `signature_info.time` property in the active manifest, as shown in the example snippet below. The date is converted from UTC to the local time zone.
+import verify_unknown_source from '../static/img/verify-cc-unknown-source.png';
+
+<img
+  src={verify_unknown_source}
+  style={{ width: '283px', display: 'block', margin: '10px auto' }}
+/>
+
+However, if the Content Credential was signed by a certificate on the [known certificate list](verify-known-cert-list), then this section displays the name of the issuer of the claim signature from the `signature_info.issuer` property in the active manifest, as shown in the example snippet below. It shows the organization name only if the signing certificate includes the "O" or [Organization Name attribute](https://www.alvestrand.no/objectid/2.5.4.10.html) (OID value 2.5.4.10) in the certificate's distinguished name information.
+
+For signers on the known certificate list, this section also displays the time of the claim signature from the `signature_info.time` property in the active manifest, as shown in the example snippet below. The date is converted from UTC to the local time zone.
 
 ```json
 "signature_info": {
@@ -182,14 +191,45 @@ If the Content Credential was signed by a certificate on the [known certificate 
 
 If the issuer string is too long, then the date might be truncated or not shown at all. If so, refer to the [**About this Content Credential**](#about-this-content-credential) section for the full date.
 
-If the Content Credential was signed by a certificate that is NOT on the [known certificate list](verify-known-cert-list), then Verify displays this notice:
+### Validation status
 
-import verify_unknown_source from '../static/img/verify-cc-unknown-source.png';
+If the manifest has [validation errors](manifest/validation.md), then Verify displays this notice:
+
+import verify_validation_error from '../static/img/verify-validation-error.png';
 
 <img
-  src={verify_unknown_source}
+  src={verify_validation_error}
   style={{ width: '300px', display: 'block', margin: '10px auto' }}
 />
+
+Verify displays this warning if the `validation_status` array contains any elements. For example, a [this image](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-E-dat-CA.jpg) with a hard binding hash mismatch error, as shown in [this manifest store](https://c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-E-dat-CA/manifest_store.json):
+
+```
+"validation_status": [
+    {
+      "code": "assertion.dataHash.mismatch",
+      "url": "self#jumbf=/c2pa/contentauth:urn:uuid:04cdf4ec-f713-4e47-a8d6-7af56501ce4b/c2pa.assertions/c2pa.hash.data",
+      "explanation": "asset hash error, name: jumbf manifest, error: hash verification( Hashes do not match )"
+    }
+  ]
+```
+
+Another example that can result in this message is shown in [this image](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-E-clm-CAICAI.jpg) with a missing referenced claim, as shown in [this manifest store](https://c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-E-clm-CAICAI/manifest_store.json):
+
+```
+"validation_status": [
+    {
+      "code": "assertion.hashedURI.mismatch",
+      "url": "self#jumbf=c2pa.assertions/c2pa.ingredient__1",
+      "explanation": "hash does not match assertion data: self#jumbf=c2pa.assertions/c2pa.ingredient__1"
+    },
+    {
+      "code": "claim.missing",
+      "url": "self#jumbf=/c2pa/contentbeef:urn:uuid:8bb8ad50-ef2f-4f75-b709-a0e302d58019",
+      "explanation": "ingredient not found"
+    }
+  ]
+```
 
 ### Credit and usage
 
