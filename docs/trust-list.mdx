@@ -23,7 +23,7 @@ The C2PA intends to publish an official public list of known certificates. Until
 The [contentcredentials.org](https://contentcredentials.org/) site hosts the following files that it uses to [validate signing certificates](https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#_c2pa_signers). Together, these files form the _temporary known certificate list_:
 
 - **The temporary end-entity certificate list** in https://contentcredentials.org/trust/allowed.pem consists of end-entity certificates. If the certificate is on this list, it is considered "known." To reduce bandwidth consumption, a [version with SHA-256 hashes](https://contentcredentials.org/trust/allowed.sha256.txt) of the certificates is also available.
-- **The temporary known anchor list** in https://contentcredentials.org/trust/anchors.pem contains the list of known anchor certificates. If an end-entity [certificate's chain](../getting-started.mdx#signing-and-certificates) can be traced back to an anchor certificate on this list, the certificate is considered "known."
+- **The temporary known anchor list** in https://contentcredentials.org/trust/anchors.pem contains the list of known anchor certificates. If an end-entity [certificate's chain](getting-started.mdx#signing-and-certificates) can be traced back to an anchor certificate on this list, the certificate is considered "known."
 - **The configuration file**, https://contentcredentials.org/trust/store.cfg, specifies the [Extended Key Usage (EKU)](https://datatracker.ietf.org/doc/html/rfc9336) values accepted for end-entity certificates. An end-entity certificate must have at least one of the EKUs in this list to be valid.
 
 ## Using the known certificate list
