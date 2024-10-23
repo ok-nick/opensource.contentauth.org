@@ -7,7 +7,7 @@ Processing an asset includes [validating the manifests](https://c2pa.org/specifi
 
 ## Validation errors in manifests
 
-When you load an asset, all the manifests in the manifest store are validated and any [failure codes](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_failure_codes) are assigned to the `validation_status` array. Inspect the array to find the validation errors. Validation returns ONLY error codes; success is not explicitly indicated.
+When you load an asset, all the manifests in the manifest store are validated and any [failure codes](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_failure_codes) are assigned to the `validation_status` array. Inspect the array to find the validation errors. Validation returns ONLY error codes; success is not explicitly indicated.
 
 Manifest validation errors can occur, for example, when:
 
@@ -27,7 +27,7 @@ Only errors that are not already recorded in the `validation_status` of an ingre
 
 ## Error status codes
 
-The following table describes some common validation error status codes. Refer to the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_failure_codes) for the full list.
+The following table describes some common validation error status codes. Refer to the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_failure_codes) for the full list.
 
 | Validation Status Code| Description  | Type of URI |
 | --------------------- | ------------ | ----------- |
@@ -47,7 +47,7 @@ Validation error status codes can contain JUMBF URIs that reference assertions o
 - **Assertion URI**: A URI like `self#jumbf=c2pa.assertions/<ASSERTION>` where `<ASSERTION>` is either `stds.schema-org.*` or `c2pa.*`.
 - **Signature Box URI**: A URI like `self#jumbf=c2pa.signature`.
 
-For more information, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.3/specs/C2PA_Specification.html#_uri_references).
+For more information, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_uri_references).
 
 <!--
 Actions and assertions:
