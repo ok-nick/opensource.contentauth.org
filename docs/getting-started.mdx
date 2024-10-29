@@ -96,15 +96,12 @@ To create or modify Content Credentials, you must have a valid security certific
 
 You must purchase a X.509 v3 security certificate from a certificate authority (CA). There are many CAs that issue certificates. Some of the most popular ones are:
 
-- Comodo SSL [https://ssl.comodoca.com/](https://ssl.comodoca.com/)
-- Digicert [https://www.digicert.com/tls-ssl/compare-certificates](https://www.digicert.com/tls-ssl/compare-certificates)
-- Entrust [https://www.entrust.com/resources/certificate-solutions](https://www.entrust.com/resources/certificate-solutions)
-- GeoTrust [https://www.thesslstore.com/geotrust.aspx](https://www.thesslstore.com/geotrust.aspx)
-- GlobalSign [https://shop.globalsign.com/en/ssl](https://shop.globalsign.com/en/ssl)
+- GlobalSign: [S/MIME email signing](https://shop.globalsign.com/en/secure-email), [document signing](https://shop.globalsign.com/en/document-signing)
+- IdenTrust: [S/MIME email signing](https://www.identrust.com/digital-certificates/secure-email-smime), [document signing](https://www.identrust.com/digital-certificates/document-signing)
+- Comodo Cybersecurity: [S/MIME email signing cert](https://ssl.comodoca.com/s-mime), [document signing cert](https://ssl.comodoca.com/document-signing-certificates)
+- Digicert: [S/MIME email signing cert](https://www.digicert.com/tls-ssl/secure-email-smime-certificates), [document signing cert](https://www.digicert.com/signing/document-signing-certificates)
 
-:::note
 The above list is for reference only; inclusion does not imply endorsement by CAI or Adobe, Inc.
-:::note
 
 When you purchase a certificate, you must select at least one of the extended key usage (EKU) fields that specify what the certificate can be used for: **email protection** and **document signing**. Applications that use the CAI SDK won't accept the certificate unless it has one of these EKUs.
 
@@ -112,7 +109,7 @@ When you purchase a certificate, you must select at least one of the extended ke
 
 To work with the certificate, you need to extract it. When the CAI SDK adds Content Credentials to an asset, it incorporates the certificate (including the associated public key) into the manifest.
 
-:::danger
+:::info Important
 The _private key_ associated with the certificate is extremely sensitive. Always treat it with the highest security to ensure your credentials are not compromised. If someone does obtain your private key, they will be able to sign C2PA manifests and other content on your behalf without your consent.
 :::
 
@@ -142,11 +139,15 @@ Identity can be bolstered with other kinds of evidence such as _Adobe connected 
 
 In addition to simply adding a name and organization, Adobe tools can use the [Connected Accounts service](https://connected-accounts.adobe.com/) to connect social media accounts such as Behance, Instagram, or Twitter to an identity in a manifest. This service uses OAuth, so a user must be able to log in to the account to connect it.
 
+:::info
+The [Creator Assertions Working Group (CAWG)](https://creator-assertions.github.io/) is developing a technical specification for an identity assertion for use in the C2PA ecosystem. CAI expects to adopt and implement this specification in the SDK at some point in the future.
+:::
+
 ## How to use the SDK
 
 The CAI open-source SDK consist of:
 
-- **The C2PA Tool**, a command-line tool for working with manifests and media. This tool is a wrapper around the Rust SDK and provides most of the same capabilities that it does.
+- **C2PA Tool**, a command-line tool for working with manifests and media. This tool is a wrapper around the Rust SDK and provides most of the same capabilities that it does.
 - **Language-specific libraries** in C/C++, Python, Node.js and client JavaScript. NOTE: The C/C++, Python, Node.js libraries are prerelease versions whose APIs are subject to change.
 - **The Rust library** enables a desktop, mobile, or embedded application to create and sign manifests, embed manifests in certain file formats, and parse and validate manifests.
 
@@ -187,7 +188,7 @@ A website can serve web pages that use the JavaScript library to display manifes
 
 A server-side web application can create, modify, and sign claims (and view them) by:
 
-- Executing a shell command to invoke C2PA Tool. For an example, see the [c2patool Node.js service example](c2pa-service-example).
+- Executing a shell command to invoke C2PA Tool. For an example, see the [c2patool Node.js service example](c2pa-service-example). While this approach works, it is not highly scalable.
 - Use the prerelease [Node.js](c2pa-node), [Python](c2pa-python), or [C++/C](c2pa-c) libraries.
 - Bind to the Rust library and use it, similarly to native applications.
 
