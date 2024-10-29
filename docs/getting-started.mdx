@@ -101,9 +101,7 @@ You must purchase a X.509 v3 security certificate from a certificate authority (
 - Comodo Cybersecurity: [S/MIME email signing cert](https://ssl.comodoca.com/s-mime), [document signing cert](https://ssl.comodoca.com/document-signing-certificates)
 - Digicert: [S/MIME email signing cert](https://www.digicert.com/tls-ssl/secure-email-smime-certificates), [document signing cert](https://www.digicert.com/signing/document-signing-certificates)
 
-:::note
 The above list is for reference only; inclusion does not imply endorsement by CAI or Adobe, Inc.
-:::note
 
 When you purchase a certificate, you must select at least one of the extended key usage (EKU) fields that specify what the certificate can be used for: **email protection** and **document signing**. Applications that use the CAI SDK won't accept the certificate unless it has one of these EKUs.
 
@@ -111,7 +109,7 @@ When you purchase a certificate, you must select at least one of the extended ke
 
 To work with the certificate, you need to extract it. When the CAI SDK adds Content Credentials to an asset, it incorporates the certificate (including the associated public key) into the manifest.
 
-:::danger
+:::info Important
 The _private key_ associated with the certificate is extremely sensitive. Always treat it with the highest security to ensure your credentials are not compromised. If someone does obtain your private key, they will be able to sign C2PA manifests and other content on your behalf without your consent.
 :::
 
