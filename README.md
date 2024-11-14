@@ -16,7 +16,7 @@ $ npm install
 
 ## Local development
 
-**Prerequisite**: Currently, the site won't build unless you first check out the JavaScript library in a sibling directory and build the API docs there.  In the parent directory of `opensource.contentauth.org`, enter these commands:
+**Prerequisite**: To build the site locally, you must first check out the JavaScript library in a sibling directory and build the API docs there.  In the parent directory of `opensource.contentauth.org`, enter these commands:
 
 ```
 $ git clone git@github.com:contentauth/c2pa-js.git
