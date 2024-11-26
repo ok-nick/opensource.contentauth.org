@@ -126,6 +126,13 @@ const readmes = [
     dest: resolve(__dirname, '../docs/c2pa-c/readme.md'),
     repo: 'contentauth/c2pa-c',
     path: 'README.md',
+    branch: 'crandmck/docs-overhaul',
+  },
+  {
+    dest: resolve(__dirname, '../docs/c2pa-c/docs/usage.md'),
+    repo: 'contentauth/c2pa-c',
+    path: 'docs/usage.md',
+    branch: 'crandmck/docs-overhaul',
   },
   {
     dest: resolve(__dirname, '../docs/c2pa-c/docs/supported-formats.md'),

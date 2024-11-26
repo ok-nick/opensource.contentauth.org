@@ -192,6 +192,11 @@ const sidebars = {
           items: [
             {
               type: 'doc',
+              id: 'c2pa-c/docs/usage',
+              label: 'Using the C++ library',
+            },
+            {
+              type: 'doc',
               id: 'c2pa-c/docs/supported-formats',
               label: 'Supported media formats',
             },
