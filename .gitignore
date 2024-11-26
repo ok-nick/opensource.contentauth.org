@@ -9,6 +9,9 @@
 .cache-loader
 /docs/js-sdk/api
 /docs/c2patool
+/docs/c2pa-node
+/docs/c2pa-python
+/docs/c2pa-c
 /docs/rust-sdk
 /docs/**/readme.md
 
