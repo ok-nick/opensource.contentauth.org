@@ -42,40 +42,14 @@ const readmes = [
   },
   /* Waiting for https://github.com/contentauth/c2patool/pull/296
   {
-    dest: resolve(__dirname, '../docs/c2patool/readme.md'),
-    repo: 'contentauth/c2patool',
-    path: 'README.md',
-    branch: 'crandmck/update-contributing',
-  },
-  {
     dest: resolve(__dirname, '../docs/c2patool/docs/usage.md'),
     repo: 'contentauth/c2patool',
     path: 'docs/usage.md',
-    branch: 'crandmck/update-contributing',
   },
   {
     dest: resolve(__dirname, '../docs/c2patool/docs/supported-formats.md'),
     repo: 'contentauth/c2pa-rs',
     path: 'docs/supported-formats.md',
-    branch: 'crandmck/reorg-docs',
-  },
-  {
-    dest: resolve(__dirname, '../docs/c2patool/docs/manifest.md'),
-    repo: 'contentauth/c2patool',
-    path: 'docs/manifest.md',
-    branch: 'crandmck/update-contributing',
-  },
-  {
-    dest: resolve(__dirname, '../docs/c2patool/docs/x_509.md'),
-    repo: 'contentauth/c2patool',
-    path: 'docs/x_509.md',
-    branch: 'crandmck/update-contributing',
-  },
-  {
-    dest: resolve(__dirname, '../docs/c2patool/docs/release-notes.md'),
-    repo: 'contentauth/c2patool',
-    path: 'docs/release-notes.md',
-    branch: 'crandmck/update-contributing',
   },
   */
   {
@@ -93,44 +67,37 @@ const readmes = [
     dest: resolve(__dirname, '../docs/c2pa-node/docs/usage.md'),
     repo: 'contentauth/c2pa-node',
     path: 'docs/usage.md',
-    branch: 'crandmck/docs-overhaul',
   },
   {
     dest: resolve(__dirname, '../docs/c2pa-node/docs/supported-formats.md'),
     repo: 'contentauth/c2pa-rs',
     path: 'docs/supported-formats.md',
-    branch: 'crandmck/reorg-docs',
   },
   {
     dest: resolve(__dirname, '../docs/c2pa-node/docs/release-notes.md'),
     repo: 'contentauth/c2pa-node',
     path: 'docs/release-notes.md',
-    branch: 'crandmck/docs-overhaul',
   },
   // Python lib
   {
     dest: resolve(__dirname, '../docs/c2pa-python/readme.md'),
     repo: 'contentauth/c2pa-python',
     path: 'README.md',
-    branch: 'docs/add-rns-and-reorg',
   },
   {
     dest: resolve(__dirname, '../docs/c2pa-python/docs/usage.md'),
     repo: 'contentauth/c2pa-python',
     path: 'docs/usage.md',
-    branch: 'docs/add-rns-and-reorg',
   },
   {
     dest: resolve(__dirname, '../docs/c2pa-python/docs/supported-formats.md'),
     repo: 'contentauth/c2pa-rs',
     path: 'docs/supported-formats.md',
-    branch: 'crandmck/reorg-docs',
   },
   {
     dest: resolve(__dirname, '../docs/c2pa-python/docs/release-notes.md'),
     repo: 'contentauth/c2pa-python',
     path: 'docs/release-notes.md',
-    branch: 'docs/add-rns-and-reorg',
   },
   {
     dest: resolve(__dirname, '../docs/c2pa-python-example/readme.md'),
@@ -142,44 +109,37 @@ const readmes = [
     dest: resolve(__dirname, '../docs/c2pa-c/readme.md'),
     repo: 'contentauth/c2pa-c',
     path: 'README.md',
-    branch: 'crandmck/docs-overhaul',
   },
   {
     dest: resolve(__dirname, '../docs/c2pa-c/docs/usage.md'),
     repo: 'contentauth/c2pa-c',
     path: 'docs/usage.md',
-    branch: 'crandmck/docs-overhaul',
   },
   {
     dest: resolve(__dirname, '../docs/c2pa-c/docs/supported-formats.md'),
     repo: 'contentauth/c2pa-rs',
     path: 'docs/supported-formats.md',
-    branch: 'crandmck/reorg-docs',
   },
   // Rust lib
   {
     dest: resolve(__dirname, '../docs/rust-sdk/readme.md'),
     repo: 'contentauth/c2pa-rs',
     path: 'README.md',
-    branch: 'crandmck/reorg-docs',
   },
   {
     dest: resolve(__dirname, '../docs/rust-sdk/docs/supported-formats.md'),
     repo: 'contentauth/c2pa-rs',
     path: 'docs/supported-formats.md',
-    branch: 'crandmck/reorg-docs',
   },
   {
     dest: resolve(__dirname, '../docs/rust-sdk/docs/usage.md'),
     repo: 'contentauth/c2pa-rs',
     path: 'docs/usage.md',
-    branch: 'crandmck/reorg-docs',
   },
   {
     dest: resolve(__dirname, '../docs/rust-sdk/docs/release-notes.md'),
     repo: 'contentauth/c2pa-rs',
     path: 'docs/release-notes.md',
-    branch: 'crandmck/reorg-docs',
   },
   {
     dest: resolve(__dirname, '../docs/c2pa-min/readme.md'),
