@@ -67,7 +67,6 @@ const sidebars = {
       link: { type: 'doc', id: 'c2patool/readme' },
       collapsed: true,
       items: [
-        /* Waiting for https://github.com/contentauth/c2patool/pull/296        
         {
           type: 'doc',
           id: 'c2patool/docs/usage',
@@ -78,7 +77,6 @@ const sidebars = {
           id: 'c2patool/docs/supported-formats',
           label: 'Supported media formats',
         },
-*/
         {
           type: 'doc',
           id: 'c2patool/docs/manifest',
