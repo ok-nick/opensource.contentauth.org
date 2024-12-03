@@ -8,11 +8,16 @@
 .docusaurus
 .cache-loader
 /docs/js-sdk/api
-/docs/c2patool
+/docs/c2patool/*.md
+/docs/c2patool/docs/*.md
 /docs/c2pa-node/*.md
+/docs/c2pa-node/docs/*.md
 /docs/c2pa-python/*.md
+/docs/c2pa-python/docs/*.md
 /docs/c2pa-c/*.md
-/docs/rust-sdk
+/docs/c2pa-c/docs/*.md
+/docs/rust-sdk/*.md
+/docs/rust-sdk/docs/*.md
 /docs/**/readme.md
 
 # Misc

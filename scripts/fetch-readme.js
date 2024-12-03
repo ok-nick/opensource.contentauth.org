@@ -26,17 +26,17 @@ const readmes = [
     path: 'README.md',
   },
   {
-    dest: resolve(__dirname, '../docs/c2patool/manifest.md'),
+    dest: resolve(__dirname, '../docs/c2patool/docs/manifest.md'),
     repo: 'contentauth/c2patool',
     path: 'docs/manifest.md',
   },
   {
-    dest: resolve(__dirname, '../docs/c2patool/x_509.md'),
+    dest: resolve(__dirname, '../docs/c2patool/docs/x_509.md'),
     repo: 'contentauth/c2patool',
     path: 'docs/x_509.md',
   },
   {
-    dest: resolve(__dirname, '../docs/c2patool/release-notes.md'),
+    dest: resolve(__dirname, '../docs/c2patool/docs/release-notes.md'),
     repo: 'contentauth/c2patool',
     path: 'docs/release-notes.md',
   },
