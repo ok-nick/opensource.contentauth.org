@@ -41,7 +41,6 @@ const readmes = [
     path: 'docs/release-notes.md',
   },
   /* Waiting for https://github.com/contentauth/c2patool/pull/296 
-  // TRIGGERING REBUILD
   {
     dest: resolve(__dirname, '../docs/c2patool/docs/usage.md'),
     repo: 'contentauth/c2patool',
