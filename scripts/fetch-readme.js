@@ -24,6 +24,27 @@ const readmes = [
     dest: resolve(__dirname, '../docs/c2patool/readme.md'),
     repo: 'contentauth/c2patool',
     path: 'README.md',
+  },
+  {
+    dest: resolve(__dirname, '../docs/c2patool/manifest.md'),
+    repo: 'contentauth/c2patool',
+    path: 'docs/manifest.md',
+  },
+  {
+    dest: resolve(__dirname, '../docs/c2patool/x_509.md'),
+    repo: 'contentauth/c2patool',
+    path: 'docs/x_509.md',
+  },
+  {
+    dest: resolve(__dirname, '../docs/c2patool/release-notes.md'),
+    repo: 'contentauth/c2patool',
+    path: 'docs/release-notes.md',
+  },
+  /* Waiting for https://github.com/contentauth/c2patool/pull/296
+  {
+    dest: resolve(__dirname, '../docs/c2patool/readme.md'),
+    repo: 'contentauth/c2patool',
+    path: 'README.md',
     branch: 'crandmck/update-contributing',
   },
   {
@@ -56,6 +77,7 @@ const readmes = [
     path: 'docs/release-notes.md',
     branch: 'crandmck/update-contributing',
   },
+  */
   {
     dest: resolve(__dirname, '../docs/c2pa-service-example/readme.md'),
     repo: 'contentauth/c2pa-service-example',
