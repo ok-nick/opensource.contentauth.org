@@ -58,7 +58,6 @@ const readmes = [
     path: 'README.md',
   },
   // Node.js lib
-  // Fix build
   {
     dest: resolve(__dirname, '../docs/c2pa-node/readme.md'),
     repo: 'contentauth/c2pa-node',
@@ -78,6 +77,11 @@ const readmes = [
     dest: resolve(__dirname, '../docs/c2pa-node/docs/release-notes.md'),
     repo: 'contentauth/c2pa-node',
     path: 'docs/release-notes.md',
+  },
+  {
+    dest: resolve(__dirname, '../docs/c2pa-node-example/readme.md'),
+    repo: 'contentauth/c2pa-node-example',
+    path: 'README.md',
   },
   // Python lib
   {
