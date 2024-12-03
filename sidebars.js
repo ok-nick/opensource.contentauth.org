@@ -124,7 +124,6 @@ const sidebars = {
           link: { type: 'doc', id: 'c2pa-node/readme' },
           collapsed: true,
           items: [
-            /*
             {
               type: 'doc',
               id: 'c2pa-node/docs/usage',
@@ -140,7 +139,6 @@ const sidebars = {
               id: 'c2pa-node/docs/release-notes',
               label: 'Release notes',
             },
-*/
             {
               type: 'doc',
               label: 'C2PA Node example',

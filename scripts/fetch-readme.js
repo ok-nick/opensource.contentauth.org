@@ -67,8 +67,6 @@ const readmes = [
     repo: 'contentauth/c2pa-node',
     path: 'README.md',
   },
-  /*  
-Until https://github.com/contentauth/c2pa-node/pull/93 lands
   {
     dest: resolve(__dirname, '../docs/c2pa-node/docs/usage.md'),
     repo: 'contentauth/c2pa-node',
@@ -87,7 +85,6 @@ Until https://github.com/contentauth/c2pa-node/pull/93 lands
     path: 'docs/release-notes.md',
     branch: 'crandmck/docs-overhaul',
   },
-*/
   // Python lib
   {
     dest: resolve(__dirname, '../docs/c2pa-python/readme.md'),
