@@ -58,6 +58,7 @@ const readmes = [
     path: 'README.md',
   },
   // Node.js lib
+  // Fix build
   {
     dest: resolve(__dirname, '../docs/c2pa-node/readme.md'),
     repo: 'contentauth/c2pa-node',
