@@ -10,8 +10,8 @@
 /docs/js-sdk/api
 /docs/c2patool
 /docs/c2pa-node/*.md
-/docs/c2pa-python
-/docs/c2pa-c
+/docs/c2pa-python/*.md
+/docs/c2pa-c/*.md
 /docs/rust-sdk
 /docs/**/readme.md
 
