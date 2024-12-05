@@ -19,6 +19,45 @@ $ touch .gitkeep
 */
 
 const readmes = [
+  // js-sdk examples - View manifest
+  {
+    dest: resolve(
+      __dirname,
+      '../docs/js-sdk/examples/view-manifest/index.html',
+    ),
+    repo: 'contentauth/c2pa-js',
+    path: 'examples/minimal-ts-vite/examples/active-manifest/index.html',
+  },
+  {
+    dest: resolve(__dirname, '../docs/js-sdk/examples/view-manifest/main.ts'),
+    repo: 'contentauth/c2pa-js',
+    path: 'examples/minimal-ts-vite/examples/active-manifest/main.ts',
+  },
+  // Vite Quickstart
+  {
+    dest: resolve(__dirname, '../docs/js-sdk/examples/quickstart/vite-main.ts'),
+    repo: 'contentauth/c2pa-js',
+    path: 'examples/minimal-ts-vite/examples/cdn/main.ts',
+  },
+  // Rollup Quickstart
+  {
+    dest: resolve(
+      __dirname,
+      '../docs/js-sdk/examples/quickstart/rollup-main.ts',
+    ),
+    repo: 'contentauth/c2pa-js',
+    path: 'examples/minimal-ts-rollup/src/main.ts',
+  },
+  // WebPack Quickstart
+  {
+    dest: resolve(
+      __dirname,
+      '../docs/js-sdk/examples/quickstart/webpack-main.ts',
+    ),
+    repo: 'contentauth/c2pa-js',
+    path: 'examples/minimal-ts-webpack/src/index.ts',
+  },
+
   // c2patool
   {
     dest: resolve(__dirname, '../docs/c2patool/readme.md'),
