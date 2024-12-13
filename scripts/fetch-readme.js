@@ -61,34 +61,35 @@ const readmes = [
   // c2patool
   {
     dest: resolve(__dirname, '../docs/c2patool/readme.md'),
-    repo: 'contentauth/c2patool',
-    path: 'README.md',
+    repo: 'contentauth/c2pa-rs',
+    path: 'cli/README.md',
   },
   {
     dest: resolve(__dirname, '../docs/c2patool/docs/manifest.md'),
-    repo: 'contentauth/c2patool',
-    path: 'docs/manifest.md',
+    repo: 'contentauth/c2pa-rs',
+    path: 'cli/docs/manifest.md',
   },
   {
     dest: resolve(__dirname, '../docs/c2patool/docs/x_509.md'),
-    repo: 'contentauth/c2patool',
-    path: 'docs/x_509.md',
+    repo: 'contentauth/c2pa-rs',
+    path: 'cli/docs/x_509.md',
   },
   {
     dest: resolve(__dirname, '../docs/c2patool/docs/release-notes.md'),
-    repo: 'contentauth/c2patool',
-    path: 'docs/release-notes.md',
+    repo: 'contentauth/c2pa-rs',
+    path: 'cli/docs/release-notes.md',
   },
   {
     dest: resolve(__dirname, '../docs/c2patool/docs/usage.md'),
-    repo: 'contentauth/c2patool',
-    path: 'docs/usage.md',
+    repo: 'contentauth/c2pa-rs',
+    path: 'cli/docs/usage.md',
   },
   {
     dest: resolve(__dirname, '../docs/c2patool/docs/supported-formats.md'),
     repo: 'contentauth/c2pa-rs',
     path: 'docs/supported-formats.md',
   },
+  // c2pa-service-example
   {
     dest: resolve(__dirname, '../docs/c2pa-service-example/readme.md'),
     repo: 'contentauth/c2pa-service-example',
