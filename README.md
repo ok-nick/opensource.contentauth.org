@@ -8,7 +8,7 @@ This repo contains the source code and content to generate the <https://opensour
 
 ### Directory structure
 
-The `docs` sub-directory contains the documentation content (in markdown or `.mdx` format) in the following sub-directories:
+The `docs` sub-directory contains documentation content (in markdown or `.mdx` format) in the following sub-directories:
 - [`js-sdk/api`](./docs/js-sdk/api): [API documentation](https://opensource.contentauthenticity.org/docs/js-sdk/api/) for the JavaScript library generated from the source code; see [Generating JavaScript API docs](#generating-javascript-sdk-api-docs).
 - [`js-sdk`](./docs/js-sdk/): [Other documentation](https://opensource.contentauthenticity.org/docs/js-sdk/getting-started/overview) for the JavaScript library.
 (./scripts/generate-api-docs/index.js)
