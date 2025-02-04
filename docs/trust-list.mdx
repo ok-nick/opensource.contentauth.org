@@ -26,13 +26,44 @@ The [contentcredentials.org](https://contentcredentials.org/) site hosts the fol
 - **The temporary known anchor list** in https://contentcredentials.org/trust/anchors.pem contains the list of known anchor certificates. If an end-entity [certificate's chain](getting-started.mdx#signing-and-certificates) can be traced back to an anchor certificate on this list, the certificate is considered "known."
 - **The configuration file**, https://contentcredentials.org/trust/store.cfg, specifies the [Extended Key Usage (EKU)](https://datatracker.ietf.org/doc/html/rfc9336) values accepted for end-entity certificates. An end-entity certificate must have at least one of the EKUs in this list to be valid.
 
+## Checking your certificate
+
+Perform a preliminary "sanity check" on your certificate before requesting that it be added to the known certificate list.
+
+1. Ensure that C2PA Tool can use the certificate and doesn't return any validation errors by using a command like this:
+
+```
+c2patool ./image.jpg trust --allowed_list ./cert.pem
+```
+
+Confirm that the result does not contain a `validation_status` field which indicates an error.
+
+1. Confirm that the `signature_info.issuer` field in the manifest is correct. This field determines what Verify displays. In this example, replace "XYZ Inc." with the name of your organization:
+
+```
+c2patool ./image.jpg trust --allowed_list ./cert.pem \
+| jq --args '.manifests[].signature_info.issuer' "XYZ Inc."
+```
+
+1. Perform basic verification of the certificate you're submitting; for example:
+
+```
+openssl x509 -noout -text -in 'cert.pem' | grep 'Subject:'
+```
+
+Example response:
+
+```
+Subject: organizationIdentifier=XYZ-7155227, C=US, ST=Delaware, L=Dover, O=Whatever Inc., SN=xxx, GN=xxx, CN=xxx
+```
+
 ## Using the known certificate list
 
 You can use the C2PA Tool or the CAI JavaScript library to determine whether a certificate is on the temporary known certificate list.
 
 ### Using with C2PA Tool
 
-The [C2PA Tool documentation](c2patool/readme.md#configuring-trust-support) explains how to use the temporary known certificate list with the tool.
+The [C2PA Tool documentation](c2patool/docs/usage.md#configuring-trust-support) explains how to use the temporary known certificate list with the tool.
 
 ### Using with the JavaScript library
 
@@ -84,6 +115,9 @@ This code is for illustration purposes only. To ensure acceptable performance, p
 
 ## How to add a certificate to the list
 
-If you have an application that is in production and publicly available, you can request to add its signing certificate to the temporary known certificate list: Simply email `verify-tl@c2pa.org`.
+If you have an application that is in production and publicly available, you can request to add its signing certificate to the temporary known certificate list.
 
-We will review your request, and if it is approved, we'll ask for more details. Once we receive them and deploy the change, you will receive a confirmation email.
+Follow these steps:
+
+1. [**Do a preliminary check of your certificate**](#checking-your-certificate) to ensure it meets the requirements for C2PA signing certificates and to be in the Verify temporary certificate list.
+1. **Submit your request** by emailing `verify-tl@c2pa.org`. We will review your request, and if it is approved, we'll ask for more details. Once we receive them and deploy the update to the trust list, you will receive a confirmation email.
