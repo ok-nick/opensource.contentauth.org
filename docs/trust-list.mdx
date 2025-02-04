@@ -28,24 +28,24 @@ The [contentcredentials.org](https://contentcredentials.org/) site hosts the fol
 
 ## Checking your certificate
 
-Perform a preliminary "sanity check" on your certificate before requesting that it be added to the known certificate list.
+Before requesting to add your signing certificate to the known certificate list, perform a preliminary "sanity check" on your certificate by following these steps:
 
-1. Ensure that C2PA Tool can use the certificate and doesn't return any validation errors by using a command like this:
+1. **Ensure that signing with the certificate doesn't have any validation errors** by using a C2PA Tool command like this:
 
 ```
 c2patool ./image.jpg trust --allowed_list ./cert.pem
 ```
 
-Confirm that the result does not contain a `validation_status` field which indicates an error.
+Confirm that the result does not contain a `validation_status` field, which indicates an error.
 
-1. Confirm that the `signature_info.issuer` field in the manifest is correct. This field determines what Verify displays. In this example, replace "XYZ Inc." with the name of your organization:
+1. **Confirm that the `signature_info.issuer` field in the manifest is correct**. This field determines what [Verify displays for the organization name](verify.mdx#title-and-signing-information) after "Issued by ...". In this example, replace "XYZ Inc." with the name of your organization:
 
 ```
 c2patool ./image.jpg trust --allowed_list ./cert.pem \
 | jq --args '.manifests[].signature_info.issuer' "XYZ Inc."
 ```
 
-1. Perform basic verification of the certificate you're submitting; for example:
+1. **Use `openssl` to perform basic verification of the certificate** you're submitting; for example:
 
 ```
 openssl x509 -noout -text -in 'cert.pem' | grep 'Subject:'
