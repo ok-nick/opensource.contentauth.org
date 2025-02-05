@@ -38,12 +38,20 @@ c2patool ./image.jpg trust --allowed_list ./cert.pem
 
 Confirm that the result does not contain a `validation_status` field, which indicates an error.
 
-1. **Confirm that the `signature_info.issuer` field in the manifest is correct**. This field determines what [Verify displays for the organization name](verify.mdx#title-and-signing-information) after "Issued by ...". In this example, replace "XYZ Inc." with the name of your organization:
+1. **Confirm that the `signature_info.issuer` field in the manifest is correct**. This field determines what [Verify displays for the organization name](verify.mdx#title-and-signing-information) after "Issued by ...". Use a C2PA Tool command like this:
 
 ```
 c2patool ./image.jpg trust --allowed_list ./cert.pem \
-| jq --args '.manifests[].signature_info.issuer' "XYZ Inc."
+| jq --args '.manifests[].signature_info.issuer'
 ```
+
+The response should be something like this:
+
+```
+"XYZ Inc."
+```
+
+Where "XYZ Inc." is the name of your organization.
 
 1. **Use `openssl` to perform basic verification of the certificate** you're submitting; for example:
 
