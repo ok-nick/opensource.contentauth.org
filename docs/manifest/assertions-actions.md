@@ -269,7 +269,7 @@ For example:
 
 ## Actions
 
-Actions provide information about creation, edits, and other things that have occurred to an asset. In the manifest, an `actions` assertion is an array of [ManifestAssertion](manifest-ref.mdx#manifestassertion) objects.   For example:
+An action is an assertion that provides information about creation, edits, and other things that have occurred to an asset. In the manifest, an `actions` assertion is an array of [ManifestAssertion](manifest-ref.mdx#manifestassertion) objects.   For example:
 
 ```json
 ...
@@ -295,9 +295,9 @@ Each object in the `actions` array has the following standard properties.
 | Property | Required? | Description | Example |
 |----------|-----------| ------------|---------|
 | `action` | Yes | The action name.  See [Action names](#action-names). | `c2pa.created` |
-| `digitalSourceType` | No | A URL identifying a [IPTC term](https://cv.iptc.org/newscodes/digitalsourcetype/). See [Digital source type](#digital-source-type). | `http://cv.iptc.org/newscodes/digitalsourcetype/`<br/>`compositeWithTrainedAlgorithmicMedia` |
+| `digitalSourceType` | No | A URL identifying a [IPTC term](https://cv.iptc.org/newscodes/digitalsourcetype/). See [Digital source type](#digital-source-type). | `http://cv.iptc.org/newscodes/`<br/> `digitalsourcetype/digitalCapture` |
 | `softwareAgent` | No | The software or hardware used to perform the action.   | `"Adobe Firefly"` |
-| `parameters` | No | Additional information describing the action. | Reference to an ingredient. |
+| `parameters` | No | Additional information describing the action; see [Parameters](#parameters) | Reference to ingredients in the `org.cai.ingredientIds` array. |
 
 ### Action names
 
@@ -379,6 +379,29 @@ The `parameters` property can contain any data that provide more details on the 
   ...
 ]
 ```
+
+When creating an actions assertion that has an associated ingredient, the `parameters` object must include a `org.cai.ingredientIds` property with an array of one or more [`instanceID` values](#the-instanceid-property) from ingredients. This is how you associate an action with one or more ingredients. 
+
+:::info
+The [C2PA specification](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_parameters) requires that a `c2pa.transcoded`, `c2pa.repackaged`, `c2pa.opened`, or a `c2pa.placed` action have one or more associated ingredients, so it is very important to add the `org.cai.ingredientIds` parameter with a matching ingredient.
+:::
+
+For example:
+
+```json
+"actions": [
+  {
+    "action": "c2pa.opened",
+    "parameters": {
+      "org.cai.ingredientIds": [
+        "xmp.iid:813ee422-9736-4cdc-9be6-4e35ed8e41cb"
+      ]
+    }
+  },
+  ...
+```
+
+The SDK supports the older `ingredientId` field, but it is deprecated and will at some point not be supported.
 
 For more information on action parameters, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_parameters).
 
