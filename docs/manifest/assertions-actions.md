@@ -316,17 +316,18 @@ The value of `digitalSourceType` is one of the URLs specified by the Internation
 |---|---|
 | algorithmicallyEnhanced | Minor augmentation or correction by algorithm. |
 | algorithmicMedia | Media created purely by an algorithm not based on any sampled training data, e.g. an image created by software using a mathematical formula. |
+| composite | Mix or composite of several elements, any of which may or may not be generative AI. |
 | compositeCapture | Mix or composite of several elements that are all captures of real life. |
 | compositeSynthetic | Mix or composite of several elements, at least one of which is synthetic. |
 | compositeWithTrainedAlgorithmicMedia | The compositing of trained algorithmic media with some other media, such as with inpainting or outpainting operations. |
 | dataDrivenMedia | Digital media representation of data via human programming or creativity. |
-| digitalArt | Media created by a human using digital tools. |
+| digitalCreation | Media created by a human using non-generative tools. Use instead of retired digitalArt code. | 
 | digitalCapture | The digital media is captured from a real-life source using a digital camera or digital recording device. |
-| minorHumanEdits | Minor augmentation or correction by a human, such as a digitally-retouched photo used in a magazine. |
+| humanEdits | Augmentation, correction or enhancement by one or more humans using non-generative tools.  Use instead of retired minorHumanEdits code. | 
 | negativeFilm | The digital image was digitized from a negative on film or any other transparent medium. |
 | positiveFilm | The digital image was digitized from a positive on a transparency or any other transparent medium. |
 | print | The digital image was digitized from an image printed on a non-transparent medium. |
-| softwareImage | The digital image was created by computer software. |
+| screenCapture | A capture of the contents of the screen of a computer or mobile device. |
 | trainedAlgorithmicMedia | Digital media created algorithmically using a model derived from sampled content. |
 | virtualRecording | Live recording of virtual event based on synthetic and optionally captured elements. |
 
