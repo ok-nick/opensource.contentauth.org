@@ -267,6 +267,11 @@ const sidebars = {
       label: 'Task planning & roadmap',
       id: 'roadmap',
     },
+    {
+      type: 'doc',
+      label: 'Soft binding algorithm list',
+      id: 'sb-algs',
+    },
   ],
 };
 
