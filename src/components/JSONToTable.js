@@ -1,36 +1,47 @@
 import React, { useState, useEffect } from 'react';
 
-// Helper function to flatten nested objects
-const flattenObject = (obj, prefix = '') => {
-  let result = {};
-  for (const key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      const newKey = prefix ? `${prefix}.${key}` : key;
+// Define the fields to display and their custom headers
+const DISPLAY_FIELDS = {
+  alg: 'Algorithm Name',
+  decodedMediaTypes: 'Media Types',
+  'entryMetadata.informationalUrl': 'URL',
+  'entryMetadata.contact': 'Contact',
+};
 
-      // Handle nested objects
-      if (typeof obj[key] === 'object' && obj[key] !== null) {
-        if (Array.isArray(obj[key])) {
-          // If it's an array, join its elements into a comma-delimited string
-          result[newKey] = obj[key].join(', ');
-        } else {
-          // If it's an object, recurse to flatten it
-          Object.assign(result, flattenObject(obj[key], newKey));
-        }
-      } else {
-        result[newKey] = obj[key];
-      }
-    }
+// Helper function to safely extract nested values and flatten arrays
+const getNestedValue = (obj, path) => {
+  const value = path
+    .split('.')
+    .reduce(
+      (acc, key) => (acc && acc[key] !== undefined ? acc[key] : 'N/A'),
+      obj,
+    );
+  return Array.isArray(value) ? value.join(', ') : value; // Flatten arrays into a comma-separated string
+};
+
+// Function to extract and filter only the required fields
+const extractAndFilterObject = (obj) => {
+  let result = {};
+  for (const key in DISPLAY_FIELDS) {
+    result[key] = getNestedValue(obj, key);
   }
   return result;
+};
+
+// Helper function to capitalize each word in a string
+const capitalizeWords = (str) => {
+  return str
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
 };
 
 const JSONToTable = () => {
   const [jsonData, setJsonData] = useState(null);
   const [error, setError] = useState(null);
 
-  // Fetch the JSON data when the component mounts
   useEffect(() => {
-    fetch('/sb-alg-list.json') // Path to the JSON file in the static folder
+    fetch('/sb-alg-list.json')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to fetch the JSON file');
@@ -39,56 +50,79 @@ const JSONToTable = () => {
       })
       .then((data) => {
         setJsonData(data);
-        setError(null); // Clear any previous errors
+        setError(null);
       })
       .catch((err) => {
         setError(err.message);
-        setJsonData(null); // Reset data in case of error
+        setJsonData(null);
       });
   }, []);
 
-  // Function to generate table headers dynamically
-  const generateTableHeaders = (data) => {
-    if (data && Array.isArray(data)) {
-      const flattenedData = data.map((item) => flattenObject(item));
-      const keys = Array.from(new Set(flattenedData.flatMap(Object.keys)));
-      return keys.map((key) => <th key={key}>{key}</th>);
-    }
-    return [];
+  // Function to group data by the 'type' field
+  const groupDataByType = (data) => {
+    return data.reduce((acc, item) => {
+      const type = getNestedValue(item, 'type');
+      if (!acc[type]) acc[type] = [];
+      acc[type].push(item);
+      return acc;
+    }, {});
   };
 
-  // Function to generate table rows dynamically
+  const generateTableHeaders = () => {
+    return Object.keys(DISPLAY_FIELDS).map((key) => (
+      <th key={key}>{DISPLAY_FIELDS[key]}</th>
+    ));
+  };
+
   const generateTableRows = (data) => {
-    console.log(data);
-    if (data && Array.isArray(data)) {
-      const flattenedData = data.map((item) => flattenObject(item));
-      return flattenedData.map((row, rowIndex) => (
+    return data.map((item, rowIndex) => {
+      const filteredData = extractAndFilterObject(item);
+      const url = filteredData['entryMetadata.informationalUrl'];
+      const description = getNestedValue(item, 'entryMetadata.description');
+
+      return (
         <tr key={rowIndex}>
-          {Object.values(row).map((value, index) => (
-            <td key={index}>{value}</td>
+          {Object.keys(DISPLAY_FIELDS).map((key, index) => (
+            <td key={index}>
+              {key === 'entryMetadata.informationalUrl' ? (
+                url !== 'N/A' && description !== 'N/A' ? (
+                  <a href={url} target="_blank" rel="noopener noreferrer">
+                    {description}
+                  </a>
+                ) : (
+                  'N/A'
+                )
+              ) : (
+                filteredData[key]
+              )}
+            </td>
           ))}
         </tr>
-      ));
-    }
-    return [];
+      );
+    });
   };
+
+  if (error) return <p style={{ color: 'red' }}>{error}</p>;
+
+  if (!jsonData || !Array.isArray(jsonData)) {
+    return <p>No data found in the JSON. Expected an array of objects.</p>;
+  }
+
+  const groupedData = groupDataByType(jsonData);
 
   return (
     <div>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-
-      {jsonData && Array.isArray(jsonData) && (
-        <table border="1" style={{ width: '100%', borderCollapse: 'collapse' }}>
-          <thead>
-            <tr>{generateTableHeaders(jsonData)}</tr>
-          </thead>
-          <tbody>{generateTableRows(jsonData)}</tbody>
-        </table>
-      )}
-
-      {jsonData && !Array.isArray(jsonData) && (
-        <p>No data found in the JSON. Expected an array of objects.</p>
-      )}
+      {Object.entries(groupedData).map(([type, data]) => (
+        <div key={type} style={{ marginBottom: '30px' }}>
+          <h2>{capitalizeWords(type)} algorithms</h2>
+          <table style={{ borderCollapse: 'collapse' }}>
+            <thead>
+              <tr>{generateTableHeaders()}</tr>
+            </thead>
+            <tbody>{generateTableRows(data)}</tbody>
+          </table>
+        </div>
+      ))}
     </div>
   );
 };
