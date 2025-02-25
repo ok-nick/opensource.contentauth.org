@@ -1,14 +1,14 @@
 ---
 id: sb-algs
-title: Soft binding algorithm list
+title: Watermarking and fingerprinting algorithms
 hide_table_of_contents: true
 ---
 
-Durable Content Credentials is a concept that allows for the use of a variety of watermarking and fingerprinting approaches.
+[Durable Content Credentials](https://contentauthenticity.org/blog/durable-content-credentials) combines Content Credentials secure metadata, undetectable watermarks, and content fingerprinting to make content provenance more robust than using just one of these methods.
 
-As described in the C2PA specification, a [soft binding](https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#_soft_bindings) such as an invisible watermark or content fingerprint provides a mechanism to recover an asset's manifest if the metadata containing the manifest has been stripped. The soft binding is used to look up the manifest within a manifest repository. The soft binding is described by the [soft binding assertion](https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#_soft_bindings).
+As described in the C2PA specification, if the metadata a manifest has been stripped from an asset, then you can use a [soft binding](https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#_soft_bindings) such as an invisible watermark or fingerprint to look up the manifest within a repository so it can be recovered.
 
-The information below is from [C2PA's authoritative list of soft binding algorithms](https://github.com/c2pa-org/softbinding-algorithm-list).
+The C2PA specification doesn't cover watermarking and fingerprinting techniques _per se_, rather it allows using a variety of approaches. The following table lists the algorithms approved by the C2PA Technical Working Group from the [C2PA Soft Binding Algorithm List](https://github.com/c2pa-org/softbinding-algorithm-list).
 
 import JSONToTable from '@site/src/components/JSONToTable';
 
