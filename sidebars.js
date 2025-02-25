@@ -259,18 +259,22 @@ const sidebars = {
       id: 'faqs',
     },
     {
-      type: 'doc',
-      id: 'community-resources',
+      type: 'category',
+      label: 'Community resources',
+      link: { type: 'doc', id: 'community-resources' },
+      collapsed: true,
+      items: [
+        {
+          type: 'doc',
+          label: 'Watermarking and fingerprinting',
+          id: 'sb-algs',
+        },
+      ],
     },
     {
       type: 'doc',
       label: 'Task planning & roadmap',
       id: 'roadmap',
-    },
-    {
-      type: 'doc',
-      label: 'Soft binding algorithm list',
-      id: 'sb-algs',
     },
   ],
 };

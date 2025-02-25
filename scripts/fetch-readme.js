@@ -189,6 +189,11 @@ const readmes = [
     repo: 'contentauth/c2pa-min',
     path: 'README.md',
   },
+  {
+    dest: resolve(__dirname, '../static/sb-alg-list.json'),
+    repo: 'c2pa-org/softbinding-algorithm-list',
+    path: 'softbinding-algorithm-list.json',
+  },
 ];
 
 function resolveMarkdownLinks(linkBase, content) {
