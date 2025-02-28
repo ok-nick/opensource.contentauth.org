@@ -4,11 +4,11 @@ title: Watermarking and fingerprinting algorithms
 hide_table_of_contents: true
 ---
 
-[Durable Content Credentials](https://contentauthenticity.org/blog/durable-content-credentials) is a concept that combines C2PA secure metadata, undetectable watermarks, and content fingerprinting to make content provenance more robust than using just one of these methods.
+[_Durable Content Credentials_](https://contentauthenticity.org/blog/durable-content-credentials) is a concept that combines C2PA secure metadata, undetectable watermarks, and content fingerprinting to make content provenance more robust than using just one of these methods.
 
-As described in the C2PA specification, if manifest metadata has been stripped from an asset, then you can use a [soft binding](https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#_soft_bindings) such as an invisible watermark or fingerprint to look up the manifest within a repository so it can be recovered.
+In the C2PA specification, watermarks and content fingerprinting are known as [soft binding](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_soft_bindings), which enable digital content to be matched even if the underlying bits differ. For example, if manifest metadata has been stripped from an asset, then you can use a soft binding to look up and recover the manifest from an online repository.
 
-The C2PA specification doesn't require any specific watermarking or fingerprinting techniques, rather it allows using a variety of approaches. The following table lists the algorithms approved by the C2PA Technical Working Group from the [C2PA Soft Binding Algorithm List](https://github.com/c2pa-org/softbinding-algorithm-list).
+The C2PA specification requires that soft bindings be generated using one approved [soft binding algorithms](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_soft_binding_algorithm_list). The following table lists the algorithms approved by the C2PA Technical Working Group from the [C2PA Soft Binding Algorithm List](https://github.com/c2pa-org/softbinding-algorithm-list).
 
 import JSONToTable from '@site/src/components/JSONToTable';
 
