@@ -4,11 +4,15 @@ title: Watermarking and fingerprinting algorithms
 hide_table_of_contents: true
 ---
 
-[_Durable Content Credentials_](https://contentauthenticity.org/blog/durable-content-credentials) is a concept that combines C2PA secure metadata, undetectable watermarks, and content fingerprinting to make content provenance more robust than using just one of these methods.
+[_Durable Content Credentials_](https://contentauthenticity.org/blog/durable-content-credentials) is a concept that helps content provenance to persist across content platforms by also using one or both:
 
-In the C2PA specification, watermarks and content fingerprinting are known as [soft bindings](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_soft_bindings), which enable digital content to be matched even if the underlying bits differ. For example, if manifest metadata has been stripped from an asset, then you can use a soft binding to look up and recover the manifest from an online repository.
+- **Undetectable watermarks**, actively inserted into the content
+- **Content fingerprinting**, passively computed from the content.
 
-The C2PA specification requires that soft bindings be generated using one of the [soft binding algorithms](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_soft_binding_algorithm_list) approved by the C2PA Technical Working Group. The following table lists the algorithms from the [C2PA Soft Binding Algorithm List](https://github.com/c2pa-org/softbinding-algorithm-list).
+Platforms might remove C2PA metadata if they don't yet support the standard or if they use automated process to, for example, provide multiple resolutions of an image which they then serve over the Web. By storing a copy of the metadata in an online database, you can use a watermark or a fingerprint to find it again.
+Combining both watermark and fingerprints further improves the robustness of the provenance information.
+
+In the C2PA specification, watermarks and content fingerprinting are known as [soft bindings](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_soft_bindings), which can be used to find digital content, even if the underlying bits differ. The C2PA specification requires that soft bindings be generated using one of the [algorithms](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_soft_binding_algorithm_list) approved by the C2PA Technical Working Group. The following table lists the algorithms from the [C2PA Soft Binding Algorithm List](https://github.com/c2pa-org/softbinding-algorithm-list).
 
 import JSONToTable from '@site/src/components/JSONToTable';
 
