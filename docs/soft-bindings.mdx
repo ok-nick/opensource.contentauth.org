@@ -7,15 +7,15 @@ hide_table_of_contents: true
 [_Durable Content Credentials_](https://contentauthenticity.org/blog/durable-content-credentials) is a concept that helps content provenance to persist across content platforms by using C2PA manifest data in conjunction with:
 
 - **Invisible watermarks**, actively inserted into the content.
-- **Content fingerprinting**, passively computed from the content.
+- **Content fingerprints**, passively computed from the content.
 
-Platforms that host media assets might remove C2PA manifest data, if, for example, they use software that does not yet support the standard. By storing a copy of the manifest data in an online database, you can use a watermark or a fingerprint to find it again.
-Combining both watermark and fingerprints further improves the robustness of the provenance information.
+Platforms that host media assets might remove C2PA manifest data, if, for example, they use software that does not yet support the standard. If a copy of the manifest data is stored in an online database, you can use a watermark or a fingerprint to find it again.
+Combining both watermarks and fingerprints further improves the robustness of the provenance information.
 
-In the C2PA specification, watermarks and content fingerprinting are known as [soft bindings](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_soft_bindings), which can be used to find digital content, even if the underlying bits differ. The C2PA specification requires that soft bindings be generated using one of the [algorithms](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_soft_binding_algorithm_list) approved by the C2PA Technical Working Group. The following table lists the algorithms from the [C2PA Soft Binding Algorithm List](https://github.com/c2pa-org/softbinding-algorithm-list).
+The C2PA specification refers to watermarking and content fingerprinting as [soft bindings](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_soft_bindings), which can be used to find digital content, even if the underlying bits differ. The C2PA specification requires that soft bindings be generated using one of the [algorithms](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_soft_binding_algorithm_list) approved by the C2PA Technical Working Group.
 
 :::note
-The table below is provided **for convenience only** and is created and automatically updated based on data from the C2PA [softbinding-algorithm-list](https://github.com/c2pa-org/softbinding-algorithm-list/blob/main/softbinding-algorithm-list.json) repository, which is the single authoritative source of the information.
+The table below is provided **for convenience only** and is created and automatically updated based on data from the C2PA [C2PA Soft Binding Algorithm List](https://github.com/c2pa-org/softbinding-algorithm-list/blob/main/softbinding-algorithm-list.json), which is the single authoritative source of the information.
 :::
 
 import JSONToTable from '@site/src/components/JSONToTable';
