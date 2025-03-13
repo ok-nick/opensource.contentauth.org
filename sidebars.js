@@ -269,6 +269,34 @@ const sidebars = {
           label: 'Watermarking and fingerprinting',
           id: 'sb-algs',
         },
+        {
+          type: 'category',
+          label: 'TrustMark',
+          link: { type: 'doc', id: 'trustmark/readme' },
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'trustmark/faq',
+              label: 'FAQ',
+            },
+            {
+              type: 'doc',
+              id: 'trustmark/config',
+              label: 'Configuration',
+            },
+            {
+              type: 'doc',
+              id: 'trustmark/js-readme',
+              label: 'TrustMark JS',
+            },
+            {
+              type: 'doc',
+              id: 'trustmark/python-readme',
+              label: 'FAQ',
+            },
+          ],
+        },
       ],
     },
     {
