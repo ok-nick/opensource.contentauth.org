@@ -271,14 +271,14 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'TrustMark',
-          link: { type: 'doc', id: 'trustmark/readme' },
+          label: 'TrustMark watermarking',
+          link: { type: 'doc', id: 'trustmark-overview' },
           collapsed: true,
           items: [
             {
               type: 'doc',
-              id: 'trustmark/faq',
-              label: 'FAQ',
+              id: 'trustmark/readme',
+              label: 'Overview',
             },
             {
               type: 'doc',
@@ -287,13 +287,13 @@ const sidebars = {
             },
             {
               type: 'doc',
-              id: 'trustmark/js-readme',
-              label: 'TrustMark JS',
+              id: 'trustmark/faq',
+              label: 'FAQ',
             },
             {
               type: 'doc',
-              id: 'trustmark/python-readme',
-              label: 'FAQ',
+              id: 'trustmark/js-readme',
+              label: 'JavaScript implementation',
             },
           ],
         },
