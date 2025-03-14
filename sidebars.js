@@ -293,7 +293,7 @@ const sidebars = {
             {
               type: 'doc',
               id: 'trustmark/js-readme',
-              label: 'JavaScript implementation',
+              label: 'JavaScript example',
             },
           ],
         },
