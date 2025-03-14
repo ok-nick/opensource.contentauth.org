@@ -30,7 +30,7 @@ The general recommendation is to use either:
 ### About PSNR
 
 PSNR (Peak Signal-to-Noise Ratio) is a technical metric used to measure image quality, particularly when comparing an original image to a modified version (in this case, the watermarked image). PSNR is measured in decibels (dB), and higher values indicate better image quality:
-- Values around 45+ dB typically indicate very good quality
-- Values around 40 dB indicate acceptable quality
-- Values below 30 dB usually indicate poor quality, unacceptable for most uses.
+- Values around 45+ dB typically indicate very good quality.
+- Values around 40 dB indicate acceptable quality.
+- Values below 30 dB indicate poor quality, unacceptable for most uses.
 
