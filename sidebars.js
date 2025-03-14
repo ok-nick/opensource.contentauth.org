@@ -272,7 +272,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'TrustMark watermarking',
-          link: { type: 'doc', id: 'trustmark-overview' },
+          link: { type: 'doc', id: 'trustmark-intro' },
           collapsed: true,
           items: [
             {
@@ -287,7 +287,7 @@ const sidebars = {
             },
             {
               type: 'doc',
-              id: 'trustmark/faq',
+              id: 'tm-faq',
               label: 'FAQ',
             },
             {

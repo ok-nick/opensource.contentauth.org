@@ -1,5 +1,5 @@
 ---
-id: trustmark-overview
+id: trustmark-intro
 title: TrustMark watermarking
 ---
 
@@ -10,7 +10,7 @@ TrustMark is an open-source universal watermarking system for images that:
 - Has implementations in both Python (using PyTorch) and JavaScript (using ONNX).
 
 :::info
-For full technical details and help getting started with TrustMark, see [TrustMark - Quick start](trustmark/readme.md#quick-start).
+For full technical details and help getting started with TrustMark, see [TrustMark - Overview](trustmark/readme.md).
 :::
 
 ## Variants
@@ -24,12 +24,12 @@ Images encoded with one variant cannot be decoded with another variant, so you n
 - **Variant C (Compact)** - Use if you need to minimize model size and can live with slightly lower visual quality. PSNR is 38-39 dB.
 
 The general recommendation is to use either:
-- Variant Q for most use cases
-- Variant P when visual quality is paramount
+- Variant Q for most use cases.
+- Variant P when visual quality is paramount.
 
-### About PSNR
+## About PSNR
 
-PSNR (Peak Signal-to-Noise Ratio) is a technical metric used to measure image quality, particularly when comparing an original image to a modified version (in this case, the watermarked image). PSNR is measured in decibels (dB), and higher values indicate better image quality:
+PSNR (Peak Signal-to-Noise Ratio) is a measure of image quality when comparing an original image to the watermarked image. PSNR is measured in decibels (dB), with higher values indicating better quality:
 - Values around 45+ dB typically indicate very good quality.
 - Values around 40 dB indicate acceptable quality.
 - Values below 30 dB indicate poor quality, unacceptable for most uses.
