@@ -295,6 +295,11 @@ const sidebars = {
               id: 'trustmark/js-readme',
               label: 'JavaScript example',
             },
+            {
+              type: 'link',
+              label: 'GitHub',
+              href: 'https://github.com/adobe/trustmark/',
+            },
           ],
         },
       ],
