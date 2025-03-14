@@ -19,8 +19,8 @@ TrustMark has three primary model variants, each with different characteristics.
 
 Images encoded with one variant cannot be decoded with another variant, so you need to stick with the same variant throughout your pipeline.
 
-- **Variant Q (Default)** Use in most cases, where you want a good balance between robustness and imperceptibility.  PSNR is 48-50 dB.
-- **Variant P** - Use when image quality is the top priority. PSNR is 43-45 dB.
+- **Variant Q (Default)** Use in most cases, where you want a good balance between robustness and imperceptibility.  PSNR is 43-45 dB. 
+- **Variant P** - Use when image quality is the top priority. PSNR is 48-50 dB.
 - **Variant C (Compact)** - Use if you need to minimize model size and can live with slightly lower visual quality. PSNR is 38-39 dB.
 
 The general recommendation is to use either:
@@ -30,7 +30,7 @@ The general recommendation is to use either:
 ### About PSNR
 
 PSNR (Peak Signal-to-Noise Ratio) is a technical metric used to measure image quality, particularly when comparing an original image to a modified version (in this case, the watermarked image). PSNR is measured in decibels (dB), and higher values indicate better image quality:
-- Values around 40+ dB typically indicate very good quality
-- Values around 30 dB indicate acceptable quality
-- Values below 20 dB usually indicate poor quality
+- Values around 45+ dB typically indicate very good quality
+- Values around 40 dB indicate acceptable quality
+- Values below 30 dB usually indicate poor quality, unacceptable for most uses.
 
