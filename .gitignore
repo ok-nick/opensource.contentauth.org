@@ -27,6 +27,9 @@
 /docs/**/readme.md
 /static/sb-alg-list.json
 /docs/trustmark/*.md
+/docs/trustmark/c2pa/*.md
+/docs/trustmark/js/*.md
+/docs/trustmark/python*.md
 
 # Misc
 .DS_Store
