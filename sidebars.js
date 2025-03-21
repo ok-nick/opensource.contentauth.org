@@ -277,13 +277,18 @@ const sidebars = {
           items: [
             {
               type: 'doc',
-              id: 'trustmark/readme',
+              id: 'trustmark/README',
               label: 'Overview',
             },
             {
               type: 'doc',
-              id: 'trustmark/config',
+              id: 'trustmark/python/CONFIG',
               label: 'Configuration',
+            },
+            {
+              type: 'doc',
+              id: 'trustmark/c2pa/README',
+              label: 'Using with C2PA',
             },
             {
               type: 'doc',
@@ -292,7 +297,7 @@ const sidebars = {
             },
             {
               type: 'doc',
-              id: 'trustmark/js-readme',
+              id: 'trustmark/js/README',
               label: 'JavaScript example',
             },
             {

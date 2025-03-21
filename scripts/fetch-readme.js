@@ -196,27 +196,27 @@ const readmes = [
   },
   // TrustMark
   {
-    dest: resolve(__dirname, '../docs/trustmark/readme.md'),
+    dest: resolve(__dirname, '../docs/trustmark/README.md'),
     repo: 'adobe/trustmark',
     path: 'README.md',
   },
   {
-    dest: resolve(__dirname, '../docs/trustmark/config.md'),
+    dest: resolve(__dirname, '../docs/trustmark/python/CONFIG.md'),
     repo: 'adobe/trustmark',
-    path: 'CONFIG.md',
+    path: 'python/CONFIG.md',
   },
   {
-    dest: resolve(__dirname, '../docs/trustmark/faq.md'),
+    dest: resolve(__dirname, '../docs/trustmark/FAQ.md'),
     repo: 'adobe/trustmark',
     path: 'FAQ.md',
   },
   {
-    dest: resolve(__dirname, '../docs/trustmark/python-readme.md'),
+    dest: resolve(__dirname, '../docs/trustmark/c2pa/README.md'),
     repo: 'adobe/trustmark',
-    path: 'python/README.md',
+    path: 'c2pa/README.md',
   },
   {
-    dest: resolve(__dirname, '../docs/trustmark/js-readme.md'),
+    dest: resolve(__dirname, '../docs/trustmark/js/README.md'),
     repo: 'adobe/trustmark',
     path: 'js/README.md',
   },
