@@ -259,9 +259,14 @@ const sidebars = {
       id: 'faqs',
     },
     {
-      type: 'category',
+      type: 'doc',
       label: 'Community resources',
-      link: { type: 'doc', id: 'community-resources' },
+      id: 'community-resources',
+    },
+    {
+      type: 'category',
+      label: 'Durable Content Credentials',
+      link: { type: 'doc', id: 'durable-cr' },
       collapsed: true,
       items: [
         {
@@ -292,13 +297,23 @@ const sidebars = {
             },
             {
               type: 'doc',
-              id: 'tm-faq',
-              label: 'FAQ',
+              id: 'trustmark/js/README',
+              label: 'JavaScript example',
             },
             {
               type: 'doc',
-              id: 'trustmark/js/README',
-              label: 'JavaScript example',
+              id: 'trustmark/rust/README',
+              label: 'Rust implementation',
+            },
+            {
+              type: 'doc',
+              id: 'trustmark/rust/crates/trustmark-cli/README',
+              label: 'Rust CLI',
+            },
+            {
+              type: 'doc',
+              id: 'tm-faq',
+              label: 'FAQ',
             },
             {
               type: 'link',

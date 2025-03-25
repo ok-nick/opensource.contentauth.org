@@ -220,6 +220,19 @@ const readmes = [
     repo: 'adobe/trustmark',
     path: 'js/README.md',
   },
+  {
+    dest: resolve(__dirname, '../docs/trustmark/rust/README.md'),
+    repo: 'adobe/trustmark',
+    path: 'rust/README.md',
+  },
+  {
+    dest: resolve(
+      __dirname,
+      '../docs/trustmark/rust/crates/trustmark-cli/README.md',
+    ),
+    repo: 'adobe/trustmark',
+    path: 'rust/crates/trustmark-cli/README.md',
+  },
 ];
 
 function resolveMarkdownLinks(linkBase, content) {
