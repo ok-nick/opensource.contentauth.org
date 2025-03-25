@@ -222,7 +222,7 @@ const readmes = [
   },
   {
     dest: resolve(__dirname, '../docs/trustmark/rust/README.md'),
-    repo: 'adobe/trustmark',
+    repo: 'crandmck/trustmark',
     path: 'rust/README.md',
   },
   {
@@ -230,7 +230,7 @@ const readmes = [
       __dirname,
       '../docs/trustmark/rust/crates/trustmark-cli/README.md',
     ),
-    repo: 'adobe/trustmark',
+    repo: 'crandmck/trustmark',
     path: 'rust/crates/trustmark-cli/README.md',
   },
 ];
