@@ -163,7 +163,7 @@ Certificate:
 .
 ```
 
-You now have all the needed information to configure C2PA Tool for manifest signing. Edit your [manifest store file](/docs/c2patool/manifest) to have the following content:
+You now have all the needed information to configure C2PA Tool for manifest signing. Edit your [manifest store file](../c2patool/docs/manifest.md) to have the following content:
 
 ```json
 "alg": "ps256",
@@ -173,7 +173,7 @@ You now have all the needed information to configure C2PA Tool for manifest sign
 
 The `private_key` and `sign_cert` properties must be full paths to the key and certificate chain files generated above.
 
-You can now use C2PA Tool [to add a manifest to an image or other asset file](../c2patool/readme.md#adding-a-manifest-to-an-asset-file). The command will be something like this:
+You can now use C2PA Tool [to add a manifest to an image or other asset file](../c2patool/docs/usage.md#adding-a-manifest-to-an-asset-file). The command will be something like this:
 
 ```
 c2patool -m my_manifest.json -o signed_image.jpg my_image.jpg
