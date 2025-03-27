@@ -30,6 +30,8 @@
 /docs/trustmark/c2pa/*.md
 /docs/trustmark/js/*.md
 /docs/trustmark/python/*.md
+/docs/trustmark/rust/*.md
+/docs/trustmark/rust/crates/trustmark-cli/*.md
 
 # Misc
 .DS_Store
