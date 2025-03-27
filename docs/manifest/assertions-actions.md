@@ -478,4 +478,4 @@ For example, the following action identifies that the `c2pa.opened` action was p
 
 This documentation covers C2PA v1 actions.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_actions) also describes expanded v2 actions.  V1 actions are fully specified in the actions array. However, a v2 action may either be specified by an element of the actions array or from an element in the templates array with the same action name.
 
-There are some additional differences between v1 and v2 actions, for example in v2, `softwareAgent` is a [ClaimGeneratorInfo](../manifest/manifest-ref#claimgeneratorinfo) structure instead of a string. The CAI APIs can read all v2 actions and write most v2 actions.
+There are some additional differences between v1 and v2 actions, for example in v2, `softwareAgent` is a [ClaimGeneratorInfo](../manifest/manifest-ref.mdx#claimgeneratorinfo) structure instead of a string. The CAI APIs can read all v2 actions and write most v2 actions.
