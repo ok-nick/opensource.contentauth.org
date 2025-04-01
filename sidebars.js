@@ -249,18 +249,13 @@ const sidebars = {
     {
       type: 'category',
       label: 'Signing and certificates',
-      link: { type: 'doc', id: 'signing-certs' },
+      link: { type: 'doc', id: 'signing/signing-certs' },
       collapsed: true,
       items: [
         {
           type: 'doc',
-          label: 'Signing manifests',
-          id: 'sign-manifests',
-        },
-        {
-          type: 'doc',
           label: 'Using a certificate in production',
-          id: 'prod-cert',
+          id: 'signing/prod-cert',
         },
       ],
     },
