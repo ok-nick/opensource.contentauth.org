@@ -35,7 +35,6 @@ const externalRepos = {
     org: 'contentauth',
   },
   c2patool: { repo: 'c2pa-rs', path: 'cli/', org: 'contentauth' },
-  'js-sdk': { repo: 'c2pa-js', path: '', org: 'contentauth' },
   'rust-sdk': { repo: 'c2pa-rs', path: '', org: 'contentauth' },
   trustmark: { repo: 'trustmark', path: '', org: 'adobe' },
 };
@@ -77,6 +76,11 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: ({ docPath }) => {
+            // Don't show edit link for dynamically generated API docs
+            if (docPath.startsWith('js-sdk/api/')) {
+              return null;
+            }
+
             // Special case for supported-formats.md files
             if (docPath.endsWith('supported-formats.md')) {
               return 'https://github.com/contentauth/c2pa-rs/edit/main/docs/supported-formats.md';
