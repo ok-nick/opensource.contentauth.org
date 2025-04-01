@@ -14,6 +14,11 @@ const sidebars = {
       items: [
         {
           type: 'doc',
+          label: 'FAQs',
+          id: 'faqs',
+        },
+        {
+          type: 'doc',
           id: 'verify',
         },
         {
@@ -42,10 +47,6 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'manifest/signing-manifests',
-        },
-        {
-          type: 'doc',
           id: 'manifest/manifest-examples',
           label: 'Examples',
         },
@@ -60,7 +61,6 @@ const sidebars = {
         },
       ],
     },
-
     {
       type: 'category',
       label: 'C2PA Tool',
@@ -111,7 +111,6 @@ const sidebars = {
       collapsed: true,
       items: jsSdkSidebar.docs,
     },
-
     {
       type: 'category',
       label: 'Prerelease libraries',
@@ -209,7 +208,6 @@ const sidebars = {
         },
       ],
     },
-
     {
       type: 'category',
       label: 'Rust library',
@@ -249,19 +247,22 @@ const sidebars = {
       ],
     },
     {
-      type: 'doc',
-      label: 'Getting and using a certificate',
-      id: 'prod-cert',
-    },
-    {
-      type: 'doc',
-      label: 'FAQs',
-      id: 'faqs',
-    },
-    {
-      type: 'doc',
-      label: 'Community resources',
-      id: 'community-resources',
+      type: 'category',
+      label: 'Signing and certificates',
+      link: { type: 'doc', id: 'signing-certs' },
+      collapsed: true,
+      items: [
+        {
+          type: 'doc',
+          label: 'Signing manifests',
+          id: 'sign-manifests',
+        },
+        {
+          type: 'doc',
+          label: 'Using a certificate in production',
+          id: 'prod-cert',
+        },
+      ],
     },
     {
       type: 'category',
@@ -325,9 +326,17 @@ const sidebars = {
       ],
     },
     {
-      type: 'doc',
-      label: 'Task planning & roadmap',
-      id: 'roadmap',
+      type: 'category',
+      label: 'Community resources',
+      link: { type: 'doc', id: 'community-resources' },
+      collapsed: true,
+      items: [
+        {
+          type: 'doc',
+          label: 'Task planning & roadmap',
+          id: 'roadmap',
+        },
+      ],
     },
   ],
 };

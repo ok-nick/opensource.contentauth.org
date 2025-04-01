@@ -1,10 +1,10 @@
 ---
-id: signing-manifests
+id: sign-manifests
 title: Signing manifests
 ---
 
 :::tip
-Before reading this page, be sure to read [Getting started](../getting-started.mdx) so you'll have some basic background on public-key infrastructure (PKI) technology, certificates, and signing manifests.
+Before reading this page, be sure to read [Getting started](getting-started.mdx) so you'll have some basic background on public-key infrastructure (PKI) technology, certificates, and signing manifests.
 :::
 
 ## Overview
@@ -78,7 +78,7 @@ The information in this table is based on the [C2PA specification Trust Model se
 Here is an example of generating a C2PA-compliant set of credentials using [GlobalSign](http://globalsign.com/) certificate authority (CA).    
 
 :::note
-GlobalSign is just one of many CAs. For a list of some others, see [Getting started](../getting-started.mdx#getting-a-security-certificate).
+GlobalSign is just one of many CAs. For a list of some others, see [Getting started](getting-started.mdx#getting-a-security-certificate).
 :::note
 
 Credential management is a complex topic and different for every organization.   See [above](#overview) for links to best practices.
@@ -163,7 +163,7 @@ Certificate:
 .
 ```
 
-You now have all the needed information to configure C2PA Tool for manifest signing. Edit your [manifest store file](../c2patool/docs/manifest.md) to have the following content:
+You now have all the needed information to configure C2PA Tool for manifest signing. Edit your [manifest store file](./c2patool/docs/manifest.md) to have the following content:
 
 ```json
 "alg": "ps256",
@@ -173,7 +173,7 @@ You now have all the needed information to configure C2PA Tool for manifest sign
 
 The `private_key` and `sign_cert` properties must be full paths to the key and certificate chain files generated above.
 
-You can now use C2PA Tool [to add a manifest to an image or other asset file](../c2patool/docs/usage.md#adding-a-manifest-to-an-asset-file). The command will be something like this:
+You can now use C2PA Tool [to add a manifest to an image or other asset file](c2patool/docs/usage.md#adding-a-manifest-to-an-asset-file). The command will be something like this:
 
 ```
 c2patool -m my_manifest.json -o signed_image.jpg my_image.jpg
@@ -182,7 +182,7 @@ c2patool -m my_manifest.json -o signed_image.jpg my_image.jpg
 The example above uses the information in `my_manifest.json` to add a new manifest to output `signed_image.jpg` using source `my_image.jpg`. The manifest will be signed using the PS256 signature algorithm with private key `mykey.pem`. The manifest will contain the trust chain specified in `mycerts.pem`.
 
 :::warning
-This example accesses the private key and certificate directly from the file system, which is fine during development, but in production may not be secure.  Instead, in a production application,  use a hardware security module (HSM) or a Key Management Service (KMS); for example as show in the [C2PA Python Example](../c2pa-python-example/readme.md).
+This example accesses the private key and certificate directly from the file system, which is fine during development, but in production may not be secure.  Instead, in a production application,  use a hardware security module (HSM) or a Key Management Service (KMS); for example as show in the [C2PA Python Example](c2pa-python-example/readme.md).
 :::
 
 ### Confirm it worked

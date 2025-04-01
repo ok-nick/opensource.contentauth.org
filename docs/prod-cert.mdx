@@ -1,11 +1,11 @@
 ---
 id: prod-cert
-title: Getting and using a signing certificate
+title: Getting and using a production certificate
 ---
 
 ## Overview
 
-For convenience, C2PA Tool, the Rust library, and the CAI prerelease libraries include one or more [test certificates](manifest/signing-manifests.md#test-certificates) and private keys for use during development, typically in the `tests/fixtures` directory. While these test certificates and keys are useful during development and testing, for production deployment you must use your own private key and certificate.
+For convenience, C2PA Tool, the Rust library, and the CAI prerelease libraries include one or more [test certificates](signing-certs.md#test-certificates) and private keys for use during development, typically in the `tests/fixtures` directory. While these test certificates and keys are useful during development and testing, for production deployment you must use your own private key and certificate.
 
 Certificates and private keys are often stored on a hardware security module (HSM), a physical device that attaches directly to a computer or server and is used to securely manage and perform operations on cryptographic keys. A Key Management Service (KMS) is software used to manage keys in a networked environment. A KMS can be connected to a HSM for extra security. For example, the [Python example application](c2pa-python-example/readme.md) uses [AWS KMS](https://aws.amazon.com/kms/).
 
@@ -26,7 +26,7 @@ A CSR is just an unsigned certificate that's a template for the certificate that
 A CSR comprises a public key, as well as ["distinguished name" information](https://knowledge.digicert.com/general-information/what-is-a-distinguished-name) that identifies the individual or organization requesting the certificate. The distinguished name includes a common name, organization, city, state, country, and e-mail address. Not all of these fields are required and will vary depending with the assurance level of the desired certificate.
 
 :::tip
-For the C2PA [Verify tool](https://verify.contentauthenticity.org/) to display your organization name in the Content Credentials, your CSR must include the "O" or Organization Name attribute in the distinguished name information.  See [below](#organization-name) for details.
+For the C2PA [Verify tool](https://verify.contentauthenticity.org/) to display your organization name in the Content Credentials, your CSR must include the "O" or Organization Name attribute in the distinguished name information. See [below](#organization-name) for details.
 :::
 
 You sign the CSR with your private key; this proves to the CA that you have control of the private key that corresponds to the public key included in the CSR. Once the requested information in a CSR passes a vetting process and domain control is established, the CA may sign the public key to indicate that it can be publicly trusted.
