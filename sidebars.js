@@ -249,9 +249,24 @@ const sidebars = {
     {
       type: 'category',
       label: 'Signing and certificates',
-      link: { type: 'doc', id: 'signing/signing-certs' },
+      link: { type: 'doc', id: 'signing/signing-and-certs' },
       collapsed: true,
       items: [
+        {
+          type: 'doc',
+          label: 'Using test certificates',
+          id: 'signing/test-certs',
+        },
+        {
+          type: 'doc',
+          label: 'Getting a certificate',
+          id: 'signing/get-cert',
+        },
+        {
+          type: 'doc',
+          label: 'Signing with local credentials',
+          id: 'signing/local-signing',
+        },
         {
           type: 'doc',
           label: 'Using a certificate in production',
