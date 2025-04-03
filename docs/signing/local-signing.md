@@ -9,14 +9,6 @@ To sign a claim in a C2PA manifest you need an end-entity certificate that compl
 
 Trust lists connect the end-entity certificate that signed a manifest back to the originating root CA. This is accomplished by supplying the subordinate public X.509 certificates forming the trust chain (the public X.509 certificate chain). If those are not supplied, you can use a private credential store to validate the certificate trust chain. If you do not supply a certificate chain or trust list, validators may reject the manifest. See the C2PA specification for more details.
 
-### Extracting the certificate
-
-To work with the certificate, you need to extract it. When the CAI SDK adds Content Credentials to an asset, it incorporates the certificate (including the associated public key) into the manifest.
-
-:::warning Important
-The _private key_ associated with the certificate is extremely sensitive. Always treat it with the highest security to ensure your credentials are not compromised. If someone does obtain your private key, they will be able to sign C2PA manifests and other content on your behalf without your consent.
-:::
-
 ## Signing a manifest
 
 The simplest way to add a C2PA manifest to an asset file and sign it is by using C2PA Tool (`c2patool`). You can run C2PA Tool manually from the command line (for example, during development) and more generally from any executable program that can call out to the shell, such as a Node.js application as shown in the [c2patool Node.js service example](../c2pa-node-example).
@@ -26,16 +18,12 @@ Similarly, using the Rust SDK, you can [add a manifest to an asset file](https:/
 The prerelease libraries for [Node.js](../c2pa-node), [Python](../c2pa-python), and [C++/C](../c2pa-c) can also add and sign a manifest.
 
 :::warning Warning
-Accessing a private key and certificate directly from the file system is fine during development, but doing so in production is not ecure. Instead use a Key Management Service (KMS) or a hardware security module (HSM) to access the certificate and key; for example as show in the [C2PA Python Example](https://github.com/contentauth/c2pa-python-example).
+Accessing a private key and certificate directly from the file system is fine during development, but doing so in production is not secure. Instead use a Key Management Service (KMS) or a hardware security module (HSM) to access the certificate and key; For more information, see [Using a certificate in production](prod-cert.mdx). 
 :::
 
 ## Example
 
-Here is an example of generating a C2PA-compliant set of credentials using [GlobalSign](http://globalsign.com/) certificate authority (CA).    
-GlobalSign is just one of many CAs. For a list of some others, see [Getting a security certificate](#getting-a-security-certificate) above.
-
-
-Credential management is a complex topic and different for every organization.   See [above](#overview) for links to best practices.
+Here is an example of generating a C2PA-compliant set of credentials using [GlobalSign](http://globalsign.com/) certificate authority (CA).  GlobalSign is just one of many CAs. For a list of some others, see [Getting a security certificate](get-cert.md#certificate-authorities-cas).
 
 :::note 
 This example uses an inexpensive personal certificate, which is fine for development and testing, but for production use an enterprise certificate is strongly recommended. An enterprise certificate is required for [Verify](https://verify.contentauthenticity.org/) to display your organization name when for signed assets.
@@ -51,6 +39,7 @@ The rest of this tutorial uses OpenSSL (a set of cryptographic utilities). If Op
 
 ### Step 2: Extract the certificate and key
 
+To work with the certificate, you need to extract it. When the CAI SDK adds Content Credentials to an asset, it incorporates the certificate (including the associated public key) into the manifest.
 Use the commands below to extract the key and certificate chain. If prompted, enter the password that was used to generate the `.pfx` file.
 
 :::tip
@@ -117,7 +106,7 @@ Certificate:
 .
 ```
 
-You now have all the needed information to configure C2PA Tool for manifest signing. Edit your [manifest store file](c2patool/docs/manifest.md) to add the following fields that are specific to C2PA Tool:
+You now have all the needed information to configure C2PA Tool for manifest signing. Edit your [manifest store file](../c2patool/docs/manifest.md) to add the following fields that are specific to C2PA Tool:
 
 ```json
 "alg": "ps256",
@@ -127,7 +116,7 @@ You now have all the needed information to configure C2PA Tool for manifest sign
 
 The `private_key` and `sign_cert` properties must be full paths to the key and certificate chain files generated above.
 
-You can now use C2PA Tool [to add a manifest to an image or other asset file](c2patool/docs/usage.md#adding-a-manifest-to-an-asset-file). The command will be something like this:
+You can now use C2PA Tool [to add a manifest to an image or other asset file](../c2patool/docs/usage.md#adding-a-manifest-to-an-asset-file). The command will be something like this:
 
 ```
 c2patool -m my_manifest.json -o signed_image.jpg my_image.jpg
@@ -136,7 +125,7 @@ c2patool -m my_manifest.json -o signed_image.jpg my_image.jpg
 The example above uses the information in `my_manifest.json` to add a new manifest to output `signed_image.jpg` using source `my_image.jpg`. The manifest will be signed using the PS256 signature algorithm with private key `mykey.pem`. The manifest will contain the trust chain specified in `mycerts.pem`.
 
 :::warning
-This example accesses the private key and certificate directly from the file system, which is fine during development, but is not secure for use in production.  Instead, use a hardware security module (HSM) or a Key Management Service (KMS); for example as show in the [C2PA Python Example](c2pa-python-example/readme.md).
+This example accesses the private key and certificate directly from the file system, which is fine during development, but is not secure for production use.  For more information, see [Using a certificate in production](prod-cert.mdx). 
 :::
 
 ### Confirm it worked
