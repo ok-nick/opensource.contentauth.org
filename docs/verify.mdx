@@ -166,9 +166,9 @@ For example, suppose you downloaded a file from Adobe Stock and renamed it `my_s
  }
 ```
 
-**Signing information**
+#### Signing information
 
-If the Content Credential was signed by a certificate that is NOT on the [known certificate list](verify-known-cert-list), such as the CAI test certificate in the SDK, then Verify displays "Unrecognized" at the top of this section with this notice:
+If the Content Credential was signed by a certificate that is NOT on the [known certificate list](verify-known-cert-list), such as one of the SDK's [test certificates](signing/test-certs.md), then Verify displays "Unrecognized" at the top of this section with this notice:
 
 import verify_unknown_source from '../static/img/verify-cc-unknown-source.png';
 
@@ -177,7 +177,11 @@ import verify_unknown_source from '../static/img/verify-cc-unknown-source.png';
   style={{ width: '283px', display: 'block', margin: '10px auto' }}
 />
 
-However, if the Content Credential was signed by a certificate on the [known certificate list](verify-known-cert-list), then this section displays the name of the issuer of the claim signature from the `signature_info.issuer` property in the active manifest, as shown in the example snippet below. It shows the organization name only if the signing certificate includes the "O" or [Organization Name attribute](https://www.alvestrand.no/objectid/2.5.4.10.html) (OID value 2.5.4.10) in the certificate's distinguished name information.
+However, if the Content Credential was signed by a certificate on the [known certificate list](verify-known-cert-list), then this section displays the name of the issuer of the claim signature from the `signature_info.issuer` property in the active manifest, as shown in the example snippet below.
+
+:::note
+This section shows the organization name only if the signing certificate includes the "O" or [Organization Name attribute](https://www.alvestrand.no/objectid/2.5.4.10.html) (OID value 2.5.4.10) in the certificate's distinguished name information.
+:::
 
 For signers on the known certificate list, this section also displays the time of the claim signature from the `signature_info.time` property in the active manifest, as shown in the example snippet below. The date is converted from UTC to the local time zone.
 

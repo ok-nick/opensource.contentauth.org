@@ -11,9 +11,7 @@ To sign manifest claims, you must have an X.509 v3 security certificate and key 
 
 ## Certificate authorities (CAs)
 
-To create or modify Content Credentials, you must purchase a signing certificate from a certificate authority (CA). 
-
-There are many CAs that issue certificates. Some popular ones include:
+You must purchase a signing certificate from a certificate authority (CA).  There are many CAs that issue certificates. Some popular ones include:
 
 - GlobalSign: [S/MIME email signing](https://shop.globalsign.com/en/secure-email), [document signing](https://shop.globalsign.com/en/document-signing)
 - IdenTrust: [S/MIME email signing](https://www.identrust.com/digital-certificates/secure-email-smime), [document signing](https://www.identrust.com/digital-certificates/document-signing)
@@ -49,7 +47,7 @@ You sign the CSR with your private key; this proves to the CA that you have cont
 
 ## Certificate requirements
 
-A signing certificate and key (credentials) must conform to the requirements in the [C2PA specification Trust Model section](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_trust_model). The certificate must:
+A signing certificate and key (credentials) must conform to the requirements in the [C2PA specification X.509 Certificates section](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#x509_certificates); specifically, it must:
 
 - Follow the public key infrastructure (PKI) X.509 V3 specification.
 - Have the Key Usage (KU) extension, which must be marked as critical. 
@@ -70,6 +68,8 @@ If you want the C2PA [Verify tool](https://verify.contentauthenticity.org/) to d
 
 The following table describes the signature algorithms and types that the CAI SDK supports. You must supply credentials (certificates and keys) that correspond to the signing algorithm (`signatureAlgorithm`). Signing/validation will fail if the the supplied credentials don't support the signature type.
 
+This table is provided for convenience, and is based on information in the [C2PA specification](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#x509_certificates). The specification is authoritative; refer to it for more details.  The C2PA specification also covers two other certificates for timestamp responses and OCSP certificate revocation, which are not covered here.
+
 | Certificate `signatureAlgorithm` | Description  | Recommended signature type | RFC Reference |
 | -------------------------------- | ------------ | -------------------------- | ------------- |
 | `ecdsa-with-SHA256`                                       | ECDSA with SHA-256                                            | ES256<sup>\*</sup>         | [RFC 5758 section 3.2](https://www.rfc-editor.org/rfc/rfc5758.html#section-3.2)       |
@@ -85,8 +85,6 @@ The following table describes the signature algorithms and types that the CAI SD
 
 <sup>*</sup> ES256, ES384, and ES512 signatures must be in IEEE P1363 format.
 
----
 
-The information in this table is based on the [C2PA specification Trust Model section](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_trust_model). The C2PA specification also covers two other certificates for timestamp responses and OCSP certificate revocation, which are not covered here.
 
 
