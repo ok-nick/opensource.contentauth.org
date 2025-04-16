@@ -21,32 +21,34 @@ Accessing a private key and certificate directly from the file system is fine du
 
 ## Example
 
-Here is an example of generating a C2PA-compliant set of credentials using [GlobalSign](http://globalsign.com/) certificate authority (CA).  GlobalSign is just one of many CAs. For a list of some others, see [Getting a security certificate](get-cert.md#certificate-authorities-cas).
+[Getting a certificate](get-cert.md) provides a general overview of getting a signing certificate from a certificate authority (CA). 
+
+Here is an example of getting signing credentials using [GlobalSign](http://globalsign.com/) certificate authority (CA) and then using them with C2PA Tool.  GlobalSign is just one of many CAs. For a list of some others, see [Getting a security certificate](get-cert.md#certificate-authorities-cas).
 
 :::note 
-This example uses an inexpensive personal certificate, which is fine for development and testing, but for production use an enterprise certificate is strongly recommended. An enterprise certificate is required for [Verify](https://verify.contentauthenticity.org/) to display your organization name when for signed assets.
+This example uses an inexpensive personal certificate, which is fine for development and testing, but in production, an enterprise certificate is strongly recommended. An enterprise certificate is required for [Verify](https://verify.contentauthenticity.org/) to display your organization name when for signed assets.
 :::
 
-### Step 1: Purchase credentials
+### 1. Purchase credentials 
 
-This example uses a [PersonSign1](https://shop.globalsign.com/en/secure-email) certificate from GlobalSign that contains KU and EKU values required to sign C2PA manifests.  
+The following is an example of using a [PersonSign1](https://shop.globalsign.com/en/secure-email) certificate from GlobalSign that contains KU and EKU values required to sign C2PA manifests.  
 
-Follow the instructions to purchase and download your `.pfx` file. This file is a PKCS12 container that holds your certificate chain and private signing key.  Other certificate providers may have alternate ways of providing your private key and certificate and may include only the end-entity certificate and so you must manually download the rest of the certificate chain.
+Follow the CA's instructions to purchase and download your `.pfx` file. This file is a PKCS12 container that holds your certificate chain and private signing key.  Other certificate providers may have alternate ways of providing your private key and certificate and may include only the end-entity certificate and so you must manually download the rest of the certificate chain.
 
 The rest of this tutorial uses OpenSSL (a set of cryptographic utilities). If OpenSSL is not installed on your system, see [OpenSSL](https://www.openssl.org/source/) for the source distribution or the [list of unofficial binary distributions](https://wiki.openssl.org/index.php/Binaries).
 
-### Step 2: Extract the certificate and key
+### 2. Extract credentials
 
 To work with the certificate, you need to extract it. When the CAI SDK adds Content Credentials to an asset, it incorporates the certificate (including the associated public key) into the manifest.
 Use the commands below to extract the key and certificate chain. If prompted, enter the password that was used to generate the `.pfx` file.
 
 :::tip
 Make sure you are using a recent version of OpenSSL.
-:::tip
+:::
 
 #### Troubleshooting errors
 
-In this step, OpenSSL may report errors when extracting the key or certificate chain.  In many cases, if OpenSSL generates the output file, you can ignore the messages.  However, in some cases you may need to add `-legacy` to the command for it to work properly.
+In this step, OpenSSL may report errors when extracting the key or certificate chain.  In many cases, if OpenSSL generates the output file, you can ignore the messages.  
 
 For example, the following error message means the `.pfx` was encrypted with an older standard:
 
@@ -66,50 +68,50 @@ openssl pkcs12 -in mycertfile.pfx -nocerts -out mykey.pem -nodes
 Check to make sure the above command generated a `.pem` file and it's not an empty file.  For more information, see [Troubleshooting errors](#troubleshooting-errors) above.
 :::
 
-#### Extract the certificate chain
+#### Extract certificate chain
 
-For many certificate providers, the `.pfx` file contains not just your certificate but the complete certificate trust chain. When the `.pfx` file does not contain the certificate chain, you can obtain it from your provider.
-
-```shell
-openssl pkcs12 -in mycertfile.pfx -nokeys -out mycerts.pem
-```
-
-### Step 3: Use credentials with C2PA Tool
-
-To use the credentials extracted above you must know the signature types they support. Typically, the certificate provider will provide this information. If it is not, enter this OpenSSL command to dump certificate information:
+For many certificate providers, the `.pfx` file contains not just your certificate but the complete certificate trust chain, which you can extract with a command like this:
 
 ```shell
-openssl x509 -inform PEM -in mycerts.pem -text
+openssl pkcs12 -in mycertfile.pfx -nokeys -out mycerts.pub
 ```
 
-This command produces a text summary of the certificate properties, as shown in the example below. Look for a line containing `Signature Algorithm`. See the table above to determine the corresponding signature type. For this example with a certificate issued by GlobalSign, `Signature Algorithm: sha256WithRSAEncryption` corresponds to the PS256 signature type.
+When the `.pfx` file does not contain the certificate chain, you can obtain it from your provider.
+
+### 3. Determine signature algorithm
+
+To use the credentials extracted above you must know the signature types they support. Typically, you'll already know this information or the certificate provider will provide it. 
+
+You can also enter this OpenSSL command to dump information about the public key used with the certificate:
+
+```shell
+openssl x509 -inform PEM -in mycerts.pub -text
+```
+
+Where `mycerts.pub` is the file containing the certificate chain from signing certificate to the last certificate before the root CA, concatenated.
+
+This command produces a text summary of the certificate properties, as shown in the example below. Look for a line containing `Signature Algorithm`. The public key indicates the signature algorithm used. See the table in [Getting a certificate](get-cert.md#signature-types) to determine the corresponding signature type.
+
+For this example with a certificate issued by GlobalSign, `Signature Algorithm: sha256WithRSAEncryption` corresponds to the PS256 signature type.
 
 ```
 Certificate:
-	Data:
-		Version: 3 (0x2)
-		Serial Number:
-				73:0d:01:c3:04:06:62:e4:60:0a:0b:0c
-		Signature Algorithm: sha256WithRSAEncryption
-		Issuer: C = BE, O = GlobalSign nv-sa, CN = GlobalSign GCC R3 PersonalSign 1 CA 2020
-		Validity
-				Not Before: Oct 13 13:33:02 2022 GMT
-				Not After : Oct 14 13:33:02 2023 GMT
-		Subject: CN = someuser@someemail.com, emailAddress = someuser@someemail.com
-		Subject Public Key Info:
-				Public Key Algorithm: rsaEncryption
-						Public-Key: (2048 bit)
-.
-.
-.
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            74:72:be:13:0c:8f:bf:c4:81:56:f7:5f:35:24:0e:9a:9b:8e:9b:5b
+        Signature Algorithm: sha256WithRSAEncryption
+...
 ```
+
+### 4. Test with C2PA Tool
 
 You now have all the needed information to configure C2PA Tool for manifest signing. Edit your [manifest store file](../c2patool/docs/manifest.md) to add the following fields that are specific to C2PA Tool:
 
 ```json
 "alg": "ps256",
 "private_key": "mykey.pem",
-"sign_cert": "mycerts.pem"
+"sign_cert": "mycerts.pub"
 ```
 
 The `private_key` and `sign_cert` properties must be full paths to the key and certificate chain files generated above.
@@ -120,13 +122,13 @@ You can now use C2PA Tool [to add a manifest to an image or other asset file](..
 c2patool -m my_manifest.json -o signed_image.jpg my_image.jpg
 ```
 
-The example above uses the information in `my_manifest.json` to add a new manifest to output `signed_image.jpg` using source `my_image.jpg`. The manifest will be signed using the PS256 signature algorithm with private key `mykey.pem`. The manifest will contain the trust chain specified in `mycerts.pem`.
+The example above uses the information in `my_manifest.json` to add a new manifest to output `signed_image.jpg` using source `my_image.jpg`. The manifest will be signed using the PS256 signature algorithm with private key `mykey.pem`. The manifest will contain the trust chain specified in `mycerts.pub`.
 
 :::warning
 This example accesses the private key and certificate directly from the file system, which is fine during development, but is not secure for production use.  For more information, see [Using a certificate in production](prod-cert.mdx). 
 :::
 
-### Confirm it worked
+### 4. Confirm it worked
 
 Use C2PA Tool to confirm that you successfully signed the asset. Enter a command like this:
 
@@ -139,13 +141,13 @@ This command displays the manifest attached to `signed_image.jpg` and should inc
 ```json
 ...
 "signature_info": {
-        "cert_serial_number": "012345678901234567890123456789",
-        "time": "2023-11-02T17:18:14+00:00"
-      },
-      "label": "urn:uuid:0b9bc2b8-6d66-4258-9fed-694c30abcdef"
+	"cert_serial_number": "012345678901234567890123456789",
+	"time": "2023-11-02T17:18:14+00:00"
+},
+	"label": "urn:uuid:0b9bc2b8-6d66-4258-9fed-694c30abcdef"
 ...
 ```
 
 :::info
-You can also use [Verify](https://contentcredentials.org/verify) to confirm that your image was signed, but if you used a personal certificate (not an organization certificate) then Verify won't show detailed information about the credential used.
+You can also use [Verify](https://contentcredentials.org/verify) to confirm that your image was signed, but if you used a personal certificate (not an organization certificate) then [Verify won't show the organization name](get-cert.md#organization-name) and if your certificate is not on the [known certificate list](../trust-list.mdx), Verify [displays the message](../verify.mdx#title-and-signing-information) "The Content Credential issuer couldn't be recognized...."
 :::
