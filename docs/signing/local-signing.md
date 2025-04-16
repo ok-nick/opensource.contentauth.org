@@ -95,13 +95,21 @@ This command produces a text summary of the certificate properties, as shown in 
 For this example with a certificate issued by GlobalSign, `Signature Algorithm: sha256WithRSAEncryption` corresponds to the PS256 signature type.
 
 ```
-Certificate:
-    Data:
-        Version: 3 (0x2)
-        Serial Number:
-            74:72:be:13:0c:8f:bf:c4:81:56:f7:5f:35:24:0e:9a:9b:8e:9b:5b
-        Signature Algorithm: sha256WithRSAEncryption
-...
+Validity
+        Not Before: Jun 10 18:46:28 2022 GMT
+        Not After : Aug 26 18:46:28 2030 GMT
+Subject: C=US, ST=CA, L=Somewhere, O=C2PA Test Signing Cert, OU=FOR TESTING_ONLY, CN=C2PA Signer
+Subject Public Key Info:
+    Public Key Algorithm: rsassaPss
+        Public-Key: (4096 bit)
+        Modulus:
+            ...
+        Exponent: 65537 (0x10001)
+        PSS parameter restrictions:
+            Hash Algorithm: SHA2-256
+            Mask Algorithm: MGF1 with SHA2-256
+            Minimum Salt Length: 32
+            Trailer Field: 0x1 (default)
 ```
 
 ### 4. Test with C2PA Tool
