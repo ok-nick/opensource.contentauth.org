@@ -90,9 +90,9 @@ openssl x509 -inform PEM -in mycerts.pub -text
 
 Where `mycerts.pub` is the file containing the certificate chain from signing certificate to the last certificate before the root CA, concatenated.
 
-This command produces a text summary of the certificate properties, as shown in the example below. Look for a line containing `Signature Algorithm`. The public key indicates the signature algorithm used. See the table in [Getting a certificate](get-cert.md#signature-types) to determine the corresponding signature type.
+This command produces a text summary of the certificate properties, as shown in the example below. Look for a line containing `Public Key Algorithm` since the public key indicates the signature algorithm used. See the table in [Getting a certificate](get-cert.md#signature-types) to determine the corresponding signature type.
 
-For this example with a certificate issued by GlobalSign, `Signature Algorithm: sha256WithRSAEncryption` corresponds to the PS256 signature type.
+For this example with a certificate issued by GlobalSign, `Public Key Algorithm: rsassaPss` corresponds to the "RSASSA-PSS with SHA-256" or `sha256WithRSAEncryption` signature algorithm.  A example snippet of this output looks something like this:
 
 ```
 Validity
