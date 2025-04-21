@@ -7,31 +7,35 @@ title: Getting a signing certificate
 Best practices for handling keys and certificates are beyond the scope of this documentation.  Always protect your private keys with the highest level of security; for example, never share them through insecure channels such as email.
 :::
 
-To sign manifest claims, you must have an X.509 v3 security certificate and key that conform to the requirements laid out in the [C2PA specification](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#x509_certificates). 
+To sign manifest claims, you must have an X.509 v3 security certificate and key that conform to the requirements laid out in the [C2PA specification](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#x509_certificates).
 
-## Certificate authorities (CAs)
-
-You must purchase a signing certificate from a certificate authority (CA).  There are many CAs that issue certificates. Some popular ones include:
-
-- GlobalSign: [S/MIME email signing](https://shop.globalsign.com/en/secure-email), [document signing](https://shop.globalsign.com/en/document-signing)
-- IdenTrust: [S/MIME email signing](https://www.identrust.com/digital-certificates/secure-email-smime), [document signing](https://www.identrust.com/digital-certificates/document-signing)
-- Comodo Cybersecurity: [S/MIME email signing cert](https://ssl.comodoca.com/s-mime), [document signing cert](https://ssl.comodoca.com/document-signing-certificates)
-- Digicert: [S/MIME email signing cert](https://www.digicert.com/tls-ssl/secure-email-smime-certificates), [document signing cert](https://www.digicert.com/signing/document-signing-certificates)
-
-The above list is for reference only; inclusion does not imply endorsement by CAI or Adobe, Inc.
-
-### Types of certificates
-
-CAs offer a variety of different types of certificates (links below are to [Digicert](https://www.digicert.com), but most CAs offer these types of certificates):
-
-- The simplest and least expensive option is an [S/MIME email certificate](https://www.digicert.com/tls-ssl/compare-secure-email-smime-certificates).
-- Other options, such as [document signing certificate](https://www.digicert.com/signing/compare-document-signing-certificates) require more rigor (like proving your identity) and cost more.
-
-### Purchasing a certificate
+## Purchasing a certificate
 
 The process to purchase a certificate and key is different for each CA: You might be able to simply click a "Buy" button on the CA's website. Or your can make your own key and use it to create a certificate signing request (CSR) that you send to the CA. Regardless of the process, what you get back is a signed certificate that you use to create a certificate chain.
 
 The certificate chain starts with the certificate from the last tool that signed the manifest (known as the "end-entity") followed by the certificate that signed it, and so on, back to the original CA issuer. This enables a validating application to determine that the manifest is valid because the certificate chain goes back to a trusted root certificate authority.
+
+### Types of certificates
+
+The C2PA specification requires that an "end entity" signing certificate must be either:
+
+- An S/MIME email certificate (`id-kp-emailProtection` EKU). This is usually the simplest and least expensive option.
+- A document signing certificate (`id-kp-documentSigning` EKU). Obtaining these kinds of certificates typically have more stringent requirements (like proving your identity) and costs more.
+
+:::note
+For more details, see [Certificate requirements](#certificate-requirements) below.
+:::
+
+### Certificate authorities (CAs)
+
+You must purchase a signing certificate from a certificate authority (CA).  The following table provides some links to popular CAs for convenience. This information is for reference only; inclusion does not imply endorsement by CAI or Adobe, Inc.
+
+| CA | S/MIME email signing | Document signing |
+|----|----------------------|------------------|
+|  GlobalSign | [S/MIME email signing](https://shop.globalsign.com/en/secure-email) | [Document signing](https://shop.globalsign.com/en/document-signing) |
+| IdenTrust | [S/MIME email signing](https://www.identrust.com/digital-certificates/secure-email-smime) | [Document signing](https://www.identrust.com/digital-certificates/document-signing) |
+| Comodo Cybersecurity | [S/MIME email signing](https://ssl.comodoca.com/s-mime) | [Document signing](https://ssl.comodoca.com/document-signing-certificates) |
+| Digicert | [S/MIME email signing](https://www.digicert.com/tls-ssl/secure-email-smime-certificates) | [Document signing](https://www.digicert.com/signing/document-signing-certificates) |
 
 ### Certificate signing requests (CSRs)
 
