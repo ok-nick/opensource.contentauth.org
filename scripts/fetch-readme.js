@@ -75,9 +75,9 @@ const readmes = [
     path: 'cli/docs/x_509.md',
   },
   {
-    dest: resolve(__dirname, '../docs/c2patool/docs/release-notes.md'),
+    dest: resolve(__dirname, '../docs/c2patool/docs/changelog.md'),
     repo: 'contentauth/c2pa-rs',
-    path: 'cli/docs/release-notes.md',
+    path: 'cli/CHANGELOG.md',
   },
   {
     dest: resolve(__dirname, '../docs/c2patool/docs/usage.md'),
