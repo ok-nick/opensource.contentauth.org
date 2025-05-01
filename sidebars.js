@@ -230,6 +230,11 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'rust-sdk/docs/cawg-id',
+          label: 'Using CAWG identity assertions',
+        },
+        {
+          type: 'doc',
           id: 'rust-sdk/docs/release-notes',
           label: 'Release notes',
         },

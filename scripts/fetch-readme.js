@@ -180,6 +180,12 @@ const readmes = [
     path: 'docs/usage.md',
   },
   {
+    dest: resolve(__dirname, '../docs/rust-sdk/docs/cawg-id.md'),
+    repo: 'contentauth/c2pa-rs',
+    path: 'docs/cawg-identity.md',
+    branch: 'docs/cawg-id',
+  },
+  {
     dest: resolve(__dirname, '../docs/rust-sdk/docs/release-notes.md'),
     repo: 'contentauth/c2pa-rs',
     path: 'docs/release-notes.md',
