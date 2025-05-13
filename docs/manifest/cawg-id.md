@@ -6,6 +6,17 @@ title: CAWG identity assertions
 The [Creator Assertions Working Group (CAWG)](https://cawg.io/) defines assertions that enable content creators to express individual and organizational intent about their content.
 The CAWG identity assertion enables a credential holder to prove control over a digital identity and to use that identity to document the content creator’s role(s) in a C2PA asset’s lifecycle.
 
+There are two different ways to provide identity assertions:
+
+- Using an [X.509 certificate](https://cawg.io/identity/1.1/#_x_509_certificates_and_cose_signatures) to sign the identity claims. Enterprises or large organizations might often want to use this approach to assert their identity in a particular trust ecosystem; for example, a news organization or publisher.
+  :::info
+  The SDK can validate and sign these claims.
+  :::
+- Using an [identity claim aggregator](https://cawg.io/identity/1.1/#_identity_claims_aggregation). Individuals might often want to use this approach.
+  :::info
+  The SDK can validate these claims only.  Signing is not currently supported.
+  :::
+
 ## Verified identities
 
 As defined in the [CAWG Identity Assertion technical specification](https://cawg.io/identity/1.1-draft/#_identity_claims_aggregation), 
