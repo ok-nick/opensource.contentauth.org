@@ -52,11 +52,11 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'manifest/manifest-ref',
+          id: 'manifest/json-ref/manifest-ref',
         },
         {
           type: 'doc',
-          id: 'manifest/manifest-json-schema',
+          id: 'manifest/json-ref/manifest-json-schema',
           label: 'JSON schema',
         },
       ],

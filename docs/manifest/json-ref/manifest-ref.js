@@ -1,14 +1,32 @@
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import React, { useEffect, useRef, useState } from 'react';
 import './cai-addon.css';
-const referenceCAI = require('!!raw-loader!./reference-cai.html')?.default;
 
-const ManifestReference = () => {
+// Import all possible HTML files statically
+const htmlFiles = {
+  './reference-cai.html': require('!!raw-loader!./reference-cai.html')?.default,
+  // Add other HTML files here as needed
+};
+
+const ManifestReference = ({ htmlPath }) => {
   const myRef = useRef(null);
   const [refAquired, setRefAquired] = useState(false);
+  const [htmlContent, setHtmlContent] = useState('');
+
   useEffect(() => {
     setRefAquired(true);
   }, []);
+
+  useEffect(() => {
+    // Get the HTML content from our static imports
+    const content = htmlFiles[htmlPath];
+    if (content) {
+      setHtmlContent(content);
+    } else {
+      console.error(`HTML file not found: ${htmlPath}`);
+      setHtmlContent('<div>Error: HTML file not found</div>');
+    }
+  }, [htmlPath]);
 
   useEffect(() => {
     if (myRef.current) {
@@ -21,12 +39,12 @@ const ManifestReference = () => {
         }
       }
     }
-  }, [refAquired]);
+  }, [refAquired, htmlContent]);
 
   return (
     <BrowserOnly>
       {() => (
-        <div ref={myRef} dangerouslySetInnerHTML={{ __html: referenceCAI }} />
+        <div ref={myRef} dangerouslySetInnerHTML={{ __html: htmlContent }} />
       )}
     </BrowserOnly>
   );
