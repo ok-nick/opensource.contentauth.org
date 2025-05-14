@@ -4,9 +4,8 @@ import './cai-addon.css';
 
 // Import all possible HTML files statically
 const htmlFiles = {
-  './manifest-def-cai.html': require('!!raw-loader!./manifest-def-cai.html')
-    ?.default,
-  './reader-cai.html': require('!!raw-loader!./reader-cai.html')?.default,
+  './manifest-def.html': require('!!raw-loader!./manifest-def.html')?.default,
+  './reader.html': require('!!raw-loader!./reader.html')?.default,
   // Add other HTML files here as needed
 };
 
