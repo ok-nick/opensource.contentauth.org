@@ -6,7 +6,7 @@
       name="viewport"
       content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <title>CAI manifest store reference - Manifest Reference</title>
+    <title>CAI manifest definition reference - Manifest Reference</title>
     <link
       rel="shortcut icon"
       type="image/png"
@@ -18,439 +18,23 @@
   </head>
 
   <body>
-    <div class="manifest-object" style="margin-bottom: 0; font-size: 110%">
-      <a href="#manifeststore">ManifestStore</a>
-    </div>
+    <p class="warning">
+      This page is generated from the unmodified JSON schema generated from
+      <code class="language-plaintext highlighter-rouge">c2pa-rs</code> on
+      05/09/2025.
+    </p>
 
-    <div style="position: relative">
-      <div style="position: absolute; left: 65px; top: 30px; font-size: 90%">
-        <span
-          style="
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-          "
-          >active_manifest</span
-        >: <span style="font-size: 80%"><i>UUID</i></span>
-      </div>
-      <div style="position: absolute; left: 65px; top: 70px; font-size: 90%">
-        <span
-          style="
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-          "
-          >manifests</span
-        >
-      </div>
+    <!-- include_relative manifest-diagram.md -->
 
-      <div style="position: absolute; left: 145px; top: 125px; font-size: 90%">
-        <div
-          style="
-            display: inline;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-          "
-        >
-          <i>UUID</i>:
-        </div>
-        <div class="manifest-object"><a href="#manifest">Manifest</a></div>
-      </div>
-      <div style="position: absolute; left: 145px; top: 165px; font-size: 90%">
-        <div
-          style="
-            display: inline;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-          "
-        >
-          <i>UUID</i>:
-        </div>
-        <div class="manifest-object"><a href="#manifest">Manifest</a></div>
-      </div>
-      <div style="position: absolute; left: 145px; top: 200px; font-size: 90%">
-        <span
-          style="
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-          "
-          >...</span
-        >
-      </div>
-      <div style="position: absolute; left: 65px; top: 245px; font-size: 90%">
-        <div style="display: inline">
-          <span
-            style="
-              font-family: 'Courier New', Courier, monospace;
-              font-weight: bold;
-            "
-            >validation_status</span
-          >: Array of
-        </div>
-        <div class="manifest-object">
-          <a href="#validationstatus">ValidationStatus</a>
-        </div>
-      </div>
-
-      <svg height="300" width="300" style="margin-top: 0">
-        <polyline
-          points="20,0 20,260"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,40 60,40"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,80 60,80"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,260 60,260"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,40 60,40"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,40 60,40"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <polyline
-          points="100,100 100,220"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-        <!-- small vertical -->
-
-        <!-- xfinish  = 140 -->
-        <polyline
-          points="100,140 140,140"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 140 -->
-        <polyline
-          points="100,180 140,180"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 140 -->
-        <polyline
-          points="100,220 140,220"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-      </svg>
-    </div>
-
-    <div class="manifest-object" style="margin-bottom: 0; font-size: 110%">
-      <a href="#manifest">Manifest</a>
-    </div>
-
-    <div style="position: relative">
-      <div style="position: absolute; left: 65px; top: 20px; font-size: 90%">
-        <!--  -->
-
-        <div
-          style="
-            display: table-cell;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-          "
-        >
-          title
-        </div>
-        <div style="display: table-cell; line-height: 100%; padding-top: 0">
-          :
-          <span style="font-size: 80%"
-            >A human-readable title, generally source filename.
-          </span>
-        </div>
-      </div>
-      <div style="position: absolute; left: 65px; top: 60px; font-size: 90%">
-        <!--  -->
-
-        <div
-          style="
-            display: table-cell;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-          "
-        >
-          label
-        </div>
-        <div style="display: table-cell; line-height: 100%; padding-top: 0">
-          : <span style="font-size: 80%">: <i>Description TBD</i>.</span>
-        </div>
-      </div>
-      <div style="position: absolute; left: 65px; top: 100px; font-size: 90%">
-        <!--  -->
-
-        <div
-          style="
-            display: table-cell;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-          "
-        >
-          format
-        </div>
-        <div style="display: table-cell; line-height: 100%; padding-top: 0">
-          :
-          <span style="font-size: 80%"
-            >The format of the source file as a MIME type.
-          </span>
-        </div>
-      </div>
-      <div style="position: absolute; left: 65px; top: 140px; font-size: 90%">
-        <!--  -->
-
-        <div
-          style="
-            display: table-cell;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-          "
-        >
-          credentials
-        </div>
-        <div style="display: table-cell; line-height: 100%; padding-top: 0">
-          : <span style="font-size: 80%">A List of verified credentials </span>
-        </div>
-      </div>
-      <div style="position: absolute; left: 65px; top: 180px; font-size: 90%">
-        <!--  -->
-
-        <div
-          style="
-            display: table-cell;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-          "
-        >
-          instance_id
-        </div>
-        <div style="display: table-cell; line-height: 100%; padding-top: 0">
-          :
-          <span style="font-size: 80%"
-            >Instance ID from
-            <code class="language-plaintext highlighter-rouge"
-              >xmpMM:InstanceID</code
-            >
-            in XMP metadata.
-          </span>
-        </div>
-      </div>
-      <div style="position: absolute; left: 65px; top: 220px; font-size: 90%">
-        <!--  -->
-
-        <div
-          style="
-            display: table-cell;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-          "
-        >
-          redactions
-        </div>
-        <div style="display: table-cell; line-height: 100%; padding-top: 0">
-          :
-          <span style="font-size: 80%"
-            >A list of redactions - URIs to a redacted assertions
-          </span>
-        </div>
-      </div>
-      <div style="position: absolute; left: 65px; top: 260px; font-size: 90%">
-        <!--  -->
-
-        <div
-          style="
-            display: table-cell;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-          "
-        >
-          claim_generator
-        </div>
-        <div style="display: table-cell; line-height: 100%; padding-top: 0">
-          :
-          <span style="font-size: 80%"
-            >A User Agent formatted string identifying the
-            software/hardware/system produced this claim Spaces are not allowed
-            in names, versions can be specified with product/1.0 syntax
-          </span>
-        </div>
-      </div>
-
-      <div style="position: absolute; left: 65px; top: 310px; font-size: 90%">
-        <div
-          style="
-            display: inline;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-          "
-        >
-          claim_generator_info
-        </div>
-        <div class="manifest-object">
-          <a href="#claimgeneratorinfo">ClaimGeneratorInfo</a>
-        </div>
-      </div>
-
-      <div style="position: absolute; left: 65px; top: 355px; font-size: 90%">
-        <div
-          style="
-            display: inline;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-          "
-        >
-          thumbnail
-        </div>
-        <div class="manifest-object">
-          <a href="#resourceref">ResourceRef</a>
-        </div>
-      </div>
-      <div style="position: absolute; left: 65px; top: 390px; font-size: 90%">
-        <div style="display: inline">
-          <span
-            style="
-              font-family: 'Courier New', Courier, monospace;
-              font-weight: bold;
-            "
-            >ingredients</span
-          >: Array of
-        </div>
-        <div class="manifest-object"><a href="#ingredient">Ingredient</a></div>
-      </div>
-      <div style="position: absolute; left: 65px; top: 430px; font-size: 90%">
-        <div style="display: inline">
-          <span
-            style="
-              font-family: 'Courier New', Courier, monospace;
-              font-weight: bold;
-            "
-            >assertions</span
-          >: Array of
-        </div>
-        <div class="manifest-object">
-          <a href="#manifestassertion">ManifestAssertion</a>
-        </div>
-      </div>
-      <div style="position: absolute; left: 65px; top: 470px; font-size: 90%">
-        <div
-          style="
-            display: inline;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-          "
-        >
-          signature_info
-        </div>
-        <div class="manifest-object">
-          <a href="#signatureinfo">SignatureInfo</a>
-        </div>
-      </div>
-
-      <svg height="500" width="300" style="margin-top: 0">
-        <polyline
-          points="20,0 20,485"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,30 60,30"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,70 60,70"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,110 60,110"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,150 60,150"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,190 60,190"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,230 60,230"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,270 60,270"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,325 60,325"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,370 60,370"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,405 60,405"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,405 60,405"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,445 60,445"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-
-        <!-- xfinish  = 60 -->
-        <polyline
-          points="20,485 60,485"
-          style="fill: none; stroke: black; stroke-width: 2"
-        />
-      </svg>
-    </div>
-
-    <h2 id="manifeststore">ManifestStore</h2>
+    <h2 id="manifestdefinition">ManifestDefinition</h2>
 
     <div class="prop_desc">
-      <p>A Container for a set of Manifests and a ValidationStatus list.</p>
+      <p>
+        Use a ManifestDefinition to define a manifest and to build a
+        <code class="language-plaintext highlighter-rouge">ManifestStore</code>.
+        A manifest is a collection of ingredients and assertions used to define
+        a claim that can be signed and embedded into a file.
+      </p>
     </div>
 
     <h3 id="properties">Properties</h3>
@@ -468,7 +52,206 @@
 
       <tbody>
         <tr>
-          <td class="manifest-ref-table">active_manifest</td>
+          <td class="manifest-ref-table">assertions</td>
+
+          <!-- Type -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <!--   -->
+
+            <!--  -->
+            An array of
+            <a href="#assertiondefinition">AssertionDefinition</a>
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table"><p>A list of assertions</p></td>
+
+          <td class="manifest-ref-table">
+            <!-- Required? -->
+
+            NO
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Default Value -->
+            Empty array
+          </td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">claim_generator_info</td>
+
+          <!-- Type -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <!--   -->
+
+            <!--  -->
+            An array of
+            <a href="#claimgeneratorinfo">ClaimGeneratorInfo</a>
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <p>
+              Claim Generator Info is always required with at least one entry
+            </p>
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Required? -->
+
+            NO
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Default Value -->
+
+            Object with properties:
+            <ul>
+              <li>name - c2pa-rs</li>
+
+              <li>version - 0.49.5</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">claim_version</td>
+
+          <!-- Type -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <!-- Either -->
+
+            Integer
+            <!--  -->
+            (uint8) <br />Minimum: 0.0
+
+            <!--  or  -->
+
+            <!--  -->
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <p>The version of the claim. Defaults to 1.</p>
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Required? -->
+
+            NO
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Default Value -->
+
+            N/A
+          </td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">format</td>
+
+          <!-- Type -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <!--   -->
+
+            String
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <p>The format of the source file as a MIME type.</p>
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Required? -->
+
+            NO
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Default Value -->
+
+            application/octet-stream
+          </td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">ingredients</td>
+
+          <!-- Type -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <!--   -->
+
+            <!--  -->
+            An array of
+            <a href="#ingredient">Ingredient</a>
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table"><p>A List of ingredients</p></td>
+
+          <td class="manifest-ref-table">
+            <!-- Required? -->
+
+            NO
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Default Value -->
+            Empty array
+          </td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">instance_id</td>
+
+          <!-- Type -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <!--   -->
+
+            String
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <p>
+              Instance ID from
+              <code class="language-plaintext highlighter-rouge"
+                >xmpMM:InstanceID</code
+              >
+              in XMP metadata.
+            </p>
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Required? -->
+
+            NO
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Default Value -->
+
+            xmp:iid:dde3986c-d7b2-4256-b5dd-acc8ed9aada3
+          </td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">label</td>
 
           <!-- Type -->
           <td class="manifest-ref-table">
@@ -486,12 +269,17 @@
 
           <!-- Description -->
           <td class="manifest-ref-table">
-            <p>A label for the active (most recent) manifest in the store.</p>
+            <p>
+              Allows you to pre-define the manifest label, which must be unique.
+              Not intended for general use. If not set, it will be assigned
+              automatically.
+            </p>
           </td>
 
           <td class="manifest-ref-table">
             <!-- Required? -->
-            <!--  LOOP --><!-- x = manifests include.prop = active_manifest -->NO
+
+            NO
           </td>
 
           <td class="manifest-ref-table">
@@ -502,33 +290,7 @@
         </tr>
 
         <tr>
-          <td class="manifest-ref-table">manifests</td>
-
-          <!-- Type -->
-          <td class="manifest-ref-table">Object</td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <p>A HashMap of Manifests.</p>
-
-            <br />See
-            <a href="#manifest">Manifest</a>
-          </td>
-
-          <td class="manifest-ref-table">
-            <!-- Required? -->
-            <!--  LOOP --><!-- x = manifests include.prop = manifests -->YES
-          </td>
-
-          <td class="manifest-ref-table">
-            <!-- Default Value -->
-
-            N/A
-          </td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">validation_status</td>
+          <td class="manifest-ref-table">metadata</td>
 
           <!-- Type -->
           <td class="manifest-ref-table">
@@ -538,7 +300,7 @@
 
             Array of
 
-            <a href="#validationstatus">ValidationStatus</a>
+            <a href="#metadata">Metadata</a>
 
             <!--  or  -->
 
@@ -548,14 +310,156 @@
           <!-- Description -->
           <td class="manifest-ref-table">
             <p>
-              ValidationStatus generated when loading the ManifestStore from an
-              asset.
+              Optional manifest metadata. This will be deprecated in the future;
+              not recommended to use.
             </p>
           </td>
 
           <td class="manifest-ref-table">
             <!-- Required? -->
-            <!--  LOOP --><!-- x = manifests include.prop = validation_status -->NO
+
+            NO
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Default Value -->
+
+            N/A
+          </td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">redactions</td>
+
+          <!-- Type -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <!-- Either -->
+
+            Array of string
+
+            <!--  or  -->
+
+            <!--  -->
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <p>A list of redactions - URIs to redacted assertions.</p>
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Required? -->
+
+            NO
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Default Value -->
+
+            N/A
+          </td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">thumbnail</td>
+
+          <!-- Type -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <a href="#resourceref">ResourceRef</a>
+
+            <!--  -->
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <p>
+              An optional ResourceRef to a thumbnail image that represents the
+              asset that was signed. Must be available when the manifest is
+              signed.
+            </p>
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Required? -->
+
+            NO
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Default Value -->
+
+            N/A
+          </td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">title</td>
+
+          <!-- Type -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <!-- Either -->
+
+            String
+            <!--  -->
+
+            <!--  or  -->
+
+            <!--  -->
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <p>A human-readable title, generally source filename.</p>
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Required? -->
+
+            NO
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Default Value -->
+
+            N/A
+          </td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">vendor</td>
+
+          <!-- Type -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <!-- Either -->
+
+            String
+            <!--  -->
+
+            <!--  or  -->
+
+            <!--  -->
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <p>
+              Optional prefix added to the generated Manifest Label This is
+              typically a reverse domain name.
+            </p>
+          </td>
+
+          <td class="manifest-ref-table">
+            <!-- Required? -->
+
+            NO
           </td>
 
           <td class="manifest-ref-table">
@@ -579,6 +483,10 @@
           <td style="border: 0; vertical-align: top">
             <a href="#actor">Actor</a> <br />
 
+            <a href="#assertiondata">AssertionData</a> <br />
+
+            <a href="#assertiondefinition">AssertionDefinition</a> <br />
+
             <a href="#assettype">AssetType</a> <br />
 
             <a href="#claimgeneratorinfo">ClaimGeneratorInfo</a> <br />
@@ -586,22 +494,21 @@
             <a href="#coordinate">Coordinate</a> <br />
 
             <a href="#datasource">DataSource</a> <br />
-
-            <a href="#frame">Frame</a> <br />
-
-            <a href="#hasheduri">HashedUri</a> <br />
           </td>
 
           <td style="border: 0; vertical-align: top">
+            <a href="#frame">Frame</a> <br />
+
+            <a href="#hasheduri">HashedUri</a> <br />
+
             <a href="#ingredient">Ingredient</a> <br />
 
-            <a href="#manifest">Manifest</a> <br />
+            <a href="#ingredientdeltavalidationresult"
+              >IngredientDeltaValidationResult</a
+            >
+            <br />
 
-            <a href="#manifestassertion">ManifestAssertion</a> <br />
-
-            <a href="#manifestassertionkind">ManifestAssertionKind</a> <br />
-
-            <a href="#manifestdata">ManifestData</a> <br />
+            <a href="#item">Item</a> <br />
 
             <a href="#metadata">Metadata</a> <br />
 
@@ -627,9 +534,7 @@
           <td style="border: 0; vertical-align: top">
             <a href="#shapetype">ShapeType</a> <br />
 
-            <a href="#signatureinfo">SignatureInfo</a> <br />
-
-            <a href="#signingalg">SigningAlg</a> <br />
+            <a href="#statuscodes">StatusCodes</a> <br />
 
             <a href="#text">Text</a> <br />
 
@@ -638,14 +543,16 @@
             <a href="#textselectorrange">TextSelectorRange</a> <br />
 
             <a href="#time">Time</a> <br />
+
+            <a href="#timetype">TimeType</a> <br />
           </td>
 
           <td style="border: 0; vertical-align: top">
-            <a href="#timetype">TimeType</a> <br />
-
             <a href="#unittype">UnitType</a> <br />
 
             <a href="#uriorresource">UriOrResource</a> <br />
+
+            <a href="#validationresults">ValidationResults</a> <br />
 
             <a href="#validationstatus">ValidationStatus</a> <br />
           </td>
@@ -742,6 +649,112 @@
 
           <!-- Required?  -->
           <td class="manifest-ref-table">NO</td>
+
+          <!-- Default Value -->
+          <td class="manifest-ref-table">N/A</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Not an object but an enum -->
+
+    <p>
+      <a class="top-scroll-btn" title="Go to top" href="#manifeststore"
+        >Scroll To Top</a
+      >
+    </p>
+
+    <h3 id="assertiondata">AssertionData</h3>
+
+    <p><!-- end of oneOf entity --></p>
+
+    <div class="prop_desc">
+      <p>
+        This allows the assertion to be expressed as CBOR or JSON. The default
+        is CBOR unless you specify that an assertion should be JSON.
+      </p>
+    </div>
+    <p>Any of the following:</p>
+
+    <ul>
+      <!-- i is a simple type -->
+      <li>true</li>
+    </ul>
+
+    <p>
+      <a class="top-scroll-btn" title="Go to top" href="#manifeststore"
+        >Scroll To Top</a
+      >
+    </p>
+
+    <h3 id="assertiondefinition">AssertionDefinition</h3>
+
+    <p><!-- end of oneOf entity --></p>
+
+    <p class="prop_desc">
+      Defines an assertion that consists of a label that can be either a
+      C2PA-defined assertion label or a custom label in reverse domain format.
+    </p>
+
+    <table class="manifest-ref-table" style="margin-top: 10px">
+      <thead>
+        <tr>
+          <th class="manifest-ref-table">Property</th>
+          <th class="manifest-ref-table">Type</th>
+          <th class="manifest-ref-table">Description</th>
+          <th class="manifest-ref-table">Required?</th>
+          <th class="manifest-ref-table">Default Value</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class="manifest-ref-table">data</td>
+
+          <!-- Type  -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <!--   -->
+
+            <a href="#assertiondata">AssertionData</a>
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <p class="comment">Description TBD.</p>
+          </td>
+
+          <!-- Required?  -->
+          <td class="manifest-ref-table">
+            <!--  LOOP --><!-- x = data include.prop = data --><!-- x = label include.prop = data -->YES
+          </td>
+
+          <!-- Default Value -->
+          <td class="manifest-ref-table">N/A</td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">label</td>
+
+          <!-- Type  -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <!--   -->
+
+            String
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <p class="comment">Description TBD.</p>
+          </td>
+
+          <!-- Required?  -->
+          <td class="manifest-ref-table">
+            <!--  LOOP --><!-- x = data include.prop = label --><!-- x = label include.prop = label -->YES
+          </td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">N/A</td>
@@ -913,6 +926,42 @@
           <!-- Required?  -->
           <td class="manifest-ref-table">
             <!--  LOOP --><!-- x = name include.prop = name -->YES
+          </td>
+
+          <!-- Default Value -->
+          <td class="manifest-ref-table">N/A</td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">operating_system</td>
+
+          <!-- Type  -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <!-- Either -->
+
+            String
+            <!--  -->
+
+            <!--  or  -->
+
+            <!--  -->
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <div class="prop_desc">
+              <p>
+                A human readable string of the OS the claim generator is running
+                on
+              </p>
+            </div>
+          </td>
+
+          <!-- Required?  -->
+          <td class="manifest-ref-table">
+            <!--  LOOP --><!-- x = name include.prop = operating_system -->NO
           </td>
 
           <!-- Default Value -->
@@ -1291,8 +1340,12 @@
     <p><!-- end of oneOf entity --></p>
 
     <p class="prop_desc">
-      Hashed Uri structure as defined by C2PA spec It is annotated to produce
-      the correctly tagged cbor serialization
+      A
+      <code class="language-plaintext highlighter-rouge">HashedUri</code>
+      provides a reference to content available within the same manifest store.
+      This is described in [§8.3, URI References], of the C2PA Technical
+      Specification. [§8.3, URI References]:
+      https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_uri_references
     </p>
 
     <table class="manifest-ref-table" style="margin-top: 10px">
@@ -1326,7 +1379,12 @@
 
           <!-- Description -->
           <td class="manifest-ref-table">
-            <p class="comment">Description TBD.</p>
+            <div class="prop_desc">
+              <p>
+                A string identifying the cryptographic hash algorithm used to
+                compute the hash
+              </p>
+            </div>
           </td>
 
           <!-- Required?  -->
@@ -1354,7 +1412,9 @@
 
           <!-- Description -->
           <td class="manifest-ref-table">
-            <p class="comment">Description TBD.</p>
+            <div class="prop_desc">
+              <p>Byte string containing the hash value</p>
+            </div>
           </td>
 
           <!-- Required?  -->
@@ -1380,7 +1440,7 @@
 
           <!-- Description -->
           <td class="manifest-ref-table">
-            <p class="comment">Description TBD.</p>
+            <div class="prop_desc"><p>JUMBF URI reference</p></div>
           </td>
 
           <!-- Required?  -->
@@ -1446,14 +1506,12 @@
               <p>The active manifest label (if one exists).</p>
 
               <p>
-                If this ingredient has a
-                <a href="crate::ManifestStore"
-                  ><code class="language-plaintext highlighter-rouge"
-                    >ManifestStore</code
-                  ></a
-                >
-                , this will hold the label of the active
-                <a href="crate::Manifest"
+                If this ingredient has a [<code
+                  class="language-plaintext highlighter-rouge"
+                  >ManifestStore</code
+                >], this will hold the label of the active
+                <a
+                  href="crate::Manifest [`ManifestStore`]: crate::ManifestStore"
                   ><code class="language-plaintext highlighter-rouge"
                     >Manifest</code
                   ></a
@@ -1463,9 +1521,7 @@
           </td>
 
           <!-- Required?  -->
-          <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = title include.prop = active_manifest -->NO
-          </td>
+          <td class="manifest-ref-table">NO</td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">N/A</td>
@@ -1491,9 +1547,7 @@
           </td>
 
           <!-- Required?  -->
-          <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = title include.prop = data -->NO
-          </td>
+          <td class="manifest-ref-table">NO</td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">N/A</td>
@@ -1528,9 +1582,7 @@
           </td>
 
           <!-- Required?  -->
-          <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = title include.prop = data_types -->NO
-          </td>
+          <td class="manifest-ref-table">NO</td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">N/A</td>
@@ -1561,9 +1613,7 @@
           </td>
 
           <!-- Required?  -->
-          <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = title include.prop = description -->NO
-          </td>
+          <td class="manifest-ref-table">NO</td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">N/A</td>
@@ -1600,9 +1650,7 @@
           </td>
 
           <!-- Required?  -->
-          <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = title include.prop = document_id -->NO
-          </td>
+          <td class="manifest-ref-table">NO</td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">N/A</td>
@@ -1615,9 +1663,14 @@
           <td class="manifest-ref-table">
             <!--  -->
 
-            <!--   -->
+            <!-- Either -->
 
             String
+            <!--  -->
+
+            <!--  or  -->
+
+            <!--  -->
           </td>
 
           <!-- Description -->
@@ -1628,12 +1681,10 @@
           </td>
 
           <!-- Required?  -->
-          <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = title include.prop = format -->NO
-          </td>
+          <td class="manifest-ref-table">NO</td>
 
           <!-- Default Value -->
-          <td class="manifest-ref-table">application/octet-stream</td>
+          <td class="manifest-ref-table">N/A</td>
         </tr>
 
         <tr>
@@ -1661,9 +1712,7 @@
           </td>
 
           <!-- Required?  -->
-          <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = title include.prop = hash -->NO
-          </td>
+          <td class="manifest-ref-table">NO</td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">N/A</td>
@@ -1696,9 +1745,7 @@
           </td>
 
           <!-- Required?  -->
-          <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = title include.prop = informational_URI -->NO
-          </td>
+          <td class="manifest-ref-table">NO</td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">N/A</td>
@@ -1735,9 +1782,38 @@
           </td>
 
           <!-- Required?  -->
+          <td class="manifest-ref-table">NO</td>
+
+          <!-- Default Value -->
+          <td class="manifest-ref-table">N/A</td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">label</td>
+
+          <!-- Type  -->
           <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = title include.prop = instance_id -->NO
+            <!--  -->
+
+            <!-- Either -->
+
+            String
+            <!--  -->
+
+            <!--  or  -->
+
+            <!--  -->
           </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <div class="prop_desc">
+              <p>The ingredient’s label as assigned in the manifest.</p>
+            </div>
+          </td>
+
+          <!-- Required?  -->
+          <td class="manifest-ref-table">NO</td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">N/A</td>
@@ -1771,9 +1847,7 @@
           </td>
 
           <!-- Required?  -->
-          <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = title include.prop = manifest_data -->NO
-          </td>
+          <td class="manifest-ref-table">NO</td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">N/A</td>
@@ -1796,7 +1870,7 @@
             <div class="prop_desc">
               <p>
                 Any additional
-                <a href="crate::Manifest"
+                <a href="crate::Metadata"
                   ><code class="language-plaintext highlighter-rouge"
                     >Metadata</code
                   ></a
@@ -1807,9 +1881,7 @@
           </td>
 
           <!-- Required?  -->
-          <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = title include.prop = metadata -->NO
-          </td>
+          <td class="manifest-ref-table">NO</td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">N/A</td>
@@ -1846,9 +1918,7 @@
           </td>
 
           <!-- Required?  -->
-          <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = title include.prop = provenance -->NO
-          </td>
+          <td class="manifest-ref-table">NO</td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">N/A</td>
@@ -1882,9 +1952,7 @@
           </td>
 
           <!-- Required?  -->
-          <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = title include.prop = relationship -->NO
-          </td>
+          <td class="manifest-ref-table">NO</td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">componentOf</td>
@@ -1920,9 +1988,7 @@
           </td>
 
           <!-- Required?  -->
-          <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = title include.prop = thumbnail -->NO
-          </td>
+          <td class="manifest-ref-table">NO</td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">N/A</td>
@@ -1935,9 +2001,14 @@
           <td class="manifest-ref-table">
             <!--  -->
 
-            <!--   -->
+            <!-- Either -->
 
             String
+            <!--  -->
+
+            <!--  or  -->
+
+            <!--  -->
           </td>
 
           <!-- Description -->
@@ -1948,9 +2019,33 @@
           </td>
 
           <!-- Required?  -->
+          <td class="manifest-ref-table">NO</td>
+
+          <!-- Default Value -->
+          <td class="manifest-ref-table">N/A</td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">validation_results</td>
+
+          <!-- Type  -->
           <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = title include.prop = title -->YES
+            <!--  -->
+
+            <a href="#validationresults">ValidationResults</a>
+
+            <!--  -->
           </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <div class="prop_desc">
+              <p>Validation results (Ingredient.V3)</p>
+            </div>
+          </td>
+
+          <!-- Required?  -->
+          <td class="manifest-ref-table">NO</td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">N/A</td>
@@ -1976,451 +2071,8 @@
 
           <!-- Description -->
           <td class="manifest-ref-table">
-            <div class="prop_desc"><p>Validation results.</p></div>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = title include.prop = validation_status -->NO
-          </td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">N/A</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- Not an object but an enum -->
-
-    <p>
-      <a class="top-scroll-btn" title="Go to top" href="#manifeststore"
-        >Scroll To Top</a
-      >
-    </p>
-
-    <h3 id="manifest">Manifest</h3>
-
-    <p><!-- end of oneOf entity --></p>
-
-    <p class="prop_desc">
-      A Manifest represents all the information in a c2pa manifest
-    </p>
-
-    <table class="manifest-ref-table" style="margin-top: 10px">
-      <thead>
-        <tr>
-          <th class="manifest-ref-table">Property</th>
-          <th class="manifest-ref-table">Type</th>
-          <th class="manifest-ref-table">Description</th>
-          <th class="manifest-ref-table">Required?</th>
-          <th class="manifest-ref-table">Default Value</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td class="manifest-ref-table">assertions</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <!--   -->
-
-            <!--  -->
-            An array of
-            <a href="#manifestassertion">ManifestAssertion</a>
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <div class="prop_desc"><p>A list of assertions</p></div>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">Empty array</td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">claim_generator</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <!--   -->
-
-            String
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
             <div class="prop_desc">
-              <p>
-                A User Agent formatted string identifying the
-                software/hardware/system produced this claim Spaces are not
-                allowed in names, versions can be specified with product/1.0
-                syntax
-              </p>
-            </div>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">c2pa/0.36.3</td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">claim_generator_info</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <!-- Either -->
-
-            Array of
-
-            <a href="#claimgeneratorinfo">ClaimGeneratorInfo</a>
-
-            <!--  or  -->
-
-            <!--  -->
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>
-                A list of claim generator info data identifying the
-                software/hardware/system produced this claim
-              </p>
-            </div>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">N/A</td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">credentials</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <!-- Either -->
-
-            Array of true
-
-            <!--  or  -->
-
-            <!--  -->
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <div class="prop_desc"><p>A List of verified credentials</p></div>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">N/A</td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">format</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <!--   -->
-
-            String
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>The format of the source file as a MIME type.</p>
-            </div>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">application/octet-stream</td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">ingredients</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <!--   -->
-
-            <!--  -->
-            An array of
-            <a href="#ingredient">Ingredient</a>
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <div class="prop_desc"><p>A List of ingredients</p></div>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">Empty array</td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">instance_id</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <!--   -->
-
-            String
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>
-                Instance ID from
-                <code class="language-plaintext highlighter-rouge"
-                  >xmpMM:InstanceID</code
-                >
-                in XMP metadata.
-              </p>
-            </div>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">
-            xmp:iid:eafef862-379d-44a1-99f7-2ead485e279d
-          </td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">label</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <!-- Either -->
-
-            String
-            <!--  -->
-
-            <!--  or  -->
-
-            <!--  -->
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <p class="comment">Description TBD.</p>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">N/A</td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">metadata</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <!-- Either -->
-
-            Array of
-
-            <a href="#metadata">Metadata</a>
-
-            <!--  or  -->
-
-            <!--  -->
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>A list of user metadata for this claim</p>
-            </div>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">N/A</td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">redactions</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <!-- Either -->
-
-            Array of string
-
-            <!--  or  -->
-
-            <!--  -->
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>A list of redactions - URIs to a redacted assertions</p>
-            </div>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">N/A</td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">signature_info</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <a href="#signatureinfo">SignatureInfo</a>
-
-            <!--  -->
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>Signature data (only used for reporting)</p>
-            </div>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">N/A</td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">thumbnail</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <a href="#resourceref">ResourceRef</a>
-
-            <!--  -->
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <p class="comment">Description TBD.</p>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">N/A</td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">title</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <!-- Either -->
-
-            String
-            <!--  -->
-
-            <!--  or  -->
-
-            <!--  -->
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>A human-readable title, generally source filename.</p>
-            </div>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">N/A</td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">vendor</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <!-- Either -->
-
-            String
-            <!--  -->
-
-            <!--  or  -->
-
-            <!--  -->
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>
-                Optional prefix added to the generated Manifest Label This is
-                typically Internet domain name for the vendor (i.e.
-                <code class="language-plaintext highlighter-rouge">adobe</code>)
-              </p>
+              <p>Validation status (Ingredient v1 &amp; v2)</p>
             </div>
           </td>
 
@@ -2441,12 +2093,15 @@
       >
     </p>
 
-    <h3 id="manifestassertion">ManifestAssertion</h3>
+    <h3 id="ingredientdeltavalidationresult">
+      IngredientDeltaValidationResult
+    </h3>
 
     <p><!-- end of oneOf entity --></p>
 
     <p class="prop_desc">
-      A labeled container for an Assertion value in a Manifest
+      Represents any changes or deltas between the current and previous
+      validation results for an ingredient’s manifest.
     </p>
 
     <table class="manifest-ref-table" style="margin-top: 10px">
@@ -2462,13 +2117,41 @@
 
       <tbody>
         <tr>
-          <td class="manifest-ref-table">data</td>
+          <td class="manifest-ref-table">ingredientAssertionURI</td>
 
           <!-- Type  -->
           <td class="manifest-ref-table">
             <!--  -->
 
-            <a href="#manifestdata">ManifestData</a>
+            <!--   -->
+
+            String
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <div class="prop_desc">
+              <p>JUMBF URI reference to the ingredient assertion</p>
+            </div>
+          </td>
+
+          <!-- Required?  -->
+          <td class="manifest-ref-table">
+            <!--  LOOP --><!-- x = ingredientAssertionURI include.prop = ingredientAssertionURI --><!-- x = validationDeltas include.prop = ingredientAssertionURI -->YES
+          </td>
+
+          <!-- Default Value -->
+          <td class="manifest-ref-table">N/A</td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">validationDeltas</td>
+
+          <!-- Type  -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <a href="#statuscodes">StatusCodes</a>
 
             <!-- obj.type is an array of possible types-->
           </td>
@@ -2476,107 +2159,13 @@
           <!-- Description -->
           <td class="manifest-ref-table">
             <div class="prop_desc">
-              <p>The data of the assertion as Value</p>
+              <p>Validation results for the ingredient’s active manifest</p>
             </div>
           </td>
 
           <!-- Required?  -->
           <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = data include.prop = data --><!-- x = label include.prop = data -->YES
-          </td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">N/A</td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">instance</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <!-- Either -->
-
-            Integer
-            <!--  -->
-            (uint) <br />Minimum: 0.0
-
-            <!--  or  -->
-
-            <!--  -->
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>There can be more than one assertion for any label</p>
-            </div>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = data include.prop = instance --><!-- x = label include.prop = instance -->NO
-          </td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">N/A</td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">kind</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <a href="#manifestassertionkind">ManifestAssertionKind</a>
-
-            <!--  -->
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>
-                The
-                <a href="crate::ManifestAssertionKind">ManifestAssertionKind</a>
-                for this assertion (as stored in c2pa content)
-              </p>
-            </div>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = data include.prop = kind --><!-- x = label include.prop = kind -->NO
-          </td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">N/A</td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">label</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <!--   -->
-
-            String
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>An assertion label in reverse domain format</p>
-            </div>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">
-            <!--  LOOP --><!-- x = data include.prop = label --><!-- x = label include.prop = label -->YES
+            <!--  LOOP --><!-- x = ingredientAssertionURI include.prop = validationDeltas --><!-- x = validationDeltas include.prop = validationDeltas -->YES
           </td>
 
           <!-- Default Value -->
@@ -2593,39 +2182,91 @@
       >
     </p>
 
-    <h3 id="manifestassertionkind">ManifestAssertionKind</h3>
+    <h3 id="item">Item</h3>
 
     <p><!-- end of oneOf entity --></p>
 
-    <p>A string that is one of the following:</p>
-
-    <ul>
-      <li>“Cbor”</li>
-      <li>“Json”</li>
-      <li>“Binary”</li>
-      <li>“Uri”<!-- Not an object or enum, but a string --></li>
-    </ul>
-
-    <p>
-      <a class="top-scroll-btn" title="Go to top" href="#manifeststore"
-        >Scroll To Top</a
-      >
+    <p class="prop_desc">
+      Description of the boundaries of an identified range.
     </p>
 
-    <h3 id="manifestdata">ManifestData</h3>
+    <table class="manifest-ref-table" style="margin-top: 10px">
+      <thead>
+        <tr>
+          <th class="manifest-ref-table">Property</th>
+          <th class="manifest-ref-table">Type</th>
+          <th class="manifest-ref-table">Description</th>
+          <th class="manifest-ref-table">Required?</th>
+          <th class="manifest-ref-table">Default Value</th>
+        </tr>
+      </thead>
 
-    <p><!-- end of oneOf entity --></p>
+      <tbody>
+        <tr>
+          <td class="manifest-ref-table">identifier</td>
 
-    <p class="comment">Description TBD.</p>
-    <p>Any of the following:</p>
+          <!-- Type  -->
+          <td class="manifest-ref-table">
+            <!--  -->
 
-    <ul>
-      <!-- i is a simple type -->
-      <li>true</li>
+            <!--   -->
 
-      <!-- i is an object or array -->
-      <li>type: integer, format: uint8, minimum: 0.0</li>
-    </ul>
+            String
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <div class="prop_desc">
+              <p>
+                The container-specific term used to identify items, such as
+                “track_id” for MP4 or “item_ID” for HEIF.
+              </p>
+            </div>
+          </td>
+
+          <!-- Required?  -->
+          <td class="manifest-ref-table">
+            <!--  LOOP --><!-- x = identifier include.prop = identifier --><!-- x = value include.prop = identifier -->YES
+          </td>
+
+          <!-- Default Value -->
+          <td class="manifest-ref-table">N/A</td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">value</td>
+
+          <!-- Type  -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <!--   -->
+
+            String
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <div class="prop_desc">
+              <p>
+                The value of the identifier, e.g. a value of “2” for an
+                identifier of “track_id” would imply track 2 of the asset.
+              </p>
+            </div>
+          </td>
+
+          <!-- Required?  -->
+          <td class="manifest-ref-table">
+            <!--  LOOP --><!-- x = identifier include.prop = value --><!-- x = value include.prop = value -->YES
+          </td>
+
+          <!-- Default Value -->
+          <td class="manifest-ref-table">N/A</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Not an object but an enum -->
 
     <p>
       <a class="top-scroll-btn" title="Go to top" href="#manifeststore"
@@ -2685,14 +2326,12 @@
           <td class="manifest-ref-table">
             <!--  -->
 
-            <!--   -->
-
-            String
+            <!--  -->
           </td>
 
           <!-- Description -->
           <td class="manifest-ref-table">
-            <div class="prop_desc"><p>A date time in ISO 8601 format.</p></div>
+            <p class="comment">Description TBD.</p>
           </td>
 
           <!-- Required?  -->
@@ -2843,6 +2482,32 @@
         </tr>
 
         <tr>
+          <td class="manifest-ref-table">item</td>
+
+          <!-- Type  -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <a href="#item">Item</a>
+
+            <!--  -->
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <div class="prop_desc"><p>A item identifier.</p></div>
+          </td>
+
+          <!-- Required?  -->
+          <td class="manifest-ref-table">
+            <!--  LOOP --><!-- x = type include.prop = item -->NO
+          </td>
+
+          <!-- Default Value -->
+          <td class="manifest-ref-table">N/A</td>
+        </tr>
+
+        <tr>
           <td class="manifest-ref-table">shape</td>
 
           <!-- Type  -->
@@ -2976,13 +2641,10 @@
           <td class="manifest-ref-table">
             <div class="prop_desc">
               <p>
-                A spatial range, see
-                <a href="#shape"
-                  ><code class="language-plaintext highlighter-rouge"
-                    >Shape</code
-                  ></a
-                >
-                for more details.
+                A spatial range, see [<code
+                  class="language-plaintext highlighter-rouge"
+                  >Shape</code
+                >] for more details.
               </p>
             </div>
           </td>
@@ -2993,13 +2655,10 @@
           <td class="manifest-ref-table">
             <div class="prop_desc">
               <p>
-                A temporal range, see
-                <a href="#time"
-                  ><code class="language-plaintext highlighter-rouge"
-                    >Time</code
-                  ></a
-                >
-                for more details.
+                A temporal range, see [<code
+                  class="language-plaintext highlighter-rouge"
+                  >Time</code
+                >] for more details.
               </p>
             </div>
           </td>
@@ -3010,13 +2669,10 @@
           <td class="manifest-ref-table">
             <div class="prop_desc">
               <p>
-                A spatial range, see
-                <a href="#frame"
-                  ><code class="language-plaintext highlighter-rouge"
-                    >Frame</code
-                  ></a
-                >
-                for more details.
+                A spatial range, see [<code
+                  class="language-plaintext highlighter-rouge"
+                  >Frame</code
+                >] for more details.
               </p>
             </div>
           </td>
@@ -3027,12 +2683,22 @@
           <td class="manifest-ref-table">
             <div class="prop_desc">
               <p>
-                A textual range, see
-                <a href="#text"
-                  ><code class="language-plaintext highlighter-rouge"
-                    >Text</code
-                  ></a
-                >
+                A textual range, see [<code
+                  class="language-plaintext highlighter-rouge"
+                  >Text</code
+                >] for more details.
+              </p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="manifest-ref-table">identified</td>
+          <td class="manifest-ref-table">string</td>
+          <td class="manifest-ref-table">
+            <div class="prop_desc">
+              <p>
+                A range identified by a specific identifier and value, see
+                [<code class="language-plaintext highlighter-rouge">Item</code>]
                 for more details.
               </p>
             </div>
@@ -3055,20 +2721,12 @@
 
     <p class="prop_desc">
       A region of interest within an asset describing the change. This struct
-      can be used from
-      <a
-        href="https://docs.rs/c2pa/latest/c2pa/assertions/struct.Action.html#method.changes"
-        ><code class="language-plaintext highlighter-rouge"
-          >Action::changes</code
-        ></a
-      >
-      or
-      <a
-        href="https://docs.rs/c2pa/latest/c2pa/assertions/struct.Metadata.html#method.region_of_interest"
-        ><code class="language-plaintext highlighter-rouge"
-          >Metadata::region_of_interest</code
-        ></a
-      >.
+      can be used from [<code class="language-plaintext highlighter-rouge"
+        >Action::changes</code
+      >][crate::assertions::Action::changes] or [<code
+        class="language-plaintext highlighter-rouge"
+        >Metadata::region_of_interest</code
+      >][crate::assertions::Metadata::region_of_interest].
     </p>
 
     <table class="manifest-ref-table" style="margin-top: 10px">
@@ -3358,13 +3016,10 @@
 
     <p class="prop_desc">
       A reference to a resource to be used in JSON serialization. The underlying
-      data can be read as a stream via
-      <a
-        href="https://docs.rs/c2pa/latest/c2pa/struct.Reader.html#method.resource_to_stream"
-        ><code class="language-plaintext highlighter-rouge"
-          >Reader::resource_to_stream</code
-        ></a
-      >.
+      data can be read as a stream via [<code
+        class="language-plaintext highlighter-rouge"
+        >Reader::resource_to_stream</code
+      >][crate::Reader::resource_to_stream].
     </p>
 
     <table class="manifest-ref-table" style="margin-top: 10px">
@@ -3560,14 +3215,11 @@
     <p><!-- end of oneOf entity --></p>
 
     <p class="prop_desc">
-      A rating on an
-      <a href="crate::ManifestAssertion"
-        ><code class="language-plaintext highlighter-rouge">Assertion</code></a
-      >. See
+      A rating on an Assertion. See
       <a
-        href="https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_review_ratings."
-        >Review Ratings in C2PA spec</a
-      >
+        href="https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_claim_review"
+        >https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_claim_review</a
+      >.
     </p>
 
     <table class="manifest-ref-table" style="margin-top: 10px">
@@ -4086,11 +3738,14 @@
       >
     </p>
 
-    <h3 id="signatureinfo">SignatureInfo</h3>
+    <h3 id="statuscodes">StatusCodes</h3>
 
     <p><!-- end of oneOf entity --></p>
 
-    <p class="prop_desc">Holds information about a signature</p>
+    <p class="prop_desc">
+      Contains a set of success, informational, and failure validation status
+      codes.
+    </p>
 
     <table class="manifest-ref-table" style="margin-top: 10px">
       <thead>
@@ -4105,150 +3760,84 @@
 
       <tbody>
         <tr>
-          <td class="manifest-ref-table">alg</td>
+          <td class="manifest-ref-table">failure</td>
 
           <!-- Type  -->
           <td class="manifest-ref-table">
             <!--  -->
 
-            <a href="#signingalg">SigningAlg</a>
+            <!--   -->
 
             <!--  -->
+            An array of
+            <a href="#validationstatus">ValidationStatus</a>
           </td>
 
           <!-- Description -->
           <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>human readable issuing authority for this signature</p>
-            </div>
+            <p class="comment">Description TBD.</p>
           </td>
 
           <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
+          <td class="manifest-ref-table">
+            <!--  LOOP --><!-- x = failure include.prop = failure --><!-- x = informational include.prop = failure --><!-- x = success include.prop = failure -->YES
+          </td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">N/A</td>
         </tr>
 
         <tr>
-          <td class="manifest-ref-table">cert_serial_number</td>
+          <td class="manifest-ref-table">informational</td>
 
           <!-- Type  -->
           <td class="manifest-ref-table">
             <!--  -->
 
-            <!-- Either -->
-
-            String
-            <!--  -->
-
-            <!--  or  -->
+            <!--   -->
 
             <!--  -->
+            An array of
+            <a href="#validationstatus">ValidationStatus</a>
           </td>
 
           <!-- Description -->
           <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>The serial number of the certificate</p>
-            </div>
+            <p class="comment">Description TBD.</p>
           </td>
 
           <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
+          <td class="manifest-ref-table">
+            <!--  LOOP --><!-- x = failure include.prop = informational --><!-- x = informational include.prop = informational --><!-- x = success include.prop = informational -->YES
+          </td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">N/A</td>
         </tr>
 
         <tr>
-          <td class="manifest-ref-table">issuer</td>
+          <td class="manifest-ref-table">success</td>
 
           <!-- Type  -->
           <td class="manifest-ref-table">
             <!--  -->
 
-            <!-- Either -->
-
-            String
-            <!--  -->
-
-            <!--  or  -->
+            <!--   -->
 
             <!--  -->
+            An array of
+            <a href="#validationstatus">ValidationStatus</a>
           </td>
 
           <!-- Description -->
           <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>human readable issuing authority for this signature</p>
-            </div>
+            <p class="comment">Description TBD.</p>
           </td>
 
           <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">N/A</td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">revocation_status</td>
-
-          <!-- Type  -->
           <td class="manifest-ref-table">
-            <!--  -->
-
-            <!-- Either -->
-
-            Boolean
-            <!--  -->
-
-            <!--  or  -->
-
-            <!--  -->
+            <!--  LOOP --><!-- x = failure include.prop = success --><!-- x = informational include.prop = success --><!-- x = success include.prop = success -->YES
           </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>revocation status of the certificate</p>
-            </div>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
-
-          <!-- Default Value -->
-          <td class="manifest-ref-table">N/A</td>
-        </tr>
-
-        <tr>
-          <td class="manifest-ref-table">time</td>
-
-          <!-- Type  -->
-          <td class="manifest-ref-table">
-            <!--  -->
-
-            <!-- Either -->
-
-            String
-            <!--  -->
-
-            <!--  or  -->
-
-            <!--  -->
-          </td>
-
-          <!-- Description -->
-          <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>the time the signature was created</p>
-            </div>
-          </td>
-
-          <!-- Required?  -->
-          <td class="manifest-ref-table">NO</td>
 
           <!-- Default Value -->
           <td class="manifest-ref-table">N/A</td>
@@ -4257,102 +3846,6 @@
     </table>
 
     <!-- Not an object but an enum -->
-
-    <p>
-      <a class="top-scroll-btn" title="Go to top" href="#manifeststore"
-        >Scroll To Top</a
-      >
-    </p>
-
-    <h3 id="signingalg">SigningAlg</h3>
-
-    <p>
-      Describes the digital signature algorithms allowed by the
-      <a
-        href="https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_digital_signatures"
-        >C2PA spec</a
-      >:
-    </p>
-
-    <blockquote>
-      <p>
-        All digital signatures that are stored in a C2PA Manifest shall be
-        generated using one of the digital signature algorithms and key types
-        listed as described in this section.
-      </p>
-    </blockquote>
-
-    <table class="manifest-ref-table" style="margin-top: 10px">
-      <thead>
-        <tr>
-          <th class="manifest-ref-table">SigningAlg</th>
-          <th class="manifest-ref-table">Type</th>
-          <th class="manifest-ref-table">Description</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td class="manifest-ref-table">Es256</td>
-          <td class="manifest-ref-table">string</td>
-          <td class="manifest-ref-table">
-            <div class="prop_desc"><p>ECDSA with SHA-256</p></div>
-          </td>
-        </tr>
-        <tr>
-          <td class="manifest-ref-table">Es384</td>
-          <td class="manifest-ref-table">string</td>
-          <td class="manifest-ref-table">
-            <div class="prop_desc"><p>ECDSA with SHA-384</p></div>
-          </td>
-        </tr>
-        <tr>
-          <td class="manifest-ref-table">Es512</td>
-          <td class="manifest-ref-table">string</td>
-          <td class="manifest-ref-table">
-            <div class="prop_desc"><p>ECDSA with SHA-512</p></div>
-          </td>
-        </tr>
-        <tr>
-          <td class="manifest-ref-table">Ps256</td>
-          <td class="manifest-ref-table">string</td>
-          <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>RSASSA-PSS using SHA-256 and MGF1 with SHA-256</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="manifest-ref-table">Ps384</td>
-          <td class="manifest-ref-table">string</td>
-          <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>RSASSA-PSS using SHA-384 and MGF1 with SHA-384</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="manifest-ref-table">Ps512</td>
-          <td class="manifest-ref-table">string</td>
-          <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>RSASSA-PSS using SHA-512 and MGF1 with SHA-512</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="manifest-ref-table">Ed25519</td>
-          <td class="manifest-ref-table">string</td>
-          <td class="manifest-ref-table">
-            <div class="prop_desc">
-              <p>Edwards-Curve DSA (Ed25519 instance only)</p>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p><!-- end of oneOf entity --></p>
 
     <p>
       <a class="top-scroll-btn" title="Go to top" href="#manifeststore"
@@ -4560,13 +4053,9 @@
     <p><!-- end of oneOf entity --></p>
 
     <p class="prop_desc">
-      One or two
-      <a href="#textselector"
-        ><code class="language-plaintext highlighter-rouge"
-          >TextSelector</code
-        ></a
-      >
-      objects identifying the range to select.
+      One or two [<code class="language-plaintext highlighter-rouge"
+        >TextSelector</code
+      >][TextSelector] identifiying the range to select.
     </p>
 
     <table class="manifest-ref-table" style="margin-top: 10px">
@@ -4862,6 +4351,94 @@
       >
     </p>
 
+    <h3 id="validationresults">ValidationResults</h3>
+
+    <p><!-- end of oneOf entity --></p>
+
+    <p class="prop_desc">
+      A map of validation results for a manifest store. The map contains the
+      validation results for the active manifest and any ingredient deltas. It
+      is normal for there to be many
+    </p>
+
+    <table class="manifest-ref-table" style="margin-top: 10px">
+      <thead>
+        <tr>
+          <th class="manifest-ref-table">Property</th>
+          <th class="manifest-ref-table">Type</th>
+          <th class="manifest-ref-table">Description</th>
+          <th class="manifest-ref-table">Required?</th>
+          <th class="manifest-ref-table">Default Value</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class="manifest-ref-table">activeManifest</td>
+
+          <!-- Type  -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <a href="#statuscodes">StatusCodes</a>
+
+            <!--  -->
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <p class="comment">Description TBD.</p>
+          </td>
+
+          <!-- Required?  -->
+          <td class="manifest-ref-table">NO</td>
+
+          <!-- Default Value -->
+          <td class="manifest-ref-table">N/A</td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">ingredientDeltas</td>
+
+          <!-- Type  -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <!-- Either -->
+
+            Array of
+
+            <a href="#ingredientdeltavalidationresult"
+              >IngredientDeltaValidationResult</a
+            >
+
+            <!--  or  -->
+
+            <!--  -->
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <p class="comment">Description TBD.</p>
+          </td>
+
+          <!-- Required?  -->
+          <td class="manifest-ref-table">NO</td>
+
+          <!-- Default Value -->
+          <td class="manifest-ref-table">N/A</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Not an object but an enum -->
+
+    <p>
+      <a class="top-scroll-btn" title="Go to top" href="#manifeststore"
+        >Scroll To Top</a
+      >
+    </p>
+
     <h3 id="validationstatus">ValidationStatus</h3>
 
     <p><!-- end of oneOf entity --></p>
@@ -4872,8 +4449,8 @@
       struct describes the validation status of a specific part of a manifest.
       See
       <a
-        href="https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_existing_manifests"
-        >https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_existing_manifests</a
+        href="https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_existing_manifests"
+        >https://c2pa.org/specifications/specifications/1.0/specs/C2PA_Specification.html#_existing_manifests</a
       >.
     </p>
 
@@ -4940,6 +4517,37 @@
           <!-- Required?  -->
           <td class="manifest-ref-table">
             <!--  LOOP --><!-- x = code include.prop = explanation -->NO
+          </td>
+
+          <!-- Default Value -->
+          <td class="manifest-ref-table">N/A</td>
+        </tr>
+
+        <tr>
+          <td class="manifest-ref-table">success</td>
+
+          <!-- Type  -->
+          <td class="manifest-ref-table">
+            <!--  -->
+
+            <!-- Either -->
+
+            Boolean
+            <!--  -->
+
+            <!--  or  -->
+
+            <!--  -->
+          </td>
+
+          <!-- Description -->
+          <td class="manifest-ref-table">
+            <p class="comment">Description TBD.</p>
+          </td>
+
+          <!-- Required?  -->
+          <td class="manifest-ref-table">
+            <!--  LOOP --><!-- x = code include.prop = success -->NO
           </td>
 
           <!-- Default Value -->
