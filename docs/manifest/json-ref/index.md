@@ -6,13 +6,11 @@ pagination_next: null
 pagination_prev: null
 ---
 
-The manifest as described in the C2PA specification is a binary structure in JPEG universal metadata box format ([JUMBF](https://www.iso.org/standard/84635.html)) that can include JSON and binary data for things like encryption keys and thumbnail images.
+The [C2PA specification](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_manifests) describes a manifest with a binary structure in JPEG universal metadata box format ([JUMBF](https://www.iso.org/standard/84635.html)) that includes JSON as well as binary data for things like encryption keys and thumbnail images. Because the binary structure is hard to understand and program to, the SDK defines a JSON manifest structure that's a declarative language for representing and creating a binary manifest.
 
-Because the binary structure is hard to understand and program to, the SDK defines a JSON manifest structure that's a declarative language for representing and creating a binary-formatted manifest.
+The JSON manifest is an abstract translation layer that's easier to understand than the binary format. It can describe everything in the underlying binary format except for binary data such as thumbnails that are included by a structure called a _resource reference_. To generate a binary manifest, the SDK assembles all the JSON objects, resource references, and ingredients defined, and then converts them into different assertions and other objects as required.
 
-The JSON manifest format is an abstract translation layer that's easier to understand than the binary format. It can describe everything in the underlying binary format except for binary data such as thumbnails that are included by a structure called a _resource reference_. To generate a binary manifest, the SDK assembles all the JSON objects, resource references, and ingredients defined, and then converts them into different assertions and other objects as required.
-
-These JSON references are generated from the JSON schemas for ManifestDefinition and Reader objects:
+These JSON references are generated from the JSON schemas for [ManifestDefinition](https://docs.rs/c2pa/latest/c2pa/struct.ManifestDefinition.html) and [Reader](https://docs.rs/c2pa/latest/c2pa/struct.Reader.html) objects (structs in Rust terminology):
 
 - [ManifestDefinition](manifest-def.mdx)
 - [Reader](reader.mdx)
