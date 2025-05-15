@@ -10,7 +10,7 @@ The [C2PA specification](https://c2pa.org/specifications/specifications/2.1/spec
 
 The JSON manifest is an abstract translation layer that's easier to understand than the binary format. It can describe everything in the underlying binary format except for binary data such as thumbnails that are included by a structure called a _resource reference_. To generate a binary manifest, the SDK assembles all the JSON objects, resource references, and ingredients defined, and then converts them into different assertions and other objects as required.
 
-These JSON references are generated from the JSON schemas for [ManifestDefinition](https://docs.rs/c2pa/latest/c2pa/struct.ManifestDefinition.html) and [Reader](https://docs.rs/c2pa/latest/c2pa/struct.Reader.html) objects (structs in Rust terminology):
+These JSON references are generated from the JSON schemas for [ManifestDefinition](https://docs.rs/c2pa/latest/c2pa/struct.ManifestDefinition.html) and [Reader](https://docs.rs/c2pa/latest/c2pa/struct.Reader.html) objects (_structs_ in Rust terminology):
 
-- [ManifestDefinition](manifest-def.mdx)
-- [Reader](reader.mdx)
+- [ManifestDefinition](manifest-def.mdx): Defines a manifest and builds a manifest store.
+- [Reader](reader.mdx): Reads and validates a manifest.
