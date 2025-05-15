@@ -89,8 +89,8 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'c2patool-rns', // 'c2patool/docs/changelog',
-          label: 'Release notes',
+          id: 'c2patool/docs/changelog',
+          label: 'Change log',
         },
         {
           type: 'doc',
