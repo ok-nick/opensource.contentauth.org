@@ -47,6 +47,10 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'manifest/cawg-id',
+        },
+        {
+          type: 'doc',
           id: 'manifest/manifest-examples',
           label: 'Examples',
         },
@@ -230,6 +234,11 @@ const sidebars = {
           type: 'doc',
           id: 'rust-sdk/docs/supported-formats',
           label: 'Supported media formats',
+        },
+        {
+          type: 'doc',
+          id: 'rust-sdk/docs/cawg-id',
+          label: 'Using CAWG identity assertions',
         },
         {
           type: 'doc',
