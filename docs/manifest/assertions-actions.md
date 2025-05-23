@@ -402,7 +402,9 @@ For example:
   ...
 ```
 
-The SDK supports the older `ingredientId` field, but it is deprecated and will at some point not be supported.
+:::note
+The old `ingredientId` field is deprecated.
+:::
 
 For more information on action parameters, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_parameters).
 
@@ -429,12 +431,6 @@ Any `c2pa.opened` or `c2pa.placed` action must have an associated ingredient ide
       "org.cai.ingredientIds": [
         "<String-instance-ID-of-ingredient>"
       ],
-      "ingredients": [
-        {
-          "url": "self#jumbf=c2pa.assertions/c2pa.ingredient.v3",
-          "hash": "9wKCCcWI00zA1nBOrTc4bCX6UZuIehbwaviDoIWpw84="
-        }
-      ]
     }
   },
   ...
@@ -464,12 +460,6 @@ For example, the following action identifies that the `c2pa.opened` action was p
             "org.cai.ingredientIds": [
               "xmp.iid:3250038a-22ca-459b-8392-de275f8b155c"
             ],
-            "ingredients": [
-              {
-                "url": "self#jumbf=c2pa.assertions/c2pa.ingredient.v3",
-                "hash": "9wKCCcWI00zA1nBOrTc4bCX6UZuIehbwaviDoIWpw84="
-              }
-            ]
           }
         },
         ...
