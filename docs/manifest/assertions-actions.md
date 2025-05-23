@@ -410,7 +410,7 @@ For more information on action parameters, see the [C2PA Technical Specification
 
 ### The instance_id property
 
-The `instance_id` property identifies an ingredient used in an action and is only used when defining/writing a manifest, not reading one.
+When defining/writing a manifest, the `instance_id` property identifies an ingredient used in an action.
 
 Any `c2pa.opened` or `c2pa.placed` action must have an associated ingredient identified by the `org.cai.ingredientIds` parameters field of the action with an array of ingredient `instance_id` values.
 
