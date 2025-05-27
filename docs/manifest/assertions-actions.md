@@ -254,10 +254,10 @@ For example:
 "assertions": [
   ...
   {
-    "label": "com.truepic.libc2pa",
+    "label": "com.mycompany.myproduct",
     "data": {
       "git_hash": "023bb51",
-      "lib_name": "Truepic C2PA C++ Library",
+      "lib_name": "Our C2PA C++ Library",
       "lib_version": "2.5.1",
       "target_spec_version": "1.2"
     },
@@ -445,8 +445,7 @@ For example, the following action identifies that the `c2pa.opened` action was p
     "title": "test.jpeg",
     "format": "image/jpeg",
     "instance_id": "xmp.iid:3250038a-22ca-459b-8392-de275f8b155c",
-    "relationship": "parentOf",
-    "label": "c2pa.ingredient.v3"
+    "relationship": "parentOf"
   }
 ],
 "assertions": [
