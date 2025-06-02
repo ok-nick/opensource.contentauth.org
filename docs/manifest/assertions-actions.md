@@ -206,6 +206,10 @@ The C2PA Technical Specification defines a [set of standard assertions](https://
 
 The following table summarizes some of the most important standard assertions.
 
+<div class="review-comment">
+What other c2pa std assertions should we call out?
+</div>
+
 | Assertion | Label | Description |
 |-----------|-------|-------------|
 | [Content bindings](#content-bindings) | `c2pa.hash.*`, `c2pa.soft-binding`, etc. | Uniquely identify portions of an asset and bind the assertion to it, for example using cryptographic hashes. |
@@ -244,7 +248,7 @@ For example, the `c2pa.hash.data` assertion shown in the [detailed manifest exam
 ]
 ```
 
-## Actions
+### Actions
 
 An action is an assertion that provides information about creation, edits, and other things that have occurred to an asset. In the manifest, an `actions` assertion is an array of [AssertionDefinition](json-ref/manifest-def.mdx#assertiondefinition) objects.   For example:
 
@@ -276,13 +280,13 @@ Each object in the `actions` array has the following standard properties.
 | `softwareAgent` | No | The software or hardware used to perform the action.   | `"Adobe Firefly"` |
 | `parameters` | No | Additional information describing the action; see [Parameters](#parameters) | Reference to ingredients in the `org.cai.ingredientIds` array. |
 
-### Action names
+#### Action names
 
 The value of the `action` property must be either one of the pre-defined [standard C2PA action strings](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_actions) of the form `c2pa.*` or a custom action name. The set of standard C2PA actions includes fundamental ones as `c2pa.created` for when an asset is first created, and others (`c2pa.cropped`, `c2pa.resized`, and so on) for when an asset's content is modified in some way.  
 
 For the complete list of standard actions, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_actions).
 
-### Digital source type
+####  Digital source type
 
 Use the `digitalSourceType` property to specify how an asset was created or modified, for example "digital capture", "digitized from negative," or "trained algorithmic media." 
 
@@ -311,7 +315,7 @@ The value of `digitalSourceType` is one of the URLs specified by the Internation
 This table is provided for convenience.  For the authoritative list, see the [IPTC NewsCodes Digital Source Type scheme (controlled vocabulary)](https://cv.iptc.org/newscodes/digitalsourcetype/).
 :::
 
-### Generative AI action
+#### Generative AI action
 
 To specify that an asset was created using generative AI, use the `c2pa.created` action with `digitalSourceType` that's one of:
 - `trainedAlgorithmicMedia` for an asset created by generative AI tools.
@@ -340,7 +344,7 @@ For other possible values of `digitalSourceType`, see [Digital source type](#dig
 
 Where `<TOOL_NAME>` is the name of the generative AI tool or service.
 
-### Parameters 
+#### Parameters 
 
 The `parameters` property can contain any data that provide more details on the action, for example:
 
@@ -384,7 +388,7 @@ The old `ingredientId` field is deprecated.
 
 For more information on action parameters, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_parameters).
 
-### The instance_id property
+#### The instance_id property
 
 When defining/writing a manifest, the `instance_id` property identifies an ingredient used in an action.
 
@@ -440,7 +444,13 @@ For example, the following action identifies that the `c2pa.opened` action was p
         ...
 ```
 
-### V2 actions
+#### V2 actions
+
+<div class="review-comment">
+
+Should this now be only for v2 actions, and then move info on v1 actions to [Reading old manifest data](legacy-manifests)?
+
+</div>
 
 This documentation covers C2PA v1 actions.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_actions) also describes expanded v2 actions.  V1 actions are fully specified in the actions array. However, a v2 action may either be specified by an element of the actions array or from an element in the templates array with the same action name.
 
