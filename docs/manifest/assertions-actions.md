@@ -7,7 +7,7 @@ title: Assertions and actions
 
 Assertions provide information about when, where, and how an asset was created or transformed.
 
-In the JSON manifest, each assertion is specified by a [AssertionDefinition](./json-ref/manifest-def.mdx#assertiondefinition) object.  All the assertions in the manifest are in the `assertions` array. A ManifestAssertion object has two required properties, `label`, a string, and `data`, which can contain arbitrary information; and two optional properties, `kind` and `instance`.
+The JSON manifest contains an `assertions` array, whose elements are [AssertionDefinition](./json-ref/manifest-def/#assertiondefinition) objects. An AssertionDefinition object has two required properties: `label`, a string, and `data`, which can contain arbitrary information. When [reading an assertion](../json-ref/reader#manifestassertion), there are two optional properties, `kind` and `instance`.
 
 The standard form of an assertion in a JSON manifest is:
 
@@ -26,179 +26,6 @@ The standard form of an assertion in a JSON manifest is:
 ]
 ```
 
-## CAWG metadata assertions
-
-Use _CAWG metadata assertions_ to include metadata from metadata standards such as XMP, IPTC, and Exif in a manifest.
-
-Metadata assertions must include one or more `@context` properties in the `data` object, as explained in the [JSON-LD](https://www.w3.org/TR/json-ld/#the-context) specification.  Follow the examples shown in each section.
-
-| Assertion | Label | Description |
-|-----------|-------|-------------|
-| [Creative work](#creative-work-assertion) | `stds.schema-org.CreativeWork`  | Indicates the asset is the product of creative effort.   |
-| [Exif information](#exif-assertion) | `stds.exif` | Camera information such as maker, lens stored in Exchangeable image file format (Exif). |
-| [IPTC photo and video metadata](#iptc-metadata) | `stds.iptc` | Properties from the IPTC Photo and Video Metadata Standards, describing for example ownership, rights, and other metadata about a image or video asset. |
-| [Training and data mining](#do-not-train-assertion) | `cawg.training-mining` | Whether the creator/owner of an asset grants permission to use it for data mining or AI/ML training.  NOTE: Previously, this assertion's label was `c2pa.training-mining`. |
-
-### Creative work assertion
-
-A creative work assertion states that an asset was the product of creative effort, such as an original photograph or artwork. [Schema.org](https://schema.org/) provides a set of types and metadata fields, including [CreativeWork](https://schema.org/CreativeWork), which describes a representation of creative effort. This assertion provides information about the asset, including who created it and the date/time of publication.  
-
-A creative work assertion has the label `stds.schema-org.CreativeWork`.
-
-For example:
-
-```json
-...
-"assertions": [
-  ...
-  {
-    "label": "stds.schema-org.CreativeWork",
-    "data": {
-      "@context": "https://schema.org",
-      "@type": "CreativeWork",
-      "url": "https://stock.adobe.com/615559889"
-    },
-    "kind": "Json"
-  },
-  ...
-]
-```
-
-### Exif assertion
-
-Exchangeable image file (Exif) format is a standard for storing technical metadata in image files of JPEG, TIFF, PNG, and other formats. Most digital cameras (including smartphones), scanners and other digital capture devices use Exif to store information such as device make and model, shutter speed, ISO number, date and time of capture, location, and so on.  For more information on Exif, see the [Exif specification](https://www.cipa.jp/std/documents/download_e.html?DC-008-Translation-2019-E).
-
-Use an Exif assertion to add Exif information to the asset in a way that can be validated cryptographically.  An Exif assertion has the label `stds.exif`.
-
-Here is a simple example:
-
-```json
-"assertions": [
-  ...
-  {
-    "label": "stds.exif",
-    "data": {
-      "@context" : {
-        "exif": "http://ns.adobe.com/exif/1.0/"
-      },
-      "exif:GPSVersionID": "2.2.0.0",
-      "exif:GPSLatitude": "39,21.102N",
-      "exif:GPSLongitude": "74,26.5737W",
-      "exif:GPSAltitudeRef": 0,
-      "exif:GPSAltitude": "100963/29890",
-      "exif:GPSTimeStamp": "2019-09-22T18:22:57Z"
-    }
-  }
-  ...
-]
-```
-
-### IPTC metadata assertion
-
-An International Press Telecommunications Council (IPTC) metadata assertion represents properties from the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata) and [Video Metadata Standard](https://www.iptc.org/standards/video-metadata-hub/recommendation/) that describe ownership, rights, and descriptive metadata about an asset. 
-
-An IPTC assertion has the label `stds.iptc` and is stored in JSON-LD format using the XMP field names and structures specified in the IPTC standards.
-
-Earlier versions of the C2PA specification defined the `stds.iptc.photo-metadata` label for IPTC photo metadata; starting with version 1.3, the C2PA specification defines the `stds.iptc` assertion that includes video metadata as well. 
-
-:::note
-Do not use the IPTC `plus:DataMining` property to specify whether permission is granted to use an asset in data mining or AI/ML training. Instead use the C2PA ["do not train" assertion](#do-not-train-assertion).
-:::
-
-For a summary reference to IPTC metadata properties, see [IPTC properties](iptc-properties).
-
-See also:
-- [Exploring c2patool and IPTC Photo Metadata](https://iptc.atlassian.net/wiki/spaces/PMD/pages/613613569/Exploring+c2patool+and+IPTC+Photo+Metadata) (Aug 2022).
-- [IPTC Photo Metadata User Guide](https://www.iptc.org/std/photometadata/documentation/userguide/)
-
-For example:
-
-```json
-...
-"assertions": [
-  ...
-  {
-    "label": "stds.iptc",
-    "data": {
-      "@context" : {
-        "Iptc4xmpCore": "http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/",
-        "Iptc4xmpExt": "http://iptc.org/std/Iptc4xmpExt/2008-02-29/",
-        "dc" : "http://purl.org/dc/elements/1.1/",
-        "photoshop" : "http://ns.adobe.com/photoshop/1.0/",
-        "plus" : "http://ns.useplus.org/ldf/xmp/1.0/",
-        "xmp" : "http://ns.adobe.com/xap/1.0/",
-        "xmpDM" : "http://ns.adobe.com/xmp/1.0/DynamicMedia/",
-        "xmpRights" : "http://ns.adobe.com/xap/1.0/rights/"
-      },
-      "photoshop:DateCreated": "Aug 31, 2022",
-      "dc:creator": [ "Julie Smith" ],
-      "Iptc4xmpExt:DigitalSourceType": "https://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture",
-      "dc:rights": "Copyright (C) 2022 Example Photo Agency. All Rights Reserved.",
-      "photoshop:Credit": "Julie Smith/Example Photo Agency via Example Distributor",
-      "plus:licensor": [
-        {
-          "plus:LicensorName": "Example Photo Agency",
-          "plus:LicensorURL": "http://examplephotoagency.com/images/"
-        }
-      ],
-      "xmpRights:WebStatement": "http://examplephotoagency.com/terms.html",
-      "xmpRights:UsageTerms": [
-        "Not for online publication. Germany OUT"
-      ],
-      "Iptc4xmpExt:LocationCreated": {
-        "Iptc4xmpExt:City": "San Francisco"
-      },
-      "Iptc4xmpExt:PersonInImage": [
-        "Erika Fictional"
-      ],
-      "Iptc4xmpCore:AltTextAccessibility": "Photo of Erika Fictional standing in front of the Golden Gate Bridge at sunset."
-    }
-  },
-  ...
-]
-```
-
-### Training and data mining assertion
-
-Assertions with the `cawg.training-mining` label provide information about whether an asset with C2PA metadata may be used as part of a data mining or AI/ML (artificial intelligence / machine learning) workflows, including whether permission is granted to use an asset in ML training or inference.
-
-| Entry Key | Whether permission is granted...  | Possible values of `use` property |
-|-----------|-------------|-------------|
-| `cawg.data_mining` | To extract text or data from the asset for purposes of determining "patterns, trends and correlations," including images containing text, where the text could be extracted via OCR. | `allowed`,<br/>  `notAllowed`,<br/>or `constrained` |
-| `cawg.ai_inference` | To use the asset as input to a trained AI/ML model for the purposes of inferring a result. Sometimes referred to as the "do not infer" assertion. | `allowed`,<br/>  `notAllowed`,<br/>or `constrained` |
-| `cawg.ai_generative_training`  | To use the asset as training data for a generative AI/ML model that could produce derivative assets. Sometimes referred to as the "do not train" assertion. | `allowed`,<br/>  `notAllowed`,<br/>or `constrained`  |
-| `cawg.ai_training` |To use the asset to train non-generative AI/ML models, such as those used for classification, object detection, and so on. | `allowed`,<br/>  `notAllowed`,<br/>or `constrained` |
-
-The value of each of these properties is an object with a `use` property that can have one of these values:
-
-- `allowed`: Permission is granted for this type of use.
-- `notAllowed`: Permission is NOT granted for this type of use.
-- `constrained`: Permission is not unconditionally granted for this use.  You can provide more details (such as contact information) in the `constraints_info` text property.
-
-For more information, see the [C2PA Technical Specification](https://cawg.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_training_and_data_mining).
-
-For example:
-
-```json
-"assertions": [
-  ...
-  {
-    "label": "cawg.training-mining",
-    "data": {
-      "entries": {
-        "cawg.ai_generative_training": { "use": "notAllowed" },
-        "cawg.ai_inference": { "use": "notAllowed" },
-        "cawg.ai_training": { "use": "notAllowed" },
-        "cawg.data_mining": { 
-          "use": "constrained",
-          "constraint_info" : "Contact foo@bar.com for more information."
-        } 
-      }
-    }
-  }
-  ...
-]
-```
 
 ## C2PA standard assertions
 
@@ -221,7 +48,7 @@ The CAI SDK handles assertions for thumbnails, content bindings, and ingredients
 
 ### Content bindings
 
-Content bindings are standard assertions such as `c2pa.hash.boxes` and `c2pa.hash.data` that uniquely identify portions of an asset.  For more information on content bindings, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_binding_to_content).
+Content bindings are standard assertions such as `c2pa.hash.boxes` and `c2pa.hash.data` that uniquely identify portions of an asset.  For more information on content bindings, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_binding_to_content).
 
 :::note
 The CAI SDK writes content bindings assertions, so normally you don't need to write them, just read them.
@@ -386,7 +213,7 @@ For example:
 The old `ingredientId` field is deprecated.
 :::
 
-For more information on action parameters, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_parameters).
+For more information on action parameters, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_parameters).
 
 #### The instance_id property
 
@@ -452,9 +279,183 @@ Should this now be only for v2 actions, and then move info on v1 actions to [Rea
 
 </div>
 
-This documentation covers C2PA v1 actions.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_actions) also describes expanded v2 actions.  V1 actions are fully specified in the actions array. However, a v2 action may either be specified by an element of the actions array or from an element in the templates array with the same action name.
+This documentation covers C2PA v1 actions.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_actions) also describes expanded v2 actions.  V1 actions are fully specified in the actions array. However, a v2 action may either be specified by an element of the actions array or from an element in the templates array with the same action name.
 
 There are some additional differences between v1 and v2 actions, for example in v2, `softwareAgent` is a [ClaimGeneratorInfo](json-ref/manifest-def.mdx#claimgeneratorinfo) structure instead of a string. The CAI APIs can read all v2 actions and write most v2 actions.
+
+## CAWG metadata assertions
+
+Use _CAWG metadata assertions_ to include metadata from metadata standards such as XMP, IPTC, and Exif in a manifest.  For more information, see the [CAWG Metadatda Assertion](https://cawg.io/metadata/1.1/#_assertion_definition) technical specification.
+
+Metadata assertions must include one or more `@context` properties in the `data` object, as explained in the [JSON-LD](https://www.w3.org/TR/json-ld/#the-context) specification.  Follow the examples shown in each section.
+
+| Assertion | Label | Description |
+|-----------|-------|-------------|
+| [Creative work](#creative-work-assertion) | `stds.schema-org.CreativeWork`  | Indicates the asset is the product of creative effort.   |
+| [Exif information](#exif-assertion) | `stds.exif` | Camera information such as maker, lens stored in Exchangeable image file format (Exif). |
+| [IPTC photo and video metadata](#iptc-metadata) | `stds.iptc` | Properties from the IPTC Photo and Video Metadata Standards, describing for example ownership, rights, and other metadata about a image or video asset. |
+| [Training and data mining](#do-not-train-assertion) | `cawg.training-mining` | Whether the creator/owner of an asset grants permission to use it for data mining or AI/ML training.  NOTE: Previously, this assertion's label was `c2pa.training-mining`. |
+
+### Creative work assertion
+
+A creative work assertion states that an asset was the product of creative effort, such as an original photograph or artwork. [Schema.org](https://schema.org/) provides a set of types and metadata fields, including [CreativeWork](https://schema.org/CreativeWork), which describes a representation of creative effort. This assertion provides information about the asset, including who created it and the date/time of publication.  
+
+A creative work assertion has the label `stds.schema-org.CreativeWork`.
+
+For example:
+
+```json
+...
+"assertions": [
+  ...
+  {
+    "label": "stds.schema-org.CreativeWork",
+    "data": {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "url": "https://stock.adobe.com/615559889"
+    },
+    "kind": "Json"
+  },
+  ...
+]
+```
+
+### Exif assertion
+
+Exchangeable image file (Exif) format is a standard for storing technical metadata in image files of JPEG, TIFF, PNG, and other formats. Most digital cameras (including smartphones), scanners and other digital capture devices use Exif to store information such as device make and model, shutter speed, ISO number, date and time of capture, location, and so on.  For more information on Exif, see the [Exif specification](https://www.cipa.jp/std/documents/download_e.html?DC-008-Translation-2019-E).
+
+Use an Exif assertion to add Exif information to the asset in a way that can be validated cryptographically.  An Exif assertion has the label `stds.exif`.
+
+Here is a simple example:
+
+```json
+"assertions": [
+  ...
+  {
+    "label": "stds.exif",
+    "data": {
+      "@context" : {
+        "exif": "http://ns.adobe.com/exif/1.0/"
+      },
+      "exif:GPSVersionID": "2.2.0.0",
+      "exif:GPSLatitude": "39,21.102N",
+      "exif:GPSLongitude": "74,26.5737W",
+      "exif:GPSAltitudeRef": 0,
+      "exif:GPSAltitude": "100963/29890",
+      "exif:GPSTimeStamp": "2019-09-22T18:22:57Z"
+    }
+  }
+  ...
+]
+```
+
+### IPTC metadata assertion
+
+An International Press Telecommunications Council (IPTC) metadata assertion represents properties from the [IPTC Photo Metadata Standard](https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata) and [Video Metadata Standard](https://www.iptc.org/standards/video-metadata-hub/recommendation/) that describe ownership, rights, and descriptive metadata about an asset. 
+
+An IPTC assertion has the label `stds.iptc` and is stored in JSON-LD format using the XMP field names and structures specified in the IPTC standards.
+
+Earlier versions of the C2PA specification defined the `stds.iptc.photo-metadata` label for IPTC photo metadata; starting with version 1.3, the C2PA specification defines the `stds.iptc` assertion that includes video metadata as well. 
+
+:::note
+Do not use the IPTC `plus:DataMining` property to specify whether permission is granted to use an asset in data mining or AI/ML training. Instead use the C2PA ["do not train" assertion](#do-not-train-assertion).
+:::
+
+For a summary reference to IPTC metadata properties, see [IPTC properties](iptc-properties).
+
+See also:
+- [Exploring c2patool and IPTC Photo Metadata](https://iptc.atlassian.net/wiki/spaces/PMD/pages/613613569/Exploring+c2patool+and+IPTC+Photo+Metadata) (Aug 2022).
+- [IPTC Photo Metadata User Guide](https://www.iptc.org/std/photometadata/documentation/userguide/)
+
+For example:
+
+```json
+...
+"assertions": [
+  ...
+  {
+    "label": "stds.iptc",
+    "data": {
+      "@context" : {
+        "Iptc4xmpCore": "http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/",
+        "Iptc4xmpExt": "http://iptc.org/std/Iptc4xmpExt/2008-02-29/",
+        "dc" : "http://purl.org/dc/elements/1.1/",
+        "photoshop" : "http://ns.adobe.com/photoshop/1.0/",
+        "plus" : "http://ns.useplus.org/ldf/xmp/1.0/",
+        "xmp" : "http://ns.adobe.com/xap/1.0/",
+        "xmpDM" : "http://ns.adobe.com/xmp/1.0/DynamicMedia/",
+        "xmpRights" : "http://ns.adobe.com/xap/1.0/rights/"
+      },
+      "photoshop:DateCreated": "Aug 31, 2022",
+      "dc:creator": [ "Julie Smith" ],
+      "Iptc4xmpExt:DigitalSourceType": "https://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture",
+      "dc:rights": "Copyright (C) 2022 Example Photo Agency. All Rights Reserved.",
+      "photoshop:Credit": "Julie Smith/Example Photo Agency via Example Distributor",
+      "plus:licensor": [
+        {
+          "plus:LicensorName": "Example Photo Agency",
+          "plus:LicensorURL": "http://examplephotoagency.com/images/"
+        }
+      ],
+      "xmpRights:WebStatement": "http://examplephotoagency.com/terms.html",
+      "xmpRights:UsageTerms": [
+        "Not for online publication. Germany OUT"
+      ],
+      "Iptc4xmpExt:LocationCreated": {
+        "Iptc4xmpExt:City": "San Francisco"
+      },
+      "Iptc4xmpExt:PersonInImage": [
+        "Erika Fictional"
+      ],
+      "Iptc4xmpCore:AltTextAccessibility": "Photo of Erika Fictional standing in front of the Golden Gate Bridge at sunset."
+    }
+  },
+  ...
+]
+```
+
+### Training and data mining assertion
+
+Assertions with the `cawg.training-mining` label provide information about whether an asset with C2PA metadata may be used as part of a data mining or AI/ML (artificial intelligence / machine learning) workflows, including whether permission is granted to use an asset in ML training or inference.
+
+| Entry Key | Whether permission is granted...  | Possible values of `use` property |
+|-----------|-------------|-------------|
+| `cawg.data_mining` | To extract text or data from the asset for purposes of determining "patterns, trends and correlations," including images containing text, where the text could be extracted via OCR. | `allowed`,<br/>  `notAllowed`,<br/>or `constrained` |
+| `cawg.ai_inference` | To use the asset as input to a trained AI/ML model for the purposes of inferring a result. Sometimes referred to as the "do not infer" assertion. | `allowed`,<br/>  `notAllowed`,<br/>or `constrained` |
+| `cawg.ai_generative_training`  | To use the asset as training data for a generative AI/ML model that could produce derivative assets. Sometimes referred to as the "do not train" assertion. | `allowed`,<br/>  `notAllowed`,<br/>or `constrained`  |
+| `cawg.ai_training` |To use the asset to train non-generative AI/ML models, such as those used for classification, object detection, and so on. | `allowed`,<br/>  `notAllowed`,<br/>or `constrained` |
+
+The value of each of these properties is an object with a `use` property that can have one of these values:
+
+- `allowed`: Permission is granted for this type of use.
+- `notAllowed`: Permission is NOT granted for this type of use.
+- `constrained`: Permission is not unconditionally granted for this use.  You can provide more details (such as contact information) in the `constraints_info` text property.
+
+For more information, see the [CAWG Training and Data Mining Assertion](https://cawg.io/training-and-data-mining/1.1/#_assertion_definition) technical specification.
+
+For example:
+
+```json
+"assertions": [
+  ...
+  {
+    "label": "cawg.training-mining",
+    "data": {
+      "entries": {
+        "cawg.ai_generative_training": { "use": "notAllowed" },
+        "cawg.ai_inference": { "use": "notAllowed" },
+        "cawg.ai_training": { "use": "notAllowed" },
+        "cawg.data_mining": { 
+          "use": "constrained",
+          "constraint_info" : "Contact foo@bar.com for more information."
+        } 
+      }
+    }
+  }
+  ...
+]
+```
 
 ## Custom assertions
 
