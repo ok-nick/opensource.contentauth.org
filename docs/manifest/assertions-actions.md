@@ -75,6 +75,19 @@ For example, the `c2pa.hash.data` assertion shown in the [detailed manifest exam
 ]
 ```
 
+### Timestamp assertion
+
+See <https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#timestamp_assertion>.
+
+### Metadata assertions
+
+See <https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_metadata>.
+
+These new metadata assertions replace the old Exif and IPTC assertions.
+
+### Update assertions
+
+
 ### Actions
 
 An action is an assertion that provides information about creation, edits, and other things that have occurred to an asset. In the manifest, an `actions` assertion is an array of [AssertionDefinition](json-ref/manifest-def.mdx#assertiondefinition) objects.   For example:
