@@ -26,6 +26,24 @@ The standard form of an assertion in a JSON manifest is:
 ]
 ```
 
+### Changes from earlier releases
+
+<div class="review-comment">
+Changes include: 
+- `c2pa.data_mining` > `cawg.data_mining`, etc. were renamed, with xref.
+- `SoftwareAgent` is a [ClaimGeneratorInfo](json-ref/manifest-def.mdx#claimgeneratorinfo) structure instead of a string. 
+- `digitalSourceType` is now required on every ingredient, previously it was not.
+- Actions are now V2 actions
+- Ingredients are now V2 ingredients
+</div>
+
+#### V2 actions
+
+The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_actions) describes expanded v2 actions.  While v1 actions are fully specified in the actions array v2 actions may either be specified by an element of the actions array or from an element in the templates array with the same action name.
+
+
+The CAI APIs can read all v2 actions and write most v2 actions.
+
 
 ## C2PA standard assertions
 
@@ -78,12 +96,6 @@ For example, the `c2pa.hash.data` assertion shown in the [detailed manifest exam
 ### Timestamp assertion
 
 See <https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#timestamp_assertion>.
-
-### Metadata assertions
-
-See <https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_metadata>.
-
-These new metadata assertions replace the old Exif and IPTC assertions.
 
 ### Update assertions
 
@@ -284,19 +296,11 @@ For example, the following action identifies that the `c2pa.opened` action was p
         ...
 ```
 
-#### V2 actions
-
-<div class="review-comment">
-
-Should this now be only for v2 actions, and then move info on v1 actions to [Reading old manifest data](legacy-manifests)?
-
-</div>
-
-This documentation covers C2PA v1 actions.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_actions) also describes expanded v2 actions.  V1 actions are fully specified in the actions array. However, a v2 action may either be specified by an element of the actions array or from an element in the templates array with the same action name.
-
-There are some additional differences between v1 and v2 actions, for example in v2, `softwareAgent` is a [ClaimGeneratorInfo](json-ref/manifest-def.mdx#claimgeneratorinfo) structure instead of a string. The CAI APIs can read all v2 actions and write most v2 actions.
-
 ## CAWG metadata assertions
+
+Starting with version 2.2, the C2PA specification provides for a category of metadata assertions that have a standardized serialization. These new metadata assertions replace the old Exif and IPTC assertions.
+
+See <https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_metadata>.
 
 Use _CAWG metadata assertions_ to include metadata from metadata standards such as XMP, IPTC, and Exif in a manifest.  For more information, see the [CAWG Metadatda Assertion](https://cawg.io/metadata/1.1/#_assertion_definition) technical specification.
 
@@ -428,7 +432,7 @@ For example:
 ]
 ```
 
-### Training and data mining assertion
+## CAWG training and data mining assertion
 
 Assertions with the `cawg.training-mining` label provide information about whether an asset with C2PA metadata may be used as part of a data mining or AI/ML (artificial intelligence / machine learning) workflows, including whether permission is granted to use an asset in ML training or inference.
 

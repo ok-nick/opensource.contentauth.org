@@ -3,22 +3,15 @@ id: legacy-manifests
 title: Reading legacy manifest data
 ---
 
-An application should write manifest data that conforms to the recent [version 2.2](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html) C2PA technical specification, but should be abel to read and validate manifest data that conforms to earlier versions of the specification.  This ensures that your application is "backward-compatible" and can still validate older assets with claims that were written in the past.
+As much as possible, an application should **write** manifest data that conforms to the recent [version 2.2](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html) C2PA technical specification, but should be able to **read and validate** manifest data that conforms to earlier versions of the specification.  This ensures that your application is "backward-compatible" and can still validate older assets with claims that were written in the past.
 
 <div class="review-comment">
-
-`c2pa.data_mining` > `cawg.data_mining`, etc. were renamed, with xref.
-
-`SoftwareAgent` is now a structure
-
-`digitalSourceType` is now required on every ingredient, previously it was not.
-
 For READING old claims (only) … v1 actions and ingredients
 </div>
 
 ## Legacy metadata assertions
 
-Starting with version 2.2 the C2PA specification, provides for a category of metadata assertions that have a standardized serialization.  Earlier versions had individual assertions for each metadata standard, as detailed below.
+Older versions of the SDK had individual assertions for each metadata standard, as detailed below.
 
 ### Exif assertion
 
@@ -113,3 +106,13 @@ For example:
   ...
 ]
 ```
+
+## Training and data mining assertion
+
+Old manifests may have training and data mining assertions with the following entry keys:
+- `c2pa.data_mining`
+- `c2pa.ai_training`
+- `c2pa.ai_generative_training`
+- `c2pa.ai_inference`
+
+These assertions have been replaced by [CAWG training and data mining assertions](assertions-actions.md#cawg-training-and-data-mining-assertion) with `cawg.*` entry keys. 
