@@ -179,6 +179,11 @@ const sidebars = {
             },
             {
               type: 'doc',
+              id: 'c2pa-python/docs/examples',
+              label: 'Python example code',
+            },
+            {
+              type: 'doc',
               id: 'c2pa-python/docs/release-notes',
               label: 'Release notes',
             },

@@ -143,6 +143,11 @@ const readmes = [
     path: 'docs/release-notes.md',
   },
   {
+    dest: resolve(__dirname, '../docs/c2pa-python/examples/readme.md'),
+    repo: 'contentauth/c2pa-python',
+    path: 'examples/README.md',
+  },
+  {
     dest: resolve(__dirname, '../docs/c2pa-python-example/readme.md'),
     repo: 'contentauth/c2pa-python-example',
     path: 'README.md',
