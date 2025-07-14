@@ -31,15 +31,15 @@ Participants are required to follow the [Adobe Code of Conduct](https://github.c
 
 ### Incubator projects
 
+:::warning Warning
+Incubator projects are still under active development and are not yet ready for general use.  However, input and bug reports are welcome in the GitHub repositories.
+:::
+
 These projects are in early alpha release:
 - [iOS Library](https://github.com/contentauth/c2pa-ios): Provides iOS/macOS support via Swift Package/XCFramework.
 - [Android Library](https://github.com/contentauth/c2pa-android): Provides native Android support via an AAR library.
 
 Both of these projects wrap the C2PA Rust implementation ([c2pa-rs](https://github.com/contentauth/c2pa-rs)) using its C API bindings.
-
-:::warning Warning
-Incubator projects are still under active development and are not yet ready for general use.  However, input and bug reports are welcome in the GitHub repositories.
-:::
 
 ### Related projects
 
