@@ -1,5 +1,5 @@
 ---
-id: durable-cr
+id: index
 title: Durable Content Credentials
 ---
 
