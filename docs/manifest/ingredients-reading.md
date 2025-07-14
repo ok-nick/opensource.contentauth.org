@@ -1,17 +1,14 @@
 ---
-id: ingredients
-title: Ingredients
+id: reading-ingredients
+title: Reading ingredient data
 ---
 
 ## Overview 
 
-Digital assets are often not created entirely from scratch, but instead created from one or more existing assets, for example placing an image into a layer in Photoshop.  Such constituent assets are called _ingredients_. 
-
-<div class="review-comment">
-This should now cover v3 ingredients, which is what people should be writing now.
-</div>
-
-This documentation covers C2PA v1 ingredients.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_ingredient) also describes improved v2 ingredients.
+The C2PA specification defines three kinds of ingredients:
+- V1, with label `c2pa.ingredient`.
+- V2, with label `c2pa.ingredient.v2`.
+- V3, with label `c2pa.ingredient.v3`, which addresses the issue of validating ingredients after redaction.
 
 :::note
 The C2PA Technical Specification describes _ingredient assertions_ but the CAI SDK treats ingredients separately as their own objects in the JSON manifest rather than as a type of assertion.
@@ -61,7 +58,9 @@ The ingredient object's `relationship` property describes its relationship to th
 
 ## Validation results
 
-See [Validation results](json-ref/reader#validationresults) in the manifest JSON reference.
+_This is now validation results_
+
+json-ref/reader#validationresults
 
 When ingredients are added, the SDK validates their Content Credentials (if any).  However, the validation status of an ingredient does not imply anything about the validation status of the composed asset containing the ingredient. In other words:
 - A composed asset's Content Credentials may be valid, but one or more of its ingredients may have invalid Content Credentials. For example, test file [adobe-20220124-XCA.jpg](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-XCA.jpg)

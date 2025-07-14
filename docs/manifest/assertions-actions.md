@@ -29,20 +29,27 @@ The standard form of an assertion in a JSON manifest is:
 ### Changes from earlier releases
 
 <div class="review-comment">
+
 Changes include: 
 - `c2pa.data_mining` > `cawg.data_mining`, etc. were renamed, with xref.
 - `SoftwareAgent` is a [ClaimGeneratorInfo](json-ref/manifest-def.mdx#claimgeneratorinfo) structure instead of a string. 
-- `digitalSourceType` is now required on every ingredient, previously it was not.
+
 - Actions are now V2 actions
 - Ingredients are now V2 ingredients
+
 </div>
 
 #### V2 actions
 
 The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_actions) describes expanded v2 actions.  While v1 actions are fully specified in the actions array v2 actions may either be specified by an element of the actions array or from an element in the templates array with the same action name.
 
-
+<div class="review-comment">
 The CAI APIs can read all v2 actions and write most v2 actions.
+</div>
+
+V1 actions have a label of `c2pa.actions` v2 actions have a label of `c2pa.actions.v2`. Actions are modelled after XMP ResourceEvents, but with a number of C2PA-specific adjustments.
+
+v1 actions are fully specified in its actions array. However, in v2, an action may either be fully specified in an element of the actions array or it may be derived from an element in the templates array with the same action name.
 
 
 ## C2PA standard assertions
@@ -52,7 +59,7 @@ The C2PA Technical Specification defines a [set of standard assertions](https://
 The following table summarizes some of the most important standard assertions.
 
 <div class="review-comment">
-What other c2pa std assertions should we call out?
+What other c2pa stadard assertions should we call out?
 </div>
 
 | Assertion | Label | Description |
@@ -93,12 +100,15 @@ For example, the `c2pa.hash.data` assertion shown in the [detailed manifest exam
 ]
 ```
 
-### Timestamp assertion
+<!-- Commented out for now, add subsequently
+
+Timestamp assertion
 
 See <https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#timestamp_assertion>.
 
-### Update assertions
+Update assertions
 
+-->
 
 ### Actions
 
@@ -298,9 +308,7 @@ For example, the following action identifies that the `c2pa.opened` action was p
 
 ## CAWG metadata assertions
 
-Starting with version 2.2, the C2PA specification provides for a category of metadata assertions that have a standardized serialization. These new metadata assertions replace the old Exif and IPTC assertions.
-
-See <https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_metadata>.
+Starting with version 2.2, the C2PA specification provides for a category of [metadata assertions](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_metadata) with a standardized serialization that replace the old Exif, IPTC, and Creative Work assertions in prior versions of the specification.
 
 Use _CAWG metadata assertions_ to include metadata from metadata standards such as XMP, IPTC, and Exif in a manifest.  For more information, see the [CAWG Metadatda Assertion](https://cawg.io/metadata/1.1/#_assertion_definition) technical specification.
 
@@ -312,31 +320,6 @@ Metadata assertions must include one or more `@context` properties in the `data`
 | [Exif information](#exif-assertion) | `stds.exif` | Camera information such as maker, lens stored in Exchangeable image file format (Exif). |
 | [IPTC photo and video metadata](#iptc-metadata) | `stds.iptc` | Properties from the IPTC Photo and Video Metadata Standards, describing for example ownership, rights, and other metadata about a image or video asset. |
 | [Training and data mining](#do-not-train-assertion) | `cawg.training-mining` | Whether the creator/owner of an asset grants permission to use it for data mining or AI/ML training.  NOTE: Previously, this assertion's label was `c2pa.training-mining`. |
-
-### Creative work assertion
-
-A creative work assertion states that an asset was the product of creative effort, such as an original photograph or artwork. [Schema.org](https://schema.org/) provides a set of types and metadata fields, including [CreativeWork](https://schema.org/CreativeWork), which describes a representation of creative effort. This assertion provides information about the asset, including who created it and the date/time of publication.  
-
-A creative work assertion has the label `stds.schema-org.CreativeWork`.
-
-For example:
-
-```json
-...
-"assertions": [
-  ...
-  {
-    "label": "stds.schema-org.CreativeWork",
-    "data": {
-      "@context": "https://schema.org",
-      "@type": "CreativeWork",
-      "url": "https://stock.adobe.com/615559889"
-    },
-    "kind": "Json"
-  },
-  ...
-]
-```
 
 ### Exif assertion
 
@@ -376,7 +359,7 @@ An IPTC assertion has the label `stds.iptc` and is stored in JSON-LD format usin
 Earlier versions of the C2PA specification defined the `stds.iptc.photo-metadata` label for IPTC photo metadata; starting with version 1.3, the C2PA specification defines the `stds.iptc` assertion that includes video metadata as well. 
 
 :::note
-Do not use the IPTC `plus:DataMining` property to specify whether permission is granted to use an asset in data mining or AI/ML training. Instead use the C2PA ["do not train" assertion](#do-not-train-assertion).
+Do not use the IPTC `plus:DataMining` property to indicate whether permission is granted to use an asset in data mining or AI/ML training. Instead use the [CAWG training and data mining assertion](#cawg-training-and-data-mining-assertion).
 :::
 
 For a summary reference to IPTC metadata properties, see [IPTC properties](iptc-properties).
@@ -435,6 +418,11 @@ For example:
 ## CAWG training and data mining assertion
 
 Assertions with the `cawg.training-mining` label provide information about whether an asset with C2PA metadata may be used as part of a data mining or AI/ML (artificial intelligence / machine learning) workflows, including whether permission is granted to use an asset in ML training or inference.
+
+:::note
+Training and data mining assertions formerly had `c2pa.*` labels.
+:::
+
 
 | Entry Key | Whether permission is granted...  | Possible values of `use` property |
 |-----------|-------------|-------------|

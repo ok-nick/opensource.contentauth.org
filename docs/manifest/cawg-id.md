@@ -10,6 +10,10 @@ There are two different ways to provide identity assertions:
 - Using an [X.509 certificate](https://cawg.io/identity/1.1/#_x_509_certificates_and_cose_signatures) to sign the identity claims. Enterprises or large organizations can use this approach to assert their identity in a particular trust ecosystem; for example, a news organization or publisher. The SDK can validate and sign these claims.
 - Using an [identity claim aggregator](https://cawg.io/identity/1.1/#_identity_claims_aggregation).  Individuals can use this approach to document their role in creating an asset by using identity signals collected and verified by a third-party aggregator. The SDK can validate these claims only.  Signing is not supported.
 
+SDK only does x.509 signer
+
+Adobe apps use an identity claim agg.
+
 :::note
 The SDK can validate claims for both kinds of identity assertions, but can only sign claims for identity assertions using an X.509 certificate.
 :::

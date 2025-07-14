@@ -50,15 +50,7 @@ An IPTC assertion has the label `stds.iptc` and is stored in JSON-LD format usin
 
 Earlier versions of the C2PA specification defined the `stds.iptc.photo-metadata` label for IPTC photo metadata; starting with version 1.3, the C2PA specification defines the `stds.iptc` assertion that includes video metadata as well. 
 
-:::note
-Do not use the IPTC `plus:DataMining` property to specify whether permission is granted to use an asset in data mining or AI/ML training. Instead use the C2PA ["do not train" assertion](#do-not-train-assertion).
-:::
-
-For a summary reference to IPTC metadata properties, see [IPTC properties](iptc-properties).
-
-See also:
-- [Exploring c2patool and IPTC Photo Metadata](https://iptc.atlassian.net/wiki/spaces/PMD/pages/613613569/Exploring+c2patool+and+IPTC+Photo+Metadata) (Aug 2022).
-- [IPTC Photo Metadata User Guide](https://www.iptc.org/std/photometadata/documentation/userguide/)
+See also [IPTC Photo Metadata User Guide](https://www.iptc.org/std/photometadata/documentation/userguide/).
 
 For example:
 
@@ -102,6 +94,29 @@ For example:
       ],
       "Iptc4xmpCore:AltTextAccessibility": "Photo of Erika Fictional standing in front of the Golden Gate Bridge at sunset."
     }
+  },
+  ...
+]
+```
+
+### Creative work assertion
+
+The deprecated creative work metadata assertion has the label `stds.schema-org.CreativeWork`.
+
+For example:
+
+```json
+...
+"assertions": [
+  ...
+  {
+    "label": "stds.schema-org.CreativeWork",
+    "data": {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "url": "https://stock.adobe.com/615559889"
+    },
+    "kind": "Json"
   },
   ...
 ]
