@@ -1,17 +1,14 @@
 ---
-id: ingredients
-title: Ingredients
+id: reading-ingredients
+title: Reading ingredients
 ---
 
 ## Overview 
 
-Digital assets are often not created entirely from scratch, but instead created from one or more existing assets, for example placing an image into a layer in Photoshop.  Such constituent assets are called _ingredients_. 
-
-<div class="review-comment">
-This should now cover v3 ingredients, which is what people should be writing now.
-</div>
-
-This documentation covers C2PA v1 ingredients.  The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_ingredient) also describes improved v2 ingredients.
+Existing manifests may contain any of these three kinds of ingredients:
+- V1, with label `c2pa.ingredient` (deprecated).
+- V2, with label `c2pa.ingredient.v2` (deprecated).
+- V3, with label `c2pa.ingredient.v3`, which addresses the issue of validating ingredients after redaction.
 
 :::note
 The C2PA Technical Specification describes _ingredient assertions_ but the CAI SDK treats ingredients separately as their own objects in the JSON manifest rather than as a type of assertion.
@@ -21,7 +18,7 @@ The C2PA Technical Specification describes _ingredient assertions_ but the CAI S
 
 The `ingredients` array contains an element for each ingredient used to create an asset.  When an ingredient itself has Content Credentials, those manifests are included in the composed asset's manifest store to keep the provenance data intact.
 
-The `ingredients` array contains an [ingredient object](json-ref/manifest-def.mdx#ingredient) for each ingredient.  The only required property of the `ingredient` object is the `title` property, which usually is the source file name.
+The `ingredients` array contains an [ingredient object](manifest/json-ref/manifest-def.mdx#ingredient) for each ingredient.  The only required property of the `ingredient` object is the `title` property, which usually is the source file name.
 
 Other important properties of the ingredient object include:
 - `format`: MIME type of the source file (optional).
@@ -61,7 +58,7 @@ The ingredient object's `relationship` property describes its relationship to th
 
 ## Validation results
 
-See [Validation results](json-ref/reader#validationresults) in the manifest JSON reference.
+The [ValidationResults](/docs/manifest/json-ref/reader#validationresults) object contains the the validation results for the active manifest and any changes to ingredients.
 
 When ingredients are added, the SDK validates their Content Credentials (if any).  However, the validation status of an ingredient does not imply anything about the validation status of the composed asset containing the ingredient. In other words:
 - A composed asset's Content Credentials may be valid, but one or more of its ingredients may have invalid Content Credentials. For example, test file [adobe-20220124-XCA.jpg](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-XCA.jpg)

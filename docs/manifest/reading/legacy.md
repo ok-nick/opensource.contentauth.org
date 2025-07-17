@@ -130,4 +130,4 @@ Old manifests may have training and data mining assertions with the following en
 - `c2pa.ai_generative_training`
 - `c2pa.ai_inference`
 
-These assertions have been replaced by [CAWG training and data mining assertions](assertions-actions.md#cawg-training-and-data-mining-assertion) with `cawg.*` entry keys. 
+These assertions have been replaced by [CAWG training and data mining assertions](../writing/assertions-actions.md#cawg-training-and-data-mining-assertion) with `cawg.*` entry keys. 

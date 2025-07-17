@@ -36,20 +36,24 @@ const sidebars = {
         {
           type: 'category',
           label: 'Reading manifest data',
-          link: { type: 'doc', id: 'manifest/reading' },
+          link: { type: 'doc', id: 'manifest/reading/reading-index' },
           collapsed: true,
           items: [
             {
               type: 'doc',
-              id: 'manifest/ingredients',
+              id: 'manifest/reading/reading-ingredients',
             },
             {
               type: 'doc',
-              id: 'manifest/legacy-manifests',
+              id: 'manifest/reading/reading-cawg-id',
             },
             {
               type: 'doc',
-              id: 'manifest/manifest-validation',
+              id: 'manifest/reading/legacy-manifests',
+            },
+            {
+              type: 'doc',
+              id: 'manifest/reading/manifest-validation',
             },
             {
               type: 'doc',
@@ -60,16 +64,20 @@ const sidebars = {
         {
           type: 'category',
           label: 'Writing manifest data',
-          link: { type: 'doc', id: 'manifest/writing' },
+          link: { type: 'doc', id: 'manifest/writing/writing-index' },
           collapsed: true,
           items: [
             {
               type: 'doc',
-              id: 'manifest/assertions-actions',
+              id: 'manifest/writing/ingredients',
             },
             {
               type: 'doc',
-              id: 'manifest/cawg-id',
+              id: 'manifest/writing/assertions-actions',
+            },
+            {
+              type: 'doc',
+              id: 'manifest/writing/cawg-id',
             },
             {
               type: 'doc',

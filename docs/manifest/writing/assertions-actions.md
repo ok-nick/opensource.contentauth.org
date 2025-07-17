@@ -1,6 +1,6 @@
 ---
 id: assertions-actions
-title: Assertions and actions
+title: Writing assertions and actions
 ---
 
 ## Overview
@@ -28,16 +28,12 @@ The standard form of an assertion in a JSON manifest is:
 
 ### Changes from earlier releases
 
-<div class="review-comment">
-
 Changes include: 
 - `c2pa.data_mining` > `cawg.data_mining`, etc. were renamed, with xref.
-- `SoftwareAgent` is a [ClaimGeneratorInfo](json-ref/manifest-def.mdx#claimgeneratorinfo) structure instead of a string. 
+- `SoftwareAgent` is a [ClaimGeneratorInfo](../json-ref/manifest-def.mdx#claimgeneratorinfo) structure instead of a string. 
 
-- Actions are now V2 actions
+- Actions are now V3 actions
 - Ingredients are now V2 ingredients
-
-</div>
 
 #### V2 actions
 
@@ -50,7 +46,6 @@ The CAI APIs can read all v2 actions and write most v2 actions.
 V1 actions have a label of `c2pa.actions` v2 actions have a label of `c2pa.actions.v2`. Actions are modelled after XMP ResourceEvents, but with a number of C2PA-specific adjustments.
 
 v1 actions are fully specified in its actions array. However, in v2, an action may either be fully specified in an element of the actions array or it may be derived from an element in the templates array with the same action name.
-
 
 ## C2PA standard assertions
 
@@ -79,7 +74,7 @@ Content bindings are standard assertions such as `c2pa.hash.boxes` and `c2pa.has
 The CAI SDK writes content bindings assertions, so normally you don't need to write them, just read them.
 :::
 
-For example, the `c2pa.hash.data` assertion shown in the [detailed manifest example](examples.mdx/#detailed-manifest) specifies an exclusion hash:
+For example, the `c2pa.hash.data` assertion shown in the [detailed manifest example](../examples.mdx/#detailed-manifest) specifies an exclusion hash:
 
 ```json
 "assertions": [
@@ -112,7 +107,7 @@ Update assertions
 
 ### Actions
 
-An action is an assertion that provides information about creation, edits, and other things that have occurred to an asset. In the manifest, an `actions` assertion is an array of [AssertionDefinition](json-ref/manifest-def.mdx#assertiondefinition) objects.   For example:
+An action is an assertion that provides information about creation, edits, and other things that have occurred to an asset. In the manifest, an `actions` assertion is an array of [AssertionDefinition](../json-ref/manifest-def.mdx#assertiondefinition) objects.   For example:
 
 ```json
 ...
