@@ -15,7 +15,7 @@ The CAI open-source SDK is fully compliant with the C2PA specification, but it's
 
 ## Important terminology
 
-To understand how CAI works, you need to understand some basic vocabulary. Having this vocabulary makes it easier to discuss CAI's technical aspects. The definitions below are summarized and slightly simplified from the [Glossary in the C2PA specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_glossary). This document is meant to convey the general concepts and may not cover all technical details or edge cases that the specification addresses.
+To understand how CAI works, you need to understand some basic vocabulary. Having this vocabulary makes it easier to discuss CAI's technical aspects. The definitions below are summarized and slightly simplified from the [Glossary in the C2PA specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_glossary). This document is meant to convey the general concepts and may not cover all technical details or edge cases that the specification addresses.
 
 Let's start with a broad definition of _content provenance_ which means information on the creation, authorship, and editing of a digital asset such as an image. _Content Credentials_ include this provenance information, along with the cryptographic means to authenticate that the information is correctly tied to the content and is unchanged from when it was originally added. Sometimes these two terms are used to loosely mean the same thing: Technology to verify the origin and history of a digital asset.
 
@@ -33,7 +33,7 @@ Now, let's drill down a bit to clarify some of these terms.
 
 **Action**: An operation that an _actor_ performs on an _asset._ For example, "create," "embed," or "change contrast."
 
-**Assertion**: Part of the manifest "asserted" by an actor that contains data about an asset's creation, authorship, how it's been edited, and other relevant information. For example, an assertion might be "change image contrast." For a list of standard C2PA assertions, see the [C2PA Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_c2pa_standard_assertions).
+**Assertion**: Part of the manifest "asserted" by an actor that contains data about an asset's creation, authorship, how it's been edited, and other relevant information. For example, an assertion might be "change image contrast." For a list of standard C2PA assertions, see the [C2PA Specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_c2pa_standard_assertions).
 
 **Certificate Authority (CA)**: A trusted third party that verifies the identity of an organization applying for a digital certificate. After verifying the organization's identity, the CA issues a certificate and binds the organization's identity to a public key. A digital certificate can be trusted because it is chained to the CA's root certificate.
 
@@ -53,7 +53,7 @@ Now, let's drill down a bit to clarify some of these terms.
 
 **Manifest store**: A collection of manifests associated with asset. The most recent manifest in the manifest store is the _active manifest_, which has the set of _content bindings_ that are hashed with the asset and thus can be validated.
 
-For more definitions and detail, see the [C2PA specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_glossary).
+For more definitions and detail, see the [C2PA specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_glossary).
 
 ## How it works
 
@@ -61,7 +61,7 @@ A _manifest_ is a binary data structure that describes the history and identity 
 
 Although the manifest structure described in the C2PA specification is a complex binary structure, the CAI SDK works with a JSON manifest format that's easier to understand and use. It's essentially a declarative language for representing and creating a manifest in binary format. For more information on the CAI JSON manifest, see [Working with manifests](manifest/understanding.md).
 
-The CAI uses _cryptographic asset hashing_ to provide verifiable, tamper-evident signatures to indicate that the asset and metadata haven't been altered since the asset was published with the attached manifest. This means that a hash function converts the digital asset data to a unique "fingerprint," which is signed using a certificate. Once the credentials are signed, if the asset is changed then its fingerprint also changes. That's why it's called "tamper evident." You're not prevented from changing an image that has Content Credentials, but if you do, the credentials are no longer valid unless you change it using a tool that updates and re-hashes the credentials, along with a timestamp and optionally a description of what changed. The C2PA specification refers to this as [hard binding](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_binding_to_content).
+The CAI uses _cryptographic asset hashing_ to provide verifiable, tamper-evident signatures to indicate that the asset and metadata haven't been altered since the asset was published with the attached manifest. This means that a hash function converts the digital asset data to a unique "fingerprint," which is signed using a certificate. Once the credentials are signed, if the asset is changed then its fingerprint also changes. That's why it's called "tamper evident." You're not prevented from changing an image that has Content Credentials, but if you do, the credentials are no longer valid unless you change it using a tool that updates and re-hashes the credentials, along with a timestamp and optionally a description of what changed. The C2PA specification refers to this as [hard binding](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_binding_to_content).
 
 ## Introduction to public key infrastructure
 
@@ -98,7 +98,7 @@ The C2PA [Verify tool](https://contentcredentials.org/verify) uses a list of _kn
 
 ## Identity
 
-To identify who created or modified an asset, identity needs to be verifiable and bound to an asset and its manifest store. The CAI SDK supports the [W3C verifiable credentials](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_w3c_verifiable_credentials) standard recommendation (part of the C2PA specification), but doesn't currently have a way to validate these credentials or ensure that they properly reflect authorship of the content. An actor can add one or more identities to a manifest using the W3C verifiable credentials data model. Currently, a verifier must trust the manifest signer to properly authenticate the identity.
+To identify who created or modified an asset, identity needs to be verifiable and bound to an asset and its manifest store. The CAI SDK supports the [W3C verifiable credentials](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_w3c_verifiable_credentials) standard recommendation (part of the C2PA v1.4 specification), but doesn't currently have a way to validate these credentials or ensure that they properly reflect authorship of the content. An actor can add one or more identities to a manifest using the W3C verifiable credentials data model. Currently, a verifier must trust the manifest signer to properly authenticate the identity.
 
 Identity can be bolstered with other kinds of evidence such as _Adobe connected accounts_. In the future, the identity credentials will be separately verifiable. In the future, these verifiable credentials will be strongly bound to the manifest and media and be independently verifiable.
 

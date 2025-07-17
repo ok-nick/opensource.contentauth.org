@@ -199,6 +199,11 @@ const sidebars = {
             },
             {
               type: 'doc',
+              id: 'c2pa-python/docs/examples',
+              label: 'Python example code',
+            },
+            {
+              type: 'doc',
               id: 'c2pa-python/docs/release-notes',
               label: 'Release notes',
             },
@@ -313,18 +318,18 @@ const sidebars = {
     {
       type: 'category',
       label: 'Durable Content Credentials',
-      link: { type: 'doc', id: 'durable-cr' },
+      link: { type: 'doc', id: 'durable-cr/index' },
       collapsed: true,
       items: [
         {
           type: 'doc',
           label: 'Watermarking and fingerprinting',
-          id: 'sb-algs',
+          id: 'durable-cr/sb-algs',
         },
         {
           type: 'category',
           label: 'TrustMark watermarking',
-          link: { type: 'doc', id: 'trustmark-intro' },
+          link: { type: 'doc', id: 'durable-cr/trustmark-intro' },
           collapsed: true,
           items: [
             {
@@ -359,7 +364,7 @@ const sidebars = {
             },
             {
               type: 'doc',
-              id: 'tm-faq',
+              id: 'durable-cr/tm-faq',
               label: 'FAQ',
             },
             {

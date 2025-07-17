@@ -10,7 +10,7 @@ TrustMark is an open-source universal watermarking system for images that:
 - Has implementations in Python (using PyTorch), [Rust](trustmark/rust/README.md), and [JavaScript](trustmark/js/README.md) (both using ONNX).
 
 :::info
-For full technical details and help getting started with TrustMark, see [TrustMark - Overview](trustmark/readme.md).
+For full technical details and help getting started with TrustMark, see [TrustMark - Overview](trustmark/README.md).
 :::
 
 ## Variants
