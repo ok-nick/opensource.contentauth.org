@@ -29,7 +29,7 @@ Supported asset file types include:
 - **Document**: PDF.
 
 :::tip
-Verify shows the complete current list of supported file types (when no asset is displayed on the page).
+When you first load the site and no asset is displayed on the page, Verify shows the complete current list of supported file types.
 :::
 
 ### Uploading an asset
@@ -235,136 +235,6 @@ Another example that can result in this message is shown in [this image](https:/
   ]
 ```
 
-### Credit and usage
-
-The **Credit and usage** section displays information about the asset's author and usage rights, divided into these subsections:
-
-- [Produced by](#produced-by)
-- [Social media accounts](#social-media-accounts)
-- [AI model usage](#ai-model-usage) (if the active manifest contains a [do not train assertion](manifest/assertions-actions#do-not-train-assertion))
-
-#### Produced by
-
-The **Produced by** subsection shows information derived from the [CreativeWork assertion](manifest/assertions-actions#creative-work-assertion) in the active manifest.
-If the associated `data` object has an `author` property, then the `name` property is shown under **Produced by**. If there is a `url` or `license` property, then it says **Website** with a link to the site. For example:
-
-import verify_credit from '../static/img/verify-credit.png';
-
-<img src={verify_credit} style={{ width: '250px' }} />
-
-The above example shows the following CreativeWork assertion from the active manifest. The `url` property is the URL of the asset on the Adobe Stock site:
-
-```json
-"assertions": [
-  {
-    "label": "stds.schema-org.CreativeWork",
-    "data": {
-      "@context": "https://schema.org",
-      "@type": "CreativeWork",
-      "url": "https://stock.adobe.com/135017891"
-    },
-    "kind": "Json"
-  },
-...]
-```
-
-#### Social media accounts
-
-If the asset was created with Adobe Photoshop or Adobe Lightroom and the asset's creator has [connected social media accounts](https://connected-accounts.adobe.com/), then the **Credit and usage** section shows the information added for any connected accounts, which can include Behance, Instagram, LinkedIn, and X (Twitter).
-
-For more information, see:
-
-- [Content Credentials (Beta) in Photoshop - Connect accounts for creative attribution](https://helpx.adobe.com/photoshop/using/connect-accounts.html)
-- [Content Credentials (Beta) in Lightroom](https://helpx.adobe.com/lightroom-cc/using/content-credentials-lightroom.html)
-
-For example:
-
-import verify_social from '../static/img/verify-social.png';
-
-<img src={verify_social} style={{ width: '250px' }} />
-
-<!--
-The `identifier` property is the decentralized identifier (DID) of the social media account, and the `name` property is the handle. The `credential` property is a [Credential](https://www.w3.org/TR/vc-data-model/#credentials) that contains a hash of the DID and the URL of the Credential itself.
--->
-
-The CreativeWork assertion from the JSON manifest for the above example is shown below.
-
-<details style={{backgroundColor: 'transparent'}}>
-<summary class="code_summary">Show manifest code</summary>
-
-```json
-{
-  "label": "stds.schema-org.CreativeWork",
-  "data": {
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    "author": [
-      {
-        "@type": "Person",
-        "credential": [
-          {
-            "alg": "sha256",
-            "hash": "IcZeS318070nuvDYmPqfQdZmOI7jGumMjHTxNshA2ao=",
-            "url": "self#jumbf=/c2pa/adobe:urn:uuid:4fd5a284-6fe9-479c-a8af-9bcbbf851d92/c2pa.credentials/did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e"
-          }
-        ],
-        "identifier": "did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e",
-        "name": "obidigbo nzeribe"
-      },
-      {
-        "@id": "https://www.instagram.com/obidinzeribe",
-        "@type": "Person",
-        "credential": [
-          {
-            "alg": "sha256",
-            "hash": "IcZeS318070nuvDYmPqfQdZmOI7jGumMjHTxNshA2ao=",
-            "url": "self#jumbf=/c2pa/adobe:urn:uuid:4fd5a284-6fe9-479c-a8af-9bcbbf851d92/c2pa.credentials/did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e"
-          }
-        ],
-        "identifier": "did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e",
-        "name": "obidinzeribe"
-      },
-      {
-        "@id": "https://www.behance.net/obidigbonzeribe",
-        "@type": "Person",
-        "credential": [
-          {
-            "alg": "sha256",
-            "hash": "IcZeS318070nuvDYmPqfQdZmOI7jGumMjHTxNshA2ao=",
-            "url": "self#jumbf=/c2pa/adobe:urn:uuid:4fd5a284-6fe9-479c-a8af-9bcbbf851d92/c2pa.credentials/did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e"
-          }
-        ],
-        "identifier": "did:adobe:ff76b2edfcdb600facacd7a165172c2aecc07718233798ed61bd3a9f4eba0969e",
-        "name": "obidigbo nzeribe"
-      }
-    ]
-  },
-  "kind": "Json"
-}
-```
-
-</details>
-
-#### AI model usage
-
-If the active manifest contains a [do not train assertion](manifest/assertions-actions#do-not-train-assertion), then the **Credit and usage** section displays the following message:
-
-<div
-  style={{
-    width: '200px',
-    border: '1px solid #ccc',
-    backgroundColor: '#fff',
-    padding: '7px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    fontSize: '80%',
-  }}
->
-  <b>AI model usage</b>
-  <br />
-  Do not use my content to train AI models
-</div>
-
 ### Process
 
 The **Process** section displays information about the process used to create the asset, divided into the following subsections:
@@ -535,8 +405,3 @@ See the above example yourself, based on a C2PA test image:
 
 - [Inspect using Verify](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/truepic-20230212-camera.jpg)
 - [View the corresponding manifest report from C2PA Tool](https://c2pa.org/public-testfiles/image/jpeg/manifests/truepic-20230212-camera/manifest_store.json)
-
-## Searching for matching Content Credentials
-
-Adobe products can save manifest stores in the [Adobe Content Credentials Cloud](getting-started#storing-a-manifest-in-the-cloud).
-Click **Search for possible matches** to search the Adobe Content Credentials Cloud for content similar to the asset's ingredients, as described in the [Ingredients](#ingredients) section above.
