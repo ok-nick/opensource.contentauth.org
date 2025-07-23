@@ -2,9 +2,8 @@
 
 <div class="prop_desc">
   <p>
-    Use a ManifestDefinition to define a manifest and to build a
-    <code class="language-plaintext highlighter-rouge">ManifestStore</code>. A
-    manifest is a collection of ingredients and assertions used to define a
+    Use a ManifestDefinition to define a manifest and to build a manifest store.
+    A manifest is a collection of ingredients and assertions used to define a
     claim that can be signed and embedded into a file.
   </p>
 </div>
@@ -1086,11 +1085,7 @@
       <!-- Description -->
       <td class="manifest-ref-table">
         <div class="prop_desc">
-          <p>
-            A list of [<code class="language-plaintext highlighter-rouge"
-              >Actor</code
-            >]s associated with this source.
-          </p>
+          <p>A list of actors associated with this source.</p>
         </div>
       </td>
 
@@ -1289,9 +1284,12 @@
 <p class="prop_desc">
   A <code class="language-plaintext highlighter-rouge">HashedUri</code> provides
   a reference to content available within the same manifest store. This is
-  described in [§8.3, URI References], of the C2PA Technical Specification.
-  [§8.3, URI References]:
-  https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_uri_references
+  described in
+  <a
+    href="https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_uri_references"
+    >§8.3, URI References</a
+  >
+  of the C2PA Technical Specification.
 </p>
 
 <table class="manifest-ref-table" style="margin-top: 10px">
@@ -1452,15 +1450,8 @@
           <p>The active manifest label (if one exists).</p>
 
           <p>
-            If this ingredient has a [<code
-              class="language-plaintext highlighter-rouge"
-              >ManifestStore</code
-            >], this will hold the label of the active
-            <a href="crate::Manifest [`ManifestStore`]: crate::ManifestStore"
-              ><code class="language-plaintext highlighter-rouge"
-                >Manifest</code
-              ></a
-            >.
+            If this ingredient has a manifest store, this is the label of the
+            active manifest.
           </p>
         </div>
       </td>
@@ -1778,13 +1769,8 @@
       <td class="manifest-ref-table">
         <div class="prop_desc">
           <p>
-            A
-            <a href="crate::ManifestStore"
-              ><code class="language-plaintext highlighter-rouge"
-                >ManifestStore</code
-              ></a
-            >
-            from the source asset extracted as a binary C2PA blob.
+            A manifest store from the source asset extracted as a binary C2PA
+            blob.
           </p>
         </div>
       </td>
@@ -2575,10 +2561,9 @@
       <td class="manifest-ref-table">
         <div class="prop_desc">
           <p>
-            A spatial range, see [<code
-              class="language-plaintext highlighter-rouge"
-              >Shape</code
-            >] for more details.
+            A spatial range. See
+            <a href="#shape"><code class="language-plaintext">Shape</code></a>
+            for more details.
           </p>
         </div>
       </td>
@@ -2589,10 +2574,9 @@
       <td class="manifest-ref-table">
         <div class="prop_desc">
           <p>
-            A temporal range, see [<code
-              class="language-plaintext highlighter-rouge"
-              >Time</code
-            >] for more details.
+            A temporal range. See
+            <a href="#shape"><code class="language-plaintext">Time</code></a>
+            for more details.
           </p>
         </div>
       </td>
@@ -2603,10 +2587,9 @@
       <td class="manifest-ref-table">
         <div class="prop_desc">
           <p>
-            A spatial range, see [<code
-              class="language-plaintext highlighter-rouge"
-              >Frame</code
-            >] for more details.
+            A spatial range. See
+            <a href="#frame"><code class="language-plaintext">Frame</code></a>
+            for more details.
           </p>
         </div>
       </td>
@@ -2617,10 +2600,9 @@
       <td class="manifest-ref-table">
         <div class="prop_desc">
           <p>
-            A textual range, see [<code
-              class="language-plaintext highlighter-rouge"
-              >Text</code
-            >] for more details.
+            A textual range. See
+            <a href="#text"><code class="language-plaintext">Text</code></a> for
+            more details.
           </p>
         </div>
       </td>
@@ -2631,10 +2613,9 @@
       <td class="manifest-ref-table">
         <div class="prop_desc">
           <p>
-            A range identified by a specific identifier and value, see [<code
-              class="language-plaintext highlighter-rouge"
-              >Item</code
-            >] for more details.
+            A range identified by a specific identifier and value. See
+            <a href="#item"><code class="language-plaintext">Item</code></a> for
+            more details.
           </p>
         </div>
       </td>
@@ -2656,12 +2637,16 @@
 
 <p class="prop_desc">
   A region of interest within an asset describing the change. This struct can be
-  used from [<code class="language-plaintext highlighter-rouge"
-    >Action::changes</code
-  >][crate::assertions::Action::changes] or [<code
-    class="language-plaintext highlighter-rouge"
-    >Metadata::region_of_interest</code
-  >][crate::assertions::Metadata::region_of_interest].
+  used from
+  <a
+    href="https://docs.rs/c2pa/latest/c2pa/assertions/struct.Action.html#method.changes"
+    ><code class="language-plaintext">Action::changes</code></a
+  >
+  or
+  <a
+    href="https://docs.rs/c2pa/latest/c2pa/assertions/struct.Metadata.html#method.region_of_interest"
+    ><code class="language-plaintext">Metadata::region_of_interest</code></a
+  >
 </p>
 
 <table class="manifest-ref-table" style="margin-top: 10px">
@@ -2950,10 +2935,11 @@
 
 <p class="prop_desc">
   A reference to a resource to be used in JSON serialization. The underlying
-  data can be read as a stream via [<code
-    class="language-plaintext highlighter-rouge"
-    >Reader::resource_to_stream</code
-  >][crate::Reader::resource_to_stream].
+  data can be read as a stream via
+  <a
+    href="https://docs.rs/c2pa/latest/c2pa/struct.Reader.html#method.resource_to_stream"
+    ><code>Reader::resource_to_stream</code> </a
+  >.
 </p>
 
 <table class="manifest-ref-table" style="margin-top: 10px">
@@ -3976,9 +3962,8 @@
 <p><!-- end of oneOf entity --></p>
 
 <p class="prop_desc">
-  One or two [<code class="language-plaintext highlighter-rouge"
-    >TextSelector</code
-  >][TextSelector] identifiying the range to select.
+  One or two <a href="#textselector">TextSelectors</a> identifiying the range to
+  select.
 </p>
 
 <table class="manifest-ref-table" style="margin-top: 10px">
