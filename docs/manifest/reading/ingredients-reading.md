@@ -22,7 +22,7 @@ The `ingredients` array contains an [ingredient object](manifest/json-ref/manife
 
 Other important properties of the ingredient object include:
 - `format`: MIME type of the source file (optional).
-- `document_id` (optoinal) and `instance_id` (required) which are derived from the ingredient asset's XMP metadata.
+- `document_id` (optional) and `instance_id` (required) which are derived from the ingredient asset's XMP metadata.
 - `thumbnail`: Object with properties that identify the thumbnail image. 
 - `active_manifest`: For an ingredient with a manifest store, the label of the active manifest.  
 - `relationship`: One of `parentOf`, `componentOf`, or `inputTo`. See [Relationship](#relationship) below.
