@@ -7,7 +7,11 @@ title: Writing ingredients
 
 Digital assets are often not created entirely from scratch, but instead created from one or more existing assets, for example placing an image into a layer in Photoshop.  Such constituent assets are called _ingredients_. 
 
-Old manifests may contain deprecated v1 and v2 ingredients, but applications should only write v3 ingredients.
+[Old manifests](../reading/legacy.md) may contain deprecated v1 and v2 ingredients, but applications should only write v3 ingredients.
+
+<div class="review-comment">
+This page should cover only v3 ingredients.
+</div>
 
 :::note
 The C2PA Technical Specification describes _ingredient assertions_ but the CAI SDK treats ingredients separately as their own objects in the JSON manifest rather than as a type of assertion.

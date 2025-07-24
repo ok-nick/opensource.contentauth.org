@@ -5,20 +5,24 @@ title: Reading legacy manifest data
 
 As much as possible, an application should **write** manifest data that conforms to the recent [version 2.2](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html) C2PA technical specification, but should be able to **read and validate** manifest data that conforms to earlier versions of the specification.  This ensures that your application is "backward-compatible" and can still validate older assets with claims that were written in the past.
 
-<div class="review-comment">
-For READING old claims (only) … v1 actions and ingredients
-</div>
-
 ## Legacy ingredients
 
 Existing manifests may contain any of these three kinds of ingredients:
 - V1, with label `c2pa.ingredient` (deprecated).
 - V2, with label `c2pa.ingredient.v2` (deprecated).
-- V3, with label `c2pa.ingredient.v3`, which addresses the issue of validating ingredients after redaction.  
+- V3, with label `c2pa.ingredient.v3`, which addresses the issue of validating ingredients after redaction.
+
+<div class="review-comment">
+What should we say about reading v1 and v2 ingredients?
+</div>
 
 ## Legacy actions
 
 Existing manifests may contain two versions of actions: original v1 actions, with label `c2pa.actions`, and revised v2 actions, with label `c2pa.actions.v2`. While a v1 action is fully specified in its actions array, a v2 action may either be fully specified in an element of the actions array or it may be derived from an element in the templates array with the same action name.
+
+<div class="review-comment">
+What should we say about reading v1 actions?
+</div>
 
 ## Legacy metadata assertions
 
@@ -28,7 +32,6 @@ Existing manifests may contain individual assertions for each metadata standard:
 - [Creative Work assertion](#creative-work-assertion)
 
 In the latest version of the SDK, Exif and IPTC assertions are now CAWG assertions, and the CreativeWork assertion is not supported at all.
-
 
 ### Exif assertion
 
@@ -139,7 +142,7 @@ For example:
 ]
 ```
 
-## Training and data mining assertion
+## Legacy training and data mining assertion
 
 Old manifests may have training and data mining assertions with the following entry keys:
 - `c2pa.data_mining`

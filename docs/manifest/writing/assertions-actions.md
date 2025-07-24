@@ -31,8 +31,6 @@ The standard form of an assertion in a JSON manifest is:
 Changes include: 
 - `c2pa.data_mining` > `cawg.data_mining`, etc. were renamed, with xref.
 - `SoftwareAgent` is a [ClaimGeneratorInfo](../json-ref/manifest-def.mdx#claimgeneratorinfo) structure instead of a string. 
-
-- Actions are now V3 actions
 - Ingredients are now V2 ingredients
 
 #### V2 actions
@@ -40,12 +38,12 @@ Changes include:
 The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_actions) describes expanded v2 actions.  While v1 actions are fully specified in the actions array v2 actions may either be specified by an element of the actions array or from an element in the templates array with the same action name.
 
 <div class="review-comment">
-The CAI APIs can read all v2 actions and write most v2 actions.
+The CAI APIs can read all v2 actions and write most v2 actions.  What v2 actions can it NOT write?
 </div>
 
 V1 actions have a label of `c2pa.actions` v2 actions have a label of `c2pa.actions.v2`. Actions are modelled after XMP ResourceEvents, but with a number of C2PA-specific adjustments.
 
-v1 actions are fully specified in its actions array. However, in v2, an action may either be fully specified in an element of the actions array or it may be derived from an element in the templates array with the same action name.
+V1 actions are fully specified in its actions array. However, a v2 action may either be fully specified in an element of the actions array or it may be derived from an element in the templates array with the same action name.
 
 ## C2PA standard assertions
 
@@ -105,7 +103,7 @@ Update assertions
 
 -->
 
-### Actions
+## Actions
 
 An action is an assertion that provides information about creation, edits, and other things that have occurred to an asset. In the manifest, an `actions` assertion is an array of [AssertionDefinition](../json-ref/manifest-def.mdx#assertiondefinition) objects.   For example:
 
@@ -137,13 +135,13 @@ Each object in the `actions` array has the following standard properties.
 | `softwareAgent` | No | The software or hardware used to perform the action.   | `"Adobe Firefly"` |
 | `parameters` | No | Additional information describing the action; see [Parameters](#parameters) | Reference to ingredients in the `org.cai.ingredientIds` array. |
 
-#### Action names
+### Action names
 
 The value of the `action` property must be either one of the pre-defined [standard C2PA action strings](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_actions) of the form `c2pa.*` or a custom action name. The set of standard C2PA actions includes fundamental ones as `c2pa.created` for when an asset is first created, and others (`c2pa.cropped`, `c2pa.resized`, and so on) for when an asset's content is modified in some way.  
 
 For the complete list of standard actions, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_actions).
 
-####  Digital source type
+###  Digital source type
 
 Use the `digitalSourceType` property to specify how an asset was created or modified, for example "digital capture", "digitized from negative," or "trained algorithmic media." 
 
@@ -172,7 +170,7 @@ The value of `digitalSourceType` is one of the URLs specified by the Internation
 This table is provided for convenience.  For the authoritative list, see the [IPTC NewsCodes Digital Source Type scheme (controlled vocabulary)](https://cv.iptc.org/newscodes/digitalsourcetype/).
 :::
 
-#### Generative AI action
+### Generative AI action
 
 To specify that an asset was created using generative AI, use the `c2pa.created` action with `digitalSourceType` that's one of:
 - `trainedAlgorithmicMedia` for an asset created by generative AI tools.
@@ -201,7 +199,7 @@ For other possible values of `digitalSourceType`, see [Digital source type](#dig
 
 Where `<TOOL_NAME>` is the name of the generative AI tool or service.
 
-#### Parameters 
+### Parameters 
 
 The `parameters` property can contain any data that provide more details on the action, for example:
 
@@ -415,7 +413,7 @@ For example:
 Assertions with the `cawg.training-mining` label provide information about whether an asset with C2PA metadata may be used as part of a data mining or AI/ML (artificial intelligence / machine learning) workflows, including whether permission is granted to use an asset in ML training or inference.
 
 :::note
-Training and data mining assertions formerly had `c2pa.*` labels.
+Training and data mining assertions formerly had `c2pa.*` labels.  See [Legacy training and data mining assertion](../reading/legacy.md#legacy-training-and-data-mining-assertion) for more information.
 :::
 
 

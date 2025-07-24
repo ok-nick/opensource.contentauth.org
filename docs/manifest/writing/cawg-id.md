@@ -3,19 +3,17 @@ id: cawg-id
 title: Writing CAWG identity assertions
 ---
 
-The [Creator Assertions Working Group (CAWG)](https://cawg.io/) identity assertion enables a credential holder to prove control over a digital identity and to use that identity to document a content creator’s role(s) in a C2PA asset’s lifecycle.
+The [Creator Assertions Working Group (CAWG)](https://cawg.io/) identity assertion enables a credential holder to prove control over a digital identity and to use that identity to document a content creator’s role(s) in an asset’s lifecycle.
 
-The SDK can write and sign claims for CAWG identity assertions provided using an [X.509 certificate](https://cawg.io/identity/1.1/#_x_509_certificates_and_cose_signatures) to sign the identity claims. Enterprises or large organizations can use this approach to assert their identity in a particular trust ecosystem; for example, a news organization or publisher. The SDK can validate and sign these claims.
+The SDK can write and sign claims for CAWG identity assertions provided using an [X.509 certificate](https://cawg.io/identity/1.1/#_x_509_certificates_and_cose_signatures). 
 
 :::note
-CAWG identity assertions can also be created using an [identity claim aggregator](https://cawg.io/identity/1.1/#_identity_claims_aggregation), but the SDK only read and validate claims for these kinds of assertions. It cannot write them.
+CAWG identity assertions can also be created using an [identity claim aggregator](https://cawg.io/identity/1.1/#_identity_claims_aggregation), but the SDK only _read and validate_ claims for these kinds of assertions. It cannot write them.
 :::
 
 ## Using an X.509 certificate
 
 When providing an identity assertion by using an X.509 certificate, the value of `signer_payload.sig_type` must be `cawg.x509.cose`. The signature value must be a COSE signature as described in the [CAWG Identity Assertion technical specification](https://cawg.io/identity/1.1/#_x_509_certificates_and_cose_signatures).
-
-## Identity assertion
 
 An identity assertion using an identity claims aggregator has this general form in JSON:
 
@@ -53,7 +51,7 @@ An identity assertion using an identity claims aggregator has this general form 
 ]
 ```
 
-### Verified identity types
+## Verified identity types
 
 The following table describes the allowed values of the `type` property of `verifiedIdentities` array elements.
 
@@ -69,7 +67,7 @@ The following table describes the allowed values of the `type` property of `veri
 The above table is based on the [CAWG identity assertion technical specifications](https://cawg.io/identity/1.1/#vc-credentialsubject-verifiedidentity-type).
 :::
 
-### Example
+## Example
 
 ```json
 "assertions": [
