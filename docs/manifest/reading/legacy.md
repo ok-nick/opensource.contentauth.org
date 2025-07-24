@@ -9,9 +9,26 @@ As much as possible, an application should **write** manifest data that conforms
 For READING old claims (only) … v1 actions and ingredients
 </div>
 
+## Legacy ingredients
+
+Existing manifests may contain any of these three kinds of ingredients:
+- V1, with label `c2pa.ingredient` (deprecated).
+- V2, with label `c2pa.ingredient.v2` (deprecated).
+- V3, with label `c2pa.ingredient.v3`, which addresses the issue of validating ingredients after redaction.  
+
+## Legacy actions
+
+Existing manifests may contain two versions of actions: original v1 actions, with label `c2pa.actions`, and revised v2 actions, with label `c2pa.actions.v2`. While a v1 action is fully specified in its actions array, a v2 action may either be fully specified in an element of the actions array or it may be derived from an element in the templates array with the same action name.
+
 ## Legacy metadata assertions
 
-Older versions of the SDK had individual assertions for each metadata standard, as detailed below.
+Existing manifests may contain individual assertions for each metadata standard:
+- [Exif assertion](#exif-assertion)
+- [IPTC metadata assertion](#iptc-metadata-assertion)
+- [Creative Work assertion](#creative-work-assertion)
+
+In the latest version of the SDK, Exif and IPTC assertions are now CAWG assertions, and the CreativeWork assertion is not supported at all.
+
 
 ### Exif assertion
 
