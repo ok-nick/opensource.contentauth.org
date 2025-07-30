@@ -343,6 +343,11 @@ const sidebars = {
               label: 'Rust CLI',
             },
             {
+              type: 'link',
+              label: 'TrustMark Rust API docs',
+              href: 'https://docs.rs/trustmark',
+            },
+            {
               type: 'doc',
               id: 'durable-cr/tm-faq',
               label: 'FAQ',
