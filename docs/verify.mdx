@@ -46,7 +46,7 @@ https://contentcredentials.org/verify?source=<ASSET_URL>
 
 where `<ASSET_URL>` is the URL of the asset.
 
-For example: https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CICA.jpg
+For example: https://contentcredentials.org/verify?source=https://spec.c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CICA.jpg
 
 :::note
 To use Verify on an asset URL, the URL must not require any authentication and the hosting server must allow cross-origin resource sharing (CORS) in the `Access-Control-Allow-Origin` HTTP response header.
@@ -54,9 +54,9 @@ To use Verify on an asset URL, the URL must not require any authentication and t
 
 ### C2PA test files
 
-The [C2PA public-testfiles](https://c2pa.org/public-testfiles/image/) repository contains image files that demonstrate Content Credentials, including multiple ingredients, Exif metadata, and various error conditions, along with links to inspect the assets using Verify and to view the corresponding manifest reports from the [C2PA Tool](c2patool).
+The [C2PA public-testfiles](https://spec.c2pa.org/public-testfiles/image/) repository contains image files that demonstrate Content Credentials, including multiple ingredients, Exif metadata, and various error conditions, along with links to inspect the assets using Verify and to view the corresponding manifest reports from the [C2PA Tool](c2patool).
 
-Currently, most of the asset files in the repository are JPEG images, but a few [PDF](https://c2pa.org/public-testfiles/pdf/) and [video](https://c2pa.org/public-testfiles/video/) test files are also available.
+Currently, most of the asset files in the repository are JPEG images, but a few [PDF](https://spec.c2pa.org/public-testfiles/pdf/) and [video](https://spec.c2pa.org/public-testfiles/video/) test files are also available.
 
 ## Information displayed
 
@@ -206,7 +206,7 @@ import verify_validation_error from '../static/img/verify-validation-error.png';
   style={{ width: '300px', display: 'block', margin: '10px auto' }}
 />
 
-Verify displays this warning if the `validation_status` array contains any elements. For example, a [this image](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-E-dat-CA.jpg) with a hard binding hash mismatch error, as shown in [this manifest store](https://c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-E-dat-CA/manifest_store.json):
+Verify displays this warning if the `validation_status` array contains any elements. For example, a [this image](https://contentcredentials.org/verify?source=https://spec.c2pa.org/public-testfiles/image/jpeg/adobe-20220124-E-dat-CA.jpg) with a hard binding hash mismatch error, as shown in [this manifest store](https://spec.c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-E-dat-CA/manifest_store.json):
 
 ```
 "validation_status": [
@@ -218,7 +218,7 @@ Verify displays this warning if the `validation_status` array contains any eleme
   ]
 ```
 
-Another example that can result in this message is shown in [this image](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-E-clm-CAICAI.jpg) with a missing referenced claim, as shown in [this manifest store](https://c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-E-clm-CAICAI/manifest_store.json):
+Another example that can result in this message is shown in [this image](https://contentcredentials.org/verify?source=https://spec.c2pa.org/public-testfiles/image/jpeg/adobe-20220124-E-clm-CAICAI.jpg) with a missing referenced claim, as shown in [this manifest store](https://spec.c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-E-clm-CAICAI/manifest_store.json):
 
 ```
 "validation_status": [
@@ -252,8 +252,8 @@ import verify_process from '../static/img/verify-process.png';
 
 See the above example yourself, based on a C2PA test image:
 
-- [Inspect using Verify](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CAICAI.jpg)
-- [View the corresponding manifest report from C2PA Tool](https://c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-CAICAI/manifest_store.json)
+- [Inspect using Verify](https://contentcredentials.org/verify?source=https://spec.c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CAICAI.jpg)
+- [View the corresponding manifest report from C2PA Tool](https://spec.c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-CAICAI/manifest_store.json)
 
 #### App or device used
 
@@ -403,5 +403,5 @@ The Exif metadata assertions from the JSON manifest for the above example is sho
 
 See the above example yourself, based on a C2PA test image:
 
-- [Inspect using Verify](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/truepic-20230212-camera.jpg)
-- [View the corresponding manifest report from C2PA Tool](https://c2pa.org/public-testfiles/image/jpeg/manifests/truepic-20230212-camera/manifest_store.json)
+- [Inspect using Verify](https://contentcredentials.org/verify?source=https://spec.c2pa.org/public-testfiles/image/jpeg/truepic-20230212-camera.jpg)
+- [View the corresponding manifest report from C2PA Tool](https://spec.c2pa.org/public-testfiles/image/jpeg/manifests/truepic-20230212-camera/manifest_store.json)

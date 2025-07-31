@@ -15,9 +15,9 @@ The C2PA Technical Specification describes _ingredient assertions_ but the CAI S
 
 ## Ingredient objects
 
-Each ingredient used to create an asset is listed in the [JSON manifest](manifest-ref.mdx) `ingredients` array.  When an ingredient itself has Content Credentials, those manifests are included in the composed asset's manifest store to keep the provenance data intact. 
+Each ingredient used to create an asset is listed in the [JSON manifest](manifest/json-ref/manifest-def.mdx) `ingredients` array.  When an ingredient itself has Content Credentials, those manifests are included in the composed asset's manifest store to keep the provenance data intact. 
 
-The `ingredients` array contains an [ingredient object](manifest-ref.mdx#ingredient) for each ingredient.  The only required property of the `ingredient` object is the `title` property, which usually is the source file name.
+The `ingredients` array contains an [ingredient object](manifest/json-ref/manifest-def.mdx#ingredient) for each ingredient.  The only required property of the `ingredient` object is the `title` property, which usually is the source file name.
 
 Other important properties of the ingredient object include:
 - `format`: MIME type of the source file.
@@ -58,8 +58,8 @@ The ingredient object's `relationship` property describes its relationship to th
 ## Validation status
 
 When ingredients are added, the SDK validates their Content Credentials (if any).  However, the validation status of an ingredient does not imply anything about the validation status of the composed asset containing the ingredient. In other words:
-- A composed asset's Content Credentials may be valid, but one or more of its ingredients may have invalid Content Credentials. For example, test file [adobe-20220124-XCA.jpg](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-XCA.jpg)
-- A composed asset's Content Credentials may be invalid, but one or more of its ingredients may have valid Content Credentials. For example, test file [adobe-20220124-CIE-sig-CA.jpg](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CIE-sig-CA.jpg). 
+- A composed asset's Content Credentials may be valid, but one or more of its ingredients may have invalid Content Credentials. For example, test file [adobe-20220124-XCA.jpg](https://contentcredentials.org/verify?source=https://spec.c2pa.org/public-testfiles/image/jpeg/adobe-20220124-XCA.jpg)
+- A composed asset's Content Credentials may be invalid, but one or more of its ingredients may have valid Content Credentials. For example, test file [adobe-20220124-CIE-sig-CA.jpg](https://contentcredentials.org/verify?source=https://spec.c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CIE-sig-CA.jpg). 
 
 :::note
 Ingredient certificates are validated when they are added to the manifest store, NOT during validation of the composed asset. 
@@ -67,7 +67,7 @@ Ingredient certificates are validated when they are added to the manifest store,
 
 ### Example of ingredient with invalid credentials
 
-As noted above, the test file [adobe-20220124-CIE-sig-CA.jpg](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CIE-sig-CA.jpg) has an ingredient with invalid Content Credentials, as shown in this snippet from the manifest store: 
+As noted above, the test file [adobe-20220124-CIE-sig-CA.jpg](https://contentcredentials.org/verify?source=https://spec.c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CIE-sig-CA.jpg) has an ingredient with invalid Content Credentials, as shown in this snippet from the manifest store: 
 
 ```json
 ...
@@ -106,9 +106,9 @@ As noted above, the test file [adobe-20220124-CIE-sig-CA.jpg](https://contentcre
 
 ## Examples
 
-The [C2PA public-testfiles](https://c2pa.org/public-testfiles/image/) repository has several examples of images with multiple ingredients:
-- [Image with two ingredients](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CAICA.jpg); [View JSON manifest store](https://c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-CAICA/manifest_store.json)
-- [Image with seven ingredients](https://contentcredentials.org/verify?source=https://c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CAIAIIICAICIICAIICICA.jpg); [View JSON manifest store](https://c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-CAIAIIICAICIICAIICICA/manifest_store.json)
+The [C2PA public-testfiles](https://spec.c2pa.org/public-testfiles/image/) repository has several examples of images with multiple ingredients:
+- [Image with two ingredients](https://contentcredentials.org/verify?source=https://spec.c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CAICA.jpg); [View JSON manifest store](https://spec.c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-CAICA/manifest_store.json)
+- [Image with seven ingredients](https://contentcredentials.org/verify?source=https://spec.c2pa.org/public-testfiles/image/jpeg/adobe-20220124-CAIAIIICAICIICAIICICA.jpg); [View JSON manifest store](https://spec.c2pa.org/public-testfiles/image/jpeg/manifests/adobe-20220124-CAIAIIICAICIICAIICICA/manifest_store.json)
 
 
 
