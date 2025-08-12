@@ -7,7 +7,8 @@ title: Getting a signing certificate
 Best practices for handling keys and certificates are beyond the scope of this documentation.  Always protect your private keys with the highest level of security; for example, never share them through insecure channels such as email.
 :::
 
-To sign manifest claims, you must have an X.509 v3 security certificate and key that conform to the requirements laid out in the [C2PA specification](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#x509_certificates).
+To sign manifest claims, you must have an X.509 v3 security certificate and key that conform to the requirements laid out in the [C2PA specification](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#x509_certificates). Additionally, the C2PA program provides a [Certificate Policy](https://github.com/c2pa-org/conformance-public/blob/main/docs/current/C2PA%20Certificate%20Policy.pdf) containing the requirements for a certification authority (CA) to follow when issuing C2PA claim signing certificates and the requirements for the use of such certificates.
+
 
 ## Purchasing a certificate
 
@@ -32,10 +33,11 @@ You must purchase a signing certificate from a certificate authority (CA).  The 
 
 | CA | S/MIME email signing | Document signing |
 |----|----------------------|------------------|
-|  GlobalSign | [S/MIME email signing](https://shop.globalsign.com/en/secure-email) | [Document signing](https://shop.globalsign.com/en/document-signing) |
-| IdenTrust | [S/MIME email signing](https://www.identrust.com/digital-certificates/secure-email-smime) | [Document signing](https://www.identrust.com/digital-certificates/document-signing) |
 | Comodo Cybersecurity | [S/MIME email signing](https://ssl.comodoca.com/s-mime) | [Document signing](https://ssl.comodoca.com/document-signing-certificates) |
 | Digicert | [S/MIME email signing](https://www.digicert.com/tls-ssl/secure-email-smime-certificates) | [Document signing](https://www.digicert.com/signing/document-signing-certificates) |
+|  GlobalSign | [S/MIME email signing](https://shop.globalsign.com/en/secure-email) | [Document signing](https://shop.globalsign.com/en/document-signing) |
+| IdenTrust | [S/MIME email signing](https://www.identrust.com/digital-certificates/secure-email-smime) | [Document signing](https://www.identrust.com/digital-certificates/document-signing) |
+| SSL.com | [S/MIME email signing](https://www.ssl.com/certificates/s-mime-certificates/) | [Document signging](https://www.ssl.com/certificates/document-signing-certificates/) |
 
 ### Certificate signing requests (CSRs)
 
