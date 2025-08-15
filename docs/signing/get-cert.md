@@ -32,10 +32,11 @@ You must purchase a signing certificate from a certificate authority (CA).  The 
 
 | CA | S/MIME email signing | Document signing |
 |----|----------------------|------------------|
-|  GlobalSign | [S/MIME email signing](https://shop.globalsign.com/en/secure-email) | [Document signing](https://shop.globalsign.com/en/document-signing) |
-| IdenTrust | [S/MIME email signing](https://www.identrust.com/digital-certificates/secure-email-smime) | [Document signing](https://www.identrust.com/digital-certificates/document-signing) |
-| Comodo Cybersecurity | [S/MIME email signing](https://ssl.comodoca.com/s-mime) | [Document signing](https://ssl.comodoca.com/document-signing-certificates) |
 | Digicert | [S/MIME email signing](https://www.digicert.com/tls-ssl/secure-email-smime-certificates) | [Document signing](https://www.digicert.com/signing/document-signing-certificates) |
+| GlobalSign | [S/MIME email signing](https://shop.globalsign.com/en/secure-email) | [Document signing](https://shop.globalsign.com/en/document-signing) |
+| IdenTrust | [S/MIME email signing](https://www.identrust.com/digital-certificates/secure-email-smime) | [Document signing](https://www.identrust.com/digital-certificates/document-signing) |
+| Sectigo | [S/MIME email signing](https://ssl.comodoca.com/s-mime) | [Document signing](https://ssl.comodoca.com/document-signing-certificates) |
+| SSL.com | [S/MIME email signing](https://www.ssl.com/certificates/s-mime-certificates/) | [Document signing](https://www.ssl.com/certificates/document-signing-certificates/) |
 
 ### Certificate signing requests (CSRs)
 
