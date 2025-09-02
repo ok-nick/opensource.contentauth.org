@@ -13,7 +13,7 @@ To sign manifest claims, you must have an X.509 v3 security certificate and key 
 ## Purchasing a certificate
 
 :::note
-The [C2PA conformance program](https://c2pa.org/conformance/) establishes the requirements governing the issuance of C2PA claim signing certificates for use by product developers. See [C2PA certificate policy](https://github.com/c2pa-org/conformance-public/blob/main/docs/current/C2PA%20Certificate%20Policy.pdf) for more information.
+The [C2PA conformance program](https://c2pa.org/conformance/) establishes the requirements governing the issuance of C2PA claim signing certificates for use by product developers.  Through the end of 2025 you can still purchase a certificate from any CA and request to add it to the interim trust list, but starting in 2026 conforming generator products must use a certificate from a CA on the C2PA trust list.  See [C2PA conformance program](conformance.mdx) for more information.
 :::
 
 The process to purchase a certificate and key is different for each CA: You might be able to simply click a "Buy" button on the CA's website. Or your can make your own key and use it to create a certificate signing request (CSR) that you send to the CA. Regardless of the process, what you get back is a signed certificate that you use to create a certificate chain.
@@ -56,7 +56,7 @@ You sign the CSR with your private key; this proves to the CA that you have cont
 ## Certificate requirements
 
 :::note
-The information in this section is superseded by the [C2PA certificate policy](https://github.com/c2pa-org/conformance-public/blob/main/docs/current/C2PA%20Certificate%20Policy.pdf) the that establishes the requirements governing the issuance of C2PA claim signing certificates. 
+The information in this section is superseded by the [C2PA certificate policy](https://github.com/c2pa-org/conformance-public/blob/main/docs/current/C2PA%20Certificate%20Policy.pdf) the that establishes the requirements governing the issuance of C2PA claim signing certificates.  
 :::
 
 A signing certificate and key (credentials) must conform to the requirements in the [C2PA specification X.509 Certificates section](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#x509_certificates); specifically, it must:
