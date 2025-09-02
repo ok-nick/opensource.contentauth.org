@@ -6,9 +6,9 @@ title: C2PA conformance program
 The [C2PA conformance program](https://c2pa.org/conformance) was launched in mid-2025 to help ensure that products that read and create Content Credentials are compliant with the C2PA Content Credentials specification.
 
 :::info
-If you've developed a product that reads or creates Content Credentials, you can apply for it to be a _conforming product_ in the C2PA conformance program. If accepted, it is added to the [conforming products list](https://github.com/c2pa-org/conformance-public/blob/main/conforming-products/conforming-products-list.json#L302), which indicates it is compliant with the C2PA Content Credentials specification and can be used to validate and generate Content Credentials properly.
+If you're developing a product that reads or creates Content Credentials, you can apply for the C2PA conformance program. If accepted, the product is added to the [conforming products list](https://github.com/c2pa-org/conformance-public/blob/main/conforming-products/conforming-products-list.json#L302), which indicates it is compliant with the C2PA Content Credentials specification.
 
-To start the process, fill out C2PA's [expression of interest form](https://docs.google.com/forms/d/e/1FAIpQLScERZH5rKfoeSu3y6gGbkllkyeAhmF0G-kXS0eXpb2vR238Rg/viewform).
+**To start the process, fill out C2PA's [expression of interest form](https://docs.google.com/forms/d/e/1FAIpQLScERZH5rKfoeSu3y6gGbkllkyeAhmF0G-kXS0eXpb2vR238Rg/viewform).**
 :::
 
 ## Conformance program
@@ -28,9 +28,7 @@ For more details, see [C2PA conformance program](https://github.com/c2pa-org/con
 
 ### Generator products
 
-A _generator product_ can generate manifest data for a digital asset. A conforming generator product produces manifest data that conforms to the C2PA Content Credentials specification and creates assertions in the asset's active manifest and signs a claim using a valid X.509 certificate on the C2PA trust list.
-
-A conforming generator product is accountable for producing correct manifests and claims that conform to the C2PA Content Credentials specification.
+A _generator product_ can generate manifest data for a digital asset. A conforming generator product produces manifest data that conforms to the C2PA Content Credentials specification, creates assertions in the asset's active manifest and signs a claim using a valid X.509 certificate on the C2PA trust list.
 
 For more details, see [C2PA conformance program](https://github.com/c2pa-org/conformance-public/blob/main/docs/current/C2PA%20Conformance%20Program.pdf).
 
@@ -49,7 +47,7 @@ C2PA maintains two trust lists:
 
 ### Temporary trust list
 
-With the introduction of the C2PA trust list, the existing [temporary (interim) trust list](trust-list.mdx) is being retired. It provided critical support during the early adoption phase of C2PA and enabled the [C2PA Verify website](https://contentcredentials.org/verify) to determine which certificates were valid and prevent unknown signers from appearing as valid.
+With the introduction of the C2PA trust list, the existing [temporary (interim) trust list](trust-list.mdx) is being retired. It provided critical support during the early adoption phase of C2PA, and enabled the [C2PA Verify website](https://contentcredentials.org/verify) to determine which certificates were valid.
 
 ### Timeline
 
@@ -61,12 +59,12 @@ During this time:
 - New certificates will continue to be added to the temporary trust list when requested.
 - Product developers are strongly encouraged to apply to the C2PA conformance program and use the official C2PA trust list.
 
-**January 1, 2026**: The temporary trust list will be frozen: No new entries will be added, and no updates will be made.
+**On January 1, 2026**: The temporary trust list will be frozen. No new entries will be added, and no updates will be made.
 
 Starting then:
 
 - Existing certificates will remain valid for legacy support.
-- No future refreshes or additions will occur.
+- No new certificates will be added to the interim trust list.
 
 Eventually, the certificates on the temporary trust list will expire and will not be usable for signing. However, if content was signed during the temporary trust list certificate's validity period, the content will always be considered valid against the legacy trust model.
 
