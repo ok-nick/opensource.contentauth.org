@@ -3,7 +3,7 @@ id: get-cert
 title: Getting a signing certificate
 ---
 
-:::note Important
+:::warning Important
 Best practices for handling keys and certificates are beyond the scope of this documentation.  Always protect your private keys with the highest level of security; for example, never share them through insecure channels such as email.
 :::
 
@@ -11,6 +11,10 @@ To sign manifest claims, you must have an X.509 v3 security certificate and key 
 
 
 ## Purchasing a certificate
+
+:::note
+The [C2PA conformance program](https://c2pa.org/conformance/) establishes the requirements governing the issuance of C2PA claim signing certificates for use by product developers. See [C2PA certificate policy](https://github.com/c2pa-org/conformance-public/blob/main/docs/current/C2PA%20Certificate%20Policy.pdf) for more information.
+:::
 
 The process to purchase a certificate and key is different for each CA: You might be able to simply click a "Buy" button on the CA's website. Or your can make your own key and use it to create a certificate signing request (CSR) that you send to the CA. Regardless of the process, what you get back is a signed certificate that you use to create a certificate chain.
 
@@ -23,9 +27,7 @@ The C2PA specification requires that an "end entity" signing certificate must be
 - An S/MIME email certificate (`id-kp-emailProtection` EKU). This is usually the simplest and least expensive option.
 - A document signing certificate (`id-kp-documentSigning` EKU). Obtaining these kinds of certificates typically have more stringent requirements (like proving your identity) and costs more.
 
-:::note
 For more details, see [Certificate requirements](#certificate-requirements) below.
-:::
 
 ### Certificate authorities (CAs)
 
@@ -52,6 +54,10 @@ For the C2PA [Verify tool](https://verify.contentauthenticity.org/) to display y
 You sign the CSR with your private key; this proves to the CA that you have control of the private key that corresponds to the public key included in the CSR. Once the requested information in a CSR passes a vetting process and domain control is established, the CA may sign the public key to indicate that it can be publicly trusted.
 
 ## Certificate requirements
+
+:::note
+The information in this section is superseded by the [C2PA certificate policy](https://github.com/c2pa-org/conformance-public/blob/main/docs/current/C2PA%20Certificate%20Policy.pdf) the that establishes the requirements governing the issuance of C2PA claim signing certificates. 
+:::
 
 A signing certificate and key (credentials) must conform to the requirements in the [C2PA specification X.509 Certificates section](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#x509_certificates); specifically, it must:
 
