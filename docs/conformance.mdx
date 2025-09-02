@@ -45,9 +45,9 @@ C2PA maintains two trust lists:
 - [**C2PA trust list**](https://github.com/c2pa-org/conformance-public/blob/main/trust-list/C2PA-TRUST-LIST.pem): A list of X.509 certificate trust anchors (either root or subordinate certification authorities) that issue certificates to conforming generator products under the C2PA Certificate Policy.
 - [**C2PA time-stamping authority (TSA) trust list**](https://github.com/c2pa-org/conformance-public/blob/main/trust-list/C2PA-TSA-TRUST-LIST.pem): A list of X.509 certificate trust anchors (either root or subordinate certification authorities) that issue time-stamp signing certificates to TSAs.
 
-### Temporary trust list
+### Interim trust list
 
-With the introduction of the C2PA trust list, the existing [temporary (interim) trust list](trust-list.mdx) is being retired. It provided critical support during the early adoption phase of C2PA, and enabled the [C2PA Verify website](https://contentcredentials.org/verify) to determine which certificates were valid.
+With the introduction of the C2PA trust list, the existing [interim (temporary) trust list](trust-list.mdx) is being retired.
 
 ### Timeline
 
@@ -55,16 +55,14 @@ With the introduction of the C2PA trust list, the existing [temporary (interim) 
 
 During this time:
 
-- The Verify site will continue to display manifests signed by these certificates as trusted, but with a disclaimer that the manifests were made with an older version of the trust model.
+- The [Verify site](https://contentcredentials.org/verify) will continue to display manifests signed by certificates on the temporary trust list as trusted, but with a disclaimer that the manifests were made with an older version of the trust model.
 - New certificates will continue to be added to the temporary trust list when requested.
 - Product developers are strongly encouraged to apply to the C2PA conformance program and use the official C2PA trust list.
 
-**On January 1, 2026**: The temporary trust list will be frozen. No new entries will be added, and no updates will be made.
-
-Starting then:
+**On January 1, 2026**: The temporary trust list will be frozen.
 
 - Existing certificates will remain valid for legacy support.
-- No new certificates will be added to the interim trust list.
+- No new certificates will be added to the list, and no updates will be made.
 
 Eventually, the certificates on the temporary trust list will expire and will not be usable for signing. However, if content was signed during the temporary trust list certificate's validity period, the content will always be considered valid against the legacy trust model.
 
