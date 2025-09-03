@@ -11,28 +11,26 @@ If you're developing a product that reads or creates Content Credentials, you ca
 **To start the process, fill out C2PA's [expression of interest form](https://docs.google.com/forms/d/e/1FAIpQLScERZH5rKfoeSu3y6gGbkllkyeAhmF0G-kXS0eXpb2vR238Rg/viewform).**
 :::
 
-## Conformance program
-
 The C2PA conformance program covers:
 
 - _Validator products_ that read and validate Content Credentials.
 - _Generator products_ that create Content Credentials and add them to a digital asset.
 - Certificate authorities (CAs).
 
-### Validator products
+## Validator products
 
 A _validator product_ can read and validate a manifest store for a digital asset.
 A conforming validator product produces correct validation results according to the C2PA Content Credentials specification.
 
 For more details, see [C2PA conformance program](https://github.com/c2pa-org/conformance-public/blob/main/docs/current/C2PA%20Conformance%20Program.pdf).
 
-### Generator products
+## Generator products
 
 A _generator product_ can generate manifest data for a digital asset. A conforming generator product produces manifest data that conforms to the C2PA Content Credentials specification, creates assertions in the asset's active manifest and signs a claim using a valid X.509 certificate on the C2PA trust list.
 
 For more details, see [C2PA conformance program](https://github.com/c2pa-org/conformance-public/blob/main/docs/current/C2PA%20Conformance%20Program.pdf).
 
-### Certificate authorities
+## Certificate authorities
 
 The C2PA [certificate policy](https://github.com/c2pa-org/conformance-public/blob/main/docs/current/C2PA%20Certificate%20Policy.pdf) specifies requirements for certificate authorities (CAs) that issue claim signing certificates for use by generator products, and the requirements that those products have to meet when using the certificates.
 
