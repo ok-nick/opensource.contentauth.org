@@ -134,6 +134,7 @@ Each object in the `actions` array has the following standard properties.
 | `digitalSourceType` | No | A URL identifying a [IPTC term](https://cv.iptc.org/newscodes/digitalsourcetype/). See [Digital source type](#digital-source-type). | `http://cv.iptc.org/newscodes/`<br/> `digitalsourcetype/digitalCapture` |
 | `softwareAgent` | No | The software or hardware used to perform the action.   | `"Adobe Firefly"` |
 | `parameters` | No | Additional information describing the action; see [Parameters](#parameters) | Reference to ingredients in the `ingredientIds` array. |
+| `parameters` | No | Additional information describing the action; see [Parameters](#parameters) | Reference to ingredients in the `ingredientIds` array. |
 
 ### Action names
 
@@ -217,8 +218,10 @@ The `parameters` property can contain any data that provide more details on the 
 ```
 
 When creating an actions assertion that has an associated ingredient, the `parameters` object must include a `ingredientIds` property with an array of one or more [`instance_id` values](#the-instance_id-property) from ingredients. This is how you associate an action with one or more ingredients.
+When creating an actions assertion that has an associated ingredient, the `parameters` object must include a `ingredientIds` property with an array of one or more [`instance_id` values](#the-instance_id-property) from ingredients. This is how you associate an action with one or more ingredients.
 
 :::info
+The [C2PA specification](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_parameters) requires that a `c2pa.transcoded`, `c2pa.repackaged`, `c2pa.opened`, or a `c2pa.placed` action have one or more associated ingredients, so it is very important to add the `ingredientIds` parameter with a matching ingredient.
 The [C2PA specification](https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html#_parameters) requires that a `c2pa.transcoded`, `c2pa.repackaged`, `c2pa.opened`, or a `c2pa.placed` action have one or more associated ingredients, so it is very important to add the `ingredientIds` parameter with a matching ingredient.
 :::
 
@@ -229,6 +232,7 @@ For example:
   {
     "action": "c2pa.opened",
     "parameters": {
+      "ingredientIds": [
       "ingredientIds": [
         "xmp.iid:813ee422-9736-4cdc-9be6-4e35ed8e41cb"
       ]
@@ -264,6 +268,7 @@ Any `c2pa.opened` or `c2pa.placed` action must have an associated ingredient ide
     "action": "c2pa.*",
     "parameters": {
       "ingredientIds": [
+      "ingredientIds": [
         "<String-instance-ID-of-ingredient>"
       ],
     }
@@ -291,6 +296,7 @@ For example, the following action identifies that the `c2pa.opened` action was p
         {
           "action": "c2pa.opened",
           "parameters": {
+            "ingredientIds": [
             "ingredientIds": [
               "xmp.iid:3250038a-22ca-459b-8392-de275f8b155c"
             ],
