@@ -55,6 +55,6 @@ With the introduction of the C2PA trust list, the existing [interim (temporary) 
   - No new certificates will be added to the list, and no updates will be made.
   - Existing certificates will remain valid for legacy support.
 
-Eventually, the certificates on the interim trust list will expire and will not be usable for signing. However, if content was signed during the interim trust list certificate's validity period, the content will always be considered valid against the legacy trust model.
+Eventually, the certificates on the interim trust list will expire and will not be usable for signing. However, if content was signed during the certificate's validity period, the content will always be considered valid against the legacy trust model.
 
 Validator products are encouraged to begin distinguishing between Content Credentials signed with certificates on the interim trust list (typically tied to Content Credentials specification version version 1.4) and those from conforming products using the official C2PA trust list.
