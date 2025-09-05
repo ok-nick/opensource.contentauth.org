@@ -8,13 +8,13 @@ As much as possible, an application should **write** manifest data that conforms
 ## Legacy ingredients
 
 Old manifests may contain these kinds of deprecated ingredient data:
-- V1 ingredients, with label `c2pa.ingredient`.
-- V2 ingredients, with label `c2pa.ingredient.v2`.
+- V1 ingredients, with labels that begin with `c2pa.ingredient`.
+- V2 ingredients, with labels that begin with `c2pa.ingredient.v2`.
 
 <a name="question1"></a>
 
 <div class="review-comment">
-What should we say about reading v1 and v2 ingredients?
+Should we say anything more about reading v1 and v2 ingredients?
 </div>
 
 ## Legacy actions
