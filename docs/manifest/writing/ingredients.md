@@ -9,9 +9,7 @@ Digital assets are often not created entirely from scratch, but instead created 
 
 [Old manifests](../reading/legacy.md) may contain deprecated v1 and v2 ingredients, but applications should only write v3 ingredients.
 
-<div class="review-comment">
-This page should cover only v3 ingredients.
-</div>
+Applications should write only v3 ingredients, with label starting with `c2pa.ingredient.v3` and are described in the [C2PA specification](https://spec.c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#ingredient_assertion) .
 
 :::note
 The C2PA Technical Specification describes _ingredient assertions_ but the CAI SDK treats ingredients separately as their own objects in the JSON manifest rather than as a type of assertion.
@@ -22,6 +20,8 @@ The C2PA Technical Specification describes _ingredient assertions_ but the CAI S
 The `ingredients` array contains an element for each ingredient used to create an asset.  When an ingredient itself has Content Credentials, those manifests are included in the composed asset's manifest store to keep the provenance data intact.
 
 The `ingredients` array contains an [ingredient object](manifest/json-ref/manifest-def.mdx#ingredient) for each ingredient.  The only required property of the `ingredient` object is the `title` property, which usually is the source file name.
+
+The `label` property for the first ingredient in a manifest is `c2pa.ingredient.v3` When there is more than one ingredient, subsequent labels have a monotonically increasing index: `c2pa.ingredient.v3__1`, `c2pa.ingredient.v3__2`, and so on.
 
 Other important properties of the ingredient object include:
 - `format`: MIME type of the source file (optional).

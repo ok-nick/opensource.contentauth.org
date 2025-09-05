@@ -37,6 +37,8 @@ Changes include:
 
 The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_actions) describes expanded v2 actions.  While v1 actions are fully specified in the actions array v2 actions may either be specified by an element of the actions array or from an element in the templates array with the same action name.
 
+<a name="question1"></a>
+
 <div class="review-comment">
 The CAI APIs can read all v2 actions and write most v2 actions.  What v2 actions can it NOT write?
 </div>
@@ -50,10 +52,6 @@ V1 actions are fully specified in its actions array. However, a v2 action may ei
 The C2PA Technical Specification defines a [set of standard assertions](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_standard_c2pa_assertion_summary) and their corresponding labels.  In addition, you can define [custom assertions](#custom-assertions) for your specific application.
 
 The following table summarizes some of the most important standard assertions.
-
-<div class="review-comment">
-What other c2pa stadard assertions should we call out?
-</div>
 
 | Assertion | Label | Description |
 |-----------|-------|-------------|

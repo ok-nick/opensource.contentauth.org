@@ -68,7 +68,7 @@ The following table describes the allowed values of the `type` property of `veri
 | Value        |  Meaning |
 |--------------|----------|
 | `cawg.document_verification` | The identity provider verified one or more government-issued identity documents presented by the content creator.
-| `cawg.web_site` | The content creator has proven control over a specific domain to the identity claims aggregator._
+| `cawg.web_site` | The content creator has proven control over a specific domain to the identity claims aggregator.
 | `cawg.affiliation` | The identity provider is attesting to the content creator’s membership in an organization. This could be a professional organization or an employment relationship.
 | `cawg.social_media` | The content creator has demonstrated control over an account (typically a social media account) hosted by the identity provider.
 | `cawg.crypto_wallet` | The content creator has demonstrated control over an account (typically a crypto-wallet) hosted by the identity provider.
