@@ -46,7 +46,7 @@ The following table summarizes some of the most important standard assertions.
 | Assertion | Label | Description |
 |-----------|-------|-------------|
 | [Content bindings](#content-bindings) | `c2pa.hash.*`, `c2pa.soft-binding`, etc. | Uniquely identify portions of an asset and bind the assertion to it, for example using cryptographic hashes. |
-| [Actions](#actions) |  `c2pa.actions` | Creation, edits, and other actions on an asset, such as cropping, color or contrast adjustment, and so on. |
+| [Actions](#actions) (v2) |  `c2pa.actions.v2` | Creation, edits, and other actions on an asset, such as cropping, color or contrast adjustment, and so on. |
 
 :::note
 The CAI SDK handles assertions for thumbnails, content bindings, and ingredients, so normally you don't need to think about them.
@@ -93,13 +93,19 @@ Update assertions
 
 ## Actions
 
-An action is an assertion that provides information about creation, edits, and other things that have occurred to an asset. In the manifest, an `actions` assertion is an array of [AssertionDefinition](../json-ref/manifest-def.mdx#assertiondefinition) objects.   For example:
+An action is an assertion that provides information about creation, edits, and other things that have occurred to an asset. In the manifest, an `actions` assertion is an array of [AssertionDefinition](../json-ref/manifest-def.mdx#assertiondefinition) objects.   
+
+:::important
+Every manifest has to start with either an `c2pa.opened` or `c2pa.created` action, which has to be the first action in the manifest. Each of these actions need to have an associated ingredient.
+:::
+
+For example:
 
 ```json
 ...
 "assertions": [
   {
-    "label": "c2pa.actions",
+    "label": "c2pa.actions.v2",
     "data": {
       "actions": [
         {
@@ -131,7 +137,8 @@ The [C2PA Technical Specification](https://c2pa.org/specifications/specification
 V1 actions are fully specified in the `actions` array. However, a v2 action may either be fully specified in an element of the `actions` array or it may be derived from an element in the `templates` array with the same action name.
 
 <div class="review-comment">
-The CAI APIs can read all v2 actions and write most v2 actions.  What v2 actions can it NOT write?
+The CAI APIs can read all v2 actions and write **most** v2 actions.  
+What v2 actions can it NOT write?  We should document that.
 </div>
 
 ### Action names
@@ -140,7 +147,7 @@ The value of the `action` property must be either one of the pre-defined [standa
 
 For the complete list of standard actions, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_actions).
 
-###  Digital source type
+### Digital source type
 
 Use the `digitalSourceType` property to specify how an asset was created or modified, for example "digital capture", "digitized from negative," or "trained algorithmic media." 
 
@@ -181,7 +188,7 @@ For other possible values of `digitalSourceType`, see [Digital source type](#dig
 "assertions": [
 ...
   {
-    "label": "c2pa.actions",
+    "label": "c2pa.actions.v2",
     "data": {
       "actions": [
         {
@@ -280,27 +287,37 @@ For example, the following action identifies that the `c2pa.opened` action was p
 ```json
 "ingredients": [
   {
-    "title": "test.jpeg",
+    "title": "crater-lake.jpeg",
     "format": "image/jpeg",
-    "instance_id": "xmp.iid:3250038a-22ca-459b-8392-de275f8b155c",
-    "relationship": "parentOf"
+    "instance_id": "xmp.iid:7f136ee1-6e84-4d80-9de3-e1180ef2b690",
+    "relationship": "parentOf",
+    "label": "c2pa.ingredient.v3"
   }
 ],
 "assertions": [
   {
-    "label": "c2pa.actions",
+    "label": "c2pa.actions.v2",
     "data": {
       "actions": [
-        {
-          "action": "c2pa.opened",
-          "parameters": {
-            "ingredientIds": [
-            "ingredientIds": [
-              "xmp.iid:3250038a-22ca-459b-8392-de275f8b155c"
-            ],
-          }
-        },
-        ...
+      {
+        "action": "c2pa.opened",
+        "parameters": {
+          "org.cai.ingredientIds": [
+            "xmp.iid:7f136ee1-6e84-4d80-9de3-e1180ef2b690"
+          ],
+          "ingredients": [
+            {
+              "url": "self#jumbf=c2pa.assertions/c2pa.ingredient.v3",
+              "hash": "yb/F7GBepYRyaFM16gzj6t84CKDTnBxhnLqYjnB0iX0="
+            }
+          ]
+        }
+      },
+      ...
+      ]
+    }
+  }
+]
 ```
 
 ## CAWG metadata assertions
@@ -313,7 +330,6 @@ Metadata assertions must include one or more `@context` properties in the `data`
 
 | Assertion | Label | Description |
 |-----------|-------|-------------|
-| [Creative work](#creative-work-assertion) | `stds.schema-org.CreativeWork`  | Indicates the asset is the product of creative effort.   |
 | [Exif information](#exif-assertion) | `stds.exif` | Camera information such as maker, lens stored in Exchangeable image file format (Exif). |
 | [IPTC photo and video metadata](#iptc-metadata) | `stds.iptc` | Properties from the IPTC Photo and Video Metadata Standards, describing for example ownership, rights, and other metadata about a image or video asset. |
 | [Training and data mining](#do-not-train-assertion) | `cawg.training-mining` | Whether the creator/owner of an asset grants permission to use it for data mining or AI/ML training.  NOTE: Previously, this assertion's label was `c2pa.training-mining`. |
@@ -419,7 +435,6 @@ Assertions with the `cawg.training-mining` label provide information about wheth
 :::note
 Training and data mining assertions formerly had `c2pa.*` labels.  See [Legacy training and data mining assertion](../reading/legacy.md#legacy-training-and-data-mining-assertion) for more information.
 :::
-
 
 | Entry Key | Whether permission is granted...  | Possible values of `use` property |
 |-----------|-------------|-------------|
