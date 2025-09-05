@@ -37,20 +37,6 @@ Changes include:
 - `SoftwareAgent` is a [ClaimGeneratorInfo](../json-ref/manifest-def.mdx#claimgeneratorinfo) structure instead of a string. 
 - Ingredients are now V3 ingredients
 
-#### V2 actions
-
-The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_actions) describes expanded v2 actions.  While v1 actions are fully specified in the actions array v2 actions may either be specified by an element of the actions array or from an element in the templates array with the same action name.
-
-<a name="question1"></a>
-
-<div class="review-comment">
-The CAI APIs can read all v2 actions and write most v2 actions.  What v2 actions can it NOT write?
-</div>
-
-V1 actions have a label of `c2pa.actions` v2 actions have a label of `c2pa.actions.v2`. Actions are modelled after XMP ResourceEvents, but with a number of C2PA-specific adjustments.
-
-V1 actions are fully specified in its actions array. However, a v2 action may either be fully specified in an element of the actions array or it may be derived from an element in the templates array with the same action name.
-
 ## C2PA standard assertions
 
 The C2PA Technical Specification defines a [set of standard assertions](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_standard_c2pa_assertion_summary) and their corresponding labels.  In addition, you can define [custom assertions](#custom-assertions) for your specific application.
@@ -137,6 +123,16 @@ Each object in the `actions` array has the following standard properties.
 | `softwareAgent` | No | The software or hardware used to perform the action.   | `"Adobe Firefly"` |
 | `parameters` | No | Additional information describing the action; see [Parameters](#parameters) | Reference to ingredients in the `ingredientIds` array. |
 | `parameters` | No | Additional information describing the action; see [Parameters](#parameters) | Reference to ingredients in the `ingredientIds` array. |
+
+### V2 actions
+
+The [C2PA Technical Specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_actions) describes expanded v2 actions.  V1 actions have a label of `c2pa.actions` v2 actions have a label of `c2pa.actions.v2`. Actions are modelled after XMP ResourceEvents, but with a number of C2PA-specific adjustments.
+
+V1 actions are fully specified in the `actions` array. However, a v2 action may either be fully specified in an element of the `actions` array or it may be derived from an element in the `templates` array with the same action name.
+
+<div class="review-comment">
+The CAI APIs can read all v2 actions and write most v2 actions.  What v2 actions can it NOT write?
+</div>
 
 ### Action names
 
