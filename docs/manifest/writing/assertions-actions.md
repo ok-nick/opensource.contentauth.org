@@ -26,12 +26,16 @@ The standard form of an assertion in a JSON manifest is:
 ]
 ```
 
+:::important
+Every manifest has to start with either an opened or created action, which has to be the first action in the manifest. Each of these actions need to have an associated ingredient.
+:::
+
 ### Changes from earlier releases
 
 Changes include: 
-- `c2pa.data_mining` > `cawg.data_mining`, etc. were renamed, with xref.
+- Old training and data mining assertions `c2pa.data_mining`, `c2pa.ai_training`,  `c2pa.ai_generative_training`, and `c2pa.ai_inference` have been replaced by [CAWG training and data mining assertions](../writing/assertions-actions.md#cawg-training-and-data-mining-assertion)
 - `SoftwareAgent` is a [ClaimGeneratorInfo](../json-ref/manifest-def.mdx#claimgeneratorinfo) structure instead of a string. 
-- Ingredients are now V2 ingredients
+- Ingredients are now V3 ingredients
 
 #### V2 actions
 

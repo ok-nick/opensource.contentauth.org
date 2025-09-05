@@ -11,7 +11,7 @@ Old manifests may contain these kinds of deprecated ingredient data:
 - V1 ingredients, with label `c2pa.ingredient`.
 - V2 ingredients, with label `c2pa.ingredient.v2`.
 
-<a name="question"></a>
+<a name="question1"></a>
 
 <div class="review-comment">
 What should we say about reading v1 and v2 ingredients?
@@ -20,6 +20,8 @@ What should we say about reading v1 and v2 ingredients?
 ## Legacy actions
 
 Existing manifests may contain two versions of actions: original v1 actions, with label `c2pa.actions`, and revised v2 actions, with label `c2pa.actions.v2`. While a v1 action is fully specified in its actions array, a v2 action may either be fully specified in an element of the actions array or it may be derived from an element in the templates array with the same action name.
+
+<a name="question2"></a>
 
 <div class="review-comment">
 What should we say about reading v1 actions?

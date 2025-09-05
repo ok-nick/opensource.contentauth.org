@@ -5,6 +5,14 @@ title: Validating manifests
 
 Processing an asset includes [validating the manifests](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_validation) in the associated manifest store. During validation, errors can occur in the active manifest and in ingredients.
 
+In the latest version of the SDK, 
+- Builder performs validation by default, so you can't create an invalid manifest.  Previously, the SDK was permissive in this regard.
+- Validation is much stricter
+
+<div class="review-comment">
+Need a high-level summary of full validation, what we're looking for, etc.
+</div>
+
 ## Validation errors in manifests
 
 When you load an asset, all the manifests in the manifest store are validated and any [failure codes](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_failure_codes) are assigned to the `validation_status` array. Inspect the array to find the validation errors. 
