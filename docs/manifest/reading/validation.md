@@ -15,7 +15,11 @@ Need a high-level summary of full validation, what we're looking for, etc.
 
 ## Validation errors in manifests
 
-When you load an asset, all the manifests in the manifest store are validated and any [failure codes](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_failure_codes) are assigned to the `validation_status` array. Inspect the array to find the validation errors. 
+When you load an asset, all the manifests in the manifest store are validated and any [failure codes](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_failure_codes) are assigned to the `validation_status` array. Inspect the array to find the validation errors.
+
+`Reader` has these validation methods:
+- `validation_state()` returns `ValidationState`, which can be `Invalid`, `Valid` or `Trusted`.
+- `validation_results()` returns `ValidationResults`, which returns `success`, `informational`, and `failure` codes for the active manifest and ingredients. NOTE: `ValidationStatus` is deprecated in favor of `ValidationResults`.
 
 :::tip
 Validation returns ONLY error codes; success is not explicitly indicated. If there are no validation errors, then the manifest won't have the `validation_status` element.
