@@ -100,6 +100,11 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'c2patool/docs/cawg_x509_signing',
+          label: 'Using a certificate for CAWG signing',
+        },
+        {
+          type: 'doc',
           id: 'c2patool/docs/changelog',
           label: 'Change log',
         },
