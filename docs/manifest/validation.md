@@ -27,7 +27,7 @@ Don't assume that just because you didn't get an error from the function return 
 
 Ingredients are validated when they are imported into an asset and the result is stored in the ingredient's `validation_status` array.
 
-Only errors that are not already recorded in the `validation_status` of an ingredient are reported. See [ValidationStatus](./manifest-ref.mdx#validationstatus) object in Manifest store reference.
+Only errors that are not already recorded in the `validation_status` of an ingredient are reported. See [ValidationStatus](./json-ref/manifest-def.mdx#validationstatus) object in Manifest store reference.
 
 ## Error status codes
 
