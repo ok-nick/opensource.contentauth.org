@@ -85,6 +85,11 @@ const readmes = [
     path: 'cli/docs/usage.md',
   },
   {
+    dest: resolve(__dirname, '../docs/c2patool/docs/cawg_x509_signing.md'),
+    repo: 'contentauth/c2pa-rs',
+    path: 'cli/docs/cawg_x509_signing.md',
+  },
+  {
     dest: resolve(__dirname, '../docs/c2patool/docs/supported-formats.md'),
     repo: 'contentauth/c2pa-rs',
     path: 'docs/supported-formats.md',
