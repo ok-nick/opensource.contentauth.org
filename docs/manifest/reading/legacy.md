@@ -8,28 +8,30 @@ As much as possible, an application should **write** manifest data that conforms
 ## Legacy ingredients
 
 Old manifests may contain these kinds of deprecated ingredient data:
+
 - V1 ingredients, with labels that begin with `c2pa.ingredient`.
 - V2 ingredients, with labels that begin with `c2pa.ingredient.v2`.
 
-<a name="question1"></a>
+While these labels will show up so you can detect them, the API will return the same ingredient object for all of them, but the field contents may vary depending on the version.
 
-<div class="review-comment">
-Should we say anything more about reading v1 and v2 ingredients?
-</div>
 
 ## Legacy actions
 
 Existing manifests may contain two versions of actions: original v1 actions, with label `c2pa.actions`, and revised v2 actions, with label `c2pa.actions.v2`. While a v1 action is fully specified in its actions array, a v2 action may either be fully specified in an element of the actions array or it may be derived from an element in the templates array with the same action name.
 
-<a name="question2"></a>
+As with Ingredients, a single `Actions` object handles both versions of actions. The label will be different for each version, and you may want to to check for both labels or use `starts_with`. 
 
-<div class="review-comment">
-What should we say about reading v1 actions?
-</div>
+<!-- 
+FROM GAVIN:
+The rules for parsing actions templates needs to be added somewhere along with how to handle localizations.
+
+I think we need to provide an action resolver for this.
+-->
 
 ## Legacy metadata assertions
 
 Existing manifests may contain individual assertions for each metadata standard:
+
 - [Exif assertion](#exif-assertion)
 - [IPTC metadata assertion](#iptc-metadata-assertion)
 - [Creative Work assertion](#creative-work-assertion)
@@ -148,6 +150,7 @@ For example:
 ## Legacy training and data mining assertion
 
 Old manifests may have training and data mining assertions with the following entry keys:
+
 - `c2pa.data_mining`
 - `c2pa.ai_training`
 - `c2pa.ai_generative_training`
