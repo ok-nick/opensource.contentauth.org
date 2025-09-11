@@ -6,4 +6,6 @@ pagination_next: null
 pagination_prev: null
 ---
 
-No longer used.
+Please see:
+- [ManifestDefinition JSON reference](manifest-def.mdx)
+- [Reader JSON reference](reader.mdx)
