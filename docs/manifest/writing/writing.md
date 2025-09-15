@@ -7,5 +7,4 @@ Use a [ManifestDefinition](../json-ref/manifest-def.mdx) structure to define and
 
 - [Writing ingredients](ingredients.md)
 - [Writing assertions and actions](assertions-actions.md)
-- [Writing CAWG identity assersions](cawg-id.md)
 - [ManifestDefinition JSON reference](manifest/json-ref/manifest-def.mdx)

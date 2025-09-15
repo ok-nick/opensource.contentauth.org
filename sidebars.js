@@ -77,10 +77,6 @@ const sidebars = {
             },
             {
               type: 'doc',
-              id: 'manifest/writing/cawg-id',
-            },
-            {
-              type: 'doc',
               id: 'manifest/json-ref/manifest-def',
             },
           ],
