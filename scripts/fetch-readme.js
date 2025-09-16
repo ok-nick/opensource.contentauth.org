@@ -25,18 +25,18 @@ const readmes = [
       __dirname,
       '../docs/js-sdk/examples/view-manifest/index.html',
     ),
-    repo: 'contentauth/c2pa-js',
+    repo: 'contentauth/c2pa-js-legacy',
     path: 'examples/minimal-ts-vite/examples/active-manifest/index.html',
   },
   {
     dest: resolve(__dirname, '../docs/js-sdk/examples/view-manifest/main.ts'),
-    repo: 'contentauth/c2pa-js',
+    repo: 'contentauth/c2pa-js-legacy',
     path: 'examples/minimal-ts-vite/examples/active-manifest/main.ts',
   },
   // Vite Quickstart
   {
     dest: resolve(__dirname, '../docs/js-sdk/examples/quickstart/vite-main.ts'),
-    repo: 'contentauth/c2pa-js',
+    repo: 'contentauth/c2pa-js-legacy',
     path: 'examples/minimal-ts-vite/examples/cdn/main.ts',
   },
   // Rollup Quickstart
@@ -45,7 +45,7 @@ const readmes = [
       __dirname,
       '../docs/js-sdk/examples/quickstart/rollup-main.ts',
     ),
-    repo: 'contentauth/c2pa-js',
+    repo: 'contentauth/c2pa-js-legacy',
     path: 'examples/minimal-ts-rollup/src/main.ts',
   },
   // WebPack Quickstart
@@ -54,10 +54,15 @@ const readmes = [
       __dirname,
       '../docs/js-sdk/examples/quickstart/webpack-main.ts',
     ),
-    repo: 'contentauth/c2pa-js',
+    repo: 'contentauth/c2pa-js-legacy',
     path: 'examples/minimal-ts-webpack/src/index.ts',
   },
-
+  // New JavaScript SDK (9/16/2025)
+  {
+    dest: resolve(__dirname, '../docs/c2pa-js/readme.md'),
+    repo: 'contentauth/c2pa-js',
+    path: 'packages/c2pa-web/README.md',
+  },
   // c2patool
   {
     dest: resolve(__dirname, '../docs/c2patool/readme.md'),
