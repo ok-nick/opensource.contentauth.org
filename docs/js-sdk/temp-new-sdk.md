@@ -7,6 +7,3 @@ There is a new [JavaScript web library](https://github.com/contentauth/c2pa-js/t
 
 We are working on adding documentation.  Please bear with us!
 
-:::note
-The old JavaScript client library is deprecated, but its documentation is still available in the [Legacy JavaScript library documentation](old-js-overview).  You can continue to use it, but it will no longer be updated or supported.
-:::

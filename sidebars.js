@@ -123,7 +123,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'JavaScript library',
-      link: { type: 'doc', id: 'js-sdk/getting-started/old-js-overview' },
+      link: { type: 'doc', id: 'js-sdk/js-landing' },
       collapsed: true,
       items: jsSdkSidebar.docs,
     },
