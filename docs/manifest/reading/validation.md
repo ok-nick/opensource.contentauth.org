@@ -3,15 +3,32 @@ id: manifest-validation
 title: Validating manifests
 ---
 
-Processing an asset includes [validating the manifests](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_validation) in the associated manifest store. During validation, errors can occur in the active manifest and in ingredients.
+Processing an asset includes [validating the manifests](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_validation) in the associated manifest store. During validation, errors can occur in the active manifest and in ingredients.
+
+In the latest version of the SDK:
+
+- Builder performs validation by default, so you can't create an invalid manifest.  Previously, the SDK was permissive in this regard.
+- Validation is much stricter.
+
+::: note
+There is a setting to disable full validation when signing.
+:::
+
+<div class="review-comment">
+Need a high-level summary of full validation, what we're looking for, etc.
+</div>
+
+`Reader` has these validation methods:
+- `validation_state()` returns `ValidationState` object (`validation_state` in JSON), which can be `Invalid`, `Valid` or `Trusted`.
+- `validation_results()` returns `ValidationResults` (`validation_results` in JSON), which can be `success`, `informational`, and `failure` codes for the active manifest and ingredients.
+
+:::note 
+The old `ValidationStatus` and `validation_status` array in previous SDK releases are deprecated in favor of `ValidationResults` / `validation_results` and `ValidationState` / `validation_state`.
+:::
 
 ## Validation errors in manifests
 
-When you load an asset, all the manifests in the manifest store are validated and any [failure codes](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_failure_codes) are assigned to the `validation_status` array. Inspect the array to find the validation errors. 
-
-:::tip
-Validation returns ONLY error codes; success is not explicitly indicated. If there are no validation errors, then the manifest won't have the `validation_status` element.
-:::
+When you load an asset, all the manifests in the manifest store are validated and [result codes](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_failure_codes) are assigned to properties in the `validation_results` object.
 
 Manifest validation errors can occur, for example, when:
 
@@ -19,19 +36,15 @@ Manifest validation errors can occur, for example, when:
 - A claim or assertion is missing or tampered with.
 - The manifest is signed with an invalid credential.
 
-:::caution
-Don't assume that just because you didn't get an error from the function return value that there are not validation errors. You MUST check the `validation_status` array to see if there are errors or not.
-:::
-
 ## Validation errors in ingredients
 
-Ingredients are validated when they are imported into an asset and the result is stored in the ingredient's `validation_status` array.
+Ingredients are validated when they are imported into an asset and the result is stored in the ingredient's `validation_results` object.
 
 Only errors that are not already recorded in the `validation_status` of an ingredient are reported. See [ValidationStatus](./json-ref/manifest-def.mdx#validationstatus) object in Manifest store reference.
 
 ## Error status codes
 
-The following table describes some common validation error status codes. Refer to the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_failure_codes) for the full list.
+The following table describes some common validation error status codes. Refer to the [C2PA Technical Specification](https://spec.c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_failure_codes) for the full list.
 
 | Validation Status Code| Description  | Type of URI |
 | --------------------- | ------------ | ----------- |
@@ -51,29 +64,4 @@ Validation error status codes can contain JUMBF URIs that reference assertions o
 - **Assertion URI**: A URI like `self#jumbf=c2pa.assertions/<ASSERTION>` where `<ASSERTION>` is either `stds.schema-org.*` or `c2pa.*`.
 - **Signature Box URI**: A URI like `self#jumbf=c2pa.signature`.
 
-For more information, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_uri_references).
-
-<!--
-Actions and assertions:
-
-For actions - reference the spec e.g. common actions we refer to
-
-How to describe an EXIF assertion in JSON
-
-CreativeWork assertion
-
-Actions
-- Examples
-- Ref to spec and schema.org
-- GenAI - variation of Created Action
-
-Assertions
-
-- CreativeWork assertion
-- DNT - Special assertion
-- EXIF
-
-Verify has a URL - how do I put it in?
-
-User-defined assertion
--->
+For more information, see the [C2PA Technical Specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html#_uri_references).
