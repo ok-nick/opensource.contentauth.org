@@ -105,6 +105,12 @@ const readmes = [
     repo: 'contentauth/c2pa-service-example',
     path: 'README.md',
   },
+  // Old Node.js lib
+  {
+    dest: resolve(__dirname, '../docs/c2pa-node/readme.md'),
+    repo: 'contentauth/c2pa-node',
+    path: 'README.md',
+  },
   // Node.js lib
   {
     dest: resolve(__dirname, '../docs/c2pa-node-v2/readme.md'),
