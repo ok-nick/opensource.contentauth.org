@@ -105,31 +105,22 @@ const readmes = [
     repo: 'contentauth/c2pa-service-example',
     path: 'README.md',
   },
-  // Node.js lib
+  // Old Node.js lib
   {
     dest: resolve(__dirname, '../docs/c2pa-node/readme.md'),
     repo: 'contentauth/c2pa-node',
     path: 'README.md',
   },
+  // Node.js lib
   {
-    dest: resolve(__dirname, '../docs/c2pa-node/docs/usage.md'),
-    repo: 'contentauth/c2pa-node',
-    path: 'docs/usage.md',
+    dest: resolve(__dirname, '../docs/c2pa-node-v2/readme.md'),
+    repo: 'contentauth/c2pa-node-v2',
+    path: 'README.md',
   },
   {
-    dest: resolve(__dirname, '../docs/c2pa-node/docs/supported-formats.md'),
+    dest: resolve(__dirname, '../docs/c2pa-node-v2/supported-formats.md'),
     repo: 'contentauth/c2pa-rs',
     path: 'docs/supported-formats.md',
-  },
-  {
-    dest: resolve(__dirname, '../docs/c2pa-node/docs/release-notes.md'),
-    repo: 'contentauth/c2pa-node',
-    path: 'docs/release-notes.md',
-  },
-  {
-    dest: resolve(__dirname, '../docs/c2pa-node-example/readme.md'),
-    repo: 'contentauth/c2pa-node-example',
-    path: 'README.md',
   },
   // Python lib
   {
