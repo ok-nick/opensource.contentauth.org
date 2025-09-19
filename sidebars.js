@@ -152,33 +152,44 @@ const sidebars = {
         {
           type: 'category',
           label: 'Node.js',
-          link: { type: 'doc', id: 'c2pa-node/readme' },
+          link: { type: 'doc', id: 'node-landing' },
           collapsed: true,
           items: [
             {
-              type: 'doc',
-              id: 'c2pa-node/docs/usage',
-              label: 'Using the Node library',
+              type: 'category',
+              label: 'New Node.js library',
+              link: { type: 'doc', id: 'c2pa-node-v2/readme' },
+              collapsed: true,
+              items: [
+                {
+                  type: 'doc',
+                  id: 'c2pa-node-v2/supported-formats',
+                  label: 'Supported media formats',
+                },
+                {
+                  type: 'link',
+                  label: 'API documentation',
+                  href: 'https://github.com/contentauth/c2pa-node-v2/blob/main/docs/README.md',
+                },
+                {
+                  type: 'link',
+                  label: 'GitHub',
+                  href: 'https://github.com/contentauth/c2pa-node-v2/tree/main',
+                },
+              ],
             },
             {
-              type: 'doc',
-              id: 'c2pa-node/docs/supported-formats',
-              label: 'Supported media formats',
-            },
-            {
-              type: 'doc',
-              id: 'c2pa-node/docs/release-notes',
-              label: 'Release notes',
-            },
-            {
-              type: 'doc',
-              label: 'C2PA Node example',
-              id: 'c2pa-node-example/readme',
-            },
-            {
-              type: 'link',
-              label: 'GitHub',
-              href: 'https://github.com/contentauth/c2pa-node',
+              type: 'category',
+              label: 'Legacy Node.js library',
+              link: { type: 'doc', id: 'c2pa-node/readme' },
+              collapsed: true,
+              items: [
+                {
+                  type: 'link',
+                  label: 'GitHub',
+                  href: 'https://github.com/contentauth/c2pa-node',
+                },
+              ],
             },
           ],
         },
