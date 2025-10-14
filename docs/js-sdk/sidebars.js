@@ -5,13 +5,8 @@ const sidebars = {
     {
       type: 'category',
       label: 'New JavaScript library',
-      link: { type: 'doc', id: 'js-sdk/js-lib-v2' },
+      link: { type: 'doc', id: 'c2pa-js/readme' },
       items: [
-        {
-          type: 'doc',
-          label: 'C2PA web library',
-          id: 'c2pa-js/readme',
-        },
         {
           type: 'link',
           label: 'API documentation',

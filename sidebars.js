@@ -220,6 +220,11 @@ const sidebars = {
               label: 'Release notes',
             },
             {
+              type: 'link',
+              label: 'API documentation',
+              href: 'https://contentauth.github.io/c2pa-python/api/c2pa/index.html',
+            },
+            {
               type: 'doc',
               id: 'c2pa-python-example/readme',
               label: 'C2PA Python example',
