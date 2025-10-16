@@ -9,7 +9,7 @@ import verify_unknown_source from '../static/img/verify-cc-unknown-source.png';
 The process described on this page is deprecated. The C2PA has released its official trust lists, and Verify will be updated to use them soon. See [Deprecation timeline](#deprecation-timeline) for more information.
 :::
 
-The C2PA **[Verify tool](https://contentcredentials.org/verify)** uses a list of _known certificates_ (sometimes referred to as a "trust list") to determine whether a Content Credential was issued by a known source. If an asset's Content Credential was not signed by a known certificate, the Verify tool will display this message:
+The C2PA **[Verify tool](https://verify.contentauthenticity.org)** uses a list of _known certificates_ (sometimes referred to as a "trust list") to determine whether a Content Credential was issued by a known source. If an asset's Content Credential was not signed by a known certificate, the Verify tool will display this message:
 
 <img
   src={verify_unknown_source}
@@ -21,7 +21,7 @@ Conversely, if the Content Credential was signed by a known certificate, the Ver
 ## Deprecation timeline
 
 :::note
-Currently, **[Verify](https://contentcredentials.org/verify)** uses the interim trust list described here (also referred to as the _temporary trust list_), but Verify will be updated soon to use the official [C2PA trust list](conformance.mdx#c2pa-trust-lists).
+Currently, **[Verify](https://verify.contentauthenticity.org)** uses the interim trust list described here (also referred to as the _temporary trust list_), but Verify will be updated soon to use the official [C2PA trust list](conformance.mdx#c2pa-trust-lists).
 :::
 
 The interim trust list (also known as the _temporary trust list_) will remain operational **through December 31, 2025**. During this time, C2PA will continue to accept new certificates following the process described below. At some point, the Verify site will distinguish between Content Credentials from conforming products and those signed using certificates on the interim trust list.
