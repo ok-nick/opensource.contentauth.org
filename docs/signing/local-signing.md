@@ -157,5 +157,5 @@ This command displays the manifest attached to `signed_image.jpg` and should inc
 ```
 
 :::info
-You can also use [Verify](https://contentcredentials.org/verify) to confirm that your image was signed, but if you used a personal certificate (not an organization certificate) then [Verify won't show the organization name](get-cert.md#organization-name) and if your certificate is not on the [known certificate list](../trust-list.mdx), Verify [displays the message](../verify.mdx#title-and-signing-information) "The Content Credential issuer couldn't be recognized...."
+You can also use [Verify](https://verify.contentauthenticity.org) to confirm that your image was signed, but if you used a personal certificate (not an organization certificate) then [Verify won't show the organization name](get-cert.md#organization-name) and if your certificate is not on the [known certificate list](../trust-list.mdx), Verify [displays the message](../verify.mdx#title-and-signing-information) "The Content Credential issuer couldn't be recognized...."
 :::
