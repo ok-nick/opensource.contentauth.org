@@ -60,16 +60,6 @@ The [manifest](manifest/understanding.md) that defines the Content Credentials
 can include various assertions about the image, including the ingredients, the
 date and time, the location, and the device that created the image.
 
-### How can I prove time and place an image was created without revealing my identity?
-
-Content Credentials can specify identity by using the [Schema.org CreativeWork assertion](manifest/writing/assertions-actions.md#creative-work-assertion), but it is _entirely optional_.
-
-For example, using Photoshop you
-can add Content Credentials that indicate what edits were made without saying who
-did it. You would know Adobe signed the Content Credentials and that's it. Regardless
-of the "who", the cryptographically-signed manifest ensures you know the date and
-time. A camera could also include Exif metadata with location information.
-
 ### How do you prevent faking GPS location metadata?
 
 The location data included in [Exif metadata](manifest/writing/assertions-actions.md#exif-assertion) is based on the implementor. People would trust the data based on the various "trust signals" they are given in the manifest, such as who signed it and when.
