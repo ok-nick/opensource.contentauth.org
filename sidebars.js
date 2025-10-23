@@ -138,149 +138,6 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'JavaScript library',
-      link: { type: 'doc', id: 'js-sdk/js-landing' },
-      collapsed: true,
-      items: jsSdkSidebar.docs,
-    },
-    {
-      type: 'category',
-      label: 'Prerelease libraries',
-      link: { type: 'doc', id: 'other-langs' },
-      collapsed: true,
-      items: [
-        {
-          type: 'category',
-          label: 'Node.js',
-          link: { type: 'doc', id: 'node-landing' },
-          collapsed: true,
-          items: [
-            {
-              type: 'category',
-              label: 'New Node.js library',
-              link: { type: 'doc', id: 'c2pa-node-v2/readme' },
-              collapsed: true,
-              items: [
-                {
-                  type: 'doc',
-                  id: 'c2pa-node-v2/supported-formats',
-                  label: 'Supported media formats',
-                },
-                {
-                  type: 'link',
-                  label: 'API documentation',
-                  href: 'https://github.com/contentauth/c2pa-node-v2/blob/main/docs/README.md',
-                },
-                {
-                  type: 'link',
-                  label: 'GitHub',
-                  href: 'https://github.com/contentauth/c2pa-node-v2/tree/main',
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Legacy Node.js library',
-              link: { type: 'doc', id: 'c2pa-node/readme' },
-              collapsed: true,
-              items: [
-                {
-                  type: 'link',
-                  label: 'GitHub',
-                  href: 'https://github.com/contentauth/c2pa-node',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Python',
-          link: { type: 'doc', id: 'c2pa-python/readme' },
-          collapsed: true,
-          items: [
-            {
-              type: 'doc',
-              id: 'c2pa-python/docs/usage',
-              label: 'Using the Python library',
-            },
-            {
-              type: 'doc',
-              id: 'c2pa-python/docs/supported-formats',
-              label: 'Supported media formats',
-            },
-            {
-              type: 'doc',
-              id: 'c2pa-python/docs/examples',
-              label: 'Python example code',
-            },
-            {
-              type: 'doc',
-              id: 'c2pa-python/docs/release-notes',
-              label: 'Release notes',
-            },
-            {
-              type: 'link',
-              label: 'API documentation',
-              href: 'https://contentauth.github.io/c2pa-python/api/c2pa/index.html',
-            },
-            {
-              type: 'doc',
-              id: 'c2pa-python-example/readme',
-              label: 'C2PA Python example',
-            },
-            {
-              type: 'link',
-              label: 'GitHub',
-              href: 'https://github.com/contentauth/c2pa-python',
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'C++ / C',
-          link: { type: 'doc', id: 'c2pa-c/readme' },
-          collapsed: true,
-          items: [
-            {
-              type: 'doc',
-              id: 'c2pa-c/docs/usage',
-              label: 'Using the C++ library',
-            },
-            {
-              type: 'doc',
-              id: 'c2pa-c/docs/supported-formats',
-              label: 'Supported media formats',
-            },
-            {
-              type: 'link',
-              label: 'GitHub',
-              href: 'https://github.com/contentauth/c2pa-c',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Mobile libraries',
-      link: { type: 'doc', id: 'mobile' },
-      collapsed: true,
-      items: [
-        {
-          type: 'doc',
-          id: 'c2pa-ios/README',
-          label: 'iOS',
-        },
-        {
-          type: 'doc',
-          id: 'c2pa-android/README',
-          label: 'Android',
-        },
-      ],
-    },
-    {
-      type: 'category',
       label: 'Rust library',
       link: { type: 'doc', id: 'rust-sdk/readme' },
       collapsed: true,
@@ -322,6 +179,142 @@ const sidebars = {
         },
       ],
     },
+    {
+      type: 'category',
+      label: 'JavaScript library',
+      link: { type: 'doc', id: 'js-sdk/js-landing' },
+      collapsed: true,
+      items: jsSdkSidebar.docs,
+    },
+    {
+      type: 'category',
+      label: 'Python library',
+      link: { type: 'doc', id: 'c2pa-python/readme' },
+      collapsed: true,
+      items: [
+        {
+          type: 'doc',
+          id: 'c2pa-python/docs/usage',
+          label: 'Using the Python library',
+        },
+        {
+          type: 'doc',
+          id: 'c2pa-python/docs/supported-formats',
+          label: 'Supported media formats',
+        },
+        {
+          type: 'doc',
+          id: 'c2pa-python/docs/examples',
+          label: 'Python example code',
+        },
+        {
+          type: 'doc',
+          id: 'c2pa-python/docs/release-notes',
+          label: 'Release notes',
+        },
+        {
+          type: 'link',
+          label: 'API documentation',
+          href: 'https://contentauth.github.io/c2pa-python/api/c2pa/index.html',
+        },
+        {
+          type: 'doc',
+          id: 'c2pa-python-example/readme',
+          label: 'C2PA Python example',
+        },
+        {
+          type: 'link',
+          label: 'GitHub',
+          href: 'https://github.com/contentauth/c2pa-python',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'C++ / C library',
+      link: { type: 'doc', id: 'c2pa-c/readme' },
+      collapsed: true,
+      items: [
+        {
+          type: 'doc',
+          id: 'c2pa-c/docs/usage',
+          label: 'Using the C++ library',
+        },
+        {
+          type: 'doc',
+          id: 'c2pa-c/docs/supported-formats',
+          label: 'Supported media formats',
+        },
+        {
+          type: 'link',
+          label: 'GitHub',
+          href: 'https://github.com/contentauth/c2pa-c',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Node.js library',
+      link: { type: 'doc', id: 'node-landing' },
+      collapsed: true,
+      items: [
+        {
+          type: 'category',
+          label: 'New Node.js library',
+          link: { type: 'doc', id: 'c2pa-node-v2/readme' },
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'c2pa-node-v2/supported-formats',
+              label: 'Supported media formats',
+            },
+            {
+              type: 'link',
+              label: 'API documentation',
+              href: 'https://github.com/contentauth/c2pa-node-v2/blob/main/docs/README.md',
+            },
+            {
+              type: 'link',
+              label: 'GitHub',
+              href: 'https://github.com/contentauth/c2pa-node-v2/tree/main',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Legacy Node.js library',
+          link: { type: 'doc', id: 'c2pa-node/readme' },
+          collapsed: true,
+          items: [
+            {
+              type: 'link',
+              label: 'GitHub',
+              href: 'https://github.com/contentauth/c2pa-node',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Mobile libraries',
+      link: { type: 'doc', id: 'mobile' },
+      collapsed: true,
+      items: [
+        {
+          type: 'doc',
+          id: 'c2pa-ios/README',
+          label: 'iOS',
+        },
+        {
+          type: 'doc',
+          id: 'c2pa-android/README',
+          label: 'Android',
+        },
+      ],
+    },
+
     {
       type: 'category',
       label: 'Signing and certificates',
