@@ -10,15 +10,16 @@ In the latest version of the SDK:
 - Builder performs validation by default, so you can't create an invalid manifest.  Previously, the SDK was permissive in this regard.
 - Validation is much stricter.
 
-::: note
+:::note
 There is a setting to disable full validation when signing.
 :::
 
-<div class="review-comment">
+<!-- 
 Need a high-level summary of full validation, what we're looking for, etc.
-</div>
+--->
 
 `Reader` has these validation methods:
+
 - `validation_state()` returns `ValidationState` object (`validation_state` in JSON), which can be `Invalid`, `Valid` or `Trusted`.
 - `validation_results()` returns `ValidationResults` (`validation_results` in JSON), which can be `success`, `informational`, and `failure` codes for the active manifest and ingredients.
 
