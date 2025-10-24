@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+		<title>Settings JSON reference - Manifest Reference</title>
+		<link rel="stylesheet" href="https://contentauth.github.io/json-manifest-reference/css/style.css">
+		<!-- link rel="stylesheet" href="https://contentauth.github.io/json-manifest-reference/css/tooltip.css" -->
+		<link rel="shortcut icon" type="image/png" href="https://contentauth.github.io/json-manifest-reference/images/favicon.png">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="https://contentauth.github.io/json-manifest-reference/js/main.js"></script>
+		<script src="https://contentauth.github.io/json-manifest-reference/js/toc.js"></script>
+		<script src="https://contentauth.github.io/json-manifest-reference/js/jquery.stickytableheaders.js"></script>
+		<script src="https://contentauth.github.io/json-manifest-reference/js/customscripts.js"></script>
+		<script src="https://contentauth.github.io/json-manifest-reference/js/cai-customscripts.js"></script>
+	</head>
+	<body>
+
+		<header id="full-sidebar">
+			<h1>
+				<a href="https://contentauth.github.io/json-manifest-reference"><img src="https://contentauth.github.io/json-manifest-reference/images/CAI_white.png" style="width: 100px; height: 30px;" alt="manifest-schema-reference"></a>
+				<a href="https://contentauth.github.io/json-manifest-reference"><div id="site-title">Manifest Reference</div></a>
+			</h1>
+
+			<!-- form action="https://contentauth.github.io/json-manifest-reference/search/" method="get">
+				<input type="text" name="q" id="search-input" placeholder="Search the docs">
+				<input type="submit" value="Search" style="display: none;">
+			</form -->
+
+			
+<div id="sidebar" class="sidebar">
+    <ul id="sidebar-list" class="nav-list">
+      
+
+
+  <li class="tree-parent "> <a class="show-hide" href="#"></a> 
+    <a class="page-link" href="https://contentauth.github.io/json-manifest-reference/manifest-def-ref">Manifest Definition</a>
+      
+      <ul class="nav-list">
+          
+
+
+  <li class="leaf-node">
+    <a class="page-link" href="https://contentauth.github.io/json-manifest-reference/manifest-def-cai">Manifest def - CAI stylng</a>
+      
+  </li>
+
+
+      </ul>
+      
+  </li>
+
+
+
+  <li class="tree-parent "> <a class="show-hide" href="#"></a> 
+    <a class="page-link" href="https://contentauth.github.io/json-manifest-reference/reader-ref">Reader</a>
+      
+      <ul class="nav-list">
+          
+
+
+  <li class="leaf-node">
+    <a class="page-link" href="https://contentauth.github.io/json-manifest-reference/reader-cai">Reader - CAI styling</a>
+      
+  </li>
+
+
+      </ul>
+      
+  </li>
+
+
+
+  <li class="tree-parent  active"> <a class="show-hide" href="#"></a> 
+    <a class="page-link" href="https://contentauth.github.io/json-manifest-reference/settings">Settings</a>
+      
+      <ul class="nav-list">
+          
+
+
+  <li class="leaf-node">
+    <a class="page-link" href="https://contentauth.github.io/json-manifest-reference/settings-cai">Settings - CAI styling</a>
+      
+  </li>
+
+
+      </ul>
+      
+  </li>
+
+
+
+  <li class="tree-parent "> <a class="show-hide" href="#"></a> 
+    <a class="page-link" href="https://contentauth.github.io/json-manifest-reference/json-schema-index">JSON schemas</a>
+      
+      <ul class="nav-list">
+          
+
+
+  <li class="leaf-node">
+    <a class="page-link" href="https://contentauth.github.io/json-manifest-reference/md-schema">Manifest Def. JSON schema</a>
+      
+  </li>
+
+
+
+  <li class="leaf-node">
+    <a class="page-link" href="https://contentauth.github.io/json-manifest-reference/reader-schema">Reader JSON schema</a>
+      
+  </li>
+
+
+
+  <li class="leaf-node">
+    <a class="page-link" href="https://contentauth.github.io/json-manifest-reference/settings-schema">Settings JSON schema</a>
+      
+  </li>
+
+
+      </ul>
+      
+  </li>
+
+
+    </ul>
+</div>
+
+
+		</header>
+		<div id="main-div" class="main">
+			<section class="doc-content">
+				<section class="left-docs">
+					<div class="topic-title">Settings JSON reference </div>
+					<div id="sidebar-btns">
+					  <a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a>
+					</div>
+					
+
+					
+
+					<button id="top-scroll-btn" title="Go to top">Scroll To Top</button>
+					
+<h2 id="settings">Settings</h2>
+
+<p class="comment">Description TBD.</p>
+
+<h3 id="properties">Properties</h3>
+
+<table class="manifest-ref-table">
+<thead><tr>
+<th class="manifest-ref-table">Property</th>
+<th class="manifest-ref-table">Type</th>
+<th class="manifest-ref-table">Description</th>
+<th class="manifest-ref-table">Required?</th>
+<th class="manifest-ref-table">Default Value</th>
+</tr></thead>
+
+<tbody>
+
+
+<tr>
+<td class="manifest-ref-table">builder</td>
+<!-- Type -->
+<td class="manifest-ref-table">
+
+  <!--  -->
+
+
+
+ <!--   -->
+
+  
+    
+  
+  
+<a href="#builder">Builder</a>
+
+
+
+
+
+
+
+  
+
+
+
+
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table">
+
+
+</td>
+
+<td class="manifest-ref-table"> <!-- Required? -->
+<!--  LOOP --><!-- x = builder include.prop = builder --><!-- x = core include.prop = builder --><!-- x = trust include.prop = builder --><!-- x = verify include.prop = builder -->YES
+
+</td>
+
+<td class="manifest-ref-table"> <!-- Default Value -->
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+
+<tr>
+<td class="manifest-ref-table">core</td>
+<!-- Type -->
+<td class="manifest-ref-table">
+
+  <!--  -->
+
+
+
+ <!--   -->
+
+  
+    
+  
+  
+<a href="#core">Core</a>
+
+
+
+
+
+
+
+  
+
+
+
+
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table">
+
+
+</td>
+
+<td class="manifest-ref-table"> <!-- Required? -->
+<!--  LOOP --><!-- x = builder include.prop = core --><!-- x = core include.prop = core --><!-- x = trust include.prop = core --><!-- x = verify include.prop = core -->YES
+
+</td>
+
+<td class="manifest-ref-table"> <!-- Default Value -->
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+
+<tr>
+<td class="manifest-ref-table">trust</td>
+<!-- Type -->
+<td class="manifest-ref-table">
+
+  <!--  -->
+
+
+
+ <!--   -->
+
+  
+    
+  
+  
+<a href="#trust">Trust</a>
+
+
+
+
+
+
+
+  
+
+
+
+
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table">
+
+
+</td>
+
+<td class="manifest-ref-table"> <!-- Required? -->
+<!--  LOOP --><!-- x = builder include.prop = trust --><!-- x = core include.prop = trust --><!-- x = trust include.prop = trust --><!-- x = verify include.prop = trust -->YES
+
+</td>
+
+<td class="manifest-ref-table"> <!-- Default Value -->
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+
+<tr>
+<td class="manifest-ref-table">verify</td>
+<!-- Type -->
+<td class="manifest-ref-table">
+
+  <!--  -->
+
+
+
+ <!--   -->
+
+  
+    
+  
+  
+<a href="#verify">Verify</a>
+
+
+
+
+
+
+
+  
+
+
+
+
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table">
+
+
+</td>
+
+<td class="manifest-ref-table"> <!-- Required? -->
+<!--  LOOP --><!-- x = builder include.prop = verify --><!-- x = core include.prop = verify --><!-- x = trust include.prop = verify --><!-- x = verify include.prop = verify -->YES
+
+</td>
+
+<td class="manifest-ref-table"> <!-- Default Value -->
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+
+</tbody></table>
+
+<!---------------------------------------------------------------------->
+
+<h2 id="definitions">Definitions</h2>
+
+<!-- TOC-like links -->
+<table style="border: 0;" width="900">
+<tbody>
+<tr>
+<td style="border: 0; vertical-align: top;">
+<a href="#builder">Builder</a>  <br />
+
+
+<a href="#core">Core</a>  <br />
+
+
+<a href="#trust">Trust</a>  <br />
+
+
+<a href="#verify">Verify</a>  <br />
+
+
+</td>
+</tr></tbody></table>
+
+<!-- Definitions reference -->
+
+<h3 id="builder">Builder</h3>
+
+<p><!-- end of oneOf entity --></p>
+
+<p class="prop_desc"></p>
+
+<table class="manifest-ref-table" style="margin-top: 10px;">
+<thead><tr>
+<th class="manifest-ref-table">Property</th>
+<th class="manifest-ref-table">Type</th>
+<th class="manifest-ref-table">Description</th>
+<th class="manifest-ref-table">Required?</th>
+<th class="manifest-ref-table">Default Value</th>
+</tr></thead>
+
+<tbody>
+
+<tr>
+<td class="manifest-ref-table">auto_thumbnail</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ <!--   -->
+
+  
+    
+  Boolean
+
+
+
+
+
+
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+<!--  LOOP --><!-- x = auto_thumbnail include.prop = auto_thumbnail -->YES
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+</tbody></table>
+
+<!-- Not an object but an enum -->
+
+<h3 id="core">Core</h3>
+
+<p><!-- end of oneOf entity --></p>
+
+<p class="prop_desc"></p>
+
+<table class="manifest-ref-table" style="margin-top: 10px;">
+<thead><tr>
+<th class="manifest-ref-table">Property</th>
+<th class="manifest-ref-table">Type</th>
+<th class="manifest-ref-table">Description</th>
+<th class="manifest-ref-table">Required?</th>
+<th class="manifest-ref-table">Default Value</th>
+</tr></thead>
+
+<tbody>
+
+<tr>
+<td class="manifest-ref-table">compress_manifests</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ <!--   -->
+
+  
+    
+  Boolean
+
+
+
+
+
+
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+<!--  LOOP --><!-- x = compress_manifests include.prop = compress_manifests --><!-- x = debug include.prop = compress_manifests --><!-- x = hash_alg include.prop = compress_manifests --><!-- x = prefer_bmff_merkle_tree include.prop = compress_manifests --><!-- x = prefer_box_hash include.prop = compress_manifests --><!-- x = salt_jumbf_boxes include.prop = compress_manifests -->YES
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+<tr>
+<td class="manifest-ref-table">debug</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ <!--   -->
+
+  
+    
+  Boolean
+
+
+
+
+
+
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+<!--  LOOP --><!-- x = compress_manifests include.prop = debug --><!-- x = debug include.prop = debug --><!-- x = hash_alg include.prop = debug --><!-- x = prefer_bmff_merkle_tree include.prop = debug --><!-- x = prefer_box_hash include.prop = debug --><!-- x = salt_jumbf_boxes include.prop = debug -->YES
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+<tr>
+<td class="manifest-ref-table">hash_alg</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ <!--   -->
+
+  
+     
+  String
+
+
+
+
+
+
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+<!--  LOOP --><!-- x = compress_manifests include.prop = hash_alg --><!-- x = debug include.prop = hash_alg --><!-- x = hash_alg include.prop = hash_alg --><!-- x = prefer_bmff_merkle_tree include.prop = hash_alg --><!-- x = prefer_box_hash include.prop = hash_alg --><!-- x = salt_jumbf_boxes include.prop = hash_alg -->YES
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+<tr>
+<td class="manifest-ref-table">max_memory_usage</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ 
+  <!-- Either -->
+  
+    
+      
+        Integer <!--  -->
+         (uint64) <br />Minimum: 0.0  
+      
+
+    
+    <!--  or  -->
+  
+    
+      
+
+    
+    <!--  -->
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+<!--  LOOP --><!-- x = compress_manifests include.prop = max_memory_usage --><!-- x = debug include.prop = max_memory_usage --><!-- x = hash_alg include.prop = max_memory_usage --><!-- x = prefer_bmff_merkle_tree include.prop = max_memory_usage --><!-- x = prefer_box_hash include.prop = max_memory_usage --><!-- x = salt_jumbf_boxes include.prop = max_memory_usage -->NO
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+<tr>
+<td class="manifest-ref-table">prefer_bmff_merkle_tree</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ <!--   -->
+
+  
+    
+  Boolean
+
+
+
+
+
+
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+<!--  LOOP --><!-- x = compress_manifests include.prop = prefer_bmff_merkle_tree --><!-- x = debug include.prop = prefer_bmff_merkle_tree --><!-- x = hash_alg include.prop = prefer_bmff_merkle_tree --><!-- x = prefer_bmff_merkle_tree include.prop = prefer_bmff_merkle_tree --><!-- x = prefer_box_hash include.prop = prefer_bmff_merkle_tree --><!-- x = salt_jumbf_boxes include.prop = prefer_bmff_merkle_tree -->YES
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+<tr>
+<td class="manifest-ref-table">prefer_box_hash</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ <!--   -->
+
+  
+    
+  Boolean
+
+
+
+
+
+
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+<!--  LOOP --><!-- x = compress_manifests include.prop = prefer_box_hash --><!-- x = debug include.prop = prefer_box_hash --><!-- x = hash_alg include.prop = prefer_box_hash --><!-- x = prefer_bmff_merkle_tree include.prop = prefer_box_hash --><!-- x = prefer_box_hash include.prop = prefer_box_hash --><!-- x = salt_jumbf_boxes include.prop = prefer_box_hash -->YES
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+<tr>
+<td class="manifest-ref-table">salt_jumbf_boxes</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ <!--   -->
+
+  
+    
+  Boolean
+
+
+
+
+
+
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+<!--  LOOP --><!-- x = compress_manifests include.prop = salt_jumbf_boxes --><!-- x = debug include.prop = salt_jumbf_boxes --><!-- x = hash_alg include.prop = salt_jumbf_boxes --><!-- x = prefer_bmff_merkle_tree include.prop = salt_jumbf_boxes --><!-- x = prefer_box_hash include.prop = salt_jumbf_boxes --><!-- x = salt_jumbf_boxes include.prop = salt_jumbf_boxes -->YES
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+</tbody></table>
+
+<!-- Not an object but an enum -->
+
+<h3 id="trust">Trust</h3>
+
+<p><!-- end of oneOf entity --></p>
+
+<p class="prop_desc"></p>
+
+<table class="manifest-ref-table" style="margin-top: 10px;">
+<thead><tr>
+<th class="manifest-ref-table">Property</th>
+<th class="manifest-ref-table">Type</th>
+<th class="manifest-ref-table">Description</th>
+<th class="manifest-ref-table">Required?</th>
+<th class="manifest-ref-table">Default Value</th>
+</tr></thead>
+
+<tbody>
+
+<tr>
+<td class="manifest-ref-table">allowed_list</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ 
+  <!-- Either -->
+  
+    
+      
+        String <!--  -->
+        
+      
+
+    
+    <!--  or  -->
+  
+    
+      
+
+    
+    <!--  -->
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+
+NO
+
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+<tr>
+<td class="manifest-ref-table">private_anchors</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ 
+  <!-- Either -->
+  
+    
+      
+        String <!--  -->
+        
+      
+
+    
+    <!--  or  -->
+  
+    
+      
+
+    
+    <!--  -->
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+
+NO
+
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+<tr>
+<td class="manifest-ref-table">trust_anchors</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ 
+  <!-- Either -->
+  
+    
+      
+        String <!--  -->
+        
+      
+
+    
+    <!--  or  -->
+  
+    
+      
+
+    
+    <!--  -->
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+
+NO
+
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+<tr>
+<td class="manifest-ref-table">trust_config</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ 
+  <!-- Either -->
+  
+    
+      
+        String <!--  -->
+        
+      
+
+    
+    <!--  or  -->
+  
+    
+      
+
+    
+    <!--  -->
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+
+NO
+
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+</tbody></table>
+
+<!-- Not an object but an enum -->
+
+<h3 id="verify">Verify</h3>
+
+<p><!-- end of oneOf entity --></p>
+
+<p class="prop_desc"></p>
+
+<table class="manifest-ref-table" style="margin-top: 10px;">
+<thead><tr>
+<th class="manifest-ref-table">Property</th>
+<th class="manifest-ref-table">Type</th>
+<th class="manifest-ref-table">Description</th>
+<th class="manifest-ref-table">Required?</th>
+<th class="manifest-ref-table">Default Value</th>
+</tr></thead>
+
+<tbody>
+
+<tr>
+<td class="manifest-ref-table">check_ingredient_trust</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ <!--   -->
+
+  
+    
+  Boolean
+
+
+
+
+
+
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+<!--  LOOP --><!-- x = check_ingredient_trust include.prop = check_ingredient_trust --><!-- x = ocsp_fetch include.prop = check_ingredient_trust --><!-- x = remote_manifest_fetch include.prop = check_ingredient_trust --><!-- x = verify_after_reading include.prop = check_ingredient_trust --><!-- x = verify_after_sign include.prop = check_ingredient_trust --><!-- x = verify_trust include.prop = check_ingredient_trust -->YES
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+<tr>
+<td class="manifest-ref-table">ocsp_fetch</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ <!--   -->
+
+  
+    
+  Boolean
+
+
+
+
+
+
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+<!--  LOOP --><!-- x = check_ingredient_trust include.prop = ocsp_fetch --><!-- x = ocsp_fetch include.prop = ocsp_fetch --><!-- x = remote_manifest_fetch include.prop = ocsp_fetch --><!-- x = verify_after_reading include.prop = ocsp_fetch --><!-- x = verify_after_sign include.prop = ocsp_fetch --><!-- x = verify_trust include.prop = ocsp_fetch -->YES
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+<tr>
+<td class="manifest-ref-table">remote_manifest_fetch</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ <!--   -->
+
+  
+    
+  Boolean
+
+
+
+
+
+
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+<!--  LOOP --><!-- x = check_ingredient_trust include.prop = remote_manifest_fetch --><!-- x = ocsp_fetch include.prop = remote_manifest_fetch --><!-- x = remote_manifest_fetch include.prop = remote_manifest_fetch --><!-- x = verify_after_reading include.prop = remote_manifest_fetch --><!-- x = verify_after_sign include.prop = remote_manifest_fetch --><!-- x = verify_trust include.prop = remote_manifest_fetch -->YES
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+<tr>
+<td class="manifest-ref-table">verify_after_reading</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ <!--   -->
+
+  
+    
+  Boolean
+
+
+
+
+
+
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+<!--  LOOP --><!-- x = check_ingredient_trust include.prop = verify_after_reading --><!-- x = ocsp_fetch include.prop = verify_after_reading --><!-- x = remote_manifest_fetch include.prop = verify_after_reading --><!-- x = verify_after_reading include.prop = verify_after_reading --><!-- x = verify_after_sign include.prop = verify_after_reading --><!-- x = verify_trust include.prop = verify_after_reading -->YES
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+<tr>
+<td class="manifest-ref-table">verify_after_sign</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ <!--   -->
+
+  
+    
+  Boolean
+
+
+
+
+
+
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+<!--  LOOP --><!-- x = check_ingredient_trust include.prop = verify_after_sign --><!-- x = ocsp_fetch include.prop = verify_after_sign --><!-- x = remote_manifest_fetch include.prop = verify_after_sign --><!-- x = verify_after_reading include.prop = verify_after_sign --><!-- x = verify_after_sign include.prop = verify_after_sign --><!-- x = verify_trust include.prop = verify_after_sign -->YES
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+<tr>
+<td class="manifest-ref-table">verify_trust</td>
+
+<!-- Type  -->
+<td class="manifest-ref-table"> 
+<!--  -->
+
+
+
+ <!--   -->
+
+  
+    
+  Boolean
+
+
+
+
+
+
+  
+
+
+ 
+</td>
+
+<!-- Description -->
+<td class="manifest-ref-table"><p class="comment">Description TBD.</p></td>
+
+<!-- Required?  -->
+<td class="manifest-ref-table"> 
+<!--  LOOP --><!-- x = check_ingredient_trust include.prop = verify_trust --><!-- x = ocsp_fetch include.prop = verify_trust --><!-- x = remote_manifest_fetch include.prop = verify_trust --><!-- x = verify_after_reading include.prop = verify_trust --><!-- x = verify_after_sign include.prop = verify_trust --><!-- x = verify_trust include.prop = verify_trust -->YES
+
+</td>
+
+<!-- Default Value -->
+<td class="manifest-ref-table">
+
+ 
+  N/A 
+
+</td>
+
+</tr>
+
+</tbody></table>
+
+<!-- Not an object but an enum -->
+
+<p><!-- end iteration over site.data.ManifestStore_schema.definitions obj --></p>
+
+
+				</section>
+			</section>
+		</div>
+		<script>
+			$(function() {
+				$("table").stickyTableHeaders();
+			});
+		</script>
+  </body>
+</html>
